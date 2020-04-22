@@ -16,12 +16,6 @@ export default {
 </script>
 
 <style>
-body.home {
-  background-image: url(/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
 .hero:after {
   content: '';
   display: block;

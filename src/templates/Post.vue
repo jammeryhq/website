@@ -3,7 +3,7 @@
     <div class="w-1/2 mx-auto relative z-10">
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="excerpt">{{ $page.post.excerpt }}</p>
-        <div class="content" v-html="$page.post.content" />
+        <div class="content pb-40" v-html="$page.post.content" />
     </div>
   </Layout>
 </template>
