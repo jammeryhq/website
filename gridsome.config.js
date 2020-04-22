@@ -8,9 +8,6 @@ module.exports = {
   permalinks: {
     trailingSlash: false,
   },
-  prefetch: {
-    mask: '^$',
-  },
   templates: {
     Post: [
       {
