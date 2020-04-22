@@ -6,7 +6,7 @@
         <g-link class="nav__link" to="/blog">Blog</g-link>
         <g-link class="nav__link" to="/contact">Contact</g-link>
         <span class="px-5 leading-none hidden md:inline-block"></span>
-        <g-link class="text-2xl mt-1 md:mt-0 md:text-xl block md:inline-block" to="/blog/2020-survey">Take the Survey &rarr;</g-link>
+        <g-link class="text-2xl mt-1 md:mt-0 md:text-xl block md:inline-block" to="/blog/help-us-build-products-you-will-love">Take the Survey &rarr;</g-link>
       </nav>
     </header>
 </template>
