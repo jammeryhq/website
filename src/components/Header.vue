@@ -6,7 +6,7 @@
         <g-link class="nav__link" to="/blog">Blog</g-link>
         <g-link class="nav__link" to="/contact">Contact</g-link>
         <span class="inline-block px-5 leading-none"></span>
-        <a class="text-xl" href="https://jammeryhq.com/blog/2020-survey">Take the Survey &rarr;</a>
+        <g-link class="text-xl" to="/blog/2020-survey">Take the Survey &rarr;</g-link>
       </nav>
     </header>
 </template>
