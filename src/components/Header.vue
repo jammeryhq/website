@@ -30,6 +30,6 @@ query {
 
 <style>
 a {
-    color: #fff;
+    color: #fff;  
 }
 </style>
