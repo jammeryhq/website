@@ -5,7 +5,7 @@
         <g-link class="nav__link" to="/about">About</g-link>
         <g-link class="nav__link" to="/blog">Blog</g-link>
         <g-link class="nav__link" to="/contact">Contact</g-link>
-        <g-link class="border-l text-xl border-gray-700 pl-5 ml-5 font-bold" to="/blog/2020-survey">Take the Survey &rarr;</g-link>
+        <g-link class="border-l text-xl border-gray-700 pl-5 ml-5" to="/blog/2020-survey">Take the Survey &rarr;</g-link>
       </nav>
     </header>
 </template>
