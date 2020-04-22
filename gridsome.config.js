@@ -11,6 +11,14 @@ module.exports = {
   prefetch: {
     mask: '^$',
   },
+  templates: {
+    Post: [
+      {
+        path: '/blog/:title',
+        component: './src/templates/Post.vue'
+      }
+    ]
+  },
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',
