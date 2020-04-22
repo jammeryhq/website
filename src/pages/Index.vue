@@ -20,7 +20,7 @@ export default {
   metaInfo: {
 			title: "",
 			bodyAttrs: {
-				class: "home h-screen overflow-hidden"
+				class: "home h-screen lg:overflow-hidden"
 			}
 		}
 }
@@ -29,7 +29,7 @@ export default {
 .home header svg path {
     fill: #fff;
 }
-.home nav a {
+.home header a {
   color: #fff;
 }
 .hero a { 

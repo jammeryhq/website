@@ -21,9 +21,11 @@ header svg path {
     margin-bottom: 20px;
     height: 80px;
   }
-  header a {
+  header a:not(:first-of-type){
     margin-left: 20px;
-    @apply text-black text-lg
+  }
+  header a {
+    @apply text-black
   }
   header a.active {
     @apply font-bold
