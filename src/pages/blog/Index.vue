@@ -3,10 +3,9 @@
     <div class="h-screen w-1/2 mx-auto">
       <h1 class="title">Blog</h1>
       <p class="excerpt">Get the latest updates about what we're thinking about, working on and more.</p>
-      <article v-for="edge in $page.blog.edges" :key="edge.node.id" class="mt-6 ">
-          <h2 class="text-4xl font-bold mb-4" v-html="edge.node.title" />
-          <p class="mb-3 text-xl">{{ edge.node.excerpt }}</p>
-          <p><g-link :to="`${edge.node.path}`" class="btn btn-large btn-secondary">Continue reading</g-link></p>
+      <article v-for="edge in $page.blog.edges" :key="edge.node.id" class="mt-6 mb-5">
+          <h2 class="text-4xl font-bold mb-4 bg-black inline text-white p-3"><g-link :to="`${edge.node.path}`" class="text-white">{{ edge.node.title }}</g-link></h2>
+          <p class="mb-3 text-xl mt-5">{{ edge.node.excerpt }}</p>
       </article>
     </div>
   </Layout>
