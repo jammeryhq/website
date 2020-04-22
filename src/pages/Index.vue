@@ -19,16 +19,22 @@ export default {
   metaInfo: {
 			title: "",
 			bodyAttrs: {
-				class: "h-screen overflow-hidden"
+				class: "home h-screen overflow-hidden"
 			}
 		}
 }
 </script>
-<style scoped>
+<style>
+.home header svg text {
+    fill: #fff;
+}
+.home nav a {
+  color: #fff;
+}
 .hero a { 
   @apply text-white 
 }
-footer {
+.home footer {
   @apply text-gray-300
 }
-</style>
+</style>        

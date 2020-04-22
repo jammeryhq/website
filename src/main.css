@@ -4,7 +4,9 @@ body {
     padding:0;
     line-height: 1.5;
   }
-  
+header svg text {
+  fill: #000;
+}
   .layout {
     max-width: 760px;
     margin: 0 auto;
@@ -19,7 +21,20 @@ body {
     margin-bottom: 20px;
     height: 80px;
   }
-  
-  .nav__link {
+  header a {
     margin-left: 20px;
+    @apply text-black text-lg
+  }
+  header a.active {
+    @apply font-bold
+  }
+
+  .title {
+    @apply text-6xl mx-auto mb-4 font-bold
+  }
+  .excerpt {
+    @apply text-4xl mx-auto mb-10
+  }
+  footer {
+    @apply text-gray-800
   }
