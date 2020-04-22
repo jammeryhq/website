@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <style>
-.home header svg text {
+.home header svg path {
     fill: #fff;
 }
 .home nav a {
