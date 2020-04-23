@@ -31,9 +31,11 @@ export default {
   }
   .contact .vue-expand,
   .form-input {
-        @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2 font-sans text-lg
+    @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2
   }
-  .contact .vue-expand {
-    @apply 
+  .contact .vue-expand textarea {
+    @apply font-sans text-lg
   }
 </style>
+
+ git remote set-url origin git@github.com:jammeryhq/website.git
