@@ -1,48 +1,46 @@
 body {
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    margin:0;
-    padding:0;
-    line-height: 1.5;
-  }
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  padding:0;
+  line-height: 1.5;
+}
 header svg path {
   fill: #000;
 }
-  .layout {
-    max-width: 760px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    height: 80px;
-  }
-  header a:not(:first-of-type){
-    margin-left: 20px;
-  }
-  header a {
-    @apply text-black
-  }
-  header a.active {
-    @apply font-bold
-  }
-
-  .title {
-    @apply text-6xl mx-auto mb-4 font-bold
-  }
-  .excerpt {
-    @apply text-4xl mx-auto mb-10
-  }
-  footer {
-    @apply text-gray-800
-  }
-  footer a,
-  header nav a {
-    line-height: 40px;
-    height: 40px;
-    display: inline-block;
-  }
+.layout {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 80px;
+}
+.header a:not(:first-of-type){
+  margin-left: 20px;
+}
+.header a {
+  @apply text-black
+}
+.header a.active {
+  @apply font-bold
+}
+footer {
+  @apply text-gray-800
+}
+footer a,
+.header nav a {
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+}
+.title {
+  @apply text-6xl mx-auto mb-4 font-bold
+}
+.excerpt {
+  @apply text-4xl mx-auto mb-10
+}
