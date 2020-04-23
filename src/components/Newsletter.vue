@@ -1,7 +1,27 @@
 <template>
-  <div>
-    <!-- Newsletter -->
-  </div>
+  <form
+    class="form"
+    @submit.prevent="subscribe">
+    <label for="name">
+      Your Name
+      <input
+        id="name"
+        v-model="subscriber.name"
+        type="text"
+        required>
+    </label>
+    <label for="email">
+      Your Name
+      <input
+        id="email"
+        v-model="subscriber.email"
+        type="email"
+        required>
+    </label>
+    <button type="submit">
+      Subscribe
+    </button>
+  </form>
 </template>
 
 <script>
