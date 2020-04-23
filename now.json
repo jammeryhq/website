@@ -1,5 +1,6 @@
 {
   "env": {
-    "MOOSEND_API_KEY": "@moosend-api-key"
+    "MOOSEND_API_KEY": "@moosend-api-key",
+    "MOOSEND_LIST_ID": "@moosend-list-id"
   }
 }
