@@ -33,7 +33,7 @@
     <span class="md:mr-6 block text-center md:text-left mb-4 md:mb-0">a <a
       href="https://smokeyfro.com"
       title="Chris Rault, a South African based front-end designer and entrepreneur">SmokeyFro</a> &amp; <a
-        href="https://travisreynolds.com"
+        href="https://travisreynolds.dev"
         title="Travis Reynolds, a full-stack developer from the UK">Thetre97</a> collab</span>
   </footer>
 </template>
