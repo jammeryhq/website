@@ -4,9 +4,6 @@ body {
   padding:0;
   line-height: 1.5;
 }
-header svg path {
-  fill: #000;
-}
 .layout {
   max-width: 760px;
   margin: 0 auto;
@@ -17,17 +14,20 @@ header svg path {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 80px 40px 20px;
   height: 80px;
-}
-.header a:not(:first-of-type){
-  margin-left: 20px;
-}
-.header a {
-  @apply text-black
-}
-.header a.active {
-  @apply font-bold
+  & svg path {
+    fill: #000;
+  }
+  & a {
+    @apply text-black
+  }
+  & .active {
+    @apply font-bold
+  }
+  & a:not(:first-of-type){
+    margin-left: 20px;
+  }
 }
 footer {
   @apply text-gray-800
