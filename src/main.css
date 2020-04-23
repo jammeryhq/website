@@ -40,3 +40,9 @@ header svg path {
   footer {
     @apply text-gray-800
   }
+  footer a,
+  header nav a {
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
+  }
