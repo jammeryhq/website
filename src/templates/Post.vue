@@ -53,13 +53,13 @@ export default {
 
 <page-query>
 query Post ($path: String) {
-	post(path: $path) {
-		title
-		slug
-		id
-		excerpt
-        content
-	}
+  post(path: $path) {
+    title
+    slug
+    id
+    excerpt
+    content
+  }
 }
 </page-query>
 

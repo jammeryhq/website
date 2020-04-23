@@ -22,12 +22,14 @@
     <form
       v-if="!status"
       @submit="sendForm">
-      <label class="block">
+      <label
+        for="message"
+        class="block">
         <span
-          class="text-gray-700"
-          for="message">Message</span>
+          class="text-gray-700">Message</span>
         <ClientOnly>
           <vue-expand
+            id="message"
             v-model="message"
             v-focus
             :handler="handler"
@@ -38,7 +40,9 @@
       <div>
         <div class="flex flex-col md:flex-row">
           <div class="md:w-1/2 md:mr-5">
-            <label class="block mt-4">
+            <label
+              for="name"
+              class="block mt-4">
               <span class="text-gray-700">Your name</span>
               <input
                 id="name"
@@ -50,7 +54,9 @@
             </label>
           </div>
           <div class="md:w-1/2">
-            <label class="block mt-4">
+            <label
+              for="email"
+              class="block mt-4">
               <span class="text-gray-700">Your email</span>
               <input
                 id="email"
@@ -93,7 +99,6 @@ export default {
       website: '',
       message: null,
       radioValue: 'message',
-      message_type: null,
       message_type: this.radioValue
     }
   },

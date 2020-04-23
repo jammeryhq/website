@@ -41,21 +41,21 @@ export default {
 </script>
 
 <page-query>
-	query Blog ($page: Int) {
-		blog: allPost (page: $page, perPage: 6) @paginate {
-			totalCount
-			pageInfo {
-				totalPages
-				currentPage
-			}
-			edges {
-				node {
-					id
-					title
-					excerpt
-					path
-				}
-			}
-		}
-	}
+query Blog ($page: Int) {
+  blog: allPost (page: $page, perPage: 6) @paginate {
+    totalCount
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges {
+      node {
+        id
+        title
+        excerpt
+        path
+      }
+    }
+  }
+}
 </page-query>
