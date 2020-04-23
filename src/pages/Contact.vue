@@ -15,12 +15,12 @@ export default {
     components: {
 		Form
 	},
-    metaInfo: {
-        title: "Contact Us",
-        description: "Got something to discuss, say hello",
-        bodyAttrs: {
-            class: "page contact"
-        }
+  metaInfo: {
+    title: "Contact Us",
+    description: "Got something to discuss, say hello",
+    bodyAttrs: {
+        class: "page contact"
+    }
 	}
 }
 </script>
