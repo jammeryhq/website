@@ -37,5 +37,3 @@ export default {
     @apply font-sans text-lg
   }
 </style>
-
- git remote set-url origin git@github.com:jammeryhq/website.git
