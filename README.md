@@ -1,14 +1,16 @@
-# Default starter for Gridsome
+# JammeryHQ
 
-This is the project you get when you run `gridsome create new-project`.
+This is the website for [JammeryHQ](https://jammeryhq.com), built with Gridsome & Markdown, styled with Tailwind, and deployed with Vercel.
 
-### 1. Install Gridsome CLI tool if you don't have
+### Development
 
-`npm install --global @gridsome/cli`
+```bash
+yarn install
+yarn develop
+```
 
-### 2. Create a Gridsome project
+### Build
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+```bash
+yarn build
+```
