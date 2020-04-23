@@ -16,7 +16,8 @@ export default {
 		Form
 	},
     metaInfo: {
-        title: "Contact",
+        title: "Contact Us",
+        description: "Got something to discuss, say hello",
         bodyAttrs: {
             class: "h-screen overflow-hidden page"
         }

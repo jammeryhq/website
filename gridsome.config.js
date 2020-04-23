@@ -2,7 +2,7 @@ module.exports = {
   siteName: 'JammeryHQ',
   siteUrl: "https://jammeryhq.com",
   titleTemplate: "%s - JammeryHQ",
-  siteDescription: "",
+  siteDescription: "Fast-track your JAMstack development & learning",
   icon: 'src/favicon.png',
   resolveAbsolutePaths: false,
   permalinks: {

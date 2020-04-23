@@ -18,7 +18,8 @@ export default {
     Newsletter
   },
   metaInfo: {
-			title: "",
+			title: "Introducing JammeryHQ",
+      description: "Fast-track your JAMstack development with our Vue/Gridsome Starters, Components and Guides",
 			bodyAttrs: {
 				class: "home h-screen lg:overflow-hidden"
 			}

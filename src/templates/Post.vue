@@ -9,14 +9,43 @@
 </template>
 
 <script>
+import config from '~/.temp/config.js'
+
 export default {
-  metaInfo: {
-			title: "",
-			bodyAttrs: {
+  metaInfo () {
+    return {
+      title: this.$page.post.title,
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$page.post.excerpt
+        },
+        { property: "og:type", content: 'article' },
+        { property: "og:title", content: this.$page.post.title },
+        { property: "og:description", content: this.$page.post.excerpt },
+        { property: "og:url", content: this.postUrl },
+        { property: "article:published_time", content: this.$page.post.date },
+        { name: "twitter:title", content: this.$page.post.title },
+        { name: "twitter:description", content: this.$page.post.excerpt },
+        { name: "twitter:site", content: "@jammeryhq" },
+        { name: "twitter:creator", content: "@jammeryhq" },
+      ],
+      bodyAttrs: {
 				class: "h-screen overflow-x-auto page"
 			}
-		}
-}
+    },
+    computed: {
+      config () {
+        return config
+      },
+      postUrl () {
+        let siteUrl = this.config.siteUrl
+        let postPath = this.$page.post.path
+        return postPath ? `${siteUrl}${postPath}`
+      }
+    }
+  }
 </script>
 
 <page-query>

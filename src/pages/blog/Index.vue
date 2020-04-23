@@ -19,8 +19,8 @@ export default {
     // Hero
   },
   metaInfo: {
-    title: ''
-  }
+    title: 'Blog',
+	description: 'Updates from JammeryHQ'
 }
 </script>
 

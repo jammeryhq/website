@@ -11,7 +11,8 @@
 <script>
 export default {
   metaInfo: {
-			title: "",
+			title: "About Us",
+      description: "About the team behind JammeryHQ",
 			bodyAttrs: {
 				class: "h-screen overflow-hidden page"
 			}
