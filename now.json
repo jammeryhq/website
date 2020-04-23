@@ -1,6 +1,8 @@
 {
   "env": {
     "MOOSEND_API_KEY": "@moosend-api-key",
-    "MOOSEND_LIST_ID": "@moosend-list-id"
+    "MOOSEND_LIST_ID": "@moosend-list-id",
+    "MAILJET_PUBLIC_KEY": "@mailjet-public-key",
+    "MAILJET_SECRET_KEY": "@mailjet-secret-key"
   }
 }
