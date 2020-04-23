@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import config from '~/.temp/config.js'
 
 export default {
   metaInfo () {
@@ -34,18 +33,16 @@ export default {
       bodyAttrs: {
 				class: "h-screen overflow-x-auto page"
 			}
-    },
-    computed: {
-      config () {
-        return config
-      },
-      postUrl () {
-        let siteUrl = this.config.siteUrl
-        let postPath = this.$page.post.path
-        return postPath ? `${siteUrl}${postPath}`
-      }
+    }
+  },
+  computed: {
+    postUrl () {
+      let siteUrl = 'https://jammeryhq.com'
+      let postPath = this.$page.post.path
+      return postPath ? `${siteUrl}${postPath}` : false
     }
   }
+}
 </script>
 
 <page-query>
