@@ -1,7 +1,9 @@
 <template>
   <div class="app relative min-h-screen">
     <Header />
-    <slot/>
+    <main>
+      <slot/>
+    </main>
     <Footer />
   </div>
 </template>

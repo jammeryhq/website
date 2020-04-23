@@ -19,7 +19,8 @@
                         v-model="message" 
                         :handler="handler" 
                         placeholder="Write your message here"
-                        min-row="3"
+                        min-row="5"
+                        class="border overflow-visible"
                         v-focus />
                     </ClientOnly>
             </label>
