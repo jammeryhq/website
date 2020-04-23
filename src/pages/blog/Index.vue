@@ -21,6 +21,7 @@ export default {
   metaInfo: {
     title: "Blog",
 	description: "Updates from JammeryHQ"
+  }
 }
 </script>
 
