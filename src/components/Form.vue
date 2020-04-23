@@ -1,5 +1,5 @@
 <template>
-    <div class="form" refs>
+    <div class="form pb-40" refs>
         <div class="success" v-if="status === 'success'">
             <div class="flex items-center justify-start w-full">
 				<div class="w-full p-10 mt-10 bg-gray-100 border-l-8 bg-accent border-accent">
@@ -20,7 +20,6 @@
                         :handler="handler" 
                         placeholder="Write your message here"
                         min-row="5"
-                        class="border overflow-visible"
                         v-focus />
                     </ClientOnly>
             </label>
@@ -41,8 +40,7 @@
                 </div>
                 <input type="hidden" name="_gotcha">
                 <button type="submit" class="block w-full px-10 py-6 mt-4 mb-5 text-xl font-bold bg-gray-800 rounded-md text-accent md:mt-8">
-                    <span v-if="radioValue === 'quote'">Let's do this!</span>
-                    <span v-if="radioValue === 'message'">Send it, Sparky!</span>
+                    <span>Send it, Sparky!</span>
                 </button>
             </div>
         </form>
@@ -107,15 +105,3 @@
         }
     }
 </script>
-
-<style>
-.contact .vue-expand {
-    @apply block w-full mt-1 border-solid border border-gray-300 rounded-sm p-3 bg-white;
-}
-.contact .vue-expand[min-row="3"] {
-    min-height: 200px;
-}
-.contact .vue-expand[min-row="5"] {
-    min-height: 300px;
-}
-</style>

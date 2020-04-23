@@ -19,7 +19,7 @@ export default {
         title: "Contact Us",
         description: "Got something to discuss, say hello",
         bodyAttrs: {
-            class: "h-screen overflow-hidden page"
+            class: "page contact"
         }
 	}
 }
@@ -28,5 +28,12 @@ export default {
 <style>
   .page footer a {
     @apply text-black
+  }
+  .contact .vue-expand,
+  .form-input {
+        @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2
+  }
+  .contact .vue-expand {
+    @apply 
   }
 </style>
