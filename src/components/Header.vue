@@ -1,7 +1,7 @@
 <template>
   <header class="header relative z-50 lg:flex lg:items-center lg:justify-between pt-4 px-4 lg:p-10 w-full">
       <Logo />
-      <nav class="nav text-xl md:text-lg md:mr-5 text-center md:text-left" role="nav">
+      <nav class="nav text-xl md:text-lg md:mr-5 text-center md:text-left">
         <g-link class="nav__link" to="/about" title="More about Chris and Travis">About</g-link>
         <g-link class="nav__link" to="/blog" exact title="Updates on our progresss">Blog</g-link>
         <g-link class="nav__link" to="/contact" title="Say hello">Contact</g-link>
