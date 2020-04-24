@@ -1,6 +1,13 @@
 {
   "env": {
     "MOOSEND_API_KEY": "@moosend-api-key",
-    "MOOSEND_LIST_ID": "@moosend-list-id"
+    "MOOSEND_LIST_ID": "@moosend-list-id",
+    "MAILJET_PUBLIC_KEY": "@mailjet-public-key",
+    "MAILJET_SECRET_KEY": "@mailjet-secret-key",
+    "HCAPTCHA_SECRET_KEY": "@hcaptcha-secret-key",
+    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key"
+  },
+  "build": {
+    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key"
   }
 }

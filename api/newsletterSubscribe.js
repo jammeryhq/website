@@ -3,7 +3,7 @@ const got = require('got').default
 
 const MOOSEND_API_KEY = process.env.MOOSEND_API_KEY
 const MOOSEND_LIST_ID = process.env.MOOSEND_LIST_ID
-console.log(MOOSEND_API_KEY)
+
 const moosend = got.extend({
   prefixUrl: 'https://api.moosend.com/v3/',
   search: `apikey=${MOOSEND_API_KEY}`,

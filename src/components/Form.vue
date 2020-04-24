@@ -3,7 +3,7 @@
     class="form pb-40"
     refs>
     <div
-      v-if="status === 'success'"
+      v-if="sent"
       class="success">
       <div class="flex items-center justify-start w-full">
         <div class="w-full p-10 mt-10 bg-gray-100 border-l-8 bg-accent border-accent">
@@ -15,13 +15,13 @@
       </div>
     </div>
     <div
-      v-if="status === 'error'"
+      v-if="error"
       class="error">
       Oops, something went wrong. Please try again.
     </div>
     <form
-      v-if="!status"
-      @submit="sendForm">
+      v-if="!sent"
+      @submit.prevent="submit">
       <label
         for="message"
         class="block">
@@ -30,8 +30,7 @@
         <ClientOnly>
           <vue-expand
             id="message"
-            v-model="message"
-            v-focus
+            v-model="form.message"
             :handler="handler"
             placeholder="Write your message here"
             min-row="5" />
@@ -46,7 +45,7 @@
               <span class="text-gray-700">Your name</span>
               <input
                 id="name"
-                v-model="name"
+                v-model="form.name"
                 name="name"
                 class="block w-full mt-1 form-input"
                 placeholder="Evan You"
@@ -60,7 +59,7 @@
               <span class="text-gray-700">Your email</span>
               <input
                 id="email"
-                v-model="email"
+                v-model="form.email"
                 name="email"
                 class="block w-full mt-1 form-input"
                 placeholder="evan@vuejs.org"
@@ -68,13 +67,18 @@
             </label>
           </div>
         </div>
-        <input
-          type="hidden"
-          name="_gotcha">
+        <vue-hcaptcha
+          class="block mt-5 mb-2"
+          :sitekey="hcaptchaKey"
+          @verify="form.hcaptchaResponse = $event" />
         <button
           type="submit"
-          class="block w-full px-10 py-6 mt-4 mb-5 text-xl font-bold bg-gray-800 rounded-md text-accent md:mt-8">
-          <span>Send it, Sparky!</span>
+          :disabled="!form.hcaptchaResponse"
+          :class="!form.hcaptchaResponse || loading ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
+          class="block w-full px-10 py-6 mt-3 mb-5 text-xl font-bold rounded-md md:mt-8">
+          <span v-if="!form.hcaptchaResponse">Please fill in the verification above</span>
+          <span v-else-if="loading">Sending your message...</span>
+          <span v-else>Send it, Sparky!</span>
         </button>
       </div>
     </form>
@@ -82,58 +86,48 @@
 </template>
 
 <script>
+// Components
+import VueHcaptcha from '@hcaptcha/vue-hcaptcha'
+
+// Packages
+import ky from 'ky'
 import Vue from 'vue'
+
+// Environment variables
+const hcaptchaKey = process.env.GRIDSOME_HCAPTCHA_SITE_KEY
 
 export default {
   name: 'Form',
   components: {
-    VueExpand: () => import('vue-expand')
+    VueExpand: () => import('vue-expand'),
+    VueHcaptcha
   },
-  data: function () {
-    return {
-      handler: new Vue(),
-      status: null,
-      name: null,
-      email: null,
-      budget: '',
-      website: '',
-      message: null,
-      radioValue: 'message',
-      message_type: this.radioValue
-    }
-  },
+  data: () => ({
+    hcaptchaKey,
+    handler: new Vue(),
+    form: { hcaptchaResponse: '' },
+    sent: false,
+    error: false,
+    loading: false
+  }),
   mounted () {
     this.handler.$emit('focus')
   },
   methods: {
-    sendForm: function (event) {
-      event.preventDefault()
-
-      fetch('https://formcarry.com/s/iqNMdsHQ9Zt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({
-          name: this.name,
-          email: this.email,
-          message: this.message,
-          budget: this.budget,
-          website: this.website
-        })
-      })
-        .then(response => response.json())
-        .then(response => {
-          if (response.code === 200) {
-            this.status = 'success'
-          } else {
-            // Formcarry error
-            this.status = 'error'
-          }
-        })
-      // network error
-        .catch(() => (this.status = 'error'))
+    async submit () {
+      this.loading = true
+      this.error = false
+      const form = this.form
+      try {
+        const { status, message } = await ky.post('/api/contactSubmission', { json: form }).json()
+        if (status === 'error') throw new Error(message)
+        this.loading = false
+        this.sent = true
+      } catch (error) {
+        console.error(error)
+        this.loading = false
+        this.error = error.message
+      }
     }
   }
 }
