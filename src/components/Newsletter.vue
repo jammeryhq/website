@@ -1,45 +1,48 @@
 <template>
   <form
-    class="form"
+    class="form newsletter mt-5 pt-10 mt-8 mx-auto w-auto"
     @submit.prevent="subscribe">
-    <div class="flex flex-col md:flex-row">
-      <div class="md:w-1/2 md:mr-5">
+    <h2 class="text-gray-100 text-4xl font-bold text-center mb-3">Get notified when we launch</h2>
+    <p class="text-gray-100 text-lg max-w-xl mx-auto text-center mb-6">We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live.</p>
+    <div class="flex flex-col md:flex-row md:items-center">
+      <div class="md:w-1/3 md:mr-5">
         <label
           for="name"
-          class="block mt-4">
-          <span class="text-gray-700">Your name</span>
+          class="block">
           <input
             id="name"
             v-model="subscriber.name"
             name="name"
-            class="block w-full mt-1 form-input"
-            placeholder="Evan You"
+            class="block w-full form-input mt-0 placeholder-gray-800 text-xl"
+            placeholder="Your name"
             required>
         </label>
       </div>
-      <div class="md:w-1/2">
+      <div class="md:w-1/3">
         <label
           for="email"
-          class="block mt-4">
-          <span class="text-gray-700">Your email</span>
+          class="block">
           <input
             id="email"
             v-model="subscriber.email"
             name="email"
-            class="block w-full mt-1 form-input"
-            placeholder="evan@vuejs.org"
+            class="block w-full form-input mt-0 placeholder-gray-800 text-xl"
+            placeholder="Your email address"
             required>
         </label>
       </div>
-    </div>
+    <div>
     <input
       type="hidden"
       name="_gotcha">
     <button
       type="submit"
-      class="block w-full px-10 py-6 mt-4 mb-5 text-xl font-bold bg-gray-800 rounded-md text-accent md:mt-8">
-      <span>Send it, Sparky!</span>
+      class="block w-full px-10 py-4 text-xl font-bold bg-gray-800 rounded-md text-accent md:ml-3">
+      <span>Subscribe</span>
     </button>
+    </div>
+   </div>
+
   </form>
 </template>
 
