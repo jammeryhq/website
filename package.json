@@ -4,14 +4,20 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "lint": "eslint --ext js,vue . --fix"
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.5.0",
+    "got": "^11.0.2",
     "gridsome": "latest",
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "gridsome-plugin-tailwindcss": "^2.2.46",
+    "ky": "^0.19.1",
     "vue-expand": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint-config-travisreynolds-vue": "^1.1.8"
   }
 }

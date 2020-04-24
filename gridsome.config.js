@@ -1,12 +1,12 @@
 module.exports = {
   siteName: 'JammeryHQ',
-  siteUrl: "https://jammeryhq.com",
-  titleTemplate: "%s - JammeryHQ",
-  siteDescription: "Fast-track your JAMstack development & learning",
+  siteUrl: 'https://jammeryhq.com',
+  titleTemplate: '%s - JammeryHQ',
+  siteDescription: 'Fast-track your JAMstack development & learning',
   icon: 'src/favicon.png',
   resolveAbsolutePaths: false,
   permalinks: {
-    trailingSlash: false,
+    trailingSlash: false
   },
   templates: {
     Post: [
@@ -27,9 +27,9 @@ module.exports = {
           whitelistPatternsChildren: []
         },
         presetEnvConfig: {
-            features: {
-              'nesting-rules': true
-            }
+          features: {
+            'nesting-rules': true
+          }
         },
         shouldPurge: true,
         shouldImport: true,
@@ -37,10 +37,10 @@ module.exports = {
       }
     },
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "content/blog/**/*.md",
-        typeName: "Post",
+        path: 'content/blog/**/*.md',
+        typeName: 'Post',
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
@@ -48,12 +48,12 @@ module.exports = {
           ]
         }
       }
-    },
+    }
   ],
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer']
     }
-  },
+  }
 }

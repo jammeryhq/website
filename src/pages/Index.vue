@@ -2,7 +2,12 @@
   <Layout>
     <div>
       <Hero />
-      <video src="/coding-small.m4v" autoplay loop class="w-full h-screen absolute top-0 left-0 right-0 bottom-0 object-cover"></video>
+      <video
+        src="/coding-small.m4v"
+        autoplay
+        loop
+        muted
+        class="w-full h-screen absolute top-0 left-0 right-0 bottom-0 object-cover" />
       <Newsletter />
     </div>
   </Layout>
@@ -18,12 +23,12 @@ export default {
     Newsletter
   },
   metaInfo: {
-			title: "Introducing JammeryHQ",
-      description: "Fast-track your JAMstack development with our Vue/Gridsome Starters, Components and Guides",
-			bodyAttrs: {
-				class: "home h-screen lg:overflow-hidden"
-			}
-		}
+    title: 'Introducing JammeryHQ',
+    description: 'Fast-track your JAMstack development with our Vue/Gridsome Starters, Components and Guides',
+    bodyAttrs: {
+      class: 'home h-screen lg:overflow-hidden'
+    }
+  }
 }
 </script>
 <style>
@@ -33,10 +38,10 @@ export default {
 .home header a {
   color: #fff;
 }
-.hero a { 
-  @apply text-white 
+.hero a {
+  @apply text-white
 }
 .home footer {
   @apply text-gray-300
 }
-</style>        
+</style>

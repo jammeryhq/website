@@ -2,7 +2,7 @@
   <div class="app relative min-h-screen">
     <Header />
     <main>
-      <slot/>
+      <slot />
     </main>
     <Footer />
   </div>
