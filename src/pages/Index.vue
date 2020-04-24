@@ -20,7 +20,7 @@ export default {
     Hero
   },
   metaInfo: {
-    title: 'Introducing JammeryHQ',
+    title: 'Fast-track your JAMstack Development & Learning',
     description: 'Fast-track your JAMstack development with our Vue/Gridsome Starters, Components and Guides',
     bodyAttrs: {
       class: 'home h-screen lg:overflow-hidden'
