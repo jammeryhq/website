@@ -44,6 +44,18 @@ footer a,
 .excerpt {
   @apply text-4xl mx-auto mb-10
 }
+p {
+  @apply text-2xl mb-6
+}
+p a {
+  @apply text-black underline
+}
+.page footer a {
+  @apply text-black
+}
+.content {
+  @apply pb-40
+}
 .contact .vue-expand,
 .form-input {
   @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2
