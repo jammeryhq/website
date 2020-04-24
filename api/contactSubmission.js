@@ -43,7 +43,6 @@ module.exports = async (req, res) => {
     }
     const { Messages: [{ Status: messageStatus }] } = await mailjet.post('send', { json: messagePayload })
 
-    console.log(messageStatus)
     if (messageStatus === 'error') throw new Error('Something went wrong - please try again.')
     res.json({ status: 'success', message: 'Successfully sent message.' })
   } catch (error) {
