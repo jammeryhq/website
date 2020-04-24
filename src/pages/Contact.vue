@@ -33,4 +33,7 @@ export default {
   .page footer a {
     @apply text-black
   }
+  .contact .vue-expand textarea {
+    @apply font-sans text-lg
+  }
 </style>
