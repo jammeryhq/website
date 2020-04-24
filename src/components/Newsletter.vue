@@ -37,7 +37,7 @@
       name="_gotcha">
     <button
       type="submit"
-      class="block w-full px-10 py-4 text-xl font-bold bg-gray-800 rounded-md text-accent md:ml-3">
+      class="block w-full px-10 py-4 text-xl font-bold rounded-md bg-accent md:ml-5">
       <span>Subscribe</span>
     </button>
     </div>
