@@ -65,4 +65,10 @@ p a {
   .form-input {
     @apply p-2 text-base
   }
+  .title {
+    @apply text-4xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
 }
