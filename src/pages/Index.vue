@@ -3,7 +3,7 @@
     <div>
       <Hero />
       <video
-        src="/coding-small.m4v"
+        src="/coding-smaller.m4v"
         autoplay
         loop
         muted
