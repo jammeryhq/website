@@ -1,5 +1,5 @@
 <template>
-  <header class="header relative z-50 lg:flex lg:items-center lg:justify-between pt-4 px-4 lg:p-10 w-full">
+  <header class="header relative z-50 lg:flex lg:items-center lg:justify-between mb-10 md:mb-0 pt-4 px-4 lg:p-10 w-full">
     <Logo />
     <nav class="nav text-xl md:text-lg md:mr-5 text-center md:text-left">
       <g-link

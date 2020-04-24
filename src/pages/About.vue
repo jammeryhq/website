@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
       <h1 class="title">
         About Us
       </h1>
@@ -20,7 +20,7 @@ export default {
     title: 'About Us',
     description: 'About the team behind JammeryHQ',
     bodyAttrs: {
-      class: 'h-screen overflow-hidden page'
+      class: 'page'
     }
   }
 }
