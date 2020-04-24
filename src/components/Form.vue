@@ -76,8 +76,8 @@
           :disabled="!form.hcaptchaResponse"
           :class="!form.hcaptchaResponse || loading ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
           class="block w-full px-10 py-6 mt-3 mb-5 text-xl font-bold rounded-md md:mt-8">
-          <span v-if="!form.hcaptchaResponse">Please fill in the verification above.</span>
-          <span v-if="loading">Send it, Sparky!</span>
+          <span v-if="!form.hcaptchaResponse">Please fill in the verification above</span>
+          <span v-else-if="loading">Sending your message...</span>
           <span v-else>Send it, Sparky!</span>
         </button>
       </div>
