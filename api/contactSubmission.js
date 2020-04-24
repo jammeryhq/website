@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
       Messages: [
         {
           From: { Email: 'website@jammeryhq.com', Name: 'JammeryHQ' },
-          To: [{ Email: 'travis@jammeryhq.com', Name: 'Team' }],
+          To: [{ Email: 'hello@jammeryhq.com', Name: 'Team' }],
           TemplateID: 1376397,
           TemplateLanguage: true,
           Variables: { name, email, message }
