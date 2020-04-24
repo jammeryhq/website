@@ -45,7 +45,7 @@ p {
 p a {
   @apply text-black underline
 }
-.page footer a {
+body:not(.home) footer a {
   @apply text-black
 }
 .content {
