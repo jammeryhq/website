@@ -11,7 +11,6 @@
   },
   "build": {
     "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key",
-    "GRIDSOME_SEGMENT_KEY_PROD": "@segment-key-prod",
-    "GRIDSOME_SEGMENT_KEY_DEV": "@segment-key-dev"
+    "GRIDSOME_SEGMENT_KEY_PROD": "@segment-key-prod"
   }
 }
