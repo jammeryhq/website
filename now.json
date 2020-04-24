@@ -5,9 +5,12 @@
     "MAILJET_PUBLIC_KEY": "@mailjet-public-key",
     "MAILJET_SECRET_KEY": "@mailjet-secret-key",
     "HCAPTCHA_SECRET_KEY": "@hcaptcha-secret-key",
-    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key"
+    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key",
+    "GRIDSOME_SEGMENT_KEY_PROD": "@segment-key-prod",
+    "GRIDSOME_SEGMENT_KEY_DEV": "@segment-key-dev"
   },
   "build": {
-    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key"
+    "GRIDSOME_HCAPTCHA_SITE_KEY": "@hcaptcha-public-key",
+    "GRIDSOME_SEGMENT_KEY_PROD": "@segment-key-prod"
   }
 }
