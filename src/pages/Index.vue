@@ -8,19 +8,16 @@
         loop
         muted
         class="w-full h-screen absolute top-0 left-0 right-0 bottom-0 object-cover" />
-      <Newsletter />
     </div>
   </Layout>
 </template>
 
 <script>
 import Hero from '@/components/Hero'
-import Newsletter from '@/components/Newsletter'
 
 export default {
   components: {
-    Hero,
-    Newsletter
+    Hero
   },
   metaInfo: {
     title: 'Introducing JammeryHQ',
