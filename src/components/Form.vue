@@ -93,6 +93,9 @@ import VueHcaptcha from '@hcaptcha/vue-hcaptcha'
 import ky from 'ky'
 import Vue from 'vue'
 
+// Environment variables
+const hcaptchaKey = process.env.GRIDSOME_HCAPTCHA_SITE_KEY
+
 export default {
   name: 'Form',
   components: {
@@ -100,7 +103,7 @@ export default {
     VueHcaptcha
   },
   data: () => ({
-    hcaptchaKey: process.env.GRIDSOME_HCAPTCHA_SITE_KEY,
+    hcaptchaKey,
     handler: new Vue(),
     form: { hcaptchaResponse: '' },
     sent: false,
