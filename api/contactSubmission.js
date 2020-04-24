@@ -46,7 +46,6 @@ module.exports = async (req, res) => {
     if (messageStatus === 'error') throw new Error('Something went wrong - please try again.')
     res.json({ status: 'success', message: 'Successfully sent message.' })
   } catch (error) {
-    console.log(error)
     res.json({ status: 'error', message: error.message })
   }
 }
