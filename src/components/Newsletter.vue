@@ -12,8 +12,7 @@
       <div class="md:w-1/3 mb-4 md:mb-0 md:mr-5">
         <label
           for="name"
-          class="block"><span class="hidden invisible">Name</span> 
-          <input
+          class="block"><span class="hidden invisible">Name</span>          <input
             id="name"
             v-model="subscriber.name"
             name="name"
@@ -25,7 +24,7 @@
       <div class="md:w-1/3 mb-4 md:mb-0">
         <label
           for="email"
-          class="block"><span class="hidden invisible">Email</span> 
+          class="block"><span class="hidden invisible">Email</span>
           <input
             id="email"
             v-model="subscriber.email"

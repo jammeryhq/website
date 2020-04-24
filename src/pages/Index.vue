@@ -6,7 +6,7 @@
         src="/coding-smaller.m4v"
         autoplay
         loop
-        muted
+        :muted="true"
         class="w-full h-screen fixed md:absolute top-0 left-0 right-0 bottom-0 object-cover" />
     </div>
   </Layout>
@@ -28,6 +28,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .home header svg path {
     fill: #fff;

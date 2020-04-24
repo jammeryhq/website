@@ -17,7 +17,7 @@ import Newsletter from '@/components/Newsletter'
 export default {
   components: {
     Newsletter
-  },
+  }
 }
 </script>
 
