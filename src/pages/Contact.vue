@@ -7,17 +7,17 @@
       <p class="excerpt">
         Got something you'd like to discuss? Fill out the form below and we'll get back to you as soon as possible.
       </p>
-      <Form />
+      <ContactForm />
     </div>
   </Layout>
 </template>
 
 <script>
-import Form from '@/components/Form.vue'
+import ContactForm from '@/components/ContactForm.vue'
 
 export default {
   components: {
-    Form
+    ContactForm
   },
   metaInfo: {
     title: 'Contact Us',

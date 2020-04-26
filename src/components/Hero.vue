@@ -5,18 +5,18 @@
         <h2 class="text-white text-4xl lg:text-5xl xl:text-6xl lg:w-1/2 mx-auto text-center lg:-mt-40">
           Fast-track your <b>JAM</b>stack development &amp; learning
         </h2>
-        <Newsletter />
+        <NewsletterForm />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Newsletter from '@/components/Newsletter'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export default {
   components: {
-    Newsletter
+    NewsletterForm
   }
 }
 </script>
