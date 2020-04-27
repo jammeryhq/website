@@ -13,7 +13,7 @@ const moosend = got.extend({
 
 module.exports = async (req, res) => {
   try {
-    const { email, name } = req.body
+    const { email, name } = req.body || {}
     if (!email || !name) throw new Error('Missing required field.')
 
     const subscriberPayload = { Name: name, Email: email }

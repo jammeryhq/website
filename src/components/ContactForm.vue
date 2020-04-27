@@ -14,11 +14,6 @@
         </div>
       </div>
     </div>
-    <div
-      v-if="error"
-      class="error">
-      Oops, something went wrong. Please try again.
-    </div>
     <form
       v-if="!sent"
       @submit.prevent="submit">
@@ -73,13 +68,18 @@
           @verify="form.hcaptchaResponse = $event" />
         <button
           type="submit"
-          :disabled="!form.hcaptchaResponse"
-          :class="!form.hcaptchaResponse || loading ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
+          :disabled="!form.hcaptchaResponse || submitting"
+          :class="!form.hcaptchaResponse || submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
           class="block w-full px-10 py-6 mt-3 mb-5 text-xl font-bold rounded-md md:mt-8">
           <span v-if="!form.hcaptchaResponse">Please fill in the verification above</span>
-          <span v-else-if="loading">Sending your message...</span>
+          <span v-else-if="submitting">Sending your message...</span>
           <span v-else>Send it, Sparky!</span>
         </button>
+        <p
+          v-if="error"
+          class="text-sm text-red-400 text-center mt-5">
+          {{ context.error }}
+        </p>
       </div>
     </form>
   </div>
@@ -93,6 +93,9 @@ import VueHcaptcha from '@hcaptcha/vue-hcaptcha'
 import ky from 'ky'
 import Vue from 'vue'
 
+// Mixins
+import formMachineMixin from '@/mixins/formMachine'
+
 // Environment variables
 const hcaptchaKey = process.env.GRIDSOME_HCAPTCHA_SITE_KEY
 
@@ -102,32 +105,25 @@ export default {
     VueExpand: () => import('vue-expand'),
     VueHcaptcha
   },
+  mixins: [formMachineMixin],
   data: () => ({
     hcaptchaKey,
     handler: new Vue(),
-    form: { hcaptchaResponse: '' },
-    sent: false,
-    error: false,
-    loading: false
+    form: { hcaptchaResponse: '' }
   }),
   mounted () {
     this.handler.$emit('focus')
   },
+  formMachine: {
+    resetTimeout: 5000
+  },
+  async submitHandler (payload) {
+    const { status, message } = await ky.post('/api/contactSubmission', { json: payload }).json()
+    if (status === 'error') throw new Error(message)
+  },
   methods: {
     async submit () {
-      this.loading = true
-      this.error = false
-      const form = this.form
-      try {
-        const { status, message } = await ky.post('/api/contactSubmission', { json: form }).json()
-        if (status === 'error') throw new Error(message)
-        this.loading = false
-        this.sent = true
-      } catch (error) {
-        console.error(error)
-        this.loading = false
-        this.error = error.message
-      }
+      this.formService.send({ type: 'SUBMIT', value: this.form })
     }
   }
 }

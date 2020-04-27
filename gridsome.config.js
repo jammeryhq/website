@@ -56,6 +56,17 @@ module.exports = {
         devKey: process.env.GRIDSOME_SEGMENT_KEY_DEV,
         trackPage: true
       }
+    },
+    {
+      use: 'gridsome-plugin-manifest',
+      options: {
+        background_color: '#000000',
+        icon_path: './src/favicon.png',
+        name: 'JammeryHQ',
+        short_name: 'JammeryHQ',
+        theme_color: '#000000',
+        lang: 'en'
+      }
     }
   ],
   transformers: {
