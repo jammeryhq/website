@@ -1,5 +1,5 @@
 // Function to send a contact form submission via Mailjet
-const got = require('got').default
+import got from 'got'
 
 const MAILJET_PUBLIC_KEY = process.env.MAILJET_PUBLIC_KEY
 const MAILJET_SECRET_KEY = process.env.MAILJET_SECRET_KEY
@@ -19,7 +19,7 @@ const hcaptcha = got.extend({
   resolveBodyOnly: true
 })
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
     const { hcaptchaResponse, name, email, message } = req.body
     if (!hcaptchaResponse) throw new Error('Missing hCaptcha token.')

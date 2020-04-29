@@ -1,5 +1,5 @@
 // Function to add a new subscriber to a Moosend mailing list
-const got = require('got').default
+import got from 'got'
 
 const MOOSEND_API_KEY = process.env.MOOSEND_API_KEY
 const MOOSEND_LIST_ID = process.env.MOOSEND_LIST_ID
@@ -11,7 +11,7 @@ const moosend = got.extend({
   resolveBodyOnly: true
 })
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
     const { email, name } = req.body || {}
     if (!email || !name) throw new Error('Missing required field.')
