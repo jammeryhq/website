@@ -1,7 +1,7 @@
 <template>
     <div class="comments-wrap pb-40">
         <div class="comments">
-            <h2 class="text-4xl font-bold mb-4">Comments</h2>
+            <h2 class="text-6xl font-bold mb-10">Comments</h2>
             <div class="text-2xl text-center p-20 hidden">
                 No comments yet. Be the first.
             </div>
@@ -16,7 +16,7 @@
                     </div>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque exercitationem quaerat, doloribus cupiditate quisquam unde esse consectetur et reprehenderit</p>
                     <p>Expedita tempora, minus earum nobis. Nemo adipisci nulla animi fugiat commodi.</p>
-                    <p class="reply"><a href="#">Reply to Evan</a></p>
+                    <p class="reply"><button v-on:click="commentBody = '@EvanYou '">Reply to Evan</button></p>
                 </div>
             </div>
             <div class="comment">
@@ -25,11 +25,11 @@
                 </figure>
                 <div>
                     <div class="comment-title">
-                        <h3>Joe</h3>
+                        <h3>Joe McDonald</h3>
                         <span>30 April, 2020</span>
                     </div>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque exercitationem quaerat, doloribus cupiditate quisquam unde esse consectetur et reprehenderit, expedita tempora, minus earum nobis. Nemo adipisci nulla animi fugiat commodi.</p>
-                    <p class="reply"><a href="#">Reply to Joe</a></p>
+                    <p class="reply"><button v-on:click="commentBody = '@JoeMcDonald '">Reply to Joe</button></p>
                 </div>
             </div>
             <div class="comment">
@@ -42,7 +42,7 @@
                         <span>30 April, 2020</span>
                     </div>
                     <p><a href="#">@Joe</a> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque exercitationem quaerat, doloribus cupiditate quisquam unde esse consectetur et reprehenderit, expedita tempora, minus earum nobis. Nemo adipisci nulla animi fugiat commodi.</p>
-                    <p class="reply"><a href="#">Reply to Chris</a></p>
+                    <p class="reply"><button v-on:click="commentBody = '@ChrisRault '">Reply to Chris</button></p>
                 </div>
             </div>
         </div>
@@ -59,9 +59,10 @@
                             <ClientOnly>
                                 <vue-expand
                                     id="message"
-                                    v-model="form.message"
+                                    v-model="commentBody"
                                     :handler="handler"
                                     placeholder="Write your comment here"
+                                    :v-bind="commentBody"
                                     min-row="10" />
                             </ClientOnly>
                             <span class="md absolute top-0 right-0 w-6 h-auto mt-3 mr-4 inline-block" title="&#10004; Markdown Supported">
@@ -166,6 +167,7 @@ export default {
         VueHcaptcha
     },
     data: () => ({
+        commentBody: '',
         hcaptchaKey,
         handler: new Vue(),
         form: { hcaptchaResponse: '' }
@@ -218,10 +220,10 @@ export default {
   .comment > div > .reply {
       @apply -mt-5
   }
-  .comment > div > .reply a {
+  .comment > div > .reply button {
       @apply text-sm text-white
   }
-  .comment > div:hover > .reply a {
+  .comment > div:hover > .reply button {
       @apply text-sm text-black
   }
 </style>
