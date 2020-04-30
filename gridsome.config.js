@@ -49,14 +49,14 @@ module.exports = {
         }
       }
     },
-    {
-      use: 'gridsome-plugin-segment-js',
-      options: {
-        prodKey: process.env.GRIDSOME_SEGMENT_KEY_PROD,
-        devKey: process.env.GRIDSOME_SEGMENT_KEY_DEV,
-        trackPage: true
-      }
-    },
+    // {
+    //   use: 'gridsome-plugin-segment-js',
+    //   options: {
+    //     prodKey: process.env.GRIDSOME_SEGMENT_KEY_PROD,
+    //     devKey: process.env.GRIDSOME_SEGMENT_KEY_DEV,
+    //     trackPage: true
+    //   }
+    // },
     {
       use: 'gridsome-plugin-manifest',
       options: {
