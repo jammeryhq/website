@@ -43,9 +43,9 @@ export default {
   },
   computed: {
     postUrl () {
-      const siteUrl = 'https://jammeryhq.com'
-      const postPath = this.$page.post.path
-      return postPath ? `${siteUrl}${postPath}` : false
+      const siteUrl = this.$page.metadata.siteUrl
+      const postPath = this.$route.fullPath
+      return `${siteUrl}${postPath}`
     }
   }
 }
@@ -59,6 +59,9 @@ query Post ($path: String) {
     id
     excerpt
     content
+  }
+  metadata {
+    siteUrl
   }
 }
 </page-query>
