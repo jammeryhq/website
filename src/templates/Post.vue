@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
       <h1 class="title">
         {{ $page.post.title }}
       </h1>
@@ -8,13 +8,15 @@
         {{ $page.post.excerpt }}
       </p>
       <div
-        class="content pb-40"
+        class="content pb-20"
         v-html="$page.post.content" />
+      <Comments />
     </div>
   </Layout>
 </template>
 
 <script>
+import Comments from '@/components/Comments'
 
 export default {
   metaInfo () {
@@ -40,6 +42,9 @@ export default {
         class: 'h-screen overflow-x-auto page'
       }
     }
+  },
+  components: {
+    Comments
   },
   computed: {
     postUrl () {
