@@ -8,16 +8,19 @@
         {{ $page.post.excerpt }}
       </p>
       <div
-        class="content pb-20"
+        class="content"
         v-html="$page.post.content" />
-      <Comments />
+      <div class="comment-form bg-gray-100 rounded-md p-10 mt-10 -mx-20">
+        <h2 class="text-4xl font-bold mb-4">
+          Join the Conversation
+        </h2>
+        <div id="commento" />
+      </div>
     </div>
   </Layout>
 </template>
 
 <script>
-import Comments from '@/components/Comments'
-
 export default {
   metaInfo () {
     return {
@@ -40,11 +43,11 @@ export default {
       ],
       bodyAttrs: {
         class: 'h-screen overflow-x-auto page'
-      }
+      },
+      script: [
+        { src: `${process.env.GRIDSOME_COMMENTO_DOMAIN}/js/commento.js`, defer: true }
+      ]
     }
-  },
-  components: {
-    Comments
   },
   computed: {
     postUrl () {
