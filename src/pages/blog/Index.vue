@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="h-screen p-6 md:p-0 lg:w-1/2 mx-auto">
+    <div class="min-h-screen p-6 md:p-0 lg:w-1/2 mx-auto">
       <h1 class="title">
         Blog
       </h1>
