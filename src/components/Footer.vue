@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative md:absolute md:bottom-0 z-50 lg:flex lg:items-center lg:justify-between p-4 lg:p-10 text-gray-700 md:w-full lg:mb-4">
+  <footer class="relative md:bottom-0 z-50 lg:flex lg:items-center lg:justify-between p-4 lg:p-10 text-gray-700 md:w-full lg:mb-4">
     <span class="md:ml-6 block text-center md:text-left">© 2020 Jammery HQ. All rights reserved.</span>
     <nav class="nav text-center my-3 md:my-0">
       <g-link
