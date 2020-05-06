@@ -17,11 +17,12 @@ export default async (req, res) => {
       }
     }`
 
-    const data = await fauna.post('graphql', { json: { query, variables } })
+    const { data, errors } = await fauna.post('graphql', { json: { query, variables } })
+    if (errors && errors.length) throw new Error(errors[ 0 ].message)
 
-    res.json(data)
+    res.json(data.allCommentsByResource.data)
   } catch (error) {
     console.error(error)
-    res.status(500).send(error.response.body)
+    return res.send({ status: 'error', message: error.message })
   }
 }

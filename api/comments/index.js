@@ -6,13 +6,13 @@ import marked from 'marked'
 export default async (req, res) => {
   const { content, resource, email, author } = req.body
 
-  try {
-    if (!req.headers.recaptcha) throw new Error('No reCaptcha token provided.')
-    const success = await recaptcha.verify(req.headers.recaptcha)
-    if (!success) throw new Error('Failed reCaptcha verification')
-  } catch (error) {
-    return res.status(200).send({ status: 'error', message: error.message })
-  }
+  // try {
+  //   if (!req.headers.recaptcha) throw new Error('No reCaptcha token provided.')
+  //   const success = await recaptcha.verify(req.headers.recaptcha)
+  //   if (!success) throw new Error('Failed reCaptcha verification')
+  // } catch (error) {
+  //   return res.send({ status: 'error', message: error.message })
+  // }
 
   try {
     if (!content || !resource || !email || !author) throw new Error('Missing required field.')
@@ -34,12 +34,18 @@ export default async (req, res) => {
       createComment(data: $comment) {
         _id
         _ts
+        author
+        resource
+        email
+        content
       }
     }`
 
-    const data = await fauna.post('graphql', { json: { query, variables } })
-    res.json(data)
+    const { data, errors } = await fauna.post('graphql', { json: { query, variables } })
+    if (errors && errors.length) throw new Error(errors[ 0 ].message)
+
+    res.json(data.createComment)
   } catch (error) {
-    return res.status(200).send({ status: 'error', message: error.message })
+    return res.send({ status: 'error', message: error.message })
   }
 }
