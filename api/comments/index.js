@@ -6,13 +6,13 @@ import marked from 'marked'
 export default async (req, res) => {
   const { content, resource, email, author } = req.body
 
-  // try {
-  //   if (!req.headers.recaptcha) throw new Error('No reCaptcha token provided.')
-  //   const success = await recaptcha.verify(req.headers.recaptcha)
-  //   if (!success) throw new Error('Failed reCaptcha verification')
-  // } catch (error) {
-  //   return res.send({ status: 'error', message: error.message })
-  // }
+  try {
+    if (!req.headers.recaptcha) throw new Error('No reCaptcha token provided.')
+    const success = await recaptcha.verify(req.headers.recaptcha)
+    if (!success) throw new Error('Failed reCaptcha verification')
+  } catch (error) {
+    return res.send({ status: 'error', message: error.message })
+  }
 
   try {
     if (!content || !resource || !email || !author) throw new Error('Missing required field.')
