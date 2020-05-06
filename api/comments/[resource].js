@@ -10,7 +10,7 @@ export default async (req, res) => {
           _id
           _ts
           author
-          email
+          gravatar
           resource
           content
         }

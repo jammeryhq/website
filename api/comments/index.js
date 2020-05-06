@@ -1,7 +1,8 @@
+import crypto from 'crypto'
 import fauna from '../_utils/fauna'
+import marked from 'marked'
 import recaptcha from '../_utils/recaptcha'
 import sanitize from 'sanitize-html'
-import marked from 'marked'
 
 export default async (req, res) => {
   const { content, resource, email, author } = req.body
@@ -16,6 +17,7 @@ export default async (req, res) => {
 
   try {
     if (!content || !resource || !email || !author) throw new Error('Missing required field.')
+
     const sanitizedResource = resource.slice(resource.lastIndexOf('/') + 1)
 
     const markdown = marked(content)
@@ -29,14 +31,16 @@ export default async (req, res) => {
 
     if (!sanitizedMarkdown) throw new Error('No content exists after sanitization.')
 
-    const variables = { comment: { email, author, content: sanitizedMarkdown, resource: sanitizedResource } }
+    const gravatarHash = crypto.createHash('md5').update(email.trim().toLowerCase()).digest('hex')
+
+    const variables = { comment: { email, author, content: sanitizedMarkdown, resource: sanitizedResource, gravatar: gravatarHash } }
     const query = `mutation CreateComment ($comment: CommentInput!) {
       createComment(data: $comment) {
         _id
         _ts
         author
         resource
-        email
+        gravatar
         content
       }
     }`
