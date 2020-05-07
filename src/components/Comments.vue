@@ -9,10 +9,6 @@
         class="text-2xl text-center p-10">
         No comments yet. Be the first.
       </div>
-        v-if="!allComments.length"
-        class="text-2xl text-center p-20 hidden">
-        No comments yet. Be the first.
-      </div>
       <div
         v-for="comment in allComments"
         :key="comment._id"
@@ -164,6 +160,7 @@ export default {
   data: () => ({
     allComments: [],
     comment: {},
+    commentsPoll: null,
     handler: new Vue(),
     remember: true
   }),
@@ -171,9 +168,11 @@ export default {
     this.handler.$emit('focus')
     await this.fetchAuthor()
     await this.fetchComments()
-    setInterval(async () => {
-      await this.fetchComments()
-    }, 10000)
+    this.commentsPoll = setInterval(this.fetchComments, 10000)
+  },
+  beforeDestroy () {
+    console.log('calling destroy')
+    clearInterval(this.commentsPoll)
   },
   async submitHandler ({ recaptcha, ...payload }) {
     const { status, message } = await ky.post('/api/comments', { json: payload, headers: { recaptcha } }).json()
