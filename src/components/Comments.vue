@@ -6,6 +6,10 @@
       </h2>
       <div
         v-if="!allComments.length"
+        class="text-2xl text-center p-10">
+        No comments yet. Be the first.
+      </div>
+        v-if="!allComments.length"
         class="text-2xl text-center p-20 hidden">
         No comments yet. Be the first.
       </div>
