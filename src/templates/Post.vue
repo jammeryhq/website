@@ -11,16 +11,16 @@
         class="content"
         v-html="$page.post.content" />
       <div class="comment-form bg-gray-100 rounded-md p-10 mt-10 -mx-20">
-        <h2 class="text-4xl font-bold mb-4">
-          Join the Conversation
-        </h2>
-        <div id="commento" />
+        <Comments />
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
+// Components
+import Comments from '@/components/Comments'
+
 export default {
   metaInfo () {
     return {
@@ -43,12 +43,10 @@ export default {
       ],
       bodyAttrs: {
         class: 'h-screen overflow-x-auto page'
-      },
-      script: [
-        { src: `${process.env.GRIDSOME_COMMENTO_DOMAIN}/js/commento.js`, defer: true }
-      ]
+      }
     }
   },
+  components: { Comments },
   computed: {
     postUrl () {
       const siteUrl = this.$page.metadata.siteUrl
