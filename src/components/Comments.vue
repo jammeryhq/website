@@ -184,7 +184,6 @@ export default {
   computed: {
     allAuthors () {
       const authors = new Set(this.allComments.map(({ author }) => author))
-      console.log(authors)
       return [...authors].map(author => ({ value: author, author }))
     }
   },

@@ -22,7 +22,6 @@ export default async (req, res) => {
 
     res.json(data.allCommentsByResource.data)
   } catch (error) {
-    console.error(error)
     return res.send({ status: 'error', message: error.message })
   }
 }
