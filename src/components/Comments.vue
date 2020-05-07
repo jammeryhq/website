@@ -42,21 +42,37 @@
         @submit.prevent="submit">
         <div class="w-full">
           <label
-            for="message"
+            for="comment"
             class="block">
-            <span
-              class="text-gray-700">What's on your mind?</span>
+            <span class="text-gray-700">What's on your mind?</span>
             <div class="relative">
               <ClientOnly>
-                <vue-expand
-                  id="message"
-                  v-model="comment.content"
-                  :handler="handler"
-                  placeholder="Write your comment here"
-                  min-row="10" />
+                <Mentionable
+                  :keys="['@']"
+                  :items="allAuthors"
+                  offset="6"
+                  insert-space>
+                  <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
+                  <textarea
+                    v-model="comment.content"
+                    name="comment"
+                    class="w-full shadow-inner p-4 border-0"
+                    placeholder="Write your comment..."
+                    rows="6" />
+                  <template #no-result>
+                    <div class="dim">
+                      No result
+                    </div>
+                  </template>
+                  <template #item-@="{ item }">
+                    <div class="user">
+                      {{ item.author }}
+                    </div>
+                  </template>
+                </Mentionable>
               </ClientOnly>
               <span
-                class="md absolute top-0 right-0 w-6 h-auto mt-3 mr-4 inline-block"
+                class="md absolute top-0 right-0 w-6 h-auto mt-8 mr-4 inline-block"
                 title="&#10004; Markdown Supported">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +161,9 @@
 </template>
 
 <script>
+// Components
+import { Mentionable } from 'vue-mention'
+
 // Packages
 import ky from 'ky'
 import Vue from 'vue'
@@ -153,9 +172,7 @@ import Vue from 'vue'
 import formMachineMixin from '@/mixins/formMachine'
 
 export default {
-  components: {
-    VueExpand: () => import('vue-expand')
-  },
+  components: { Mentionable },
   mixins: [formMachineMixin],
   data: () => ({
     allComments: [],
@@ -164,6 +181,13 @@ export default {
     handler: new Vue(),
     remember: true
   }),
+  computed: {
+    allAuthors () {
+      const authors = new Set(this.allComments.map(({ author }) => author))
+      console.log(authors)
+      return [...authors].map(author => ({ value: author, author }))
+    }
+  },
   async mounted () {
     this.handler.$emit('focus')
     await this.fetchAuthor()
