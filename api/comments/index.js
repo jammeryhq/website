@@ -37,18 +37,13 @@ export default async (req, res) => {
     const query = `mutation CreateComment ($comment: CommentInput!) {
       createComment(data: $comment) {
         _id
-        _ts
-        author
-        resource
-        gravatar
-        content
       }
     }`
 
-    const { data, errors } = await fauna.post('graphql', { json: { query, variables } })
+    const { errors } = await fauna.post('graphql', { json: { query, variables } })
     if (errors && errors.length) throw new Error(errors[ 0 ].message)
 
-    res.json(data.createComment)
+    res.json({ status: 'success' })
   } catch (error) {
     return res.send({ status: 'error', message: error.message })
   }
