@@ -171,7 +171,6 @@ export default {
     this.commentsPoll = setInterval(this.fetchComments, 10000)
   },
   beforeDestroy () {
-    console.log('calling destroy')
     clearInterval(this.commentsPoll)
   },
   async submitHandler ({ recaptcha, ...payload }) {
