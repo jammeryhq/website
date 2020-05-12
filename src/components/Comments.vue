@@ -166,6 +166,7 @@ import { Mentionable } from 'vue-mention'
 
 // Packages
 import ky from 'ky'
+import marked from 'marked'
 import Vue from 'vue'
 
 // Mixins
@@ -231,7 +232,7 @@ export default {
       if (!this.remember) localStorage.removeItem('comment-author')
 
       // Optimistic Update
-      if (!this.error) this.allComments.push({ resource, author, ...comment, _id: Math.random(), _ts: new Date().getTime() * 1000 })
+      if (!this.error) this.allComments.push({ resource, author, content: marked(comment.content), _id: Math.random(), _ts: new Date().getTime() * 1000 })
 
       // Clear data
       this.comment.content = ''
