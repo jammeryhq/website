@@ -188,6 +188,14 @@ export default {
       return [...authors].map(author => ({ value: author, author }))
     }
   },
+  watch: {
+    remember (remember) {
+      if (!remember) {
+        localStorage.removeItem('comment-author')
+        this.comment = { content: this.comment.content, firstName: '', lastName: '', email: '' }
+      }
+    }
+  },
   async mounted () {
     this.handler.$emit('focus')
     await this.fetchAuthor()
