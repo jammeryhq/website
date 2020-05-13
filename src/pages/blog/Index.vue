@@ -42,7 +42,7 @@ export default {
 
 <page-query>
 query Blog ($page: Int) {
-  blog: allPost (page: $page, perPage: 6) @paginate {
+  blog: allPost (filter: { published: { eq: true }}, page: $page, perPage: 6) @paginate {
     totalCount
     pageInfo {
       totalPages
