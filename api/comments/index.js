@@ -22,10 +22,12 @@ export default async (req, res) => {
 
     const markdown = marked(content)
     const sanitizedMarkdown = sanitize(markdown, {
+      allowedTags: sanitize.defaults.allowedTags.concat(['h1', 'h2']),
       allowedAttributes: {
         a: ['href', 'name', 'target', 'rel']
       }
     })
+    console.log(sanitizedMarkdown)
 
     if (!sanitizedMarkdown) throw new Error('No content exists after sanitization.')
 
