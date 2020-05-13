@@ -29,7 +29,9 @@
             <h3>{{ comment.author }}</h3>
             <span>{{ formatDate(comment._ts) }}</span>
           </div>
-          <div v-html="comment.content" />
+          <div
+            class="comment-content"
+            v-html="comment.content" />
           <p class="reply">
             <button
               @click="replyTo(comment.author)"
@@ -287,7 +289,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .comment {
   @apply flex;
   @apply items-start;
@@ -301,6 +303,18 @@ export default {
   @apply flex;
   @apply justify-start;
   @apply items-center;
+}
+.comment-content {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  p {
+    @apply text-base;
+  }
+   /*...etc */
 }
 .comment span {
   @apply text-sm;
