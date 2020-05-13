@@ -6,12 +6,12 @@
       </h2>
       <div
         v-if="loadingComments"
-        class="text-2xl text-center p-10">
+        class="text-2xl">
         Loading...
       </div>
       <div
         v-if="!loadingComments && !allComments.length"
-        class="text-2xl text-center p-10">
+        class="text-2xl">
         No comments yet. Be the first.
       </div>
       <div
