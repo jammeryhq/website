@@ -15,7 +15,7 @@
         class="comment mb-10">
         <figure>
           <img
-            :src="`https://eu.ui-avatars.com/api?name=${comment.author}`"
+            :src="`https://www.gravatar.com/avatar/${comment.gravatar}`"
             :alt="comment.author"
             class="object-cover">
         </figure>
@@ -191,8 +191,7 @@ export default {
   watch: {
     remember (remember) {
       if (!remember) {
-        localStorage.removeItem('comment-author')
-        this.comment = { content: this.comment.content, firstName: '', lastName: '', email: '' }
+        localStorage.setItem('comment-author', false)
       }
     }
   },
@@ -212,6 +211,7 @@ export default {
   methods: {
     async fetchAuthor () {
       const commentAuthor = JSON.parse(localStorage.getItem('comment-author'))
+      if (!commentAuthor) this.remember = false
       if (commentAuthor) this.comment = commentAuthor
     },
     async fetchComments () {
