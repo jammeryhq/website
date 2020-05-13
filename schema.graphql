@@ -1,0 +1,344 @@
+"""Add fields from field values."""
+directive @infer on OBJECT
+
+"""Add reference resolver."""
+directive @reference(
+  """Reference node by a custom field value."""
+  by: String = "id"
+) on FIELD_DEFINITION
+
+"""Return value from another field."""
+directive @proxy(from: String) on FIELD_DEFINITION
+
+"""Paginate a connection in a query. Only supported in page-query."""
+directive @paginate on FIELD
+
+input BelongsToFilterInput {
+  id: IDQueryOperatorInput
+  path: StringQueryOperatorInput
+  typeName: TypeNameQueryOperatorInput
+}
+
+scalar Date
+
+input DateQueryOperatorInput {
+  """Filter by property of (strict) equality."""
+  eq: Date
+
+  """Filter by property not equal to provided value."""
+  ne: Date
+
+  """Filter by property greater than provided value."""
+  gt: Date
+
+  """Filter by property greater or equal to provided value."""
+  gte: Date
+
+  """Filter by property less than provided value."""
+  lt: Date
+
+  """Filter by property less than or equal to provided value."""
+  lte: Date
+
+  """Filter by property matching any of the provided values."""
+  in: [Date]
+
+  """Filter by property not matching any of the provided values."""
+  nin: [Date]
+
+  """Filter by date property equal to provided date value."""
+  dteq: Date
+
+  """Filter by property between provided values."""
+  between: [Date]
+}
+
+scalar File
+
+input IDQueryOperatorInput {
+  """Filter by property of (strict) equality."""
+  eq: ID
+
+  """Filter by property not equal to provided value."""
+  ne: ID
+
+  """Filter by property matching any of the provided values."""
+  in: [ID]
+
+  """Filter by property not matching any of the provided values."""
+  nin: [ID]
+}
+
+scalar Image
+
+enum ImageFit {
+  """Crop to cover both provided dimensions."""
+  cover
+
+  """Embed within both provided dimensions."""
+  contain
+
+  """
+  Ignore the aspect ratio of the input and stretch to both provided dimensions.
+  """
+  fill
+
+  """
+  Preserving aspect ratio, resize the image to be as large as possible while
+  ensuring its dimensions are less than or equal to both those specified.
+  """
+  inside
+
+  """
+  Preserving aspect ratio, resize the image to be as small as possible while
+  ensuring its dimensions are greater than or equal to both those specified.
+  Some of these values are based on the object-fit CSS property.
+  """
+  outside
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input JSONQueryOperatorInput {
+  """Filter by property of (strict) equality."""
+  eq: JSON
+
+  """Filter by property not equal to provided value."""
+  ne: JSON
+
+  """Filter by property matching any of the provided values."""
+  in: [JSON]
+
+  """Filter by property not matching any of the provided values."""
+  nin: [JSON]
+
+  """Filter by property matching provided regular expression."""
+  regex: String
+}
+
+type Metadata {
+  siteName: String
+  siteDescription: String
+  siteUrl: String
+  pathPrefix: String
+}
+
+interface Node {
+  id: ID!
+}
+
+type NodeBelongsTo implements NodeConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [NodeBelongsToEdge]
+}
+
+type NodeBelongsToEdge implements NodeConnectionEdge {
+  node: Node
+  next: Node
+  previous: Node
+}
+
+interface NodeConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [NodeConnectionEdge]
+}
+
+interface NodeConnectionEdge {
+  node: Node
+  next: Node
+  previous: Node
+}
+
+type Page {
+  path: String!
+  context: JSON!
+}
+
+input PageFilterInput {
+  path: StringQueryOperatorInput
+  context: JSONQueryOperatorInput
+}
+
+type PageInfo {
+  perPage: Int!
+  currentPage: Int!
+  totalPages: Int!
+  totalItems: Int!
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+  isFirst: Boolean!
+  isLast: Boolean!
+}
+
+type Post implements Node {
+  id: ID!
+  path(to: String = "default"): String
+  fileInfo: Post_FileInfo
+  content: String
+  excerpt: String
+  title: String
+  date(
+    """Date format"""
+    format: String
+
+    """Locale"""
+    locale: String
+  ): Date
+  slug: String
+  searchTerms: String
+  headings(depth: RemarkHeadingLevels, stripTags: Boolean = true): [RemarkHeading]
+  timeToRead(
+    """Words per minute"""
+    speed: Int = 230
+  ): Int
+  belongsTo(
+    sortBy: String = "date"
+    order: SortOrder = DESC
+
+    """Defaults to 25 when page is provided."""
+    perPage: Int
+    skip: Int = 0
+    limit: Int
+    page: Int
+    sort: [SortArgument!]
+    filter: BelongsToFilterInput
+  ): NodeBelongsTo
+}
+
+type Post_FileInfo {
+  extension: String
+  directory: String
+  path: String
+  name: String
+}
+
+input Post_FileInfoFilterInput {
+  extension: StringQueryOperatorInput
+  directory: StringQueryOperatorInput
+  path: StringQueryOperatorInput
+  name: StringQueryOperatorInput
+}
+
+type PostConnection implements NodeConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [PostEdge]
+}
+
+type PostEdge implements NodeConnectionEdge {
+  node: Post
+  next: Post
+  previous: Post
+}
+
+input PostFilterInput {
+  id: IDQueryOperatorInput
+  path: StringQueryOperatorInput
+  fileInfo: Post_FileInfoFilterInput
+  content: StringQueryOperatorInput
+  excerpt: StringQueryOperatorInput
+  title: StringQueryOperatorInput
+  date: DateQueryOperatorInput
+  slug: StringQueryOperatorInput
+  searchTerms: StringQueryOperatorInput
+}
+
+type Query {
+  post(
+    id: ID
+    path: String
+
+    """Will return an error if not nullable."""
+    nullable: Boolean = false
+  ): Post
+  allPost(
+    sortBy: String = "date"
+    order: SortOrder = DESC
+
+    """Defaults to 25 when page is provided."""
+    perPage: Int
+    skip: Int = 0
+    limit: Int
+    page: Int
+    sort: [SortArgument]
+
+    """Filter for Post nodes."""
+    filter: PostFilterInput
+  ): PostConnection
+  metadata: Metadata
+  metaData: Metadata @deprecated(reason: "Use Query.metadata instead.")
+  page(path: String!): Page
+  allPage(
+    """Filter pages."""
+    filter: PageFilterInput
+  ): [Page]
+}
+
+type RemarkHeading {
+  depth: Int
+  value: String
+  anchor: String
+}
+
+enum RemarkHeadingLevels {
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+}
+
+input SortArgument {
+  by: String! = "date"
+  order: SortOrder = DESC
+}
+
+enum SortOrder {
+  """Sort ascending"""
+  ASC
+
+  """Sort descending"""
+  DESC
+}
+
+input StringQueryOperatorInput {
+  """Filter by property of (strict) equality."""
+  eq: String
+
+  """Filter by property not equal to provided value."""
+  ne: String
+
+  """Filter by property matching any of the provided values."""
+  in: [String]
+
+  """Filter by property not matching any of the provided values."""
+  nin: [String]
+
+  """Filter by property matching provided regular expression."""
+  regex: String
+}
+
+enum TypeName {
+  Post
+}
+
+input TypeNameQueryOperatorInput {
+  """Filter by property of (strict) equality."""
+  eq: TypeName
+
+  """Filter by property not equal to provided value."""
+  ne: TypeName
+
+  """Filter by property matching any of the provided values."""
+  in: [TypeName]
+
+  """Filter by property not matching any of the provided values."""
+  nin: [TypeName]
+}
+
