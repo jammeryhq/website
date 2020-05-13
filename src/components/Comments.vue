@@ -164,10 +164,10 @@
           </div>
           <button
             type="submit"
-            :disabled="submitting"
-            :class="submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
+            :disabled="submitting || loadingCaptcha"
+            :class="submitting || loadingCaptcha ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
             class="block w-full px-4 py-6 text-xl font-bold rounded-md mt-4">
-            <span v-if="submitting">Submitting Your Comment...</span>
+            <span v-if="submitting || loadingCaptcha">Submitting Your Comment...</span>
             <span v-else>Submit Your Comment</span>
           </button>
           <p
@@ -198,6 +198,7 @@ export default {
   mixins: [formMachineMixin],
   data: () => ({
     loadingComments: true,
+    loadingCaptcha: false,
     allComments: [],
     comment: {},
     commentsPoll: null,
@@ -249,6 +250,7 @@ export default {
     },
     async submit () {
       // Fetch recaptcha token
+      this.loadingCaptcha = true
       await this.$recaptchaLoaded()
       const recaptcha = await this.$recaptcha('comment')
 
@@ -267,6 +269,7 @@ export default {
       if (!this.error) this.allComments.push({ resource, author, content: marked(comment.content), _id: Math.random(), _ts: new Date().getTime() * 1000 })
 
       // Clear data
+      this.loadingCaptcha = false
       this.comment.content = ''
     }
   }
