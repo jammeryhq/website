@@ -1,12 +1,12 @@
 <template>
-  <div class="comments-wrap pb-40">
+  <div class="comments-wrap">
     <div class="comments">
       <h2 class="text-6xl font-bold mb-10">
         Comments
       </h2>
       <div
         v-if="!allComments.length"
-        class="text-2xl text-center p-10">
+        class="text-2xl">
         No comments yet. Be the first.
       </div>
       <div
@@ -45,7 +45,8 @@
             for="comment"
             class="block">
             <span class="text-gray-700">What's on your mind?</span>
-            <div class="relative">
+          </label>
+          <div class="relative">
               <ClientOnly>
                 <Mentionable
                   :keys="['@']"
@@ -95,7 +96,6 @@
                 1 Item - numbered items
               </div>
             </div>
-          </label>
         </div>
         <div class="md:w-1/3">
           <label

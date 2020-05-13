@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative">
       <h1 class="title">
         {{ $page.post.title }}
       </h1>
@@ -10,7 +10,7 @@
       <div
         class="content"
         v-html="$page.post.content" />
-      <div class="comment-form bg-gray-100 rounded-md p-10 mt-10 -mx-20">
+      <div class="comment-form">
         <Comments />
       </div>
     </div>
@@ -42,7 +42,7 @@ export default {
         { name: 'twitter:creator', content: '@jammeryhq' }
       ],
       bodyAttrs: {
-        class: 'h-screen overflow-x-auto page'
+        class: 'min-h-screen overflow-x-auto page'
       }
     }
   },
