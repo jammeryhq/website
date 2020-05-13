@@ -61,7 +61,7 @@
                   <textarea
                     v-model="comment.content"
                     name="comment"
-                    class="w-full shadow-inner p-4 border-0"
+                    class="w-full shadow-inner p-4 border-0 mt-1"
                     placeholder="Write your comment..."
                     rows="6" />
                   <template #no-result>
@@ -77,12 +77,28 @@
                 </Mentionable>
               </ClientOnly>
               <span
-                class="md absolute top-0 right-0 w-6 h-auto mt-8 mr-4 inline-block"
-                title="&#10004; Markdown Supported">
+                class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block"
+                title="&#10004; Markdown Supported"
+                v-on:click="isShow = !isShow" 
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
               </span>
+              <div
+               v-show="isShow">
+                ## - h2
+                ### - h3
+                #### - h4
+
+                *This text will be italic*
+                _This will also be italic_
+                **This text will be bold**
+                __This will also be bold__*You **can** combine them*
+
+                * Item - list items
+                1 Item - numbered items
+              </div>
             </div>
           </label>
         </div>
@@ -128,8 +144,8 @@
               required>
           </label>
         </div>
-        <div class="w-full flex mt-5">
-          <div class="ml-5 mt-1 mr-4">
+        <div class="w-full mt-5">
+          <div class="mt-1">
             <label
               for="remember"
               class="block whitespace-pre text-gray-700">
@@ -150,7 +166,7 @@
             type="submit"
             :disabled="submitting"
             :class="submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
-            class="block w-full px-4 py-6 text-xl font-bold rounded-md ml-4">
+            class="block w-full px-4 py-6 text-xl font-bold rounded-md mt-4">
             <span v-if="submitting">Submitting Your Comment...</span>
             <span v-else>Submit Your Comment</span>
           </button>
@@ -186,7 +202,8 @@ export default {
     comment: {},
     commentsPoll: null,
     handler: new Vue(),
-    remember: true
+    remember: true,
+    isShow: false
   }),
   computed: {
     allAuthors () {
