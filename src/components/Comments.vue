@@ -34,7 +34,7 @@
             <button
               @click="replyTo(comment.author)"
               @keyup="replyTo(comment.author)">
-              Reply to Evan
+              Reply to {{ comment.author }}
             </button>
           </p>
         </div>
