@@ -20,6 +20,7 @@
     "vue-expand": "^1.1.1",
     "vue-mention": "^0.1.7",
     "vue-recaptcha-v3": "^1.9.0",
+    "vue-scrollto": "^2.18.1",
     "xstate": "^4.9.1"
   },
   "devDependencies": {

@@ -30,15 +30,19 @@
             <span>{{ formatDate(comment._ts) }}</span>
           </div>
           <div v-html="comment.content" />
-          <!-- <p class="reply">
-            <button">
+          <p class="reply">
+            <button
+              @click="replyTo(comment.author)"
+              @keyup="replyTo(comment.author)">
               Reply to Evan
             </button>
-          </p> -->
+          </p>
         </div>
       </div>
     </div>
-    <div class="comment-form bg-gray-100 rounded-md p-10 mt-10">
+    <div
+      ref="commentForm"
+      class="comment-form bg-gray-100 rounded-md p-10 mt-10">
       <h2 class="text-4xl font-bold mb-4">
         Join the Conversation
       </h2>
@@ -52,55 +56,55 @@
             <span class="text-gray-700">What's on your mind?</span>
           </label>
           <div class="relative">
-              <ClientOnly>
-                <Mentionable
-                  :keys="['@']"
-                  :items="allAuthors"
-                  offset="6"
-                  insert-space>
-                  <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
-                  <textarea
-                    v-model="comment.content"
-                    name="comment"
-                    class="w-full shadow-inner p-4 border-0 mt-1"
-                    placeholder="Write your comment..."
-                    rows="6" />
-                  <template #no-result>
-                    <div class="dim">
-                      No result
-                    </div>
-                  </template>
-                  <template #item-@="{ item }">
-                    <div class="user">
-                      {{ item.author }}
-                    </div>
-                  </template>
-                </Mentionable>
-              </ClientOnly>
-              <span
-                class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block"
-                title="&#10004; Markdown Supported"
-                @click="isShow = !isShow"
-                @keyup="isShow = !isShow">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
-              </span>
-              <div
-                v-show="isShow">
-                ## - h2
-                ### - h3
-                #### - h4
+            <ClientOnly>
+              <Mentionable
+                :keys="['@']"
+                :items="allAuthors"
+                offset="6"
+                insert-space>
+                <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
+                <textarea
+                  v-model="content"
+                  name="comment"
+                  class="w-full shadow-inner p-4 border-0 mt-1"
+                  placeholder="Write your comment..."
+                  rows="6" />
+                <template #no-result>
+                  <div class="dim">
+                    No result
+                  </div>
+                </template>
+                <template #item-@="{ item }">
+                  <div class="user">
+                    {{ item.author }}
+                  </div>
+                </template>
+              </Mentionable>
+            </ClientOnly>
+            <span
+              class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block"
+              title="&#10004; Markdown Supported"
+              @click="showMDHint = !showMDHint"
+              @keyup="showMDHint = !showMDHint">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
+            </span>
+            <div
+              v-show="showMDHint">
+              ## - h2
+              ### - h3
+              #### - h4
 
-                *This text will be italic*
-                _This will also be italic_
-                **This text will be bold**
-                __This will also be bold__*You **can** combine them*
+              *This text will be italic*
+              _This will also be italic_
+              **This text will be bold**
+              __This will also be bold__*You **can** combine them*
 
-                * Item - list items
-                1 Item - numbered items
-              </div>
+              * Item - list items
+              1 Item - numbered items
             </div>
+          </div>
         </div>
         <div class="md:w-1/3">
           <label
@@ -109,8 +113,9 @@
             <span class="text-gray-700">First name</span>
             <input
               id="first_name"
-              v-model="comment.firstName"
+              v-model.trim="author.firstName"
               name="first_name"
+              type="text"
               class="block w-full mt-1 form-input"
               placeholder="Evan"
               required>
@@ -123,8 +128,9 @@
             <span class="text-gray-700">Last name</span>
             <input
               id="last_name"
-              v-model="comment.lastName"
+              v-model.trim="author.lastName"
               name="last_name"
+              type="text"
               class="block w-full mt-1 form-input"
               placeholder="You"
               required>
@@ -137,8 +143,9 @@
             <span class="text-gray-700">Email</span>
             <input
               id="email"
-              v-model="comment.email"
+              v-model.trim="author.email"
               name="email"
+              type="email"
               class="block w-full mt-1 form-input"
               placeholder="evan@vuejs.org"
               required>
@@ -200,11 +207,12 @@ export default {
     loadingComments: true,
     loadingCaptcha: false,
     allComments: [],
-    comment: {},
+    content: '',
+    author: {},
     commentsPoll: null,
     handler: new Vue(),
     remember: true,
-    isShow: false
+    showMDHint: false
   }),
   computed: {
     allAuthors () {
@@ -236,7 +244,7 @@ export default {
     async fetchAuthor () {
       const commentAuthor = JSON.parse(localStorage.getItem('comment-author'))
       if (!commentAuthor) this.remember = false
-      if (commentAuthor) this.comment = commentAuthor
+      if (commentAuthor) this.author = commentAuthor
     },
     async fetchComments () {
       const resource = this.$route.path.slice(this.$route.path.lastIndexOf('/') + 1)
@@ -256,9 +264,8 @@ export default {
 
       // Create comment
       const resource = this.$route.path
-      const author = `${this.comment.firstName} ${this.comment.lastName}`
-      const comment = this.comment
-      await this.formService.send({ type: 'SUBMIT', value: { recaptcha, resource, author, ...comment } })
+      const comment = { author: `${this.author.firstName} ${this.author.lastName}`, email: this.author.email, content: this.content }
+      await this.formService.send({ type: 'SUBMIT', value: { recaptcha, resource, ...comment } })
 
       // Set or remove saved user data
       const savedFields = { firstName: comment.firstName, lastName: comment.lastName, email: comment.email }
@@ -266,11 +273,15 @@ export default {
       if (!this.remember) localStorage.removeItem('comment-author')
 
       // Optimistic Update
-      if (!this.error) this.allComments.push({ resource, author, content: marked(comment.content), _id: Math.random(), _ts: new Date().getTime() * 1000 })
+      if (!this.error) this.allComments.push({ resource, ...comment, content: marked(comment.content), _id: Math.random(), _ts: new Date().getTime() * 1000 })
 
       // Clear data
       this.loadingCaptcha = false
-      this.comment.content = ''
+      this.content = ''
+    },
+    replyTo (author) {
+      this.content = `@${author} `
+      this.$scrollTo(this.$refs.commentForm)
     }
   }
 }
@@ -313,9 +324,6 @@ export default {
   max-height: 50px;
   min-height: 50px;
   min-width: 50px;
-}
-.comment > div > .reply {
-  @apply -mt-5;
 }
 .comment > div > .reply button {
   @apply text-sm;
