@@ -5,6 +5,11 @@
         Comments
       </h2>
       <div
+        v-if="loadingComments"
+        class="text-2xl text-center p-10">
+        Loading...
+      </div>
+      <div
         v-if="!allComments.length"
         class="text-2xl text-center p-10">
         No comments yet. Be the first.
@@ -176,6 +181,7 @@ export default {
   components: { Mentionable },
   mixins: [formMachineMixin],
   data: () => ({
+    loadingComments: true,
     allComments: [],
     comment: {},
     commentsPoll: null,
@@ -218,6 +224,7 @@ export default {
       const resource = this.$route.path.slice(this.$route.path.lastIndexOf('/') + 1)
       const comments = await ky.get(`/api/comments/${resource}`).json()
       this.allComments = comments
+      this.loadingComments = false
     },
     formatDate (date) {
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
