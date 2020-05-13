@@ -10,7 +10,7 @@
         Loading...
       </div>
       <div
-        v-if="!allComments.length"
+        v-if="!loadingComments && !allComments.length"
         class="text-2xl text-center p-10">
         No comments yet. Be the first.
       </div>
