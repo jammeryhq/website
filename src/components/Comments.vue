@@ -299,7 +299,7 @@ export default {
 }
 .comment-form .form-input,
 .comment-form .vue-expand {
-  @apply bg-white
+  @apply bg-white;
 }
 .comment figure {
   @apply block;
@@ -312,7 +312,7 @@ export default {
   min-width: 50px;
 }
 .comment > div > .reply {
-  @apply -mt-5
+  @apply -mt-5;
 }
 .comment > div > .reply button {
   @apply text-sm;
