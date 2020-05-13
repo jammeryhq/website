@@ -22,11 +22,9 @@ export default async (req, res) => {
 
     const markdown = marked(content)
     const sanitizedMarkdown = sanitize(markdown, {
-      allowedTags: ['b', 'i', 'em', 'strong', 'a', 'code', 'br', 'pre'],
       allowedAttributes: {
-        a: ['href', 'name', 'target']
-      },
-      allowedSchemes: ['http', 'https']
+        a: ['href', 'name', 'target', 'rel']
+      }
     })
 
     if (!sanitizedMarkdown) throw new Error('No content exists after sanitization.')
