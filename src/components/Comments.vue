@@ -5,8 +5,13 @@
         Comments
       </h2>
       <div
-        v-if="!allComments.length"
-        class="text-2xl">
+        v-if="loadingComments"
+        class="text-2xl text-center p-10">
+        Loading...
+      </div>
+      <div
+        v-if="!loadingComments && !allComments.length"
+        class="text-2xl text-center p-10">
         No comments yet. Be the first.
       </div>
       <div
@@ -15,7 +20,7 @@
         class="comment mb-10">
         <figure>
           <img
-            :src="`https://eu.ui-avatars.com/api?name=${comment.author}`"
+            :src="`https://www.gravatar.com/avatar/${comment.gravatar}`"
             :alt="comment.author"
             class="object-cover">
         </figure>
@@ -75,14 +80,14 @@
               <span
                 class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block"
                 title="&#10004; Markdown Supported"
-                v-on:click="isShow = !isShow" 
-                >
+                @click="isShow = !isShow"
+                @keyup="isShow = !isShow">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
               </span>
               <div
-               v-show="isShow">
+                v-show="isShow">
                 ## - h2
                 ### - h3
                 #### - h4
@@ -159,10 +164,10 @@
           </div>
           <button
             type="submit"
-            :disabled="submitting"
-            :class="submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
+            :disabled="submitting || loadingCaptcha"
+            :class="submitting || loadingCaptcha ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
             class="block w-full px-4 py-6 text-xl font-bold rounded-md mt-4">
-            <span v-if="submitting">Submitting Your Comment...</span>
+            <span v-if="submitting || loadingCaptcha">Submitting Your Comment...</span>
             <span v-else>Submit Your Comment</span>
           </button>
           <p
@@ -192,6 +197,8 @@ export default {
   components: { Mentionable },
   mixins: [formMachineMixin],
   data: () => ({
+    loadingComments: true,
+    loadingCaptcha: false,
     allComments: [],
     comment: {},
     commentsPoll: null,
@@ -208,8 +215,7 @@ export default {
   watch: {
     remember (remember) {
       if (!remember) {
-        localStorage.removeItem('comment-author')
-        this.comment = { content: this.comment.content, firstName: '', lastName: '', email: '' }
+        localStorage.setItem('comment-author', false)
       }
     }
   },
@@ -229,12 +235,14 @@ export default {
   methods: {
     async fetchAuthor () {
       const commentAuthor = JSON.parse(localStorage.getItem('comment-author'))
+      if (!commentAuthor) this.remember = false
       if (commentAuthor) this.comment = commentAuthor
     },
     async fetchComments () {
       const resource = this.$route.path.slice(this.$route.path.lastIndexOf('/') + 1)
       const comments = await ky.get(`/api/comments/${resource}`).json()
       this.allComments = comments
+      this.loadingComments = false
     },
     formatDate (date) {
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -242,6 +250,7 @@ export default {
     },
     async submit () {
       // Fetch recaptcha token
+      this.loadingCaptcha = true
       await this.$recaptchaLoaded()
       const recaptcha = await this.$recaptcha('comment')
 
@@ -260,6 +269,7 @@ export default {
       if (!this.error) this.allComments.push({ resource, author, content: marked(comment.content), _id: Math.random(), _ts: new Date().getTime() * 1000 })
 
       // Clear data
+      this.loadingCaptcha = false
       this.comment.content = ''
     }
   }
@@ -292,7 +302,7 @@ export default {
 }
 .comment-form .form-input,
 .comment-form .vue-expand {
-  @apply bg-white
+  @apply bg-white;
 }
 .comment figure {
   @apply block;
@@ -305,7 +315,7 @@ export default {
   min-width: 50px;
 }
 .comment > div > .reply {
-  @apply -mt-5
+  @apply -mt-5;
 }
 .comment > div > .reply button {
   @apply text-sm;
