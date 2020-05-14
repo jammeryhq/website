@@ -309,10 +309,15 @@ export default {
   ol {
     @apply list-decimal
   }
-  code {
-    @apply whitespace-pre bg-gray-100 text-gray-700 p-5 inline-block rounded-md
+  blockquote {
+    @apply mb-5 bg-gray-100 text-gray-700 p-5 inline-block rounded-md
   }
-   /*...etc */
+  blockquote p {
+    @apply m-0 italic text-xl
+  }
+  code {
+    @apply whitespace-pre text-sm bg-yellow-100 text-gray-700 p-5 inline-block rounded-md
+  }
 }
 .comment span {
   @apply text-sm;
