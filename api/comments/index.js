@@ -22,7 +22,7 @@ export default async (req, res) => {
 
     const markdown = marked(content)
     const sanitizedMarkdown = sanitize(markdown, {
-      allowedTags: sanitize.defaults.allowedTags.concat(['h1', 'h2']),
+      allowedTags: sanitize.defaults.allowedTags.concat(['h2', 'h3', 'h4']),
       allowedAttributes: {
         a: ['href', 'name', 'target', 'rel']
       }
