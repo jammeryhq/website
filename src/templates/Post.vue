@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative">
+    <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
       <h1 class="title">
         {{ $page.post.title }}
       </h1>
