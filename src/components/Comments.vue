@@ -17,7 +17,7 @@
       <div
         v-for="comment in allComments"
         :key="comment._id"
-        class="comment mb-10">
+        class="comment">
         <figure>
           <img
             :src="`https://www.gravatar.com/avatar/${comment.gravatar}`"
@@ -95,11 +95,15 @@
             <div
               class="hints transition duration-500 ease-in-out translate-y-full
               w-2/5 mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0"
-              v-show="showMDHint">Headings - prefix with # (number corresponds to levels)
-*italic* or _italic_
-**bold** or __bold__
-* Item - unordered list item
-1. Item - ordered list item
+              v-show="showMDHint">
+              <ul>
+                <li><strong>Emphasis</strong><span>*text* or _text_</span></li>
+                <li><strong>Bold</strong><span>**text** or __text__</span></li>
+                <li><strong>Unordered List</strong><span>* Item</span></li>
+                <li><strong>Ordered List</strong><span>1. Item</span></li>
+                <li><strong>Code</strong><span>```&lt;p&gt;Some html&lt;/p&gt;```</span></li>
+                <li><strong>Link</strong><span>[GitHub](http://github.com)</span></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -300,14 +304,18 @@ export default {
   @apply items-center;
 }
 .comment-content {
-  h1 {
-    @apply text-4xl;
+  ul,
+  ol {
+    @apply ml-10 mb-5
   }
-  h2 {
-    @apply text-3xl;
+  ul {
+    @apply list-disc
   }
-  p {
-    @apply text-base;
+  ol {
+    @apply list-decimal
+  }
+  code {
+    @apply whitespace-pre bg-gray-100 text-gray-700 p-5 inline-block rounded-md
   }
    /*...etc */
 }
@@ -412,30 +420,14 @@ export default {
   }
 }
 
-.comment-content {
-  & h2,
-  & h3,
-  & h4 {
-    @apply font-bold my-5
-  }
-  & ul,
-  & ol {
-    @apply ml-10 mb-5
-  }
-  & ul {
-    @apply list-disc
-  }
-  & ol {
-    @apply list-decimal
-  }
-  & code {
-    @apply whitespace-pre bg-gray-100 text-gray-700 p-5 inline-block rounded-md
-  }
-}
+/* Markdown Hints */
 .hint-active svg path {
-    fill: #fff;
+  fill: #fff;
 }
 .hint-active .hints {
-    @apply translate-y-0
+  @apply translate-y-0
+}
+.hints ul li strong {
+  @apply inline-block mr-3 text-gray-500
 }
 </style>
