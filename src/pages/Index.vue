@@ -23,13 +23,16 @@ export default {
     title: 'Fast-track your JAMstack Development & Learning',
     description: 'Fast-track your JAMstack development with our Vue/Gridsome Starters, Components and Guides',
     bodyAttrs: {
-      class: 'home min-h-screen lg:overflow-hidden'
+      class: 'home h-screen lg:overflow-hidden'
     }
   }
 }
 </script>
 
 <style>
+.home .app {
+  @apply h-screen
+}
 .home header svg path {
     fill: #fff;
 }
@@ -40,6 +43,6 @@ export default {
   @apply text-white
 }
 .home footer {
-  @apply text-gray-300
+  @apply text-gray-300 absolute bottom-0
 }
 </style>

@@ -20,7 +20,7 @@ export default {
     title: 'About Us',
     description: 'About the team behind JammeryHQ',
     bodyAttrs: {
-      class: 'page'
+      class: 'page about'
     }
   }
 }
@@ -29,5 +29,8 @@ export default {
 <style>
   .page footer a {
     @apply text-black
+  }
+  .about footer {
+    @apply absolute bottom-0
   }
 </style>
