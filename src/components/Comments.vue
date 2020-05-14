@@ -93,8 +93,7 @@
                 viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
             </button>
             <div
-              class="hints transition duration-500 ease-in-out translate-y-full
-              w-2/5 mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0"
+              class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0"
               v-show="showMDHint">
               <ul>
                 <li><strong>Emphasis</strong><span>*text* or _text_</span></li>
@@ -200,10 +199,11 @@ import Vue from 'vue'
 
 // Mixins
 import formMachineMixin from '@/mixins/formMachine'
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   components: { Mentionable },
-  mixins: [formMachineMixin],
+  mixins: [formMachineMixin, clickaway],
   data: () => ({
     loadingComments: true,
     loadingCaptcha: false,
