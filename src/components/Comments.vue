@@ -57,7 +57,7 @@
             class="block">
             <span class="text-gray-700">What's on your mind?</span>
           </label>
-          <div class="relative">
+          <div class="relative" :class="showMDHint ? 'hint-active' : 'hint-inactive'">
             <ClientOnly>
               <Mentionable
                 :keys="['@']"
@@ -83,28 +83,23 @@
                 </template>
               </Mentionable>
             </ClientOnly>
-            <span
-              class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block"
-              title="&#10004; Markdown Supported"
-              @click="showMDHint = !showMDHint"
+            <button
+              class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block z-50"
+              title="✓ Some markdown supported"
+              @click.prevent="showMDHint = !showMDHint"
               @keyup="showMDHint = !showMDHint">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
-            </span>
+            </button>
             <div
-              v-show="showMDHint">
-              ## - h2
-              ### - h3
-              #### - h4
-
-              *This text will be italic*
-              _This will also be italic_
-              **This text will be bold**
-              __This will also be bold__*You **can** combine them*
-
-              * Item - list items
-              1 Item - numbered items
+              class="hints transition duration-500 ease-in-out translate-y-full
+              w-2/5 mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0"
+              v-show="showMDHint">Headings - prefix with # (number corresponds to levels)
+*italic* or _italic_
+**bold** or __bold__
+* Item - unordered list item
+1. Item - ordered list item
             </div>
           </div>
         </div>
@@ -415,5 +410,29 @@ export default {
     opacity: 1;
     transition: opacity .15s;
   }
+}
+
+.comment-content {
+  & h2,
+  & h3,
+  & h4 {
+    @apply font-bold my-5
+  }
+  & ul,
+  & ol {
+    @apply ml-10 mb-5
+  }
+  & ul {
+    @apply list-disc
+  }
+  & ol {
+    @apply list-decimal
+  }
+}
+.hint-active svg path {
+    fill: #fff;
+}
+.hint-active .hints {
+    @apply translate-y-0
 }
 </style>
