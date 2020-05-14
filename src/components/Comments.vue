@@ -25,7 +25,7 @@
             class="object-cover">
         </figure>
         <div>
-          <div class="comment-title">
+          <div class="md:flex md:justify-start md:items-center">
             <h3>{{ comment.author }}</h3>
             <span>{{ formatDate(comment._ts) }}</span>
           </div>
@@ -298,11 +298,6 @@ export default {
   @apply text-2xl;
   @apply font-bold;
 }
-.comment-title {
-  @apply flex;
-  @apply justify-start;
-  @apply items-center;
-}
 .comment-content {
   ul,
   ol {
@@ -350,10 +345,6 @@ export default {
   @apply text-sm;
   @apply text-black;
 }
-</style>
-
-<style lang="scss">
-// Styles for the mention component
 .tooltip {
   display: block !important;
   z-index: 10000;
