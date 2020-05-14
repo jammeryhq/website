@@ -428,6 +428,9 @@ export default {
   & ol {
     @apply list-decimal
   }
+  & code {
+    @apply whitespace-pre bg-gray-100 text-gray-700 p-5 inline-block rounded-md
+  }
 }
 .hint-active svg path {
     fill: #fff;
