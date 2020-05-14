@@ -172,9 +172,9 @@
           <button
             type="submit"
             :disabled="submitting || loadingCaptcha"
-            :class="submitting || loadingCaptcha ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
-            class="block w-full px-4 py-6 text-xl font-bold rounded-md mt-4">
-            <span v-if="submitting || loadingCaptcha">Submitting Your Comment...</span>
+            :class="submitting || loadingCaptcha ? 'text-white' : 'text-accent'"
+            class="button block w-full px-4 py-6 bg-gray-800 text-xl font-bold rounded-md mt-4">
+            <span v-if="submitting || loadingCaptcha" class="loading mx-auto"><g-image src="../../static/loading.gif" class="inline" /> Submitting your comment</span>
             <span v-else>Submit Your Comment</span>
           </button>
           <p
