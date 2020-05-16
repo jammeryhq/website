@@ -238,7 +238,7 @@ export default {
     this.handler.$emit('focus')
     await this.fetchAuthor()
     await this.fetchComments()
-    this.commentsPoll = setInterval(this.fetchComments, 10000)
+    this.startPoll()
   },
   beforeDestroy () {
     clearInterval(this.commentsPoll)
@@ -259,11 +259,17 @@ export default {
       this.allComments = comments
       this.loadingComments = false
     },
+    startPoll () {
+      this.commentsPoll = setInterval(this.fetchComments, 10000)
+    },
     formatDate (date) {
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
       return new Intl.DateTimeFormat('default', options).format(date / 1000)
     },
     async submit () {
+      // Stop polling
+      clearInterval(this.commentsPoll)
+
       // Fetch recaptcha token
       this.loadingCaptcha = true
       await this.$recaptchaLoaded()
@@ -275,7 +281,7 @@ export default {
       await this.formService.send({ type: 'SUBMIT', value: { recaptcha, resource, ...comment } })
 
       // Set or remove saved user data
-      const savedFields = { firstName: comment.firstName, lastName: comment.lastName, email: comment.email }
+      const savedFields = { firstName: this.author.firstName, lastName: this.author.lastName, email: this.author.email }
       if (this.remember) localStorage.setItem('comment-author', JSON.stringify(savedFields))
       if (!this.remember) localStorage.removeItem('comment-author')
 
@@ -285,6 +291,9 @@ export default {
       // Clear data
       this.loadingCaptcha = false
       this.content = ''
+
+      // Restart Polling
+      this.startPoll()
     },
     replyTo (author) {
       this.content = `@${author} `
