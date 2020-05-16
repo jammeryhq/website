@@ -13,6 +13,6 @@ export default function (Vue, { head }) {
   Vue.component('Layout', DefaultLayout)
 
   // Use Plugins
-  Vue.use( VueReCaptcha, { siteKey: process.env.GRIDSOME_RECAPTCHA_SITE_KEY, loaderOptions: { autoHideBadge: true } } )
+  Vue.use(VueReCaptcha, { siteKey: process.env.GRIDSOME_RECAPTCHA_SITE_KEY, loaderOptions: { autoHideBadge: true } })
   Vue.use(VueScrollTo)
 }
