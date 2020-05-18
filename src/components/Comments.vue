@@ -154,13 +154,13 @@
         <div class="w-full mt-5">
           <div class="mt-1">
             <label
-              for="remember"
               class="block whitespace-pre text-gray-700">
               <input
                 v-model="remember"
                 name="remember"
                 type="checkbox"
-                title="Should we save your name and email in your browser?"> Save details for next time</label>
+                class="mr-1"
+                title="Should we save your name and email in your browser?"> <i class="inline-block relative text-gray-800">Save details for next time</i></label>
             <!-- <label
               for="newsletter"
               class="block whitespace-pre text-gray-700"
@@ -331,6 +331,13 @@ export default {
 .comment-form .form-input,
 .comment-form .vue-expand {
   @apply bg-white;
+}
+.comment-form span {
+  @apply text-xl
+}
+.comment-form label i {
+  top: -1px;
+  left: 2px;
 }
 .comment figure {
   @apply block;

@@ -72,8 +72,40 @@ query Post ($path: String) {
 }
 </page-query>
 
-<style>
+<style lang="scss">
   .page footer a {
     @apply text-black
+  }
+  .content {
+    h2, h3, h4, h5, h6 {
+      @apply font-bold my-4
+    }
+    h2 {
+      @apply text-5xl 
+    }
+    h3 {
+      @apply text-4xl 
+    }
+    h4 {
+      @apply text-3xl 
+    }
+    h5 {
+      @apply text-2xl
+    }
+    h6 {
+      @apply text-xl
+    }
+    ol, ul {
+      @apply my-5
+    }
+    li {
+      @apply ml-10 text-xl leading-loose
+    }
+    ol li {
+      @apply list-decimal
+    }
+    ul li {
+      @apply list-disc
+    }
   }
 </style>
