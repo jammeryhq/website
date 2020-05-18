@@ -57,7 +57,9 @@
             class="block">
             <span class="text-gray-700">What's on your mind?</span>
           </label>
-          <div class="relative" :class="showMDHint ? 'hint-active' : 'hint-inactive'">
+          <div
+            class="relative"
+            :class="showMDHint ? 'hint-active' : 'hint-inactive'">
             <ClientOnly>
               <Mentionable
                 :keys="['@']"
@@ -93,8 +95,8 @@
                 viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
             </button>
             <div
-              class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0"
-              v-show="showMDHint">
+              v-show="showMDHint"
+              class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0">
               <ul>
                 <li><strong>Emphasis</strong><span>*text* or _text_</span></li>
                 <li><strong>Bold</strong><span>**text** or __text__</span></li>
@@ -174,7 +176,11 @@
             :disabled="submitting || loadingCaptcha"
             :class="submitting || loadingCaptcha ? 'text-white' : 'text-accent'"
             class="button block w-full px-4 py-6 bg-gray-800 text-xl font-bold rounded-md mt-4">
-            <span v-if="submitting || loadingCaptcha" class="loading mx-auto"><g-image src="../../static/loading.gif" class="inline" /> Submitting your comment</span>
+            <span
+              v-if="submitting || loadingCaptcha"
+              class="loading mx-auto"><g-image
+                src="../../static/loading.gif"
+                class="inline" /> Submitting your comment</span>
             <span v-else>Submit Your Comment</span>
           </button>
           <p
@@ -232,7 +238,7 @@ export default {
     this.handler.$emit('focus')
     await this.fetchAuthor()
     await this.fetchComments()
-    this.commentsPoll = setInterval(this.fetchComments, 10000)
+    this.startPoll()
   },
   beforeDestroy () {
     clearInterval(this.commentsPoll)
@@ -253,11 +259,17 @@ export default {
       this.allComments = comments
       this.loadingComments = false
     },
+    startPoll () {
+      this.commentsPoll = setInterval(this.fetchComments, 10000)
+    },
     formatDate (date) {
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
       return new Intl.DateTimeFormat('default', options).format(date / 1000)
     },
     async submit () {
+      // Stop polling
+      clearInterval(this.commentsPoll)
+
       // Fetch recaptcha token
       this.loadingCaptcha = true
       await this.$recaptchaLoaded()
@@ -269,7 +281,7 @@ export default {
       await this.formService.send({ type: 'SUBMIT', value: { recaptcha, resource, ...comment } })
 
       // Set or remove saved user data
-      const savedFields = { firstName: comment.firstName, lastName: comment.lastName, email: comment.email }
+      const savedFields = { firstName: this.author.firstName, lastName: this.author.lastName, email: this.author.email }
       if (this.remember) localStorage.setItem('comment-author', JSON.stringify(savedFields))
       if (!this.remember) localStorage.removeItem('comment-author')
 
@@ -279,6 +291,9 @@ export default {
       // Clear data
       this.loadingCaptcha = false
       this.content = ''
+
+      // Restart Polling
+      this.startPoll()
     },
     replyTo (author) {
       this.content = `@${author} `

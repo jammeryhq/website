@@ -26,7 +26,6 @@ export default async (req, res) => {
         a: ['href', 'name', 'target', 'rel']
       }
     })
-    console.log(sanitizedMarkdown)
 
     if (!sanitizedMarkdown) throw new Error('No content exists after sanitization.')
 
