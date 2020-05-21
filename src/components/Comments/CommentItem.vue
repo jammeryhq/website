@@ -2,23 +2,23 @@
   <div class="comment">
     <figure>
       <img
-        :src="`https://www.gravatar.com/avatar/${comment.gravatar}`"
-        :alt="comment.author"
+        :src="profileImage"
+        :alt="author.displayName"
         class="object-cover">
     </figure>
     <div>
       <div class="md:flex md:justify-start md:items-center">
-        <h3>{{ comment.author }}</h3>
-        <span>{{ formatDate(comment._ts) }}</span>
+        <h3>{{ author.displayName }}</h3>
+        <span>{{ date }}</span>
       </div>
       <div
         class="comment-content"
-        v-html="comment.content" />
+        v-html="content" />
       <p class="reply">
         <button
-          @click="replyTo(comment.id)"
-          @keyup="replyTo(comment.id)">
-          Reply to {{ comment.author }}
+          @click="replyTo(id)"
+          @keyup="replyTo(id)">
+          Reply to {{ author.displayName }}
         </button>
       </p>
     </div>
@@ -26,8 +26,12 @@
 </template>
 
 <script>
+// Components
+import CommentItem from './CommentItem'
+
 export default {
   name: 'CommentItem',
+  components: { CommentItem },
   props: {
     id: {
       type: String,
@@ -37,9 +41,22 @@ export default {
       type: String,
       default: ''
     },
+    content: {
+      type: String,
+      default: ''
+    },
     author: {
       type: Object,
       default: () => ({})
+    }
+  },
+  computed: {
+    profileImage () {
+      return `https://cdn.auth0.com/avatars/${this.author.displayName.slice(0, 2).toLowerCase()}.png`
+    },
+    date () {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+      return new Intl.DateTimeFormat('default', options).format(new Date(this.createdAt))
     }
   },
   methods: {

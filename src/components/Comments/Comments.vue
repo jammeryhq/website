@@ -4,14 +4,18 @@
       <h2 class="text-6xl font-bold mb-10">
         Comments
       </h2>
-      {{ $auth.user }}
+      <br>
       <button
-        v-if="!$auth.loading"
+        v-if="!$auth.loading && !$auth.isAuthenticated"
         class="button"
         @click="$auth.loginWithPopup()"
         @keyup="$auth.loginWithPopup()">
         Login
       </button>
+      <CommentItem
+        v-for="comment in comments"
+        :key="comment.id"
+        v-bind="comment" />
     </div>
   </div>
 </template>
@@ -19,12 +23,16 @@
 <script>
 // Components
 import { Mentionable } from 'vue-mention'
+import CommentItem from '@/components/Comments/CommentItem'
 
 // Mixins
 import { mixin as clickaway } from 'vue-clickaway'
 
+// Packages
+import gql from 'graphql-tag'
+
 export default {
-  components: { Mentionable },
+  components: { CommentItem, Mentionable },
   mixins: [clickaway],
   data: () => ({
     content: '',
@@ -32,13 +40,37 @@ export default {
     remember: true,
     showMDHint: false
   }),
-  computed: {},
-  watch: {},
-  async mounted () {},
-  methods: {
-    formatDate (date) {
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-      return new Intl.DateTimeFormat('default', options).format(date / 1000)
+  apollo: {
+    comments: {
+      query: gql`query Comments ($resource: String!) {
+        comments(where: {resource: {_eq: $resource }}) {
+          id
+          createdAt
+          author {
+            gravatar
+            displayName
+          }
+          content
+        }
+      }`,
+      subscribeToMore: {
+        document: gql`subscription Comments ($resource: String!) {
+          comments(where: {resource: {_eq: $resource }}) {
+            id
+            createdAt
+            author {
+              gravatar
+              displayName
+            }
+            content
+          }
+        }`,
+        variables () { return { resource: this.$route.fullPath } },
+        updateQuery: (previousResult, { subscriptionData }) => subscriptionData.data
+      },
+      variables () {
+        return { resource: this.$route.fullPath }
+      }
     }
   }
 }
