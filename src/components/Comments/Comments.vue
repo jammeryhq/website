@@ -26,9 +26,9 @@
           Join the Conversation
         </h2>
         <CommentForm v-if="!$auth.loading && $auth.isAuthenticated" />
-        <div v-else-if="!$auth.loading">
+        <div v-if="!$auth.loading && !$auth.user">
           <button
-            class="button"
+            class="button block px-4 py-2 bg-gray-800 text-xl font-bold rounded-md mt-4 text-white"
             @click="$auth.loginWithPopup()"
             @keyup="$auth.loginWithPopup()">
             Login

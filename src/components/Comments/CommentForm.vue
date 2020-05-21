@@ -59,35 +59,39 @@
         </div>
       </div>
     </div>
-    <div class="md:w-1/3">
-      <label
-        for="first_name"
-        class="block mt-4">
-        <span class="text-gray-700">First name</span>
-        <input
-          id="first_name"
-          v-model.trim="comment.author.firstName"
-          name="first_name"
-          type="text"
-          class="block w-full mt-1 form-input"
-          placeholder="Evan"
-          required>
-      </label>
-    </div>
-    <div class="md:w-1/3">
-      <label
-        for="last_name"
-        class="block mt-4 md:mx-4">
-        <span class="text-gray-700">Last name</span>
-        <input
-          id="last_name"
-          v-model.trim="comment.author.lastName"
-          name="last_name"
-          type="text"
-          class="block w-full mt-1 form-input"
-          placeholder="You"
-          required>
-      </label>
+    <div
+      v-if="!$apollo.loading && !author.displayName"
+      class="flex flex-wrap w-full">
+      <div class="md:w-1/2">
+        <label
+          for="first_name"
+          class="block mt-4">
+          <span class="text-gray-700">First name</span>
+          <input
+            id="first_name"
+            v-model.trim="comment.author.firstName"
+            name="first_name"
+            type="text"
+            class="block w-full mt-1 form-input"
+            placeholder="Evan"
+            required>
+        </label>
+      </div>
+      <div class="md:w-1/2">
+        <label
+          for="last_name"
+          class="block mt-4 md:mx-4">
+          <span class="text-gray-700">Last name</span>
+          <input
+            id="last_name"
+            v-model.trim="comment.author.lastName"
+            name="last_name"
+            type="text"
+            class="block w-full mt-1 form-input"
+            placeholder="You"
+            required>
+        </label>
+      </div>
     </div>
     <div class="w-full mt-5">
       <div class="mt-1">
@@ -101,34 +105,60 @@
       </div>
       <button
         type="submit"
-        :disabled="false"
-        :class="'loading' ? 'text-white' : 'text-accent'"
+        :disabled="$apollo.loading"
+        :class="$apollo.loading ? 'text-white' : 'text-accent'"
         class="button block w-full px-4 py-6 bg-gray-800 text-xl font-bold rounded-md mt-4">
         <span
-          v-if="'loading'"
-          class="loading mx-auto"><g-image
+          v-if="$apollo.loading"
+          class="loading mx-auto">
+          <g-image
             src="@/images/loading.gif"
-            class="inline" /> Submitting your comment</span>
+            class="inline" />
+          Submitting your comment
+        </span>
         <span v-else>Submit Your Comment</span>
       </button>
       <p
-        v-if="'error'"
+        v-if="error"
         class="text-sm text-red-400 text-center mt-5">
-        error
+        {{ error }}
       </p>
     </div>
   </form>
 </template>
 
 <script>
+// Components
+import { Mentionable } from 'vue-mention'
+
+// Packages
+import gql from 'graphql-tag'
+
 export default {
   name: 'CommentForm',
+  components: { Mentionable },
   data: () => ({
     comment: {
       author: {},
       content: ''
     },
-    showMDHint: false
-  })
+    showMDHint: false,
+    error: false
+  }),
+  apollo: {
+    author: {
+      query: gql`query Author ($id: String!) {
+        author: user (id: $id) {
+          id
+          displayName
+        }
+      }`,
+      variables () {
+        const authUser = this.$auth.user
+        const id = authUser[ 'https://hasura.io/jwt/claims' ][ 'x-hasura-user-id' ]
+        return { id }
+      }
+    }
+  }
 }
 </script>
