@@ -2,25 +2,25 @@ import { createApolloClient } from './graphql-client'
 import VueApollo from 'vue-apollo'
 import { getInstance } from '../auth'
 
-const getAuth = async () => {
+const getAuth = () => new Promise((resolve, reject) => {
   const authService = getInstance()
   const getToken = async () => {
     const token = await authService.getTokenSilently()
     return token ? `Bearer ${token}` : ''
   }
 
-  if (!authService.loading) return getToken()
+  if (!authService.loading) resolve(getToken())
 
   authService.$watch('loading', loading => {
-    if (loading === false) return getToken()
+    if (loading === false) resolve(getToken())
   })
-}
+})
 
-const defaultClient = createApolloClient({
+const { apolloClient } = createApolloClient({
   httpEndpoint: process.env.GRIDSOME_GRAPHQL_ENDPOINT,
   wsEndpoint: process.env.GRIDSOME_GRAPHQL_WSS_ENDPOINT,
   getAuth
 })
 
 export default VueApollo
-export const apolloProvider = new VueApollo({ defaultClient })
+export const apolloProvider = new VueApollo({ defaultClient: apolloClient })

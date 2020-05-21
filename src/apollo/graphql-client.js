@@ -7,7 +7,6 @@ import MessageTypes from 'subscriptions-transport-ws/dist/message-types'
 import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 import { setContext } from 'apollo-link-context'
-import { withClientState } from 'apollo-link-state'
 
 // Create the apollo client
 export function createApolloClient ({
@@ -42,7 +41,7 @@ export function createApolloClient ({
   // apollo-link-state options
   clientState = null,
   // Function returning Authorization header token
-  getAuth = defaultGetAuth,
+  getAuth,
   // Local Schema
   typeDefs = undefined,
   // Local Resolvers
@@ -73,7 +72,6 @@ export function createApolloClient ({
     // HTTP Auth header injection
     authLink = setContext(async (_, { headers }) => {
       const authorization = await getAuth()
-      console.log(authorization)
       const authorizationHeader = authorization ? { authorization } : {}
       return {
         headers: {
@@ -101,11 +99,12 @@ export function createApolloClient ({
 
     // Web socket
     if (wsEndpoint) {
-      wsClient = new SubscriptionClient(wsEndpoint, {
+      wsClient = new SubscriptionClient( wsEndpoint, {
+        lazy: true,
         reconnect: true,
-        connectionParams: () => {
-          const authorization = getAuth(tokenName)
-          return authorization ? { authorization, headers: { authorization } } : {}
+        connectionParams: async () => {
+          const authorization = await getAuth(tokenName)
+          return { headers: { authorization } }
         }
       })
 
@@ -127,15 +126,6 @@ export function createApolloClient ({
         )
       }
     }
-  }
-
-  if (clientState) {
-    console.warn(`clientState is deprecated, see https://vue-cli-plugin-apollo.netlify.com/guide/client-state.html`)
-    stateLink = withClientState({
-      cache,
-      ...clientState
-    })
-    link = from([stateLink, link])
   }
 
   const apolloClient = new ApolloClient({
@@ -191,13 +181,4 @@ export function restartWebsockets (wsClient) {
       operations[ id ].options
     )
   })
-}
-
-function defaultGetAuth (tokenName) {
-  if (typeof window !== 'undefined') {
-    // get the authentication token from local storage if it exists
-    const token = window.localStorage.getItem(tokenName)
-    // return the headers to the context so httpLink can read them
-    return token ? `Bearer ${token}` : ''
-  }
 }
