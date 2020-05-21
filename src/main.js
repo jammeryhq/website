@@ -18,6 +18,8 @@ export default function (Vue, { router, appOptions, isClient }) {
   Vue.use(Auth0Plugin, {
     domain: process.env.GRIDSOME_AUTH0_DOMAIN,
     clientId: process.env.GRIDSOME_AUTH0_CLIENT_ID,
+    scope: 'openid profile email user_metadata picture',
+    audience: 'https://jammeryhq.eu.auth0.com/api/v2/',
     onRedirectCallback: appState => {
       router.push(appState && appState.targetUrl ? appState.targetUrl : window.location.pathname)
     }
