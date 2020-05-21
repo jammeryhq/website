@@ -8,6 +8,7 @@
     "lint": "eslint --ext js,vue . --fix"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.8.1",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.5.0",
     "gridsome": "latest",

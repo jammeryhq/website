@@ -19,7 +19,7 @@
 
 <script>
 // Components
-import Comments from '@/components/Comments'
+import Comments from '@/components/Comments/Comments'
 
 export default {
   metaInfo () {

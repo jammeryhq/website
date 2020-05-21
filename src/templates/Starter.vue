@@ -10,17 +10,11 @@
       <div
         class="content"
         v-html="$page.starter.content" />
-      <div class="comment-form">
-        <Comments />
-      </div>
     </div>
   </Layout>
 </template>
 
 <script>
-// Components
-import Comments from '@/components/Comments'
-
 export default {
   metaInfo () {
     return {
@@ -84,13 +78,13 @@ query Starter ($path: String) {
       @apply font-bold my-4
     }
     h2 {
-      @apply text-5xl 
+      @apply text-5xl
     }
     h3 {
-      @apply text-4xl 
+      @apply text-4xl
     }
     h4 {
-      @apply text-3xl 
+      @apply text-3xl
     }
     h5 {
       @apply text-2xl
