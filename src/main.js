@@ -5,11 +5,12 @@ import DefaultLayout from '~/layouts/Default.vue'
 import { Auth0Plugin, getInstance } from './auth'
 import { VueReCaptcha } from 'vue-recaptcha-v3'
 import VueScrollTo from 'vue-scrollto'
+import VueApollo, { apolloProvider } from './apollo'
 
 // Styles
 import '~/main.css'
 
-export default function (Vue, { head, router, isClient }) {
+export default function (Vue, { router, appOptions, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
@@ -18,15 +19,15 @@ export default function (Vue, { head, router, isClient }) {
     domain: process.env.GRIDSOME_AUTH0_DOMAIN,
     clientId: process.env.GRIDSOME_AUTH0_CLIENT_ID,
     onRedirectCallback: appState => {
-      router.push(
-        appState && appState.targetUrl
-          ? appState.targetUrl
-          : window.location.pathname
-      )
+      router.push(appState && appState.targetUrl ? appState.targetUrl : window.location.pathname)
     }
   })
   Vue.use(VueReCaptcha, { siteKey: process.env.GRIDSOME_RECAPTCHA_SITE_KEY, loaderOptions: { autoHideBadge: true } })
   Vue.use(VueScrollTo)
+  Vue.use(VueApollo)
+
+  // Add Vue options
+  appOptions.apolloProvider = apolloProvider
 
   if (isClient) {
     // Handle Authenticated Routes
