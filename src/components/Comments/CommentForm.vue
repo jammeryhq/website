@@ -164,9 +164,11 @@ export default {
   }),
   apollo: {
     user: {
-      query: gql`query Author ($id: String!) {
+      query: gql`query User ($id: String!) {
         user (id: $id) {
           id
+          firstName
+          lastName
           displayName
         }
       }`,
@@ -181,9 +183,9 @@ export default {
       this.loading = true
 
       try {
-        const author = this.author
-        const comment = { content: this.comment.content, resource: this.$route.fullPath, parentId: this.replyingTo }
         const userId = this.$auth.user.sub
+        const author = this.author
+        const comment = { content: this.comment.content, resource: this.$route.fullPath, parentId: this.comment.replyingTo }
 
         await this.$recaptchaLoaded()
         const recaptcha = await this.$recaptcha('comment')
@@ -192,16 +194,38 @@ export default {
           mutation: gql`mutation CreateComment($userId: String!, $author: users_set_input, $comment: CommentInput!, $recaptcha: String!) {
             updateUser(pk_columns: {id: $userId}, _set: $author) {
               id
+              firstName
+              lastName
+              displayName
             }
             createComment(comment: $comment, recaptcha: $recaptcha) {
               id
             }
           }`,
-          variables: { author, comment, userId, recaptcha }
+          variables: { author, comment, userId, recaptcha },
+          update: (store, { data: { updateUser } }) => {
+            if (!updateUser.id) return
+            const variables = { id: this.$auth.user.sub }
+            const query = gql`query User ($id: String!) {
+              user (id: $id) {
+                id
+                firstName
+                lastName
+                displayName
+                __typename
+              }
+            }`
+            const data = store.readQuery({ query, variables })
+            data.user = { ...data.user, ...updateUser }
+            console.log(data)
+            store.writeQuery({ query, variables, data })
+          }
         })
 
         if (errors && errors.length) throw new Error(errors[ 0 ].message)
 
+        this.comment = {}
+        this.author = {}
         this.loading = false
       } catch (error) {
         this.loading = false
