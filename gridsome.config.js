@@ -37,7 +37,7 @@ module.exports = {
             'nesting-rules': true
           }
         },
-        shouldPurge: true,
+        shouldPurge: false,
         shouldImport: true,
         shouldTimeTravel: true
       }
