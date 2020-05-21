@@ -26,6 +26,10 @@ export default {
       query: gql`query User ($id: String!) {
         user (id: $id) {
           id
+          email
+          name
+          firstName
+          lastName
           displayName
           gravatar
         }
