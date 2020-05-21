@@ -14,6 +14,12 @@ module.exports = {
         path: '/blog/:title',
         component: './src/templates/Post.vue'
       }
+    ],
+    Starter: [
+      {
+        path: '/starters/:title',
+        component: './src/templates/Starter.vue'
+      }
     ]
   },
   plugins: [
@@ -41,6 +47,19 @@ module.exports = {
       options: {
         path: 'content/blog/**/*.md',
         typeName: 'Post',
+        resolveAbsolutePaths: true,
+        remark: {
+          plugins: [
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+          ]
+        }
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/starters/**/*.md',
+        typeName: 'Starter',
         resolveAbsolutePaths: true,
         remark: {
           plugins: [

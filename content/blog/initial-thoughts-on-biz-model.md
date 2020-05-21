@@ -1,10 +1,10 @@
 ---
-title: Initial thoughts on a business model for JammeryHQ
-slug: initial-thoughts-on-a-business-model-for-jammeryhq
-date: 2020-04-20
+title: Initial thoughts on a business model
+slug: initial-thoughts-on-a-business-model
+date: 2020-05-20
 excerpt: We've been considering various business models for Jammery and we feel we've struck a great balance between building a sustainable business, while still contributing back to the community and projects we support.
 searchTerms: blog
-published: false
+published: true
 ---
 While there is merit in each of the models we looked at, we're leaning towards a club / subscription model.
 

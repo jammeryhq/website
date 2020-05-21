@@ -4,9 +4,9 @@
     <nav class="nav text-xl md:text-lg md:mr-5 text-center md:text-left">
       <g-link
         class="nav__link"
-        to="/about"
-        title="More about Chris and Travis">
-        About
+        to="/starters"
+        title="View our Gridsome starters">
+        Starters
       </g-link>
       <g-link
         class="nav__link"

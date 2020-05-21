@@ -1,14 +1,18 @@
 <template>
   <form
-    class="form newsletter mb-20 md:mb-0 mt-5 pt-10 mt-8 mx-auto w-auto"
+    class="form newsletter mb-20 md:mb-0 mt-5 pt-10 mt-8 w-auto"
+    :class="align || 'text-center mx-auto'"
     @submit.prevent="subscribe">
-    <h2 class="text-gray-100 text-4xl font-bold text-center mb-3">
-      Get notified when we launch
+    <h2 v-if="title != '' && headingLevel === '2'" class="text-gray-100 text-4xl font-bold mb-3">
+      {{ title || 'Get notified when we launch' }}
     </h2>
-    <p class="text-gray-100 text-lg max-w-xl mx-auto text-center mb-6">
-      We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live.
+    <h3 v-if="title != '' && headingLevel === '3'" class="text-gray-100 text-4xl font-bold mb-3">
+      {{ title || 'Get notified when we launch' }}
+    </h3>
+    <p v-if="desc != ''" class="text-gray-100 text-lg mb-6">
+      {{ desc || 'We\'re still working on our initial products, but add your name and email to our list and we\'ll let you know when we go live.' }}
     </p>
-    <div class="flex flex-col md:flex-row md:items-center md:justify-center">
+    <div class="flex flex-col md:flex-row md:items-center">
       <div class="md:w-1/3 mb-4 md:mb-0 md:mr-5">
         <label
           for="name"
@@ -41,7 +45,7 @@
         <button
           type="submit"
           :disabled="!idle"
-          :class="submitting ? 'bg-gray-400 text-white' : sent ? 'bg-gray-400 text-accent' : 'bg-gray-800 text-accent'"
+          :class="submitting ? buttonSendingClass || 'bg-gray-400 text-white' : sent ? buttonSendingClass || 'bg-gray-400 text-accent' : buttonDefaultClass || 'bg-gray-800 text-accent'"
           class="block w-full px-10 py-4 text-xl font-bold rounded-md md:ml-3">
           <span v-if="submitting">Subscribing...</span>
           <span v-else-if="sent">Subscribed!</span>
@@ -66,6 +70,15 @@ import formMachineMixin from '@/mixins/formMachine'
 
 export default {
   name: 'NewsletterSignup',
+  props: {
+    'title': String,
+    'headingLevel': String,
+    'desc': String,
+    'align': String,
+    'buttonDefaultClass': String,
+    'buttonSendingClass': String,
+    'buttonSentClass': String
+  },
   mixins: [formMachineMixin],
   data: () => ({
     subscriber: {}
