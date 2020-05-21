@@ -4,31 +4,51 @@
       <h2 class="text-6xl font-bold mb-10">
         Comments
       </h2>
-      <br>
-      <button
-        v-if="!$auth.loading && !$auth.isAuthenticated"
-        class="button"
-        @click="$auth.loginWithPopup()"
-        @keyup="$auth.loginWithPopup()">
-        Login
-      </button>
+      <div
+        v-if="$apollo.loading"
+        class="text-2xl">
+        Loading...
+      </div>
+      <div
+        v-if="!$apollo.loading && !comments.length"
+        class="text-3xl text-gray-700">
+        <b class="text-3xl mr-3 text-black">
+          <span role="img">😱</span>
+        </b>
+        No comments yet. Be the first!
+      </div>
       <CommentItem
         v-for="comment in comments"
         :key="comment.id"
         v-bind="comment" />
+      <div class="comment-form bg-gray-100 rounded-md p-10 mt-10">
+        <h2 class="text-4xl font-bold mb-4">
+          Join the Conversation
+        </h2>
+        <CommentForm v-if="!$auth.loading && $auth.isAuthenticated" />
+        <div v-else-if="!$auth.loading">
+          <button
+            class="button"
+            @click="$auth.loginWithPopup()"
+            @keyup="$auth.loginWithPopup()">
+            Login
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // Components
+import CommentForm from '@/components/Comments/CommentForm'
 import CommentItem from '@/components/Comments/CommentItem'
 
 // Packages
 import gql from 'graphql-tag'
 
 export default {
-  components: { CommentItem },
+  components: { CommentForm, CommentItem },
   apollo: {
     comments: {
       query: gql`query Comments ($resource: String!) {
