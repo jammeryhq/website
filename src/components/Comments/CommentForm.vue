@@ -60,16 +60,16 @@
       </div>
     </div>
     <div
-      v-if="!$apollo.loading && !author.displayName"
+      v-if="!$apollo.loading && !user.displayName"
       class="flex flex-wrap w-full">
-      <div class="md:w-1/2">
+      <div class="md:w-1/3">
         <label
           for="first_name"
           class="block mt-4">
-          <span class="text-gray-700">First name</span>
+          <span class="text-gray-700">First Name</span>
           <input
             id="first_name"
-            v-model.trim="comment.author.firstName"
+            v-model.trim="author.firstName"
             name="first_name"
             type="text"
             class="block w-full mt-1 form-input"
@@ -77,18 +77,33 @@
             required>
         </label>
       </div>
-      <div class="md:w-1/2">
+      <div class="md:w-1/3">
         <label
           for="last_name"
           class="block mt-4 md:mx-4">
-          <span class="text-gray-700">Last name</span>
+          <span class="text-gray-700">Last Name</span>
           <input
             id="last_name"
-            v-model.trim="comment.author.lastName"
+            v-model.trim="author.lastName"
             name="last_name"
             type="text"
             class="block w-full mt-1 form-input"
             placeholder="You"
+            required>
+        </label>
+      </div>
+      <div class="md:w-1/3">
+        <label
+          for="last_name"
+          class="block mt-4 md:mx-4">
+          <span class="text-gray-700">Display Name</span>
+          <input
+            id="last_name"
+            v-model.trim="author.displayName"
+            name="last_name"
+            type="text"
+            class="block w-full mt-1 form-input"
+            placeholder="AcrobaticGiraffe"
             required>
         </label>
       </div>
@@ -105,11 +120,11 @@
       </div>
       <button
         type="submit"
-        :disabled="$apollo.loading"
-        :class="$apollo.loading ? 'text-white' : 'text-accent'"
+        :disabled="loading"
+        :class="loading ? 'text-white' : 'text-accent'"
         class="button block w-full px-4 py-6 bg-gray-800 text-xl font-bold rounded-md mt-4">
         <span
-          v-if="$apollo.loading"
+          v-if="loading"
           class="loading mx-auto">
           <g-image
             src="@/images/loading.gif"
@@ -138,17 +153,19 @@ export default {
   name: 'CommentForm',
   components: { Mentionable },
   data: () => ({
+    author: {},
     comment: {
-      author: {},
-      content: ''
+      content: '',
+      replyingTo: null
     },
     showMDHint: false,
+    loading: false,
     error: false
   }),
   apollo: {
-    author: {
+    user: {
       query: gql`query Author ($id: String!) {
-        author: user (id: $id) {
+        user (id: $id) {
           id
           displayName
         }
@@ -156,6 +173,39 @@ export default {
       variables () {
         const user = this.$auth.user
         return { id: user.sub }
+      }
+    }
+  },
+  methods: {
+    async submit () {
+      this.loading = true
+
+      try {
+        const author = this.author
+        const comment = { content: this.comment.content, resource: this.$route.fullPath, parentId: this.replyingTo }
+        const userId = this.$auth.user.sub
+
+        await this.$recaptchaLoaded()
+        const recaptcha = await this.$recaptcha('comment')
+
+        const response = await this.$apollo.mutate({
+          mutation: gql`mutation CreateComment($userId: String!, $author: users_set_input, $comment: CommentInput!, $recaptcha: String!) {
+            updateUser(pk_columns: {id: $userId}, _set: $author) {
+              id
+            }
+            createComment(comment: $comment, recaptcha: $recaptcha) {
+              id
+            }
+          }`,
+          variables: { author, comment, userId, recaptcha }
+        })
+
+        console.log(response)
+
+        this.loading = false
+      } catch (error) {
+        this.loading = false
+        console.error(error)
       }
     }
   }
