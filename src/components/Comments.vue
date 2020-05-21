@@ -1,7 +1,7 @@
 <template>
   <div class="comments-wrap">
     <div class="comments">
-      <h2 class="text-6xl font-bold mb-10">
+      <h2 class="text-6xl font-bold mb-4">
         Comments
       </h2>
       <div
@@ -11,8 +11,8 @@
       </div>
       <div
         v-if="!loadingComments && !allComments.length"
-        class="text-2xl">
-        No comments yet. Be the first.
+        class="text-3xl text-gray-700">
+        <b class="text-3xl mr-3 text-black">😱</b> No comments yet. Be the first!
       </div>
       <div
         v-for="comment in allComments"
