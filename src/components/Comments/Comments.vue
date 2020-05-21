@@ -22,24 +22,13 @@
 
 <script>
 // Components
-import { Mentionable } from 'vue-mention'
 import CommentItem from '@/components/Comments/CommentItem'
-
-// Mixins
-import { mixin as clickaway } from 'vue-clickaway'
 
 // Packages
 import gql from 'graphql-tag'
 
 export default {
-  components: { CommentItem, Mentionable },
-  mixins: [clickaway],
-  data: () => ({
-    content: '',
-    author: {},
-    remember: true,
-    showMDHint: false
-  }),
+  components: { CommentItem },
   apollo: {
     comments: {
       query: gql`query Comments ($resource: String!) {
