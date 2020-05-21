@@ -54,8 +54,8 @@
         <div class="w-full">
           <label
             for="comment"
-            class="block">
-            <span class="text-gray-700">What's on your mind?</span>
+            class="block text-gray-700">
+            What's on your mind?
           </label>
           <div
             class="relative"
@@ -96,13 +96,14 @@
             </button>
             <div
               v-show="showMDHint"
-              class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-white p-5 leading-relaxed absolute top-0 right-0">
+              class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-sm text-white p-5 pt-4 leading-relaxed absolute top-0 right-0">
               <ul>
                 <li><strong>Emphasis</strong><span>*text* or _text_</span></li>
                 <li><strong>Bold</strong><span>**text** or __text__</span></li>
                 <li><strong>Unordered List</strong><span>* Item</span></li>
                 <li><strong>Ordered List</strong><span>1. Item</span></li>
                 <li><strong>Code</strong><span>```&lt;p&gt;Some html&lt;/p&gt;```</span></li>
+                <li><strong>Quote</strong><span>> Your quote text</span></li>
                 <li><strong>Link</strong><span>[GitHub](http://github.com)</span></li>
               </ul>
             </div>
@@ -111,8 +112,8 @@
         <div class="md:w-1/3">
           <label
             for="first_name"
-            class="block mt-4">
-            <span class="text-gray-700">First name</span>
+            class="block mt-4 text-gray-700">
+            First name
             <input
               id="first_name"
               v-model.trim="author.firstName"
@@ -126,8 +127,8 @@
         <div class="md:w-1/3">
           <label
             for="last_name"
-            class="block mt-4 md:mx-4">
-            <span class="text-gray-700">Last name</span>
+            class="block mt-4 md:mx-4 text-gray-700">
+            Last name
             <input
               id="last_name"
               v-model.trim="author.lastName"
@@ -141,8 +142,8 @@
         <div class="md:w-1/3">
           <label
             for="email"
-            class="block mt-4">
-            <span class="text-gray-700">Email</span>
+            class="block mt-4 text-gray-700">
+            Email
             <input
               id="email"
               v-model.trim="author.email"
@@ -163,13 +164,6 @@
                 type="checkbox"
                 class="mr-1"
                 title="Should we save your name and email in your browser?"> <i class="inline-block relative text-gray-800">Save details for next time</i></label>
-            <!-- <label
-              for="newsletter"
-              class="block whitespace-pre text-gray-700"
-              title="Would you like to subscribe to our newsletter?">
-              <input
-                name="newsletter"
-                type="checkbox"> Subscribe to the newsletter</label> -->
           </div>
           <button
             type="submit"
@@ -334,11 +328,6 @@ export default {
     @apply whitespace-pre text-sm bg-yellow-100 text-gray-700 p-5 inline-block rounded-md
   }
 }
-.comment span {
-  @apply text-sm;
-  @apply ml-2;
-  @apply text-gray-700;
-}
 .comment p {
   @apply text-lg;
   @apply leading-relaxed;
@@ -346,9 +335,6 @@ export default {
 .comment-form .form-input,
 .comment-form .vue-expand {
   @apply bg-white;
-}
-.comment-form span {
-  @apply text-xl
 }
 .comment-form label i {
   top: -1px;
