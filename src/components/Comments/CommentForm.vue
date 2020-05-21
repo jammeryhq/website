@@ -154,9 +154,8 @@ export default {
         }
       }`,
       variables () {
-        const authUser = this.$auth.user
-        const id = authUser[ 'https://hasura.io/jwt/claims' ][ 'x-hasura-user-id' ]
-        return { id }
+        const user = this.$auth.user
+        return { id: user.sub }
       }
     }
   }
