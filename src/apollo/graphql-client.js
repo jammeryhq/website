@@ -99,7 +99,7 @@ export function createApolloClient ({
 
     // Web socket
     if (wsEndpoint) {
-      wsClient = new SubscriptionClient( wsEndpoint, {
+      wsClient = new SubscriptionClient(wsEndpoint, {
         lazy: true,
         reconnect: true,
         connectionParams: async () => {

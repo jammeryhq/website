@@ -5,6 +5,7 @@ import { getInstance } from '../auth'
 const getAuth = () => new Promise((resolve, reject) => {
   const authService = getInstance()
   const getToken = async () => {
+    if (!authService.isAuthenticated) return ''
     const token = await authService.getTokenSilently()
     return token ? `Bearer ${token}` : ''
   }
