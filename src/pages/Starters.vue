@@ -20,7 +20,7 @@
                       <h2 class="font-bold text-5xl">Excelsior</h2>
                       <strong class="inline-block ml-10 bg-yellow-400 -mt-8 rounded-md px-4 py-3">* Exclusive to Members</strong>
                     </div>
-                    <p class="mb-3 text-xl mt-6">Excelsior is our members-only exclusive utility starter that includes support for all Gridsome starters, plugins and popular NPM packages, all configured via our upcoming CLI in a minute or less.</p>
+                    <p class="mb-3 text-xl -mt-2">Excelsior is our members-only exclusive utility starter that includes support for all Gridsome starters, plugins and popular NPM packages, all configured via our upcoming CLI in a minute or less.</p>
                     <h3 class="font-bold text-4xl">What you can expect</h3>
                     <ul>
                         <li>Consistent layouts for all Gridsome starters (index, term, single)</li>
@@ -30,7 +30,6 @@
                         <li>Optional authentication with Firestore, Auth0</li>
                         <li>Killer lightroom scores out the box</li>
                     </ul>
-                    <NewsletterForm title="Get Excelsior updates in your inbox" desc="Subscribe to our no-spam-guarenteed newsletter and we'll send over occasional updates on our progress. We'll also include a few subscriber-only goodies when we launch ;)" align="text-left" class="bg-gray-900 p-10 rounded-md overflow-hidden" headingLevel="3" buttonDefaultClass="bg-green-500 text-black" />
                 </div>
             </article>
             <div>
@@ -91,12 +90,8 @@ query Starters ($page: Int) {
 </page-query>
 
 <script>
-import NewsletterForm from '@/components/NewsletterForm'
 
 export default {
-    components: {
-        NewsletterForm
-    },
     metaInfo: {
         title: 'Starters',
         description: 'Our growing collection of starters for Gridsome',
@@ -116,7 +111,7 @@ export default {
   }
   article {
     ul {
-        @apply mt-4 mb-10 ml-4 text-xl
+        @apply mt-4 mb-0 ml-4 text-xl
     }
     li:before {
         content: "\2713";
