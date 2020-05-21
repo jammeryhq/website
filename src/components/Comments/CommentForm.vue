@@ -188,7 +188,7 @@ export default {
         await this.$recaptchaLoaded()
         const recaptcha = await this.$recaptcha('comment')
 
-        const response = await this.$apollo.mutate({
+        const { errors } = await this.$apollo.mutate({
           mutation: gql`mutation CreateComment($userId: String!, $author: users_set_input, $comment: CommentInput!, $recaptcha: String!) {
             updateUser(pk_columns: {id: $userId}, _set: $author) {
               id
@@ -200,11 +200,12 @@ export default {
           variables: { author, comment, userId, recaptcha }
         })
 
-        console.log(response)
+        if (errors && errors.length) throw new Error(errors[ 0 ].message)
 
         this.loading = false
       } catch (error) {
         this.loading = false
+        this.error = error.message
         console.error(error)
       }
     }
