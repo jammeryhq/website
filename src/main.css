@@ -77,6 +77,16 @@ article h2 {
   @apply block text-4xl font-bold mb-10 bg-black inline text-white py-3 px-4;
   box-shadow: 7px 7px rgb(0, 208, 132);
 }
+/* article h2.feedback {
+  box-shadow: 7px 7px red;
+}
+article h2.thoughts {
+  box-shadow: 7px 7px orange;
+}
+article h2.product {
+  box-shadow: 7px 7px blue;
+} */
+
 
 .content {
   & h2, 

@@ -1,5 +1,5 @@
 <template>
-  <div class="comments-wrap">
+  <div class="comments-wrap pb-50">
     <div class="comments">
       <h2 class="text-6xl font-bold mb-4">
         Comments
@@ -26,11 +26,11 @@
         </figure>
         <div>
           <div class="md:flex md:justify-start md:items-center">
-            <h3>{{ comment.author }}</h3>
-            <span>{{ formatDate(comment._ts) }}</span>
+            <h3 class="mb-0 leading-none">{{ comment.author }}</h3>
+            <span class="ml-4 text-gray-600">{{ formatDate(comment._ts) }}</span>
           </div>
           <div
-            class="comment-content"
+            class="comment-content mt-2 text-xl"
             v-html="comment.content" />
           <p class="reply">
             <button
@@ -54,7 +54,7 @@
         <div class="w-full">
           <label
             for="comment"
-            class="block text-gray-700">
+            class="block text-gray-700 mb-1">
             What's on your mind?
           </label>
           <div
@@ -174,7 +174,7 @@
               v-if="submitting || loadingCaptcha"
               class="loading mx-auto"><g-image
                 src="../../static/loading.gif"
-                class="inline" /> Submitting your comment</span>
+                class="inline" /></span>
             <span v-else>Submit Your Comment</span>
           </button>
           <p
@@ -328,13 +328,16 @@ export default {
     @apply whitespace-pre text-sm bg-yellow-100 text-gray-700 p-5 inline-block rounded-md
   }
 }
-.comment p {
-  @apply text-lg;
+.comment .content p {
+  @apply text-xl;
   @apply leading-relaxed;
 }
 .comment-form .form-input,
 .comment-form .vue-expand {
   @apply bg-white;
+}
+.comment-form label {
+  @apply text-xl;
 }
 .comment-form label i {
   top: -1px;

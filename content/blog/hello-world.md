@@ -1,10 +1,11 @@
 ---
-title: Hello World - We're JammeryHQ
+title: Hello world - we're JammeryHQ
 slug: hello-world
 date: 2020-04-20
 excerpt: We're JammeryHQ, a new collaboration between Chris Rault (aka SmokeyFro) and Travis Reynolds (aka Thetre97) to create premium resources for the JAMstack Community.
 searchTerms: blog
 published: true
+topic: news
 ---
 You may know both of us from the Gridsome discord chat, where we both help out when ever possible. 
 
