@@ -116,12 +116,13 @@ article h2.product {
   & h2:hover {
     -webkit-transform: scale(1.25, 1.25);
     transform: scale(1.25, 1.25);
-    box-shadow: -7px -7px #ffe606;
+    box-shadow: -7px -7px #00d084;
   }
   &:hover::after {
       @apply opacity-100;
   }
 }
+
 
 .content {
   & h2, 
