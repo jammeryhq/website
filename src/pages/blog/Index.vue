@@ -10,7 +10,7 @@
       <article
         v-for="edge in $page.blog.edges"
         :key="edge.node.id"
-        class="mt-6 mb-10">
+        class="mt-6 mb-10 post">
         <h2 class="text-2xl lg:text-4xl font-bold mb-4 bg-black inline text-white p-3" :class="`${edge.node.topic}`">
           <g-link
             :to="`${edge.node.path}`"
