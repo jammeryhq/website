@@ -12,7 +12,7 @@
         </div>
             <g-image src="/2.svg" class="image" />
         <div class="w-1/3 bg-white pr-20 shadow-2xl fixed right-0 h-full survey-form overflow-y-auto z-50">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD11Wb4d4SLjUYoG3CcNimyIr0Qy75Y4zHZV1LbhNA3vyjBQ/viewform?embedded=true" width="640" height="4783" frameborder="0" marginheight="0" marginwidth="0" class="mr-10">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD11Wb4d4SLjUYoG3CcNimyIr0Qy75Y4zHZV1LbhNA3vyjBQ/viewform?embedded=true" width="640" height="4783" frameborder="0" marginheight="0" marginwidth="0" class="mr-10 text-xl">Loading…</iframe>
         </div>
     </div>
   </Layout>

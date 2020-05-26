@@ -4,7 +4,7 @@ slug: rolling-our-own-comments-engine
 date: 2020-05-06
 excerpt: While there are a number of ways to add comments to your JAMstack site, we're exploring ideas for a more integrated solution for Gridsome - ideally one with little to no monthly cost.
 searchTerms: comments
-published: true
+published: false
 topic: feedback
 ---
 Comments have been around for ages and haven't changed much over the years. It's a technology that most people are generally comfortable with. When it comes to adding comments to your JAMstack site, there are a plethora of options available. I might even say an overwhelming amount of options. While the diversity of any technology is a good thing, it can also make a relatively simple task of adding comments to your site, somewhat daunting. 

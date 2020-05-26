@@ -1,17 +1,19 @@
 ---
 title: Thoughts on a business model
 slug: thoughts-on-a-business-model
-date: 2020-05-20
-excerpt: We've been considering various business models for Jammery and we feel we've struck a great balance between building a sustainable business, while still contributing back to the community and projects we support.
+date: 2020-05-18
+excerpt: 
 searchTerms: blog
 published: true
 topic: thoughts
 ---
-While there is merit in each of the models we looked at, we're leaning towards a club / subscription model with a twist. 
+When I first pitched Travis about teaming up, our goal was to test the waters and establish whether there is any demand for paid Gridsome starters/plugins. At the moment we are both still freelancing to makes ends meet, but our hope is that we can find the right niche within the Gridsome community, to be able to work on building products for JAMstack full-time. 
 
-Our goal for this new collaboration is two-fold. On the one hand, we need to put food on the table and sustain ourselves while working on Jammery fulltime and on the other, we want to contribute back to the JAMstack community.
+There are of course a number of steps before we can really answer that question, but for now we're treating the brand as a mvp.
 
-So, with that in mind, we're leaning towards a model where members get early access to our Gridsome starters, component library and detailed setup guides. This way, members get access to our new goodies as they are released, but then after a set period (for example 6 months) they are made available to everyone.
+As part of any new business setup where you need to decide on a pricing structure for your products. When it comes to digital products, this can also be thought of as a business model. Essentially how you're going to monetize your products. Most of the traditional business models we considered share the same flaw - not giving back to the community. The alternative we came up strikes a nice balance between making it financially viable, while still enriching the community.
+
+Think of it as a club/subscription where members get early access to our Gridsome starters, component library and detailed setup guides. This way, members get our products as they are released, then after a set period (for example 6 months) they are made available to everyone.
 
 ## How it would work
 
@@ -19,7 +21,7 @@ Members of the club would have the ability to vote on which starters, components
 
 ### Member-only perks
 
-In addition to the ongoing stream of content, members would also get exclusive access to our Excelsior starter and CLI. In-case this is the first you're hearing of Excelsior, it's our utility starter which includes consistent layouts for all the major Gridsome sources, plugins and popular NPM packages. 
+In addition to the ongoing stream of content, members would also get exclusive access to our Excelsior starter and CLI. We'll be going into Excelsior in a later post, but for now the take-away is that it's our utility starter which includes consistent layouts for all the major Gridsome sources, plugins and popular NPM packages. 
 
 Using our CLI, you scaffold a new project and follow the prompts to select which sources, plugins and packages you want included. After about 60 seconds your new site is ready to go, with everything you need and nothing you don't. You can see an early preview of the CLI in action over here.
 
