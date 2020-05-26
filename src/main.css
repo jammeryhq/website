@@ -24,6 +24,12 @@ body {
     margin-left: 20px;
   }
 }
+.survey-link:after {
+  content: ' \2192'
+}
+.survey-link.active:after {
+  content: '\2193'
+}
 footer {
   @apply text-gray-800
 }
@@ -34,7 +40,9 @@ footer a,
   display: inline-block;
 }
 .title {
-  @apply text-6xl mx-auto mb-4 font-bold
+  @apply mx-auto mb-4 font-bold;
+  font-size: 6rem;
+  line-height: 7rem;
 }
 .excerpt {
   @apply text-4xl mx-auto mb-10
