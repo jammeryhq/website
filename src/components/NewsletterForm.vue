@@ -45,7 +45,7 @@
         <button
           type="submit"
           :disabled="!idle"
-          :class="submitting ? buttonSendingClass || 'bg-gray-400 text-white' : sent ? buttonSendingClass || 'bg-gray-400 text-accent' : buttonDefaultClass || 'bg-gray-800 text-accent'"
+          :class="submitting ? buttonSendingClass || 'bg-gray-400 text-white' : sent ? buttonSendingClass || 'bg-gray-400 text-accent' : buttonDefaultClass || 'bg-accent text-black hover:bg-green-600'"
           class="block w-full px-10 py-4 text-xl font-bold rounded-md md:ml-3">
           <span v-if="submitting">Subscribing...</span>
           <span v-else-if="sent">Subscribed!</span>
