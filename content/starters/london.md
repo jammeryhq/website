@@ -6,6 +6,7 @@ excerpt: London is a Gridsome Starter using Ghost as the primary source. Ported 
 image: london.jpg
 demo: https://london.jammeryhq.com
 searchTerms: starter, ghost, gridsome
+availability: 5
 published: true
 featured: false
 ---

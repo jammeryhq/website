@@ -50,6 +50,7 @@
                         <p class="mb-3 text-xl mt-6">
                         {{ edge.node.excerpt }}
                         </p>
+                        <!--<p>Availability: <strong>Level {{ edge.node.availability }}</strong></p>-->
                         <p class="mb-3 text-xl mt-5">
                         <g-link
                                 :to="`${edge.node.path}`"
@@ -83,6 +84,7 @@ query Starters ($page: Int) {
         image
         published
         featured
+        availability
       }
     }
   }
