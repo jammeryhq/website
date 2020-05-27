@@ -67,12 +67,13 @@
                 offset="6"
                 insert-space>
                 <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
-                <textarea
-                  v-model="content"
-                  name="comment"
+                <vue-expand
+                  id="comment"
                   class="w-full shadow-inner p-4 border-0 mt-1"
+                  v-model="content"
+                  :handler="handler"
                   placeholder="Write your comment..."
-                  rows="6" />
+                  min-row="5" />
                 <template #no-result>
                   <div class="dim">
                     No result
@@ -202,7 +203,10 @@ import formMachineMixin from '@/mixins/formMachine'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  components: { Mentionable },
+  components: { 
+    Mentionable,
+    VueExpand: () => import('vue-expand')
+  },
   mixins: [formMachineMixin, clickaway],
   data: () => ({
     loadingComments: true,
