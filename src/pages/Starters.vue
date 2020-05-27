@@ -38,7 +38,10 @@
                         v-for="edge in $page.starters.edges"
                         :key="edge.node.id">
                         <figure class="block border rounded-md overflow-hidden mb-6">
-                            <g-image :src="edge.node.thumb" />
+                            <g-link
+                              :to="`${edge.node.path}`">
+                                <g-image :src="edge.node.thumb" />
+                            </g-link>
                         </figure>
                         <h2>
                             <g-link
