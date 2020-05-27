@@ -8,7 +8,6 @@
           </h1>
           <a  v-if="$page.starter.availability != 5" :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="inline-flex items-center button button-small button-primary">
             View Demo
-
             <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
           </a>
         </div>
@@ -36,7 +35,16 @@
         </div>
         <div v-show="showInstall" class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
           <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
-          <p><code class="bg-white shadow-sm p-4 text-base rounded-md">gridsome create <b class="bg-yellow-300" contenteditable="true">your-project-name</b> jammeryhq/{{ $page.starter.repo }}</code></p>
+          
+          <p class="flex items-center">
+            <textarea 
+              v-model="copyInstallText"
+              class="bg-white overflow-hidden shadow-sm py-4 px-5 rounded-md shadown-sm block w-full h-16 leading-snug text-xl flex"></textarea>
+            <button type="button"
+              v-clipboard:copy="copyInstallText"
+              v-clipboard:success="onCopy"
+              v-clipboard:error="onError">Copy!</button>
+          </p>
           <button @click.prevent="showInstall = !showInstall" @keyup="showInstall = !showInstall" class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold">Close</button>
         </div>
       </div>
@@ -51,8 +59,6 @@
 </template>
 
 <script>
-// Components
-
 export default {
   metaInfo () {
     return {
@@ -79,13 +85,27 @@ export default {
     }
   },
   data: () => ({
-    showInstall: false
+    showInstall: false,
+    copyInstallText: this.installText
   }),
   computed: {
     postUrl () {
       const siteUrl = this.$page.metadata.siteUrl
       const postPath = this.$route.fullPath
       return `${siteUrl}${postPath}`
+    },
+    installText () {
+      const repoName = this.$page.starter.repo
+      const text = 'gridsome create your-project-name jammeryhq/'
+      return `${text}${repoName}`
+    }
+  },
+  methods: {
+    onCopy: function (e) {
+      alert('You just copied: ' + e.text)
+    },
+    onError: function (e) {
+      alert('Failed to copy texts')
     }
   }
 }

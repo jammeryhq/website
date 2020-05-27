@@ -3,7 +3,7 @@
     <div>
         <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
             <h1 class="title">
-                Our Gridsome Starters
+                Our Starters
             </h1>
             <p class="excerpt">
                 Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community.
