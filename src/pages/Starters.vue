@@ -38,7 +38,7 @@
                         v-for="edge in $page.starters.edges"
                         :key="edge.node.id">
                         <figure class="block border rounded-md overflow-hidden mb-6">
-                            <g-image :src="edge.node.image" />
+                            <g-image :src="edge.node.thumb" />
                         </figure>
                         <h2>
                             <g-link
@@ -81,7 +81,7 @@ query Starters ($page: Int) {
         excerpt
         path
         demo
-        image
+        thumb
         published
         featured
         availability

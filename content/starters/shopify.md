@@ -3,7 +3,8 @@ title: Shopify
 slug: shopify
 date: 2020-05-20
 excerpt: This is a boilerplate starter, aiming to showcase how Gridsome and Shopify can work together, to create an amazingly fast shopping experience for consumers.
-image: shopify.jpg
+thumb: ./images/shopify-thumb.jpg
+image: ./images/shopify-large.jpg
 demo: https://gridsome-shopify-starter.netlify.com/
 searchTerms: starter, shopify, gridsome
 published: true

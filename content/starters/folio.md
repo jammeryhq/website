@@ -3,7 +3,8 @@ title: Folio
 slug: folio
 date: 2020-05-20
 excerpt: Folio is a Gridsome starter that can be used to showcase your work. It is setup to pull from multiple sources including Sanity.io for the projects, clients, testimonials and blog.
-image: folio.jpg
+thumb: ./images/folio.jpg
+image: ./images/folio.jpg
 demo: https://folio.jammeryhq.com
 availability: 5
 searchTerms: starter, shopify, gridsome
