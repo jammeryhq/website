@@ -10,6 +10,12 @@
       </g-link>
       <g-link
         class="nav__link"
+        to="/plugins"
+        title="View our Gridsome plugins">
+        Plugins
+      </g-link>
+      <g-link
+        class="nav__link"
         to="/blog"
         exact
         title="Updates on our progresss">
