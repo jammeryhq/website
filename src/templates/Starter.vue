@@ -14,24 +14,24 @@
         <p class="excerpt">
           {{ $page.starter.excerpt }}
         </p>
-        <div class="mb-8 flex space-x-4">
+        <div class="mb-8 flex space-x-4" v-if="$page.starter.availability != 5">
           <button class="button button--small button-secondary" @click.prevent="showInstall = !showInstall"
               @keyup="showInstall = !showInstall">
             Install
           </button>
-          <a href="https://codesandbox.io/s/github/thetre97/gridsome-starter-shopify" class="button button--small" target="_blank" rel="nofollow noopener">
+          <a :href="`https://codesandbox.io/s/github/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener">
             Open in CodeSandbox
           </a>
-          <a href="https://vercel.com/import/project?template=https://github.com/thetre97/gridsome-starter-shopify" class="button button--small" target="_blank" rel="nofollow noopener">
+          <a :href="`https://vercel.com/import/project?template=https://github.com/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener">
             Deploy to Vercel
           </a>
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/thetre97/gridsome-starter-shopify" class="button button--small" target="_blank" rel="nofollow noopener">
+          <a :href="`https://app.netlify.com/start/deploy?repository=https://github.com/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener">
             Deploy to Netlify
           </a>
         </div>
         <div v-show="showInstall" class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
-          <p>To install {{ $page.starter.title }} using the Gridsome CLI, simply copy the following snippet, modify the project name and paste it into your terminal.</p>
-          <p><code class="bg-white shadow-sm p-4 text-base rounded-md">gridsome create <b class="bg-yellow-300" contenteditable>your-project-name</b> thetre97/gridsome-starter-shopify</code></p>
+          <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
+          <p><code class="bg-white shadow-sm p-4 text-base rounded-md">gridsome create <b class="bg-yellow-300" contenteditable="true">your-project-name</b> jammeryhq/{{ $page.starter.repo }}</code></p>
           <button @click.prevent="showInstall = !showInstall" @keyup="showInstall = !showInstall" class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold">Close</button>
         </div>
       </div>
@@ -97,7 +97,9 @@ query Starter ($path: String) {
     image
     featured
     published
+    availability
     demo
+    repo
   }
   metadata {
     siteUrl
