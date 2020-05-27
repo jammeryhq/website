@@ -11,16 +11,16 @@
         </div>
         
         <div class="grid grid-cols-2 gap-6 pt-0 p-10">
-            <article class="p-10 bg-gray-100 rounded-md mb-10">
+            <article class="post p-10 bg-gray-100 rounded-md mb-10">
                 <figure class="block border rounded-md overflow-hidden mb-6">
                     <g-image src="/excelsior.jpg" class="w-full "/>
                 </figure>
                 <div>
                     <div class="flex items-center justify-start">
                       <h2 class="font-bold text-5xl">Excelsior</h2>
-                      <strong class="inline-block ml-10 bg-yellow-400 -mt-8 rounded-md px-4 py-3">* Exclusive to Members</strong>
+                      <strong class="inline-block ml-10 bg-yellow-400 ounded-md px-4 py-3">* Exclusive to Members</strong>
                     </div>
-                    <p class="mb-3 text-xl -mt-2">Excelsior is our members-only exclusive utility starter that includes support for all Gridsome starters, plugins and popular NPM packages, all configured via our upcoming CLI in a minute or less.</p>
+                    <p class="mb-5 text-2xl mt-8">Excelsior is our members-only exclusive utility starter that includes support for all Gridsome starters, plugins and popular NPM packages, all configured via our upcoming CLI in a minute or less.</p>
                     <h3 class="font-bold text-4xl">What you can expect</h3>
                     <ul>
                         <li>Consistent layouts for all Gridsome starters (index, term, single)</li>
@@ -36,7 +36,8 @@
                 <div class="grid gap-10 grid-cols-2 px-10">
                     <article
                         v-for="edge in $page.starters.edges"
-                        :key="edge.node.id">
+                        :key="edge.node.id"
+                        class="post">
                         <figure class="block border rounded-md overflow-hidden mb-6">
                             <g-link
                               :to="`${edge.node.path}`">
