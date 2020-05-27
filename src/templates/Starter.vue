@@ -6,7 +6,7 @@
           <h1 class="title">
             {{ $page.starter.title }}
           </h1>
-          <a :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="button button-small button-primary">
+          <a  v-if="$page.starter.availability != 5" :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="button button-small button-primary">
             View Demo
           </a>
         </div>
