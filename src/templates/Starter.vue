@@ -38,10 +38,10 @@
           
           <p class="flex items-center">
             <textarea 
-              v-model="copyInstallText"
+              v-model="installText"
               class="bg-white overflow-hidden shadow-sm py-4 px-5 rounded-md shadown-sm block w-full h-16 leading-snug text-xl flex"></textarea>
             <button type="button"
-              v-clipboard:copy="copyInstallText"
+              v-clipboard:copy="installText"
               v-clipboard:success="onCopy"
               v-clipboard:error="onError">Copy!</button>
           </p>
@@ -85,8 +85,7 @@ export default {
     }
   },
   data: () => ({
-    showInstall: false,
-    copyInstallText: this.installText
+    showInstall: false
   }),
   computed: {
     postUrl () {
