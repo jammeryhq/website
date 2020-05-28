@@ -6,11 +6,6 @@
           <h1 class="title">
             {{ $page.starter.title }}
           </h1>
-          <a  v-if="$page.starter.availability != 5" :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="inline-flex items-center button button-small button-primary">
-            View Demo
-
-            <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
-          </a>
         </div>
         
         <p class="excerpt">
@@ -21,22 +16,10 @@
               @keyup="showInstall = !showInstall" title="Show install instructions">
             Install
           </button>
-          <a :href="`https://codesandbox.io/s/github/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener" title="Open in CodeSandbox">
-            CodeSandbox
-            <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
-          </a>
-          <a :href="`https://vercel.com/import/project?template=https://github.com/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener" title="Deploy to Vercel">
-            Vercel
-            <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
-          </a>
-          <a :href="`https://app.netlify.com/start/deploy?repository=https://github.com/jammeryhq/` + $page.starter.repo" class="button button--small" target="_blank" rel="nofollow noopener" title="Deploy to Netlify">
-            Netlify
-            <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
-          </a>
         </div>
-        <div v-show="showInstall" class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
-          <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
-          <p><code class="bg-white shadow-sm p-4 text-base rounded-md">gridsome create <b class="bg-yellow-300" contenteditable="true">your-project-name</b> jammeryhq/{{ $page.starter.repo }}</code></p>
+        <div v-show="showInstall" class="absolute z-50 left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
+          <p>To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
+          <p><code class="bg-white shadow-sm p-4 text-base rounded-md">yarn add {{ $page.starter.repo }}</code> <i class="mx-5 inline-block text-sm">or</i> <code class="bg-white shadow-sm p-4 text-base rounded-md">npm install {{ $page.starter.repo }}</code></p>
           <button @click.prevent="showInstall = !showInstall" @keyup="showInstall = !showInstall" class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold">Close</button>
         </div>
       </div>

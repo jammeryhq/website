@@ -110,7 +110,12 @@ module.exports = {
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer']
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      plugins: [
+        ['gridsome-plugin-remark-shiki', {
+          theme: 'Material-Theme-Palenight'
+        }]
+      ]
     }
   }
 }

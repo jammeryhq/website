@@ -9,13 +9,14 @@
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.5.0",
-    "gridsome": "latest",
+    "@gridsome/transformer-remark": "^0.6.0",
+    "gridsome": "0.7.15",
     "gridsome-plugin-manifest": "^0.3.4",
+    "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "gridsome-plugin-segment-js": "^1.0.4",
     "gridsome-plugin-tailwindcss": "^2.2.48",
-    "ky": "^0.19.1",
+    "ky": "^0.20.0",
     "v-tooltip": "^2.0.3",
     "vue-clickaway": "^2.2.2",
     "vue-clipboard2": "^0.3.1",
@@ -23,14 +24,14 @@
     "vue-mention": "^0.1.7",
     "vue-recaptcha-v3": "^1.9.0",
     "vue-scrollto": "^2.18.1",
-    "xstate": "^4.9.1"
+    "xstate": "^4.10.0"
   },
   "devDependencies": {
     "eslint-config-travisreynolds-vue": "^1.1.8",
-    "got": "^11.1.1",
-    "marked": "^1.0.0",
+    "got": "^11.1.4",
+    "marked": "^1.1.0",
     "node-sass": "^4.14.1",
-    "sanitize-html": "^1.23.0",
+    "sanitize-html": "^1.24.0",
     "sass-loader": "^8.0.2"
   }
 }
