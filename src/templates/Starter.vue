@@ -27,7 +27,7 @@
           <button
             class="button button--small button-primary"
             title="Show install instructions"
-            @click.prevent="showInstall = !showInstall"
+            @click="showInstall = !showInstall"
             @keyup="showInstall = !showInstall">
             Install
           </button>
@@ -82,7 +82,7 @@
         </div>
         <div
           v-show="showInstall"
-          v-on-clickaway.self="showInstall"
+          v-on-clickaway="showInstall"
           class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 pb-4 shadow-2xl border-yellow-400 rounded-md pr-20"
           @keyup.esc="showInstall">
           <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
@@ -91,11 +91,16 @@
             <!--<textarea
               v-model="installText"
               class="bg-white overflow-hidden shadow-sm py-4 px-6 rounded-md shadown-sm block w-full h-16 leading-snug text-xl flex"></textarea>-->
-            <input
-              v-model="installText"
-              type="text"
-              disabled
-              class="bg-white py-3 px-4 mr-4 rounded-md shadow-md text-base w-full">
+            <label
+              for="install-code"
+              class="w-full">
+              <input
+                :value="installText"
+                name="install-code"
+                type="text"
+                disabled
+                class="bg-white py-3 px-4 mr-4 rounded-md shadow-md text-base w-full">
+            </label>
             <button
               v-clipboard:copy="installText"
               v-clipboard:success="onCopy"
