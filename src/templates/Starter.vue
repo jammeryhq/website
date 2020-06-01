@@ -1,6 +1,8 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
+    <div
+      v-on-clickaway="hideInstall"
+      class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
       <div>
         <div class="flex items-center justify-start">
           <h1 class="title">
@@ -82,15 +84,11 @@
         </div>
         <div
           v-show="showInstall"
-          v-on-clickaway="showInstall"
           class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 pb-4 shadow-2xl border-yellow-400 rounded-md pr-20"
-          @keyup.esc="showInstall">
+          @keyup.esc="hideInstall">
           <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
 
           <p class="flex items-center">
-            <!--<textarea
-              v-model="installText"
-              class="bg-white overflow-hidden shadow-sm py-4 px-6 rounded-md shadown-sm block w-full h-16 leading-snug text-xl flex"></textarea>-->
             <label
               for="install-code"
               class="w-full">
@@ -181,6 +179,9 @@ export default {
     },
     onError: function (e) {
       alert('Failed to copy texts')
+    },
+    hideInstall () {
+      this.showInstall = false
     }
   }
 }
