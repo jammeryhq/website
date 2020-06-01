@@ -17,6 +17,7 @@
         class="image" />
       <div class="w-1/3 bg-white pr-20 shadow-2xl fixed right-0 h-full survey-form overflow-y-auto z-50">
         <iframe
+          title="Survey Form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSfD11Wb4d4SLjUYoG3CcNimyIr0Qy75Y4zHZV1LbhNA3vyjBQ/viewform?embedded=true"
           width="640"
           height="5478"
