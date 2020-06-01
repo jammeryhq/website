@@ -7,20 +7,32 @@
             {{ $page.starter.title }}
           </h1>
         </div>
-        
+
         <p class="excerpt">
           {{ $page.starter.excerpt }}
         </p>
-        <div class="mb-8 flex space-x-4" v-if="$page.starter.availability != 5">
-          <button class="button button--small button-secondary" @click.prevent="showInstall = !showInstall"
-              @keyup="showInstall = !showInstall" title="Show install instructions">
+        <div
+          v-if="$page.starter.availability != 5"
+          class="mb-8 flex space-x-4">
+          <button
+            class="button button--small button-secondary"
+            title="Show install instructions"
+            @click.prevent="showInstall = !showInstall"
+            @keyup="showInstall = !showInstall">
             Install
           </button>
         </div>
-        <div v-show="showInstall" class="absolute z-50 left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
+        <div
+          v-show="showInstall"
+          class="absolute z-50 left-0 -ml-12 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md pr-20">
           <p>To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
           <p><code class="bg-white shadow-sm p-4 text-base rounded-md">yarn add {{ $page.starter.repo }}</code> <i class="mx-5 inline-block text-sm">or</i> <code class="bg-white shadow-sm p-4 text-base rounded-md">npm install {{ $page.starter.repo }}</code></p>
-          <button @click.prevent="showInstall = !showInstall" @keyup="showInstall = !showInstall" class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold">Close</button>
+          <button
+            class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold"
+            @click.prevent="showInstall = !showInstall"
+            @keyup="showInstall = !showInstall">
+            Close
+          </button>
         </div>
       </div>
     </div>
@@ -100,13 +112,13 @@ query Starter ($path: String) {
       @apply font-bold my-4
     }
     h2 {
-      @apply text-5xl 
+      @apply text-5xl
     }
     h3 {
-      @apply text-4xl 
+      @apply text-4xl
     }
     h4 {
-      @apply text-3xl 
+      @apply text-3xl
     }
     h5 {
       @apply text-2xl

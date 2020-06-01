@@ -3,13 +3,19 @@
     class="form newsletter mb-20 md:mb-0 w-auto"
     :class="align || 'text-center mx-auto'"
     @submit.prevent="subscribe">
-    <h2 v-if="title != '' && headingLevel === '2'" class="text-gray-100 text-4xl font-bold mb-3">
+    <h2
+      v-if="title != '' && headingLevel === '2'"
+      class="text-gray-100 text-4xl font-bold mb-3">
       {{ title || 'Get notified when we launch' }}
     </h2>
-    <h3 v-if="title != '' && headingLevel === '3'" class="text-gray-100 text-4xl font-bold mb-3">
+    <h3
+      v-if="title != '' && headingLevel === '3'"
+      class="text-gray-100 text-4xl font-bold mb-3">
       {{ title || 'Get notified when we launch' }}
     </h3>
-    <p v-if="desc != ''" class="text-gray-100 text-2xl max-w-3xl mx-auto mb-10">
+    <p
+      v-if="desc != ''"
+      class="text-gray-100 text-2xl max-w-3xl mx-auto mb-10">
       {{ desc || 'We\'re still working on our initial products, but add your name and email to our list and we\'ll let you know when we go live.' }}
     </p>
     <div class="flex flex-col md:flex-row md:items-center md:justify-center">
@@ -70,16 +76,16 @@ import formMachineMixin from '@/mixins/formMachine'
 
 export default {
   name: 'NewsletterSignup',
-  props: {
-    'title': String,
-    'headingLevel': String,
-    'desc': String,
-    'align': String,
-    'buttonDefaultClass': String,
-    'buttonSendingClass': String,
-    'buttonSentClass': String
-  },
   mixins: [formMachineMixin],
+  props: {
+    title: String,
+    headingLevel: String,
+    desc: String,
+    align: String,
+    buttonDefaultClass: String,
+    buttonSendingClass: String,
+    buttonSentClass: String
+  },
   data: () => ({
     subscriber: {}
   }),

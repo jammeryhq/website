@@ -70,7 +70,7 @@ module.exports = {
         remark: {
           plugins: [
             ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
-            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }],
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
 
           ]
         }
@@ -84,8 +84,8 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
-          ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
-          ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
           ]
         }
       }
@@ -115,7 +115,7 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       plugins: [
-        [ 'gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false } ]
+        ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }]
       ]
     }
   }
