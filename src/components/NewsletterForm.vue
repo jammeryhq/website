@@ -78,13 +78,34 @@ export default {
   name: 'NewsletterSignup',
   mixins: [formMachineMixin],
   props: {
-    title: String,
-    headingLevel: String,
-    desc: String,
-    align: String,
-    buttonDefaultClass: String,
-    buttonSendingClass: String,
-    buttonSentClass: String
+    title: {
+      type: String,
+      default: ''
+    },
+    headingLevel: {
+      type: String,
+      default: ''
+    },
+    desc: {
+      type: String,
+      default: ''
+    },
+    align: {
+      type: String,
+      default: ''
+    },
+    buttonDefaultClass: {
+      type: String,
+      default: ''
+    },
+    buttonSendingClass: {
+      type: String,
+      default: ''
+    },
+    buttonSentClass: {
+      type: String,
+      default: ''
+    }
   },
   data: () => ({
     subscriber: {}
