@@ -33,7 +33,7 @@
             <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
           </a>
         </div>
-        <div v-show="showInstall" class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 pb-4 shadow-2xl border-yellow-400 rounded-md pr-20">
+        <div  v-on-clickaway="away" v-on:keyup.esc="showInstall" v-show="showInstall" class="absolute left-0 -ml-12 mt-4 bg-yellow-200 p-8 pb-4 shadow-2xl border-yellow-400 rounded-md pr-20">
           <p>To install <strong>{{ $page.starter.title }}</strong> using the Gridsome CLI, simply copy the following snippet, modify the <em>project name</em> and paste it into your terminal.</p>
           
           <p class="flex items-center">
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import { mixin as clickaway } from 'vue-clickaway'
+
 export default {
   metaInfo () {
     return {
@@ -104,6 +106,7 @@ export default {
       return `${text}${repoName}`
     }
   },
+  mixins: [ clickaway ],
   methods: {
     onCopy: function (e) {
       alert('Copied! Now paste (cmd/ctrl + v) in your terminal to install.')
