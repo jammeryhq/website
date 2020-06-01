@@ -2,13 +2,13 @@
   <Layout>
     <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
       <div>
-        <div class="flex items-center justify-start space-x-8">
+        <div class="flex items-center justify-start">
           <h1 class="title">
             {{ $page.starter.title }}
           </h1>
-          <a  v-if="$page.starter.availability != 5" :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="inline-flex items-center button button-small button-primary">
+          <a v-if="$page.starter.availability != 5" :href="$page.starter.demo" title="View the demo" target="_blank" rel="nofollow noopener" class="block ml-10 hover:ml-12 transition-all ease-in-out duration-100 text-black text-2xl font-bold">
             View Demo
-            <svg role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="ml-3 -mr-1 h-5 w-5"><path d="M0 0h20v20H0z" fill="none"></path><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg>
+            &xrarr;
           </a>
         </div>
         
@@ -16,7 +16,7 @@
           {{ $page.starter.excerpt }}
         </p>
         <div class="mb-8 flex space-x-4" v-if="$page.starter.availability != 5">
-          <button class="button button--small button-secondary" @click.prevent="showInstall = !showInstall"
+          <button class="button button--small button-primary" @click.prevent="showInstall = !showInstall"
               @keyup="showInstall = !showInstall" title="Show install instructions">
             Install
           </button>
