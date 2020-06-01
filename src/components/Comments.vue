@@ -12,7 +12,9 @@
       <div
         v-if="!loadingComments && !allComments.length"
         class="text-3xl text-gray-700">
-        <b class="text-3xl mr-3 text-black">😱</b> No comments yet. Be the first!
+        <b class="text-3xl mr-3 text-black"><span
+          role="img"
+          aria-label="Shocked Emoji">😱</span></b> No comments yet. Be the first!
       </div>
       <div
         v-for="comment in allComments"
@@ -26,7 +28,9 @@
         </figure>
         <div>
           <div class="md:flex md:justify-start md:items-center">
-            <h3 class="mb-0 leading-none">{{ comment.author }}</h3>
+            <h3 class="mb-0 leading-none">
+              {{ comment.author }}
+            </h3>
             <span class="ml-4 text-gray-600">{{ formatDate(comment._ts) }}</span>
           </div>
           <div
@@ -52,11 +56,10 @@
         class="flex items-start flex-wrap"
         @submit.prevent="submit">
         <div class="w-full">
-          <label
-            for="comment"
+          <p
             class="block text-gray-700 mb-1">
             What's on your mind?
-          </label>
+          </p>
           <div
             class="relative"
             :class="showMDHint ? 'hint-active' : 'hint-inactive'">
@@ -69,8 +72,8 @@
                 <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
                 <vue-expand
                   id="comment"
-                  class="w-full shadow-inner p-4 border-0 mt-1"
                   v-model="content"
+                  class="w-full shadow-inner p-4 border-0 mt-1"
                   :handler="handler"
                   placeholder="Write your comment..."
                   min-row="5" />
@@ -158,6 +161,7 @@
         <div class="w-full mt-5">
           <div class="mt-1">
             <label
+              for="remember"
               class="block whitespace-pre text-gray-700">
               <input
                 v-model="remember"
@@ -203,7 +207,7 @@ import formMachineMixin from '@/mixins/formMachine'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  components: { 
+  components: {
     Mentionable,
     VueExpand: () => import('vue-expand')
   },
