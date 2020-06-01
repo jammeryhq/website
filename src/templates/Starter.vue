@@ -40,11 +40,11 @@
             <!--<textarea 
               v-model="installText"
               class="bg-white overflow-hidden shadow-sm py-4 px-6 rounded-md shadown-sm block w-full h-16 leading-snug text-xl flex"></textarea>-->
-            <span v-model="copyText" class="bg-white py-3 px-4 mr-4 rounded-md shadow-md text-base">gridsome create <b contenteditable="true" class="bg-yellow-200 border-b border-dashed border-yellow-500 mx-1 px-1 rounded-sm">your-project-name</b> jammeryhq/{{ $page.starter.repo }}</span>
+            <input v-model="installText" type="text" disabled class="bg-white py-3 px-4 mr-4 rounded-md shadow-md text-base w-full" />
             <button type="button"
               class="shadow-md rounded-full overflow-hidden p-3 bg-black hover:bg-gray-700 focus:bg-accent text-white"
               title="Copy to your clipboard"
-              v-clipboard:copy="copyText"
+              v-clipboard:copy="installText"
               v-clipboard:success="onCopy"
               v-clipboard:error="onError">
               <g-image src="/copy1.svg" class="w-4 h-4" />
@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     onCopy: function (e) {
-      alert('You just copied: ' + e.text)
+      alert('Copied! Now paste (cmd/ctrl + v) in your terminal to install.')
     },
     onError: function (e) {
       alert('Failed to copy texts')
