@@ -17,5 +17,4 @@ export default function (Vue, { head }) {
   Vue.use(VueReCaptcha, { siteKey: process.env.GRIDSOME_RECAPTCHA_SITE_KEY, loaderOptions: { autoHideBadge: true } })
   Vue.use(VueScrollTo)
   Vue.use(VueClipboard)
-
 }

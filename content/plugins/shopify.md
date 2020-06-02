@@ -12,31 +12,33 @@ searchTerms: plugin, shopify, ecommerce
 published: true
 featured: false
 ---
-This plugin supports the Storefront API's _transformedSrc_ image field, as well as currency formatting.
 
-- Install
-- Usage
-- Routes & Templates
-- Page Query
-- Metafields
-- Additional Resolvers
-- Helpful Snippets
+This plugin supports the Storefront API's [`transformedSrc` image field](#transformsrc), as well as [currency formatting](#amount).
+
+
+1. Install
+2. Usage
+3. Routes & Templates
+4. Page Query
+5. Metafields
+6. Additional Resolvers
+7. Helpful Snippets
 
 ## Install
+yarn:
+```bash
+yarn add gridsome-source-shopify
+```
 
-**yarn:**
-
-```yarn add gridsome-source-shopify```
-
-**npm:**
-
-```npm install gridsome-source-shopify```
+npm:
+```bash
+npm install gridsome-source-shopify
+```
 
 ## Usage
 
-**gridsome.config.js**
-
-```
+`gridsome.config.js`
+```js
 module.exports = {
   plugins: [
     {
@@ -56,11 +58,10 @@ module.exports = {
 
 ## Routes & Templates
 
-Now you can create a template called ShopifyProduct.vue, and specify the route for it - Gridsome will automatically generate pages for all products.
+Now you can create a template called `ShopifyProduct.vue`, and specify the route for it - Gridsome will automatically generate pages for all products.
 
-**gridsome.config.js**
-
-```
+`gridsome.config.js`
+```js
 module.exports = {
   templates: {
       ShopifyProduct: '/product/:handle'
@@ -68,11 +69,10 @@ module.exports = {
 }
 ```
 
-You can also specify templates to use if you do not want to name the template files Shopify<type>, or if you want to change the page routes:
+You can also specify templates to use if you do not want to name the template files `Shopify<type>`, or if you want to change the page routes:
 
-**gridsome.config.js**
-
-```
+`gridsome.config.js`
+```js
 module.exports = {
   templates: {
       ShopifyProduct: [
@@ -91,11 +91,12 @@ module.exports = {
   }
 ```
 
+
 ## Page Query
 
 Once you have specified the route for a type, you can query it by ID.
 
-```
+```vue
 <page-query>
 query Product ($id: ID!) {
   shopifyProduct (id: $id) {
@@ -107,9 +108,8 @@ query Product ($id: ID!) {
 </page-query>
 ```
 
-Now this product will be available at _this.$page.shopifyProduct_:
-
-```
+Now this product will be available at `this.$page.shopifyProduct`:
+```vue
 <template>
   <Layout>
     <h1>{{ $page.shopifyProduct.title }}</h3>
@@ -120,15 +120,19 @@ Now this product will be available at _this.$page.shopifyProduct_:
 
 ## Metafields
 
-To make metafields available to query in the Storefront API, you should follow this guide: Retrieve metafields with the Storefront API. Then metafields will be available in your product query.
-Additional Resolvers
+To make metafields available to query in the Storefront API, you should follow this guide: [Retrieve metafields with the Storefront API](https://shopify.dev/tutorials/retrieve-metafields-with-storefront-api).
+Then metafields will be available in your product query.
+
+## Additional Resolvers
 
 This plugin adds a couple of custom resolvers to help with image sizing, and currency formatting.
-_transformSrc_
 
-Each image type includes a _transformSrc_ field, similar to the Shopify Storefront's. You can create different image sizes and scales with this - for example, creating a thumbnail image, and a card/cover image:
+#### `transformSrc`
 
-```...
+Each image type includes a `transformSrc` field, similar to the Shopify Storefront's. You can create different image sizes and scales with this - for example, creating a thumbnail image, and a card/cover image:
+
+```graphql
+...
   image {
     ...
     thumbnail: transformedSrc(maxWidth: 100, maxHeight: 100, crop: CENTER)
@@ -137,20 +141,17 @@ Each image type includes a _transformSrc_ field, similar to the Shopify Storefro
 ...
 ```
 
-amount
+#### `amount`
 
-Each price type includes extra formatting arguments in the amount field, where you can specify if you want to, and how to, format the price asa currency:
+Each price type includes extra formatting arguments in the `amount` field, where you can specify if you want to, and how to, format the price asa  currency:
 
-```
+```graphql
 ...
   price {
     amount(format: true) # Defaults to en-US locale, and the store's currency code.
     # Result: $25.00
   }
 ...
-```
-
-```
 ...
   priceRange {
     minVariantPrice {
@@ -165,7 +166,8 @@ Each price type includes extra formatting arguments in the amount field, where y
 
 You will probably need to find a product variant by the options that have been selected - computed properties are your friend...
 
-```<template>
+```vue
+<template>
   ...
     <div
       v-for="option in $page.shopifyProduct.options"
@@ -218,11 +220,13 @@ export default {
     }
   }
 }
-</script>```
+</script>
+```
 
-All Shopify products have at least one variant - even if a product has no options (i.e. colour/size), it will have a default variant that contains the base product price/title etc. This single variant will also create a default option (title), which you will most likely want to filter out, as there is only one variant you can select anyway. If this is the case then the product options should be hidden, and the single variant set as the default selected option (as above):
+All Shopify products have at least one variant - even if a product has no options (i.e. colour/size), it will have a default variant that contains the base product price/title etc. This single variant will also create a default option (`title`), which you will most likely want to filter out, as there is only one variant you can select anyway. If this is the case then the product options should be hidden, and the single variant set as the default selected option (as above):
 
-```<template>
+```vue
+<template>
   ...
     <div
       v-for="option in productOptions"
@@ -242,22 +246,25 @@ export default {
   }
   ...
 }
-</script>```
+</script>
+```
 
 You can also create relationships from products/product variants to other types, if they return an ID or array of ID's as one of their fields. For example, with Contentful's integration you could do something like the below:
 
-**gridsome.server.js**
-
-```module.exports = api => {
+`gridsome.server.js`
+```js
+module.exports = api => {
   api.loadSource(actions => {
     const contentfulProducts = actions.getCollection('ContentfulProduct')
     contentfulProducts.addReference('shopifyProductVariantId', 'ShopifyProductVariant')
   }
-}```
+}
+```
 
 Then query the actual product/product variant from within a query:
 
-```query {
+```graphql
+query {
   allContentfulProduct {
     edges {
       node {
@@ -272,4 +279,5 @@ Then query the actual product/product variant from within a query:
       }
     }
   }
-}```
+}
+```

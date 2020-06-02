@@ -12,7 +12,9 @@
       <div
         v-if="!loadingComments && !allComments.length"
         class="text-3xl text-gray-700">
-        <b class="text-3xl mr-3 text-black">😱</b> No comments yet. Be the first!
+        <b class="text-3xl mr-3 text-black"><span
+          role="img"
+          aria-label="Shocked Emoji">😱</span></b> No comments yet. Be the first!
       </div>
       <div
         v-for="comment in allComments"
@@ -26,7 +28,9 @@
         </figure>
         <div>
           <div class="md:flex md:justify-start md:items-center">
-            <h3 class="mb-0 leading-none">{{ comment.author }}</h3>
+            <h3 class="mb-0 leading-none">
+              {{ comment.author }}
+            </h3>
             <span class="ml-4 text-gray-600">{{ formatDate(comment._ts) }}</span>
           </div>
           <div
@@ -52,11 +56,10 @@
         class="flex items-start flex-wrap"
         @submit.prevent="submit">
         <div class="w-full">
-          <label
-            for="comment"
+          <p
             class="block text-gray-700 mb-1">
             What's on your mind?
-          </label>
+          </p>
           <div
             class="relative"
             :class="showMDHint ? 'hint-active' : 'hint-inactive'">
@@ -69,8 +72,8 @@
                 <!-- eslint-disable-next-line vue-a11y/form-has-label :( -->
                 <vue-expand
                   id="comment"
-                  class="w-full shadow-inner p-4 border-0 mt-1"
                   v-model="content"
+                  class="w-full shadow-inner p-4 border-0 mt-1"
                   :handler="handler"
                   placeholder="Write your comment..."
                   min-row="5" />
@@ -86,15 +89,17 @@
                 </template>
               </Mentionable>
             </ClientOnly>
-            <button
-              class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block z-50"
-              title="✓ Some markdown supported"
-              @click.prevent="showMDHint = !showMDHint"
-              @keyup="showMDHint = !showMDHint">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
-            </button>
+            <form @submit.prevent>
+              <button
+                class="md absolute top-0 right-0 w-6 h-auto mt-5 mr-4 inline-block z-50"
+                title="✓ Some markdown supported"
+                @click="showMDHint = !showMDHint"
+                @keyup.enter.once="showMDHint = !showMDHint">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1024 1024"><defs /><path d="M950 192H74c-41 0-74 33-74 74v492c0 41 33 74 74 74h876c41 0 74-33 74-74V266c0-41-33-74-74-74zM576 704H448V512l-96 123-96-123v192H128V320h128l96 128 96-128h128v384zm191 32L608 512h96V320h128v192h96L767 736z" /></svg>
+              </button>
+            </form>
             <div
               v-show="showMDHint"
               class="hints w-auto mt-1 border-l-4 border-solid border-accent h-full whitespace-pre-line bg-black text-sm text-white p-5 pt-4 leading-relaxed absolute top-0 right-0">
@@ -158,6 +163,7 @@
         <div class="w-full mt-5">
           <div class="mt-1">
             <label
+              for="remember"
               class="block whitespace-pre text-gray-700">
               <input
                 v-model="remember"
@@ -203,7 +209,7 @@ import formMachineMixin from '@/mixins/formMachine'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  components: { 
+  components: {
     Mentionable,
     VueExpand: () => import('vue-expand')
   },
