@@ -63,13 +63,6 @@
                 {{ edge.node.excerpt }}
               </p>
               <!--<p>Availability: <strong>Level {{ edge.node.availability }}</strong></p>-->
-              <p class="mb-3 text-xl mt-5">
-                <g-link
-                  :to="`${edge.node.path}`"
-                  class="text-black font-bold">
-                  {{ edge.node.title }} details
-                </g-link>
-              </p>
             </article>
           </div>
         </div>

@@ -6,33 +6,33 @@
         class="nav__link"
         to="/starters"
         title="View our Gridsome starters">
-        Starters
+        <span>Starters</span>
       </g-link>
       <g-link
         class="nav__link"
         to="/plugins"
         title="View our Gridsome plugins">
-        Plugins
+        <span>Plugins</span>
       </g-link>
       <g-link
         class="nav__link"
         to="/blog"
         exact
         title="Updates on our progresss">
-        Blog
+        <span>Blog</span>
       </g-link>
       <g-link
         class="nav__link"
         to="/contact"
         title="Say hello">
-        Contact
+        <span>Contact</span>
       </g-link>
-      <span class="px-5 leading-none hidden md:inline-block" />
+      <i class="px-5 leading-none hidden md:inline-block"></i>
       <g-link
         class="text-2xl mt-1 md:mt-0 md:text-xl block md:inline-block survey-link"
         to="/2020-survey"
         title="Take the JammeryHQ 2020 Survey">
-        Take the Survey
+        <span>Take the Survey</span>
       </g-link>
     </nav>
   </header>
