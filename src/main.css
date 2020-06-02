@@ -159,3 +159,11 @@ article h2.product {
     @apply list-disc
   }
 }
+
+.shiki-inline,
+.shiki {
+  @apply p-4 rounded-md shadow-xl
+}
+.shiki {
+  @apply block leading-loose px-6 whitespace-pre overflow-y-hidden overflow-x-scroll mb-6
+}
