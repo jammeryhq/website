@@ -160,10 +160,9 @@ article h2.product {
   }
 }
 
-.shiki-inline,
-.shiki {
-  @apply p-4 rounded-md shadow-xl
+code.shiki-inline {
+  @apply bg-transparent text-xl leading-loose py-1 px-2 text-red-800 bg-yellow-300 !important
 }
 .shiki {
-  @apply block leading-loose px-6 whitespace-pre overflow-y-hidden overflow-x-scroll mb-6
+  @apply block rounded-md leading-loose  shadow-xl py-4 px-6 whitespace-pre overflow-y-hidden overflow-x-auto mb-6
 }

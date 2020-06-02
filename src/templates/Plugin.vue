@@ -21,6 +21,9 @@
             @keyup="showInstall = !showInstall">
             Install
           </button>
+          <a :href="repoUrl" class="text-black text-2xl" title="View the repo on Github">
+            Github
+          </a>
         </div>
         <div
           v-show="showInstall"
@@ -78,6 +81,11 @@ export default {
       const siteUrl = this.$page.metadata.siteUrl
       const postPath = this.$route.fullPath
       return `${siteUrl}${postPath}`
+    },
+    repoUrl () {
+      const githubUrl = 'https://github.com/jammeryhq/'
+      const repoName = this.$page.starter.repo
+      return `${githubUrl}${repoName}`
     }
   }
 }
