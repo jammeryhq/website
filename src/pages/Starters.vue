@@ -1,15 +1,7 @@
 <template>
   <Layout>
     <div>
-      <div class="p-6 lg:p-0 md:w-full lg:w-3/4 xl:w-1/2 mx-auto relative z-10">
-        <h1 class="title">
-          Our Starters
-        </h1>
-        <p class="excerpt">
-          Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community.
-        </p>
-      </div>
-
+      <PageHeader title="Our Starters" summary="Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community." />
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-0 p-10">
         <article class="post p-10 bg-gray-100 rounded-md mb-10">
           <figure class="block border rounded-md overflow-hidden mb-6">
@@ -98,8 +90,12 @@ query Starters ($page: Int) {
 </page-query>
 
 <script>
+import PageHeader from '@/components/PageHeader'
 
 export default {
+  components: {
+    PageHeader
+  },
   metaInfo: {
     title: 'Starters',
     description: 'Our growing collection of starters for Gridsome',

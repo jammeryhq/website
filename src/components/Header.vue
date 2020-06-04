@@ -1,7 +1,7 @@
 <template>
 
   <header class="header relative z-50 w-full ">
-    <div class="mobile-nav flex justify-center items-center lg:hidden bg-black p-4 w-full text-white" v-show="showSection">
+    <div class="mobile-nav transition duration-500 ease-in-out flex justify-center items-center lg:hidden bg-black p-4 w-full text-white" v-show="showSection">
       <g-link
         class="nav__link"
         to="/starters"
@@ -67,7 +67,7 @@
           </g-link>
           <button
             v-on:click.prevent="toggle"
-            class="block lg:hidden"
+            class="block lg:hidden navicon"
             title="Take the JammeryHQ 2020 Survey">
             <strong>Explore&nbsp;&nbsp;<i class="toggleIcon" id="toggleIcon">{{toggleIcon}}</i></strong>
           </button>
@@ -109,6 +109,9 @@ query {
 <style>
 a {
     color: #fff;
+}
+.home .navicon {
+  @apply text-white
 }
 .mobile-nav a span {
   @apply text-white

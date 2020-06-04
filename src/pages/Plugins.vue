@@ -1,17 +1,9 @@
 <template>
   <Layout>
     <div>
-      <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
-        <h1 class="title">
-          Our Plugins
-        </h1>
-        <p class="excerpt">
-          Below is our growing collection of Gridsome plugins. Members get early-access to all our plugins before they are released to the community.
-        </p>
-      </div>
-
+      <PageHeader title="Our Plugins" summary="Below is our growing collection of Gridsome plugins. Members get early-access to all our plugins before they are released to the community." />
       <div>
-        <div class="grid gap-10 grid-cols-3 px-10 w-2/3 mx-auto mt-10">
+        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 lg:px-10 xl:w-2/3 mx-auto lg:mt-16 mb-10">
           <article
             v-for="edge in $page.starters.edges"
             :key="edge.node.id"
@@ -59,8 +51,12 @@ query Starters ($page: Int) {
 </page-query>
 
 <script>
+import PageHeader from '@/components/PageHeader'
 
 export default {
+  components: {
+    PageHeader
+  },
   metaInfo: {
     title: 'Starters',
     description: 'Our growing collection of starters for Gridsome',
