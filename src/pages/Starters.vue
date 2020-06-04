@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div>
-      <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
+      <div class="p-6 lg:p-0 md:w-full lg:w-3/4 xl:w-1/2 mx-auto relative z-10">
         <h1 class="title">
           Our Starters
         </h1>
@@ -10,7 +10,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-6 pt-0 p-10">
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-0 p-10">
         <article class="post p-10 bg-gray-100 rounded-md mb-10">
           <figure class="block border rounded-md overflow-hidden mb-6">
             <g-image
@@ -41,15 +41,16 @@
           </div>
         </article>
         <div>
-          <div class="grid gap-10 grid-cols-2 px-10">
+          <div class="grid gap-10 md:grid-cols-2 xl:px-10">
             <article
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
               class="post">
               <figure class="block border rounded-md overflow-hidden mb-6">
                 <g-link
-                  :to="`${edge.node.path}`">
-                  <g-image :src="edge.node.thumb" />
+                  :to="`${edge.node.path}`"
+                  class="block">
+                  <g-image :src="edge.node.thumb" class="w-full" cover />
                 </g-link>
               </figure>
               <h2>

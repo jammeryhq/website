@@ -2,7 +2,7 @@
   <g-link
     to="/"
     exact
-    class="logo"
+    class="logo w-48 lg:w-64 block"
     title="Back to the home page">
     <svg
       xmlns="http://www.w3.org/2000/svg"

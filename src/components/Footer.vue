@@ -1,6 +1,6 @@
 <template>
-  <footer class="relative z-40 lg:flex lg:items-center lg:justify-between p-4 lg:p-10 text-gray-700 md:w-full lg:mb-4">
-    <span class="md:ml-6 block text-center md:text-left">© 2020 Jammery HQ. All rights reserved.</span>
+  <footer class="relative z-40 lg:flex lg:items-center lg:justify-between p-4 lg:p-10 text-gray-700 md:w-full mb-4">
+    <span class="md:ml-6 mb-4 lg:mb-0 block text-center lg:text-left">© 2020 Jammery HQ. All rights reserved.</span>
     <nav class="nav text-center my-3 md:my-0">
       <g-link
         to="/about"
@@ -30,7 +30,7 @@
         rel="nofollow noopener"
         title="Check out our code on Github">Github</a>
     </nav>
-    <span class="md:mr-6 block text-center md:text-left mb-4 md:mb-0">a <a
+    <span class="md:mr-6  my-3 lg:my-0 block text-center lg:text-left">a <a
       href="https://smokeyfro.com"
       title="Chris Rault, a South African based front-end designer and entrepreneur">SmokeyFro</a> &amp; <a
         href="https://travisreynolds.dev"
