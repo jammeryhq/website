@@ -5,7 +5,8 @@
         <h2 class="text-white text-5xl md:text-6xl w-full lg:max-w-0 xl:max-w-4xl mx-auto text-center mb-5">
           Fast-track your <b>JAM</b>stack development &amp; learning
         </h2>
-        <NewsletterForm title="Get notified when we launch" headingLevel="2" desc="We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live." />
+        <p class="max-w-4xl text-3xl text-center text-gray-300">We are currently working on our initial Gridsome starters, plugins and guided tutorials, but need your help to ensure we build products that you will love. Take the <g-link to="/2020-survey">2020 Survey</g-link> -></p>
+        <NewsletterForm title="Get notified when we launch" wrapperClass="hidden bg-gray-800 pt-12 p-20 rounded-md" headingLevel="2" desc="We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live." />
       </div>
     </div>
   </div>

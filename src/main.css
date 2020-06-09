@@ -14,7 +14,6 @@ body {
   & span {
     position: relative;
     transition: 0.5s;
-    display: block;
     &::after {
       position: absolute;
       content: "";
@@ -63,9 +62,6 @@ header a.active:after {
   & .active {
     @apply font-bold
   }
-  & a:not(:first-of-type){
-    margin-left: 20px;
-  }
 }
 /* .survey-link span:after {
   content: ' \2192'
@@ -82,8 +78,6 @@ footer a,
 }
 .title {
   @apply mb-4 font-bold;
-  font-size: 6rem;
-  line-height: 7rem;
 }
 .excerpt {
   @apply text-4xl mx-auto mb-10
@@ -108,14 +102,37 @@ body:not(.home) footer a {
 .newsletter .form-input {
   margin-top: 0;
 }
-
+@media ( min-width: 1025px ) {
+  .title {
+    @apply text-6xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
+}
+@media ( max-width: 1024px ) {
+  .title {
+    @apply text-6xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
+}
+@media ( max-width: 768px ) {
+  .title {
+    @apply text-4xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
+}
 @media ( max-width: 480px ) {
   .contact .vue-expand,
   .form-input {
     @apply p-2 text-base
   }
   .title {
-    @apply text-4xl
+    @apply text-2xl
   }
   .excerpt {
     @apply text-2xl

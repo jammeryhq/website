@@ -1,7 +1,7 @@
 <template>
 
   <header class="header relative z-50 w-full ">
-    <div class="mobile-nav transition duration-500 ease-in-out flex justify-center items-center lg:hidden bg-black p-4 w-full text-white" v-show="showSection">
+    <div class="mobile-nav transition duration-500 ease-in-out flex justify-center items-center lg:hidden bg-green-700 p-4 w-full text-xl" v-show="showSection">
       <g-link
         class="nav__link"
         to="/starters"
@@ -20,6 +20,11 @@
         exact
         title="Updates on our progresss">
         <span>Blog</span>
+      </g-link>
+      <g-link
+        to="/about"
+        title="More about Chris and Travis">
+        About
       </g-link>
       <g-link
         class="nav__link"
@@ -60,10 +65,10 @@
         </div>
         <div class="flex justify-end items-center">
           <g-link
-            class="text-2xl mt-1 md:mt-0 ml-5 md:text-xl block md:inline-block survey-link font-bold"
+            class="text-2xl mt-1 md:mt-0 ml-5 md:text-xl block md:inline-block survey-link"
             to="/2020-survey"
             title="Take the JammeryHQ 2020 Survey">
-            <span>Take the Survey</span>
+            <strong><span class="hidden md:inline-block">Take the </span>Survey</strong>
           </g-link>
           <button
             v-on:click.prevent="toggle"

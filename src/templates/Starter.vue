@@ -25,7 +25,7 @@
         </p>
         <div
           v-if="$page.starter.availability != 5"
-          class="mb-8 flex space-x-4">
+          class="mb-8 flex flex-wrap">
           <button
             class="button button--small button-primary"
             title="Show install instructions"
@@ -153,7 +153,7 @@ export default {
         { name: 'twitter:creator', content: '@jammeryhq' }
       ],
       bodyAttrs: {
-        class: 'min-h-screen overflow-x-auto page'
+        class: 'min-h-screen overflow-x-auto page starter'
       }
     }
   },
@@ -244,13 +244,16 @@ query Starter ($path: String) {
       @apply list-disc
     }
   }
+  .starter .button {
+    @apply mr-4 mt-4
+  }
   .button {
-    @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8;
+    @apply inline-flex items-center px-6 py-3 bg-gray-200 font-bold text-xl text-black rounded-full px-8;
   }
   .button-primary {
-    @apply bg-accent text-black border-accent ;
+    @apply bg-accent text-black;
   }
   .button-secondary {
-    @apply bg-gray-900 text-white border-gray-900 ;
+    @apply bg-gray-900 text-white;
   }
 </style>
