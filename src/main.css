@@ -11,7 +11,8 @@ body {
   padding-right: 20px;
 }
 .header {
-  & span {
+  & nav div:last-of-type strong,
+  & nav div:first-of-type span {
     position: relative;
     transition: 0.5s;
     &::after {
