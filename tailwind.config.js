@@ -2,6 +2,7 @@ module.exports = {
   prefix: '',
   important: false,
   separator: ':',
+  purge: false,
   theme: {
     screens: {
       sm: '640px',
@@ -566,8 +567,7 @@ module.exports = {
     borderCollapse: ['responsive'],
     borderColor: ['responsive', 'hover', 'focus'],
     borderRadius: ['responsive'],
-    borderStyle: ['responsive'],
-    borderWidth: ['responsive'],
+    borderStyle: ['responsive', 'hover', 'focus'],
     boxShadow: ['responsive', 'hover', 'focus'],
     boxSizing: ['responsive'],
     cursor: ['responsive'],
@@ -592,7 +592,7 @@ module.exports = {
     lineHeight: ['responsive'],
     listStylePosition: ['responsive'],
     listStyleType: ['responsive'],
-    margin: ['responsive'],
+    margin: ['responsive', 'hover', 'focus'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],

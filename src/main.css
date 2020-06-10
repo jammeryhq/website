@@ -11,6 +11,49 @@ body {
   padding-right: 20px;
 }
 .header {
+  & nav div:last-of-type strong,
+  & nav div:first-of-type span {
+    position: relative;
+    transition: 0.5s;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #00d084;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s;
+    }
+    &:hover {
+      color: #00d084;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+header a:link {
+  @apply px-4 block py-2 leading-loose;
+}
+/* header a:active {
+  @apply relative
+}
+header a.active:after {
+  content: '\00B7';
+  @apply text-5xl h-2 font-bold text-accent block text-center leading-none -mt-6
+} */
+*:link {
+  @apply rounded-md border-4 border-transparent border-dotted;
+  outline: 0 none;
+}
+*:focus {
+  @apply border-accent
+}
+.header {
   & svg path {
     fill: #000;
   }
@@ -20,21 +63,22 @@ body {
   & .active {
     @apply font-bold
   }
-  & a:not(:first-of-type){
-    margin-left: 20px;
-  }
 }
+/* .survey-link span:after {
+  content: ' \2192'
+}
+.survey-link.active span:after {
+  content: '\2193'
+} */
 footer {
   @apply text-gray-800
 }
 footer a,
 .header nav a {
-  line-height: 40px;
-  height: 40px;
   display: inline-block;
 }
 .title {
-  @apply text-6xl mx-auto mb-4 font-bold
+  @apply mb-4 font-bold;
 }
 .excerpt {
   @apply text-4xl mx-auto mb-10
@@ -51,7 +95,7 @@ body:not(.home) footer a {
 .content {
   @apply pb-40
 }
-.contact .vue-expand,
+.vue-expand,
 .form-input {
   @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2
 }
@@ -59,16 +103,125 @@ body:not(.home) footer a {
 .newsletter .form-input {
   margin-top: 0;
 }
-
-@media ( max-width: 480px ) {
-  .contact .vue-expand,
-  .form-input {
-    @apply p-2 text-base
+@media ( min-width: 1025px ) {
+  .title {
+    @apply text-6xl
   }
+  .excerpt {
+    @apply text-2xl
+  }
+}
+@media ( max-width: 1024px ) {
+  .title {
+    @apply text-6xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
+}
+@media ( max-width: 768px ) {
   .title {
     @apply text-4xl
   }
   .excerpt {
     @apply text-2xl
   }
+}
+@media ( max-width: 480px ) {
+  .contact .vue-expand,
+  .form-input {
+    @apply p-2 text-base
+  }
+  .title {
+    @apply text-2xl
+  }
+  .excerpt {
+    @apply text-2xl
+  }
+}
+
+article h2 {
+  @apply block text-4xl font-bold mb-10 bg-black inline text-white py-3 px-4;
+  box-shadow: 7px 7px rgb(0, 208, 132);
+}
+/* article h2.feedback {
+  box-shadow: 7px 7px red;
+}
+article h2.thoughts {
+  box-shadow: 7px 7px orange;
+}
+article h2.product {
+  box-shadow: 7px 7px blue;
+} */
+
+/* .post h2 {
+  box-shadow: 7px 7px #00d084;
+  border-radius: 3px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.post h2:hover {
+  box-shadow: -7px -7px #ffe606;
+  -webkit-transform: scale(1.25, 1.25);
+  transform: scale(1.25, 1.25);
+} */
+
+.post {
+  & h2 {
+    @apply relative inline-block rounded-md px-5 mb-0;
+    box-shadow: 7px 7px #00d084;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  & h2:hover {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.25, 1.25);
+    box-shadow: -7px -7px #00d084;
+  }
+}
+
+
+.content {
+  & h2, 
+  & h3, 
+  & h4, 
+  & h5, 
+  & h6 {
+    @apply font-bold my-4
+  }
+  & h2 {
+    @apply text-5xl 
+  }
+  & h3 {
+    @apply text-4xl 
+  }
+  & h4 {
+    @apply text-3xl 
+  }
+  & h5 {
+    @apply text-2xl
+  }
+  & h6 {
+    @apply text-xl
+  }
+  & ol, & ul {
+    @apply my-5
+  }
+  & li {
+    @apply ml-10 text-xl leading-loose
+  }
+  ol li {
+    @apply list-decimal
+  }
+  ul li {
+    @apply list-disc
+  }
+}
+
+code.shiki-inline {
+  @apply bg-transparent text-xl leading-loose py-1 px-2 text-red-800 bg-yellow-300 !important
+}
+.shiki {
+  @apply block rounded-md leading-loose  shadow-xl py-4 px-6 whitespace-pre overflow-y-hidden overflow-x-auto mb-6
 }

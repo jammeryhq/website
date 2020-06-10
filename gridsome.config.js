@@ -14,6 +14,18 @@ module.exports = {
         path: '/blog/:title',
         component: './src/templates/Post.vue'
       }
+    ],
+    Starter: [
+      {
+        path: '/starters/:title',
+        component: './src/templates/Starter.vue'
+      }
+    ],
+    Plugin: [
+      {
+        path: '/plugins/:title',
+        component: './src/templates/Plugin.vue'
+      }
     ]
   },
   plugins: [
@@ -50,13 +62,42 @@ module.exports = {
       }
     },
     {
-      use: 'gridsome-plugin-segment-js',
+      use: '@gridsome/source-filesystem',
       options: {
-        prodKey: process.env.GRIDSOME_SEGMENT_KEY_PROD,
-        devKey: process.env.GRIDSOME_SEGMENT_KEY_DEV,
-        trackPage: true
+        path: 'content/starters/**/*.md',
+        typeName: 'Starter',
+        resolveAbsolutePaths: true,
+        remark: {
+          plugins: [
+            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+
+          ]
+        }
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/plugins/**/*.md',
+        typeName: 'Plugin',
+        resolveAbsolutePaths: true,
+        remark: {
+          plugins: [
+            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+          ]
+        }
+      }
+    },
+    // {
+    //   use: 'gridsome-plugin-segment-js',
+    //   options: {
+    //     prodKey: process.env.GRIDSOME_SEGMENT_KEY_PROD,
+    //     devKey: process.env.GRIDSOME_SEGMENT_KEY_DEV,
+    //     trackPage: true
+    //   }
+    // },
     {
       use: 'gridsome-plugin-manifest',
       options: {
@@ -72,7 +113,10 @@ module.exports = {
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer']
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      plugins: [
+        ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }]
+      ]
     }
   }
 }

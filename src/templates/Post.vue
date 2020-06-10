@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
       <h1 class="title">
         {{ $page.post.title }}
       </h1>
@@ -8,13 +8,18 @@
         {{ $page.post.excerpt }}
       </p>
       <div
-        class="content pb-40"
+        class="content"
         v-html="$page.post.content" />
+      <div class="comment-form">
+        <Comments />
+      </div>
     </div>
   </Layout>
 </template>
 
 <script>
+// Components
+import Comments from '@/components/Comments'
 
 export default {
   metaInfo () {
@@ -37,15 +42,16 @@ export default {
         { name: 'twitter:creator', content: '@jammeryhq' }
       ],
       bodyAttrs: {
-        class: 'h-screen overflow-x-auto page'
+        class: 'min-h-screen overflow-x-auto page'
       }
     }
   },
+  components: { Comments },
   computed: {
     postUrl () {
-      const siteUrl = 'https://jammeryhq.com'
-      const postPath = this.$page.post.path
-      return postPath ? `${siteUrl}${postPath}` : false
+      const siteUrl = this.$page.metadata.siteUrl
+      const postPath = this.$route.fullPath
+      return `${siteUrl}${postPath}`
     }
   }
 }
@@ -60,10 +66,13 @@ query Post ($path: String) {
     excerpt
     content
   }
+  metadata {
+    siteUrl
+  }
 }
 </page-query>
 
-<style>
+<style lang="scss">
   .page footer a {
     @apply text-black
   }

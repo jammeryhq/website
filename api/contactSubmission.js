@@ -1,34 +1,16 @@
 // Function to send a contact form submission via Mailjet
-const got = require('got').default
+import mailjet from './_utils/mailjet'
+import recaptcha from './_utils/recaptcha'
 
-const MAILJET_PUBLIC_KEY = process.env.MAILJET_PUBLIC_KEY
-const MAILJET_SECRET_KEY = process.env.MAILJET_SECRET_KEY
-const HCAPTCHA_SECRET_KEY = process.env.HCAPTCHA_SECRET_KEY
-
-const mailjet = got.extend({
-  prefixUrl: 'https://api.mailjet.com/v3.1/',
-  username: MAILJET_PUBLIC_KEY,
-  password: MAILJET_SECRET_KEY,
-  responseType: 'json',
-  resolveBodyOnly: true
-})
-
-const hcaptcha = got.extend({
-  prefixUrl: 'https://hcaptcha.com/',
-  responseType: 'json',
-  resolveBodyOnly: true
-})
-
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
-    const { hcaptchaResponse, name, email, message } = req.body
-    if (!hcaptchaResponse) throw new Error('Missing hCaptcha token.')
+    const { name, email, message } = req.body
     if (!email || !name || !message) throw new Error('Missing required field.')
 
-    const hcaptchaPayload = { secret: HCAPTCHA_SECRET_KEY, response: hcaptchaResponse }
-    const { success: hcaptchaSuccess } = await hcaptcha.post('siteverify', { form: hcaptchaPayload })
+    if (!req.headers.recaptcha) throw new Error('No reCaptcha token provided.')
+    const success = await recaptcha.verify(req.headers.recaptcha)
 
-    if (!hcaptchaSuccess) throw new Error('Failed hCaptcha verification.')
+    if (!success) throw new Error('Failed reCaptcha verification.')
 
     const messagePayload = {
       Messages: [
