@@ -141,7 +141,7 @@ body:not(.home) footer a {
 }
 
 article h2 {
-  @apply block text-4xl font-bold mb-10 bg-black inline text-white py-3 px-4;
+  @apply text-4xl font-bold mb-10 bg-black inline text-white;
   box-shadow: 7px 7px rgb(0, 208, 132);
 }
 /* article h2.feedback {
@@ -167,17 +167,21 @@ article h2.product {
 } */
 
 .post {
-  & h2 {
-    @apply relative inline-block rounded-md px-5 mb-0;
+  & h2 a {
+    @apply relative rounded-md mb-0 border-0;
     box-shadow: 7px 7px #00d084;
     -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  & h2:hover {
+  & h2 a:hover {
     -webkit-transform: scale(1.25, 1.25);
     transform: scale(1.25, 1.25);
     box-shadow: -7px -7px #00d084;
+  }
+  & h2 a:focus {
+    box-shadow: 7px 7px #00d084;
+
   }
 }
 

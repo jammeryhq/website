@@ -12,11 +12,10 @@
         :key="edge.node.id"
         class="mt-6 mb-10 post">
         <h2
-          class="text-2xl lg:text-4xl font-bold mb-4 bg-black inline text-white p-3"
           :class="`${edge.node.topic}`">
           <g-link
             :to="`${edge.node.path}`"
-            class="text-white">
+            class="text-white inline-block p-3 text-2xl lg:text-4xl font-bold mb-4 bg-black text-white p-0">
             {{ edge.node.title }}
           </g-link>
         </h2>
