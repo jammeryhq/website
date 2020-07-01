@@ -2,8 +2,8 @@
 title: Thoughts on a business model
 slug: thoughts-on-a-business-model
 date: 2020-05-18
-excerpt: 
-searchTerms: blog
+excerpt: Get the skinny about our thoughts on our business model, giving back to the community and ideas on how we can build Jammery into a sustainable business.
+searchTerms: blog, business model, growth, club
 published: true
 topic: thoughts
 ---
