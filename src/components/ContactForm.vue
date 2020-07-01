@@ -62,17 +62,12 @@
             </label>
           </div>
         </div>
-        <vue-hcaptcha
-          class="block mt-5 mb-2"
-          :sitekey="hcaptchaKey"
-          @verify="form.hcaptchaResponse = $event" />
         <button
           type="submit"
-          :disabled="!form.hcaptchaResponse || submitting"
-          :class="!form.hcaptchaResponse || submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
+          :disabled="submitting"
+          :class="submitting ? 'font-bold bg-gray-400 text-white' : 'font-bold bg-gray-800 text-accent'"
           class="block w-full px-10 py-6 mt-3 mb-5 text-xl font-bold rounded-md md:mt-8">
-          <span v-if="!form.hcaptchaResponse">Please fill in the verification above</span>
-          <span v-else-if="submitting">Sending your message...</span>
+          <span v-if="submitting">Sending your message...</span>
           <span v-else>Send it, Sparky!</span>
         </button>
         <p
@@ -86,9 +81,6 @@
 </template>
 
 <script>
-// Components
-import VueHcaptcha from '@hcaptcha/vue-hcaptcha'
-
 // Packages
 import ky from 'ky'
 import Vue from 'vue'
@@ -96,20 +88,15 @@ import Vue from 'vue'
 // Mixins
 import formMachineMixin from '@/mixins/formMachine'
 
-// Environment variables
-const hcaptchaKey = process.env.GRIDSOME_HCAPTCHA_SITE_KEY
-
 export default {
   name: 'Form',
   components: {
-    VueExpand: () => import('vue-expand'),
-    VueHcaptcha
+    VueExpand: () => import('vue-expand')
   },
   mixins: [formMachineMixin],
   data: () => ({
-    hcaptchaKey,
     handler: new Vue(),
-    form: { hcaptchaResponse: '' }
+    form: {}
   }),
   mounted () {
     this.handler.$emit('focus')
@@ -117,13 +104,17 @@ export default {
   formMachine: {
     resetTimeout: 5000
   },
-  async submitHandler (payload) {
-    const { status, message } = await ky.post('/api/contactSubmission', { json: payload }).json()
+  async submitHandler ({ recaptcha, ...payload }) {
+    const { status, message } = await ky.post('/api/contactSubmission', { json: payload, headers: { recaptcha } }).json()
     if (status === 'error') throw new Error(message)
   },
   methods: {
     async submit () {
-      this.formService.send({ type: 'SUBMIT', value: this.form })
+      // Fetch recaptcha token
+      await this.$recaptchaLoaded()
+      const recaptcha = await this.$recaptcha('contact')
+
+      this.formService.send({ type: 'SUBMIT', value: { recaptcha, ...this.form } })
     }
   }
 }

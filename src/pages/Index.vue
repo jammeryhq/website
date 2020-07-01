@@ -30,6 +30,9 @@ export default {
 </script>
 
 <style>
+.home .app {
+  @apply h-screen
+}
 .home header svg path {
     fill: #fff;
 }
@@ -40,6 +43,6 @@ export default {
   @apply text-white
 }
 .home footer {
-  @apply text-gray-300
+  @apply text-gray-300 absolute bottom-0
 }
 </style>
