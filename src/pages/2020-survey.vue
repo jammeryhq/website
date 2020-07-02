@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <div class="md:flex items-start justify-between relative lg:pt-10 h-full">
-      <div class="w-2/3 lg:w-1/2 p-10 pt-0 lg:fixed survey-content">
+    <div class="xl:flex items-start justify-between relative lg:pt-10 h-full">
+      <div class="mt-24 w-2/3 lg:w-1/2 p-10 xl:fixed survey-content">
         <h1 class="text-4xl sm:text-6xl font-bold">
           2020 Survey
         </h1>
@@ -12,7 +12,7 @@
           To ensure we're hyper focussed on building products and services that have an actual need, we're reaching out to the <strong>JAMstack Community</strong> to get feedback on areas that can be improved while building <em>Vue</em> and <em>Gridsome</em> based sites.
         </p>
       </div>
-      <div class="w-auto lg:w-1/3 bg-white xl:pr-20 lg:shadow-2xl lg:fixed lg:right-0 lg:h-full survey-form overflow-y-auto z-50">
+      <div class="w-auto lg:w-1/3 bg-white xl:pr-20 lg:shadow-2xl xl:fixed xl:right-0 xl:h-full survey-form overflow-y-auto z-50">
         <iframe
           title="Survey Form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSfD11Wb4d4SLjUYoG3CcNimyIr0Qy75Y4zHZV1LbhNA3vyjBQ/viewform?embedded=true"
@@ -23,9 +23,9 @@
           marginwidth="0">Loading…</iframe>
       </div>
     </div>
-          <g-image
-        src="/2.svg"
-        class="image" />
+    <g-image
+      src="/2.svg"
+      class="image" />
   </Layout>
 </template>
 
@@ -69,6 +69,7 @@ export default {
     }
     .survey-form {
         top: 150px;
+        min-width: 670px;
     }
   }
   .image {
