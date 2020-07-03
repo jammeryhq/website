@@ -42,7 +42,10 @@ export default {
 .hero a {
   @apply text-white
 }
-.home footer {
-  @apply text-gray-300 absolute bottom-0
+
+@media ( min-width: 768px ) {
+  .home footer {
+    @apply text-gray-300 absolute bottom-0
+  }
 }
 </style>
