@@ -10,6 +10,9 @@ body {
   padding-left: 20px;
   padding-right: 20px;
 }
+nav a.survey span {
+  @apply text-white font-bold;
+}
 .header {
   & nav div:last-of-type strong,
   & nav div:first-of-type span {
@@ -39,13 +42,6 @@ body {
 header a:link {
   @apply px-4 py-2 leading-loose;
 }
-/* header a:active {
-  @apply relative
-}
-header a.active:after {
-  content: '\00B7';
-  @apply text-5xl h-2 font-bold text-accent block text-center leading-none -mt-6
-} */
 *:link {
   @apply rounded-md border-4 border-transparent border-dotted;
   outline: 0 none;
@@ -64,12 +60,6 @@ header a.active:after {
     @apply font-bold
   }
 }
-/* .survey-link span:after {
-  content: ' \2192'
-}
-.survey-link.active span:after {
-  content: '\2193'block
-} */
 footer {
   @apply text-gray-800
 }

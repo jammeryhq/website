@@ -68,13 +68,13 @@ export default {
         top: 170px;
     }
     .survey-form {
-        top: 150px;
+        top: 200px;
         min-width: 670px;
     }
   }
   .image {
     position: absolute;
-    top: 150px;
+    top: 220px;
     width: 300px;
     right: -80px;
     z-index: 0;

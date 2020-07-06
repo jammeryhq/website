@@ -25,7 +25,7 @@ primary:
     url: /contact
     customClass: block
   - id: 6
-    text: Survey
+    text: 2020 Survey
     title: Take the Survey
-    url: /survey-2020
-    customClass: block md:hidden
+    url: /2020-survey
+    customClass: text-2xl mt-1 md:mt-0 ml-5 md:text-xl hidden md:inline-block survey bg-black text-white font-normal rounded-full

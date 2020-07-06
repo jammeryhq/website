@@ -6,8 +6,6 @@
           Fast-track your <b>JAM</b>stack development &amp; learning
         </h2>
         <p class="max-w-4xl text-3xl text-center text-gray-300">We're working on our first Gridsome product - a configurable utility starter and build tool, which will take you from 0 to 80mph in under two minutes.</p>
-        <p class="max-w-4xl text-xl text-center text-gray-300"><strong>Want to be kept in the loop?</strong> Sign up for our newsletter.</p>
-        <NewsletterForm title="Get notified when we launch" wrapperClass="hidden bg-gray-800 pt-12 p-20 rounded-md" headingLevel="2" desc="We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live." />
       </div>
     </div>
   </div>

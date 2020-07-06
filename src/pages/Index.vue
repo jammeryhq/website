@@ -44,11 +44,11 @@ export default {
   .home footer {
     @apply text-gray-300 absolute bottom-0
   }
-  .home .survey-link {
+  .home .survey {
     @apply bg-white;
   }
-  .home .survey-link strong {
-    @apply text-black;
+  .home .survey span {
+    @apply text-black font-bold;
   }
 }
 </style>

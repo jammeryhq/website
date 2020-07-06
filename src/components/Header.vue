@@ -14,12 +14,6 @@
             <span class="text">{{ text }}</span>
           </g-link>
         </div>
-        <g-link
-          class="text-2xl mt-1 md:mt-0 ml-5 md:text-xl hidden md:inline-block survey-link bg-black text-white font-normal rounded-full"
-          to="/2020-survey"
-          title="Take the JammeryHQ 2020 Survey">
-          <strong class="text-white"><span class="hidden md:inline-block">Take the </span>Survey</strong>
-        </g-link>
         <NavMobile />
       </nav>
     </div>
