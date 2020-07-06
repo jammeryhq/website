@@ -28,4 +28,4 @@ primary:
     text: 2020 Survey
     title: Take the Survey
     url: /2020-survey
-    customClass: text-2xl mt-1 md:mt-0 ml-5 md:text-xl hidden md:inline-block survey bg-black text-white font-normal rounded-full
+    customClass: text-2xl mt-1 md:mt-0 ml-5 md:text-xl md:inline-block survey bg-black text-white font-normal rounded-full
