@@ -28,11 +28,9 @@
         rel="nofollow noopener"
         title="Check out our code on Github">Github</a>
     </nav>
-    <span class="md:mr-6 my-0 md:my-3 lg:my-0 block text-center lg:text-left">a <a
-      href="https://smokeyfro.com"
-      title="Chris Rault, a South African based front-end designer and entrepreneur">SmokeyFro</a> &amp; <a
-        href="https://travisreynolds.dev"
-        title="Travis Reynolds, a full-stack developer from the UK">Thetre97</a> collab</span>
+    <span class="md:mr-6 my-0 md:my-3 lg:my-0 block text-center lg:text-left">Jammery is an <a
+      href="/about"
+      title="">Open Collaboration</a></span>
   </footer>
 </template>
 

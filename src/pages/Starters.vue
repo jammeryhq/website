@@ -38,24 +38,16 @@
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
               class="post">
-              <figure class="block border rounded-md overflow-hidden mb-6">
+              <figure class="block border mb-6">
                 <g-link
                   :to="`${edge.node.path}`"
-                  class="block">
+                  class="block relative rounded-md h-64 overflow-hidden">
                   <g-image :src="edge.node.thumb" class="w-full" cover />
+                  <figcaption class="opacity-0 transition-all ease-in-out duration-300 text-black bg-gray-100 absolute top-0 left-0 right-0 bottom-0 w-full h-full hover:opacity-100 flex items-center justify-center">
+                    <strong class="text-3xl block">{{ edge.node.title }}</strong>
+                  </figcaption>
                 </g-link>
               </figure>
-              <h2>
-                <g-link
-                  :to="`${edge.node.path}`"
-                  class="text-white">
-                  {{ edge.node.title }}
-                </g-link>
-              </h2>
-              <p class="mb-3 text-xl mt-6">
-                {{ edge.node.excerpt }}
-              </p>
-              <!--<p>Availability: <strong>Level {{ edge.node.availability }}</strong></p>-->
             </article>
           </div>
         </div>
@@ -66,7 +58,7 @@
 
 <page-query>
 query Starters ($page: Int) {
-  starters: allStarter (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 6) @paginate {
+  starters: allStarter (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 8) @paginate {
     totalCount
     pageInfo {
       totalPages

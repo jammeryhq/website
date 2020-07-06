@@ -3,7 +3,7 @@ title: London
 slug: london
 date: 2020-05-20
 excerpt: London is a Gridsome Starter using Ghost as the primary source. Ported from the popular London theme for Ghost. Still in development.
-thumb: ./images/london.jpg
+thumb: ./images/london-thumb.jpg
 image: ./images/london-large.jpg
 demo: https://london.jammeryhq.com
 repo: gridsome-starter-london

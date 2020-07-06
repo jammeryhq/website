@@ -1,11 +1,12 @@
 <template>
   <div class="md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 z-40 w-full lg:h-screen hero">
     <div class="p-6 md:p-10">
-      <div class="md:-mt-10 md:flex md:flex-col md:items-center md:justify-center md:h-screen w-full relative z-50">
-        <h2 class="text-white text-5xl md:text-6xl w-full lg:max-w-0 xl:max-w-4xl mx-auto text-center mb-5">
+      <div class="-mt-10 md:flex md:flex-col md:items-center md:justify-center md:h-screen w-full relative z-30">
+        <h2 class="text-white text-4xl md:text-6xl w-full lg:max-w-0 xl:max-w-4xl mx-auto text-center mb-5">
           Fast-track your <b>JAM</b>stack development &amp; learning
         </h2>
-        <p class="max-w-4xl text-3xl text-center text-gray-300">We are currently working on our initial Gridsome starters, plugins and guided tutorials, but need your help to ensure we build products that you will love. Take the <g-link to="/2020-survey">2020 Survey</g-link> -></p>
+        <p class="max-w-4xl text-3xl text-center text-gray-300">We're working on our first Gridsome product - a configurable utility starter and build tool, which will take you from 0 to 80mph in under two minutes.</p>
+        <p class="max-w-4xl text-xl text-center text-gray-300"><strong>Want to be kept in the loop?</strong> Sign up for our newsletter.</p>
         <NewsletterForm title="Get notified when we launch" wrapperClass="hidden bg-gray-800 pt-12 p-20 rounded-md" headingLevel="2" desc="We're still working on our initial products, but add your name and email to our list and we'll let you know when we go live." />
       </div>
     </div>

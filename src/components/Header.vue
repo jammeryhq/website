@@ -1,82 +1,26 @@
 <template>
-
   <header class="header relative z-50 w-full ">
-    <div class="mobile-nav transition duration-500 ease-in-out flex justify-center items-center lg:hidden bg-green-700 p-4 w-full text-xl" v-show="showSection">
-      <g-link
-        class="nav__link"
-        to="/starters"
-        title="View our Gridsome starters">
-        <span>Starters</span>
+    <div class="bg-green-600 text-black text-center relative" v-if="newsletterBar">
+      <g-link to="/subscribe" class="block w-full h-full">
+        <strong>Join our inner circle.</strong> Free to subscribe and no spammy emails.
       </g-link>
-      <g-link
-        class="nav__link"
-        to="/plugins"
-        title="View our Gridsome plugins">
-        <span>Plugins</span>
-      </g-link>
-      <g-link
-        class="nav__link"
-        to="/blog"
-        exact
-        title="Updates on our progresss">
-        <span>Blog</span>
-      </g-link>
-      <g-link
-        to="/about"
-        title="More about Chris and Travis">
-        About
-      </g-link>
-      <g-link
-        class="nav__link"
-        to="/contact"
-        title="Say hello">
-        <span>Contact</span>
-      </g-link>
+      <button class="font-bold text-lg rounded-full bg-white text-black h-8 w-8 block absolute top-0 right-0 mt-3 mr-3" v-on:click="newsletterBar = !newsletterBar">&times;</button>
     </div>
     <div class="flex items-center justify-between mb-10 md:mb-0 pt-4 px-4 lg:p-10">
       <Logo />
       <nav class="nav flex items-center text-xl md:text-lg md:mr-5 text-center md:text-left">
-        <div class="hidden lg:inline-block">
-          <g-link
-            class="nav__link"
-            to="/starters"
-            title="View our Gridsome starters">
-            <span>Starters</span>
-          </g-link>
-          <g-link
-            class="nav__link"
-            to="/plugins"
-            title="View our Gridsome plugins">
-            <span>Plugins</span>
-          </g-link>
-          <g-link
-            class="nav__link"
-            to="/blog"
-            exact
-            title="Updates on our progresss">
-            <span>Blog</span>
-          </g-link>
-          <g-link
-            class="nav__link"
-            to="/contact"
-            title="Say hello">
-            <span>Contact</span>
+        <div class="hidden lg:flex lg:items-center lg:space-x-4">
+          <g-link exact v-for="({ text, title, customClass, url }, i) in navigation.primary" :key="i" :to="url" :tooltip="text" :class="customClass" :aria-label="title">
+            <span class="text">{{ text }}</span>
           </g-link>
         </div>
-        <div class="flex justify-end items-center">
-          <g-link
-            class="text-2xl mt-1 md:mt-0 ml-5 md:text-xl block md:inline-block survey-link"
-            to="/2020-survey"
-            title="Take the JammeryHQ 2020 Survey">
-            <strong><span class="hidden md:inline-block">Take the </span>Survey</strong>
-          </g-link>
-          <button
-            v-on:click.prevent="toggle"
-            class="block lg:hidden navicon"
-            title="Take the JammeryHQ 2020 Survey">
-            <strong>Explore&nbsp;&nbsp;<i class="toggleIcon" id="toggleIcon">{{toggleIcon}}</i></strong>
-          </button>
-        </div>
+        <g-link
+          class="text-2xl mt-1 md:mt-0 ml-5 md:text-xl hidden md:inline-block survey-link bg-black text-white font-normal rounded-full"
+          to="/2020-survey"
+          title="Take the JammeryHQ 2020 Survey">
+          <strong class="text-white"><span class="hidden md:inline-block">Take the </span>Survey</strong>
+        </g-link>
+        <NavMobile />
       </nav>
     </div>
   </header>
@@ -84,20 +28,24 @@
 
 <script>
 import Logo from '@/components/Logo'
+import NavMobile from '@/components/NavMobile'
+import navigation from "@/data/nav-links.yaml";
 
 export default {
   components: {
-    Logo
-  },
-  methods: {
-    toggle() {
-     this.showSection = !this.showSection
-    }
+    Logo,
+    NavMobile
   },
   data() {
     return {
-      showSection: false,
-      toggleIcon: '≡'
+      navigation,
+    }
+  },
+  stored: {
+    newsletterBar: {
+      type: String,
+      key: 'newsletterBar',
+      default: true
     }
   }
 }
@@ -118,7 +66,27 @@ a {
 .home .navicon {
   @apply text-white
 }
-.mobile-nav a span {
-  @apply text-white
+.home .nav a {
+  color: #fff;
+}
+.mobile-nav {
+  width: 200px;
+  right: 30px;
+  left: auto;
+  top: 100px;
+  z-index: 9999;
+  position: absolute;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.mobile-nav .nav__link span {
+  color: #000;
+}
+.mobile-nav a:not(.nav__link) {
+  color: #000;
+  font-weight: bold;
 }
 </style>

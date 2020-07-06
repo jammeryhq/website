@@ -20,7 +20,7 @@
           class="text-gray-100 text-xl lg:text-2xl max-w-3xl mx-auto mb-10">
           {{ desc || 'We\'re still working on our initial products, but add your name and email to our list and we\'ll let you know when we go live.' }}
         </p>
-        <div class="flex flex-col md:flex-row md:items-center md:justify-center">
+        <div class="flex flex-col md:flex-row md:items-center">
           <div class="md:w-1/3 mb-4 md:mb-0 md:mr-5">
             <label
               for="name"

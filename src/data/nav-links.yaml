@@ -1,0 +1,31 @@
+primary:
+  - id: 1
+    text: Starters
+    title: Browse our Gridsome Starters
+    url: /starters
+    customClass: block
+  - id: 2
+    text: Plugins
+    title: Browse our Gridsome plugins
+    url: /plugins
+    customClass: block
+  - id: 3
+    text: Blog
+    title: Read our blog
+    url: /blog
+    customClass: block
+  - id: 4
+    text: About
+    title: About us
+    url: /about
+    customClass: block
+  - id: 5
+    text: Contact
+    title: Get in touch
+    url: /contact
+    customClass: block
+  - id: 6
+    text: Survey
+    title: Take the Survey
+    url: /survey-2020
+    customClass: block md:hidden

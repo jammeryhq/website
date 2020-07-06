@@ -36,9 +36,6 @@ export default {
 .home header svg path {
     fill: #fff;
 }
-.home header a {
-  color: #fff;
-}
 .hero a {
   @apply text-white
 }
@@ -46,6 +43,12 @@ export default {
 @media ( min-width: 768px ) {
   .home footer {
     @apply text-gray-300 absolute bottom-0
+  }
+  .home .survey-link {
+    @apply bg-white;
+  }
+  .home .survey-link strong {
+    @apply text-black;
   }
 }
 </style>

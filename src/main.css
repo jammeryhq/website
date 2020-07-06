@@ -37,7 +37,7 @@ body {
   }
 }
 header a:link {
-  @apply px-4 block py-2 leading-loose;
+  @apply px-4 py-2 leading-loose;
 }
 /* header a:active {
   @apply relative
@@ -60,7 +60,7 @@ header a.active:after {
   & a {
     @apply text-black
   }
-  & .active {
+  & nav .active {
     @apply font-bold
   }
 }
@@ -68,14 +68,10 @@ header a.active:after {
   content: ' \2192'
 }
 .survey-link.active span:after {
-  content: '\2193'
+  content: '\2193'block
 } */
 footer {
   @apply text-gray-800
-}
-footer a,
-.header nav a {
-  display: inline-block;
 }
 .title {
   @apply mb-4 font-bold;
