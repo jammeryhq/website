@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 lg:w-2/3 xl:w-1/2 mx-auto relative z-10">
       <h1 class="title">
         About Us
       </h1>
@@ -32,7 +32,10 @@ export default {
   .page footer a {
     @apply text-black
   }
-  .about footer {
-    @apply absolute bottom-0
+  @media ( min-width: 1385px ) {
+    .about footer {
+      @apply absolute bottom-0
+    }
   }
+
 </style>
