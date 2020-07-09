@@ -28,7 +28,7 @@
 
 <page-query>
 query Starters ($page: Int) {
-  starters: allPlugin (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 6) @paginate {
+  starters: allPlugin (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 12) @paginate {
     totalCount
     pageInfo {
       totalPages
@@ -58,10 +58,10 @@ export default {
     PageHeader
   },
   metaInfo: {
-    title: 'Starters',
-    description: 'Our growing collection of starters for Gridsome',
+    title: 'Our Gridsome Plugins',
+    description: 'Our growing collection of plugins for Gridsome',
     bodyAttrs: {
-      class: 'Gridsome Starters'
+      class: 'index plugins'
     }
   }
 }

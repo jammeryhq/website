@@ -89,10 +89,10 @@ export default {
     PageHeader
   },
   metaInfo: {
-    title: 'Starters',
+    title: 'Our Gridsome Starters',
     description: 'Our growing collection of starters for Gridsome',
     bodyAttrs: {
-      class: 'Gridsome Starters'
+      class: 'index starters'
     }
   }
 }
