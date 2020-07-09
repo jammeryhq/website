@@ -71,9 +71,6 @@ export default {
   .page footer a {
     @apply text-black
   }
-  .about footer {
-    @apply absolute bottom-0
-  }
   article {
     ul {
         @apply mt-4 mb-0 ml-4 text-xl
