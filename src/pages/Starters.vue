@@ -58,7 +58,7 @@
 
 <page-query>
 query Starters ($page: Int) {
-  starters: allStarter (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 8) @paginate {
+  starters: allStarter (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 20) @paginate {
     totalCount
     pageInfo {
       totalPages
