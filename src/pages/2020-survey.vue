@@ -12,12 +12,12 @@
           To ensure we're hyper focussed on building products and services that have an actual need, we're reaching out to the <strong>JAMstack Community</strong> to get feedback on areas that can be improved while building <em>Vue</em> and <em>Gridsome</em> based sites.
         </p>
       </div>
-      <div class="w-auto lg:w-1/3 bg-white xl:pr-20 lg:shadow-2xl xl:fixed xl:right-0 xl:h-full survey-form overflow-y-auto z-50">
+      <div class="w-auto lg:w-1/3 bg-white xl:pr-20 lg:shadow-2xl xl:fixed xl:right-0 xl:h-full survey-form overflow-y-auto pb-20 z-50">
         <iframe
           title="Survey Form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSfD11Wb4d4SLjUYoG3CcNimyIr0Qy75Y4zHZV1LbhNA3vyjBQ/viewform?embedded=true"
           width="640"
-          height="5478"
+          height="5700"
           frameborder="0"
           marginheight="0"
           marginwidth="0">Loading…</iframe>
