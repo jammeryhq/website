@@ -28,7 +28,7 @@
               <li>Built in support for Gridsome plugins (flexsearch, etc)</li>
               <li>Support for popular NPM packages</li>
               <li>Optional authentication with Firestore, Auth0</li>
-              <li>Killer lightroom scores out the box</li>
+              <li>Killer lighthouse scores out the box</li>
             </ul>
           </div>
         </article>
