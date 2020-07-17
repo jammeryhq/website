@@ -84,7 +84,7 @@ export default {
     },
     repoUrl () {
       const githubUrl = 'https://github.com/jammeryhq/'
-      const repoName = this.$page.starter.repo
+      const repoName = this.$page.guide.repo
       return `${githubUrl}${repoName}`
     }
   }
