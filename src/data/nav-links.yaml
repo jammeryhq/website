@@ -10,14 +10,14 @@ primary:
     url: /plugins
     customClass: block
   - id: 3
+    text: Guides
+    title: Our plugin and starter setup guides
+    url: /guides
+    customClass: block
+  - id: 4
     text: Blog
     title: Read our blog
     url: /blog
-    customClass: block
-  - id: 4
-    text: About
-    title: About us
-    url: /about
     customClass: block
   - id: 5
     text: Contact
