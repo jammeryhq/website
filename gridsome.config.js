@@ -27,10 +27,16 @@ module.exports = {
         component: './src/templates/Plugin.vue'
       }
     ],
-    Guide: [
+    StarterGuide: [
       {
         path: '/guides/:slug',
-        component: './src/templates/Guide.vue'
+        component: './src/templates/StarterGuide.vue'
+      }
+    ],
+    PluginGuide: [
+      {
+        path: '/guides/:slug',
+        component: './src/templates/PluginGuide.vue'
       }
     ]
   },
@@ -99,8 +105,22 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/guides/**/*.md',
-        typeName: 'Guide',
+        path: 'content/guides/starters/**/*.md',
+        typeName: 'StarterGuide',
+        resolveAbsolutePaths: true,
+        remark: {
+          plugins: [
+            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
+            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+          ]
+        }
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/guides/plugins/**/*.md',
+        typeName: 'PluginGuide',
         resolveAbsolutePaths: true,
         remark: {
           plugins: [

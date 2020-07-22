@@ -6,33 +6,33 @@
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2 px-6 lg:px-10 xl:w-2/3 mx-auto lg:mt-16 mb-10">
           <div>
             <h2>Plugins</h2>
-            <!--<ul class="grid gap-1 grid-cols-1 md:grid-cols-2">
+            <ul class="grid gap-1 grid-cols-1 md:grid-cols-2">
                 <li
                     v-for="edge in $page.plugins.edges"
                     :key="edge.node.id"
                     class="post">
                     <g-link
-                        :to="pluginGuideUrl"
+                        :to="edge.node.path"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
                 </li>
-            </ul>-->
+            </ul>
           </div>
           <div>
             <h2>Starters</h2>
-            <!--<ul class="grid gap-1 grid-cols-1 md:grid-cols-2">
+            <ul class="grid gap-1 grid-cols-1 md:grid-cols-2">
                 <li
                     v-for="edge in $page.starters.edges"
                     :key="edge.node.id"
                     class="post">
                     <g-link
-                        :to="starterGuideUrl"
+                        :to="edge.node.path"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
                 </li>
-            </ul>-->
+            </ul>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
 
 <page-query>
 query Guides ($page: Int) {
-  starters: allStarter (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
+  starters: allStarterGuide (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
     edges {
       node {
         id
@@ -55,7 +55,7 @@ query Guides ($page: Int) {
       }
     }
   }
-  plugins: allPlugin (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
+  plugins: allPluginGuide (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
     edges {
       node {
         id
