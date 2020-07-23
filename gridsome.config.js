@@ -29,13 +29,13 @@ module.exports = {
     ],
     StarterGuide: [
       {
-        path: '/guides/starters/:slug',
+        path: '/guides/starters/:title',
         component: './src/templates/StarterGuide.vue'
       }
     ],
     PluginGuide: [
       {
-        path: '/guides/plugins/:slug',
+        path: '/guides/plugins/:title',
         component: './src/templates/PluginGuide.vue'
       }
     ]
