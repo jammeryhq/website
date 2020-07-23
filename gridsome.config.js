@@ -19,21 +19,17 @@ module.exports = {
       {
         path: '/starters/:title',
         component: './src/templates/Starter.vue'
+      },
+      {
+        path: '/guides/starters/:title',
+        component: './src/templates/StarterGuide.vue'
       }
     ],
     Plugin: [
       {
         path: '/plugins/:title',
         component: './src/templates/Plugin.vue'
-      }
-    ],
-    StarterGuide: [
-      {
-        path: '/guides/starters/:title',
-        component: './src/templates/StarterGuide.vue'
-      }
-    ],
-    PluginGuide: [
+      },
       {
         path: '/guides/plugins/:title',
         component: './src/templates/PluginGuide.vue'

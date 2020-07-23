@@ -12,7 +12,7 @@
                     :key="edge.node.id"
                     class="post">
                     <g-link
-                        :to="edge.node.path"
+                        :to="'guides/starters/'+edge.node.slug"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
@@ -27,7 +27,7 @@
                     :key="edge.node.id"
                     class="post">
                     <g-link
-                        :to="edge.node.path"
+                        :to="'guides/starters/'+edge.node.slug"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
@@ -47,6 +47,7 @@ query {
       node {
         id
         title
+        slug
       }
     }
   }
@@ -55,6 +56,7 @@ query {
       node {
         id
         title
+        slug
       }
     }
   }
