@@ -1,16 +1,5 @@
 ---
-title: Liebling
-slug: liebling-starter
-date: 2020-05-20
-excerpt:  Grisome starter based on Ghost Liebling and tailwindcss. 
-thumb: ./images/liebling-thumb.jpg
-image: ./images/liebling-large.jpg
-demo: https://gridsome-starter-liebling.now.sh/
-repo: gridsome-starter-liebling
-searchTerms: starter, ghost, gridsome
-availability: 5
-published: true
-featured: false
+id: liebling-starter
 ---
 ## Features
 

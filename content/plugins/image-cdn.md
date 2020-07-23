@@ -11,4 +11,5 @@ availability: 1
 searchTerms: plugin, images, cdn
 published: true
 featured: false
+guide: image-cdn-plugin
 ---

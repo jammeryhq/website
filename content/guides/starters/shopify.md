@@ -1,16 +1,5 @@
 ---
-title: Shopify
-slug: shopify-starter
-date: 2020-05-20
-excerpt: Shopify source plugin for Gridsome.
-thumb: ./images/shopify.jpg
-image: ./images/shopify-large.jpg
-demo: https://shopify.jammeryhq.com
-repo: gridsome-source-shopify
-availability: 1
-searchTerms: plugin, shopify, ecommerce
-published: true
-featured: false
+id: shopify-starter
 ---
 This plugin supports the Storefront API's [**transformedSrc** image field](#transformsrc), as well as [currency formatting](#amount).
 

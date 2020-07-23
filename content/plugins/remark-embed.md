@@ -1,5 +1,5 @@
 ---
-title: Embed
+title: Remark Embed
 slug: remark-embed
 date: 2020-05-20
 excerpt: Gridsome remark plugin to embed external stuff into your gridsome site.
@@ -11,6 +11,7 @@ availability: 1
 searchTerms: plugin, images, cdn
 published: true
 featured: false
+guide: remark-embed-plugin
 ---
 # Installation
 

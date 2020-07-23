@@ -1,16 +1,5 @@
 ---
-title: Skeleventy
-slug: skeleventy-starter
-date: 2020-05-20
-excerpt: Gridsome Starter with TailwindCSS
-thumb: ./images/skeleventy-thumb.jpg
-image: ./images/skeleventy-large.jpg
-demo: https://gridsome-starter-skeleventy.now.sh/
-repo: gridsome-starter-skeleventy
-searchTerms: starter, skeleventy, gridsome
-published: true
-featured: false
-availability: 1
+id: skeleventy-starter
 ---
 ## Credits
 

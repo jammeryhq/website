@@ -4,34 +4,31 @@
       <div>
         <div class="flex items-center justify-start space-x-8">
           <h1 class="title">
-            {{ $page.starterGuide.title }}
+            {{ $page.record.title }}
           </h1>
+          <div
+            class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
+            v-html="$page.record.guide.content" />
         </div>
-
-        <p class="excerpt">
-          {{ $page.starterGuide.excerpt }}
-        </p>
-      
       </div>
-    </div>
-    <div
-      class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
-      v-html="$page.starterGuide.content" />
+      </div>
   </Layout>
 </template>
 
 <page-query>
-query Guide ($path: String) {
-  starterGuide (path: $path) {
-    title
-    slug
-    id
-    excerpt
-    content
-  }
-  metadata {
-    siteUrl
-  }
+query(id:ID) {
+    record: starter(id:$id){
+        edges {
+            node {
+                id
+                title
+                guide {
+                    id
+                    content
+                } 
+            }
+        }
+    }
 }
 </page-query>
 

@@ -11,6 +11,7 @@ availability: 1
 searchTerms: plugin, segment-js, tracking
 published: true
 featured: false
+guide: segment-js-plugin
 ---
 ## Usage
 

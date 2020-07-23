@@ -1,16 +1,5 @@
 ---
-title: Articles
-slug: articles-starter
-date: 2020-05-20
-excerpt: Grisome starter ideal for articles/tutorials.
-thumb: ./images/articles-thumb.jpg
-image: ./images/articles-large.png
-demo: https://gridsome-starter-articles.now.sh/
-repo: gridsome-starter-articles
-availability: 5
-searchTerms: starter, shopify, gridsome
-published: true
-featured: false
+id: articles-starter
 ---
 ## Features
 

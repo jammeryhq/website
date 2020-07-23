@@ -41,30 +41,20 @@
 </template>
 
 <page-query>
-query Guides ($page: Int) {
-  starters: allStarterGuide (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
+query {
+  plugins: allPlugin {
     edges {
       node {
         id
         title
-        slug
-        excerpt
-        path
-        demo
-        published
       }
     }
   }
-  plugins: allPluginGuide (filter: { published: { eq: true } }, page: $page, perPage: 50) @paginate {
+  starters: allStarter {
     edges {
       node {
         id
         title
-        slug
-        excerpt
-        path
-        demo
-        published
       }
     }
   }

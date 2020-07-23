@@ -11,6 +11,7 @@ availability: 1
 searchTerms: plugin, remote-image, performance
 published: true
 featured: false
+guide: remote-image-plugin
 ---
 This is a simple plugin, which is based on a discord discussion.
 It's more a workaround than a permanent solution.

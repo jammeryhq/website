@@ -11,5 +11,6 @@ availability: 5
 searchTerms: starter, shopify, gridsome
 published: true
 featured: false
+guide: folio-starter
 ---
 Folio isn't quite ready yet. Subscribe to my newsletter to be notified when they are ready.

@@ -4,8 +4,11 @@
       <div>
         <div class="flex items-center justify-start space-x-8">
           <h1 class="title">
-            {{ $page.plugin.title }}
+            {{ $page.record.title }}
           </h1>
+          <div
+            class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
+            v-html="$page.record.guide.content" />
         </div>
       </div>
       </div>
@@ -13,19 +16,20 @@
 </template>
 
 <page-query>
-query Guide ($path: String) {
-  plugin: pluginGuide(path: $path) {
-    title
-    path
-    slug
-    id
-    excerpt
-    content
+query(id:ID) {
+    record: plugin(id:$id){
+      edges {
+        node {
+          id
+          title
+          guide {
+              id
+              content
+          } 
+        }
+      }
+    }
   }
-  metadata {
-    siteUrl
-  }
-}
 </page-query>
 
 <style lang="scss">

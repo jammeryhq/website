@@ -11,6 +11,7 @@ searchTerms: starter, ghost, gridsome
 availability: 5
 published: true
 featured: false
+guide: liebling-starter
 ---
 ## Features
 

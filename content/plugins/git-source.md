@@ -11,4 +11,5 @@ availability: 1
 searchTerms: plugin, git, source
 published: true
 featured: false
+guide: git-source-plugin
 ---

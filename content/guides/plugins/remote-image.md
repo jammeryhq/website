@@ -1,16 +1,5 @@
 ---
-title: Remote Image
-slug: remote-image-plugin
-date: 2020-05-20
-excerpt: Simple plugin to download remote images in Gridsome.
-thumb: ./images/remote-image.jpg
-image: ./images/remote-image-large.jpg
-demo: https://remote-image.jammeryhq.com
-repo: gridsome-plugin-remote-image
-availability: 1
-searchTerms: plugin, remote-image, performance
-published: true
-featured: false
+id: remote-image-plugin
 ---
 This is a simple plugin, which is based on a discord discussion.
 It's more a workaround than a permanent solution.

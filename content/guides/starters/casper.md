@@ -1,16 +1,5 @@
 ---
-title: Casper
-slug: casper-starter
-date: 2020-05-20
-excerpt: 
-thumb: ./images/casper-thumb.jpg
-image: ./images/casper-large.jpg
-demo: https://gridsome-starter-casper-v3.now.sh/
-repo: gridsome-starter-casper
-availability: 5
-searchTerms: starter, shopify, gridsome
-published: true
-featured: false
+id: casper-starter
 ---
 ## Features
 

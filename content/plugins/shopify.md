@@ -11,6 +11,7 @@ availability: 1
 searchTerms: plugin, shopify, ecommerce
 published: true
 featured: false
+guide: shopify-plugin-plugin
 ---
 This plugin supports the Storefront API's [**transformedSrc** image field](#transformsrc), as well as [currency formatting](#amount).
 

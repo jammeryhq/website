@@ -1,6 +1,6 @@
 ---
-title: Classes
-slug: image-cdn
+title: Remark Classes
+slug: remark-classes
 date: 2020-05-20
 excerpt: Gridsome remark plugin to add css classes to any element.
 thumb: ./images/remark-classes.jpg
@@ -11,4 +11,5 @@ availability: 1
 searchTerms: plugin, images, cdn
 published: true
 featured: false
+guide: remark-classes-plugin
 ---

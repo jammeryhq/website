@@ -11,4 +11,6 @@ availability: 1
 searchTerms: plugin, brotli, performance
 published: true
 featured: false
+type: plugin
+guide: brotli-plugin
 ---

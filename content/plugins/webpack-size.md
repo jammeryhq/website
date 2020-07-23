@@ -11,4 +11,5 @@ availability: 1
 searchTerms: plugin, webpack, bundle
 published: true
 featured: false
+guide: webpack-size-plugin
 ---

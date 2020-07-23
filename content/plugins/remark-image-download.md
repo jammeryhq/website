@@ -1,5 +1,5 @@
 ---
-title: Image Download
+title: Remark Image Download
 slug: remark-image-download
 date: 2020-05-20
 excerpt: Simple plugin for remark to enable the download of remote images.
@@ -11,6 +11,7 @@ availability: 1
 searchTerms: plugin, remark-image-download, performance
 published: true
 featured: false
+guide: remark-image-download-plugin
 ---
 ## Install
 

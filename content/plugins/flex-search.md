@@ -11,4 +11,5 @@ availability: 1
 searchTerms: plugin, flexsearch, search
 published: true
 featured: false
+guide: flexsearch-plugin
 ---

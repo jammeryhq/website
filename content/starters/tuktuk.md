@@ -11,6 +11,7 @@ searchTerms: starter, tuktuk, gridsome, wordpress, woocommerce
 published: true
 featured: false
 availability: 5
+guide: tuktuk-starter
 ---
 Tuktuk isn't quite ready yet. Subscribe to our newsletter to be notified when they are ready.
 

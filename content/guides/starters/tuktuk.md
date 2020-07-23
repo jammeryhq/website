@@ -1,16 +1,5 @@
 ---
-title: Tuktuk
-slug: tuktuk-starter
-date: 2020-05-20
-excerpt: Tuktuk is our second e-commerce starter, this time using the popular WooCommerce and WordPress as a backend. Still in development.
-thumb: ./images/tuktuk.jpg
-image: ./images/tuktuk.png
-demo: https://tuktuk.jammeryhq.com
-repo: gridsome-starter-tuktuk
-searchTerms: starter, tuktuk, gridsome, wordpress, woocommerce
-published: true
-featured: false
-availability: 5
+id: tuktuk-starter
 ---
 Tuktuk isn't quite ready yet. Subscribe to our newsletter to be notified when they are ready.
 
