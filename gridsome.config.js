@@ -17,20 +17,24 @@ module.exports = {
     ],
     Starter: [
       {
+        name: 'starter',
         path: '/starters/:title',
         component: './src/templates/Starter.vue'
       },
       {
+        name: 'starter-guide',
         path: '/guides/starters/:title',
         component: './src/templates/StarterGuide.vue'
       }
     ],
     Plugin: [
       {
+        name: 'plugin',
         path: '/plugins/:title',
         component: './src/templates/Plugin.vue'
       },
       {
+        name: 'plugin-guide',
         path: '/guides/plugins/:title',
         component: './src/templates/PluginGuide.vue'
       }
