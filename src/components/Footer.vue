@@ -4,8 +4,13 @@
     <nav class="hidden xl:block nav text-center my-3 md:my-0">
       <g-link
         to="/about"
-        title="More about Chris and Travis">
+        title="Read more about who we are and what motivated us to start Jammery">
         About
+      </g-link>
+      <g-link
+        to="/team"
+        title="More about the Team">
+        Team
       </g-link>
       <g-link
         to="/contact"

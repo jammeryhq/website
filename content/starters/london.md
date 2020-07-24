@@ -11,6 +11,7 @@ searchTerms: starter, ghost, gridsome
 availability: 5
 published: true
 featured: false
+version: 1.0.0
 guide: london-starter
 ---
 London isn't quite ready yet. Subscribe to my newsletter to be notified when they are ready.

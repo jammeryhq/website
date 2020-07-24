@@ -11,6 +11,7 @@ availability: 5
 searchTerms: starter, shopify, gridsome
 published: true
 featured: false
+version: 1.0.0
 guide: casper-starter
 ---
 ## Features

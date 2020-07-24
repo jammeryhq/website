@@ -7,8 +7,8 @@
           <div class="flex items-start">
             <p class="excerpt w-3/4" v-if="$page.record.excerpt">{{ $page.record.excerpt }}</p>
             <nav class="w-1/4 links">
-              <g-link :to="`${$page.record.path}`">Plugin Details</g-link>
-              <a :href="$page.record.demo + '.jammeryhq.com'">View Demo</a>
+              <g-link :to="'/plugins/'+$page.record.slug">Plugin Details</g-link>
+              <a :href="$page.record.demo">View Demo</a>
               <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
             </nav>
           </div>
@@ -30,6 +30,7 @@ query($id:ID) {
     id
     title
     excerpt
+    slug
     path
     date (format: "D MMMM YYYY")
     version

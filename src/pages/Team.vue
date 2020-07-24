@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div>
-      <PageHeader title="Our Plugins" summary="Below is our growing collection of Gridsome plugins. Members get early-access to all our plugins before they are released to the community." />
+      <PageHeader title="Team Jammery" summary="Jammery is an open collaboration between four freelancers, each from vastly different backgrounds, each bringing something unique to the table." />
       <div>
-        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 lg:px-10 xl:w-2/3 mx-auto lg:mt-16 mb-10">
+        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 xl:w-2/3 mx-auto">
           <article
             v-for="edge in $page.plugins.edges"
             :key="edge.node.id"
@@ -27,7 +27,7 @@
 
 <page-query>
 query {
-  plugins: allPlugin {
+  plugins: allTeam(sortBy: "date", order: ASC)  {
     edges {
       node {
         id
@@ -35,11 +35,7 @@ query {
         slug
         excerpt
         path
-        demo
         thumb
-        published
-        featured
-        availability
       }
     }
   }
@@ -54,10 +50,10 @@ export default {
     PageHeader
   },
   metaInfo: {
-    title: 'Our Gridsome Plugins',
-    description: 'Our growing collection of plugins for Gridsome',
+    title: 'Team Jammery',
+    description: '',
     bodyAttrs: {
-      class: 'index plugins'
+      class: 'index team'
     }
   }
 }

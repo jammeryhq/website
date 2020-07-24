@@ -40,7 +40,7 @@
               class="post">
               <figure class="block border mb-6">
                 <g-link
-                  :to="`${edge.node.path}`"
+                  :to="'starters/' + edge.node.slug"
                   class="block relative rounded-md h-64 overflow-hidden">
                   <g-image :src="edge.node.thumb" class="w-full" cover />
                   <figcaption class="opacity-0 transition-all ease-in-out duration-300 text-black bg-gray-100 absolute top-0 left-0 right-0 bottom-0 w-full h-full hover:opacity-100 flex items-center justify-center">
@@ -57,17 +57,13 @@
 </template>
 
 <page-query>
-query Starters ($page: Int) {
-  starters: allStarter (filter: { published: { eq: true }, featured: { eq: false }}, page: $page, perPage: 20) @paginate {
-    totalCount
-    pageInfo {
-      totalPages
-      currentPage
-    }
+query {
+  starters: allStarter {
     edges {
       node {
         id
         title
+        slug
         excerpt
         path
         demo

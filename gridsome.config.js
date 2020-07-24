@@ -15,6 +15,12 @@ module.exports = {
         component: './src/templates/Post.vue'
       }
     ],
+    Team: [
+      {
+        path: '/team/:title',
+        component: './src/templates/Team.vue'
+      }
+    ],
     Starter: [
       {
         name: 'starter',
@@ -133,6 +139,17 @@ module.exports = {
             'remark-toc',
             'remark-autolink-headings'
           ]
+        }
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/team/**/*.md',
+        typeName: 'Team',
+        resolveAbsolutePaths: true,
+        remark: {
+          plugins: []
         }
       }
     },

@@ -94,6 +94,12 @@ body:not(.home) footer a {
   }
 
 }
+.prose {
+  @apply pb-20;
+  & > h1.title {
+    @apply mb-0;
+  }
+}
 
 .index h2 {
   @apply block text-4xl font-bold mb-10 bg-black inline text-white py-3 px-4;

@@ -2,12 +2,12 @@
   <Layout>
     <div
       v-on-clickaway="hideInstall"
-      class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
-      <div>
-        <div class="flex items-center justify-start">
-          <h1 class="title">
-            {{ $page.starter.title }}
-          </h1>
+      class="prose lg:prose-2xl mx-auto">
+        <PageHeader :title="$page.starter.title" :summary="$page.starter.excerpt" />
+        
+        <div
+          v-if="$page.starter.availability != 5"
+          class="mb-8 flex flex-wrap">
           <a
             v-if="$page.starter.availability != 5"
             :href="$page.starter.demo"
@@ -18,14 +18,6 @@
             View Demo
             &xrarr;
           </a>
-        </div>
-
-        <p class="excerpt">
-          {{ $page.starter.excerpt }}
-        </p>
-        <div
-          v-if="$page.starter.availability != 5"
-          class="mb-8 flex flex-wrap">
           <button
             class="button button--small button-primary"
             title="Show install instructions"
@@ -118,39 +110,32 @@
             Close
           </button>
         </div>
-      </div>
     </div>
     <figure class="block border rounded-md overflow-hidden my-20 w-2/3 mx-auto">
       <g-image :src="$page.starter.image" />
     </figure>
     <div
-      class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
+      class="prose lg:prose-2xl mx-auto"
+      v-if="$page.starter.content"
       v-html="$page.starter.content" />
   </Layout>
 </template>
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
+import PageHeader from '@/components/PageHeader'
 
 export default {
+  components: {
+    PageHeader
+  },
   metaInfo () {
     return {
-      title: this.$page.starter.title,
       meta: [
         {
           key: 'description',
           name: 'description',
-          content: this.$page.starter.excerpt
         },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:title', content: this.$page.starter.title },
-        { property: 'og:description', content: this.$page.starter.excerpt },
-        { property: 'og:url', content: this.starterUrl },
-        { property: 'article:published_time', content: this.$page.starter.date },
-        { name: 'twitter:title', content: this.$page.starter.title },
-        { name: 'twitter:description', content: this.$page.starter.excerpt },
-        { name: 'twitter:site', content: '@jammeryhq' },
-        { name: 'twitter:creator', content: '@jammeryhq' }
       ],
       bodyAttrs: {
         class: 'min-h-screen overflow-x-auto page starter'
@@ -211,38 +196,6 @@ query Starter ($path: String) {
 <style lang="scss">
   .page footer a {
     @apply text-black
-  }
-  .content {
-    h2, h3, h4, h5, h6 {
-      @apply font-bold my-4
-    }
-    h2 {
-      @apply text-5xl
-    }
-    h3 {
-      @apply text-4xl
-    }
-    h4 {
-      @apply text-3xl
-    }
-    h5 {
-      @apply text-2xl
-    }
-    h6 {
-      @apply text-xl
-    }
-    ol, ul {
-      @apply my-5
-    }
-    li {
-      @apply ml-10 text-xl leading-loose
-    }
-    ol li {
-      @apply list-decimal
-    }
-    ul li {
-      @apply list-disc
-    }
   }
   .starter .button {
     @apply mr-4 mt-4

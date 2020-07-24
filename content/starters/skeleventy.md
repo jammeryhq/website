@@ -11,6 +11,7 @@ searchTerms: starter, skeleventy, gridsome
 published: true
 featured: false
 availability: 1
+version: 1.0.0
 guide: skeleventy-starter
 ---
 ## Credits
