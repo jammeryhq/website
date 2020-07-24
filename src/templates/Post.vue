@@ -1,14 +1,10 @@
 <template>
   <Layout>
     <div class="p-6 lg:p-0 prose lg:prose-2xl mx-auto relative">
-      <h1 class="title">
-        {{ $page.post.title }}
-      </h1>
-      <p class="excerpt">
-        {{ $page.post.excerpt }}
-      </p>
+      <PageHeader :title="$page.post.title" :summary="$page.post.excerpt" />
       <div
         class="content"
+        v-if="$page.post.content"
         v-html="$page.post.content" />
       <div class="comment-form">
         <Comments />
@@ -20,6 +16,7 @@
 <script>
 // Components
 import Comments from '@/components/Comments'
+import PageHeader from '@/components/PageHeader'
 
 export default {
   metaInfo () {
@@ -46,7 +43,7 @@ export default {
       }
     }
   },
-  components: { Comments },
+  components: { Comments, PageHeader },
   computed: {
     postUrl () {
       const siteUrl = this.$page.metadata.siteUrl
