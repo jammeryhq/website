@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
-      <div>
-        <div class="flex items-center justify-start space-x-8">
+      <div class="prose">
+        <div>
           <h1 class="title">{{ $page.record.title }}</h1>
           <div
             class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
@@ -19,7 +19,10 @@ query($id:ID) {
   record: starter(id:$id){    
     id
     title
-    guide
+    guide {
+        id
+        content
+    }
   }
 }
 </page-query>

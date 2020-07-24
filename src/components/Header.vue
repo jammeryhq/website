@@ -54,7 +54,7 @@ query {
 </static-query>
 
 <style>
-a {
+.home a {
     color: #fff;
 }
 .home .navicon {

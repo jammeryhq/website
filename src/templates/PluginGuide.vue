@@ -1,14 +1,24 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto relative">
-      <div>
-        <div class="flex items-center justify-start space-x-8">
-          <h1 class="title">{{ $page.record.title }}</h1>
-          <div
-            class="content p-6 lg:p-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto"
-            v-html="$page.record.guide.content"
-          />
+    <div class="p-6 lg:p-0 w-full mx-auto relative">
+      <div class="prose lg:prose-2xl mx-auto">
+        <div class="">
+          <h1 class="title">{{ $page.record.title }} Setup Guide</h1>
+          <div class="flex items-start">
+            <p class="excerpt w-3/4" v-if="$page.record.excerpt">{{ $page.record.excerpt }}</p>
+            <nav class="w-1/4 links">
+              <g-link :to="`${$page.record.path}`">Plugin Details</g-link>
+              <a :href="$page.record.demo + '.jammeryhq.com'">View Demo</a>
+              <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
+            </nav>
+          </div>
+          <ul>
+            <li v-if="$page.record.version">Version: {{ $page.record.version }}</li>
+            <li v-if="$page.record.date">Released: {{ $page.record.date }}</li>
+            <li v-if="$page.record.date">Updated: {{ $page.record.date }}</li>
+          </ul>
         </div>
+        <div class="" v-html="$page.record.guide.content" />
       </div>
     </div>
   </Layout>
@@ -19,59 +29,25 @@ query($id:ID) {
   record: plugin(id:$id){  
     id
     title
-    guide
+    excerpt
+    path
+    date (format: "D MMMM YYYY")
+    version
+    repo
+    demo
+    guide {
+      id
+      content
+    }
   }
 }
 </page-query>
 
 <style lang="scss">
-.page footer a {
-  @apply text-black;
+.prose .excerpt {
+  @apply text-3xl mt-0
 }
-.content {
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold my-4;
-  }
-  h2 {
-    @apply text-5xl;
-  }
-  h3 {
-    @apply text-4xl;
-  }
-  h4 {
-    @apply text-3xl;
-  }
-  h5 {
-    @apply text-2xl;
-  }
-  h6 {
-    @apply text-xl;
-  }
-  ol,
-  ul {
-    @apply my-5;
-  }
-  li {
-    @apply ml-10 text-xl leading-loose;
-  }
-  ol li {
-    @apply list-decimal;
-  }
-  ul li {
-    @apply list-disc;
-  }
-}
-.button {
-  @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8;
-}
-.button-primary {
-  @apply bg-accent text-black border-accent;
-}
-.button-secondary {
-  @apply bg-gray-900 text-white border-gray-900;
+.links a {
+  @apply block text-lg
 }
 </style>

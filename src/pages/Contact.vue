@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 lg:w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 prose lg:prose-2xl mx-auto relative z-10">
       <h1 class="title">
         Say Hello
       </h1>

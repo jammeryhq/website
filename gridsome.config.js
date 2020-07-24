@@ -79,6 +79,9 @@ module.exports = {
         path: 'content/starters/**/*.md',
         typeName: 'Starter',
         resolveAbsolutePaths: true,
+        refs: {
+          guide: 'StarterGuide'
+        },
         remark: {
           plugins: [
             ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
@@ -94,6 +97,9 @@ module.exports = {
         path: 'content/plugins/**/*.md',
         typeName: 'Plugin',
         resolveAbsolutePaths: true,
+        refs: {
+          guide: 'PluginGuide'
+        },
         remark: {
           plugins: [
             ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
@@ -110,8 +116,8 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
-            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
-            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+            'remark-toc',
+            'remark-autolink-headings'
           ]
         }
       }
@@ -124,8 +130,8 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
-            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
-            ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
+            'remark-toc',
+            'remark-autolink-headings'
           ]
         }
       }
@@ -155,6 +161,7 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       plugins: [
+        ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }],
         ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }]
       ]
     }

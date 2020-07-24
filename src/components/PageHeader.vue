@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6 lg:p-0 md:w-full lg:w-3/4 xl:w-1/2 mx-auto relative z-10">
+    <div class="prose lg:prose-2xl p-6 lg:p-0 mx-auto relative z-10 mb-10">
         <h1 class="title" v-if="title != ''">
             {{ title }}
         </h1>

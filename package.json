@@ -10,12 +10,13 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
+    "@tailwindcss/typography": "^0.2.0",
     "gridsome": "0.7.19",
     "gridsome-plugin-manifest": "^0.3.5",
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "gridsome-plugin-segment-js": "^1.0.4",
-    "gridsome-plugin-tailwindcss": "^3.0.1",
+    "gridsome-plugin-tailwindcss": "latest",
     "ky": "^0.23.0",
     "v-tooltip": "^2.0.3",
     "vue-clickaway": "^2.2.2",
@@ -32,6 +33,7 @@
     "got": "^11.5.1",
     "marked": "^1.1.1",
     "node-sass": "^4.14.1",
+    "remark-toc": "^7.0.0",
     "sanitize-html": "^1.27.1",
     "sass-loader": "^9.0.2"
   }

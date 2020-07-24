@@ -645,5 +645,8 @@ module.exports = {
     transitionDuration: ['responsive'],
     transitionDelay: ['responsive']
   },
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
   corePlugins: {}
 }
