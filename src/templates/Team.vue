@@ -1,14 +1,52 @@
 <template>
   <Layout>
-    <div class="prose lg:prose-2xl mx-auto">
-      <PageHeader :title="$page.post.title" :summary="$page.post.excerpt" />
-      <div
-        class="content"
-        v-if="$page.post.content"
-        v-html="$page.post.content" />
-      <div class="comment-form">
-        <Comments />
+    <div class="prose lg:prose-2xl mx-auto relative">
+      <div class="flex items-start">
+        <g-image class="image m-0 w-full h-full mr-10 block overflow-hidden" :src="$page.post.image"></g-image>
+        <PageHeader :title="$page.post.title" :summary="$page.post.excerpt" />
       </div>
+
+        <div>
+            <a v-for="(link, $index) in $page.post.links" :key="$index" :href="link.url" :title="link.title">
+                {{ link.network }}
+            </a>
+        </div>    
+        <div class="flex items-start">
+          <div
+              class="content"
+              v-if="$page.post.content"
+              v-html="$page.post.content" />
+          <aside class="p-10">
+            <div>
+            <h2>Basics</h2>
+            <ul>
+              <li><strong>Date of birth:</strong><br>{{ $page.post.dob }}</li>
+              <li><strong>Nationality:</strong><br>{{ $page.post.nationality }}</li>
+              <li><strong>Fav food:</strong><br>{{ $page.post.favFood }}</li>
+            </ul>
+            </div>
+            <div v-if="$page.post.skills">
+            <h2>Skills</h2>
+            <ul>
+              <li v-for="skill in $page.post.skills" :key="skill">
+                  {{ skill }}
+              </li>
+            </ul>
+          </div>
+
+          <div v-if="$page.post.hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+              <li v-for="hobby in $page.post.hobbies" :key="hobby">
+                  {{ hobby }}
+              </li>
+            </ul>
+          </div>
+          </aside>
+          
+        </div>   
+        
+
     </div>
   </Layout>
 </template>
@@ -62,6 +100,17 @@ query Team ($path: String) {
     id
     excerpt
     content
+    nationality
+    favFood
+    dob
+    hobbies
+    skills
+    image
+    links {
+        network
+        title
+        url
+    }
   }
   metadata {
     siteUrl
@@ -72,5 +121,23 @@ query Team ($path: String) {
 <style lang="scss">
   .page footer a {
     @apply text-black
+  }
+  .prose {
+    .image {
+      @apply mt-0 rounded-full overflow-hidden -ml-32;
+    }
+    aside {
+      @apply pl-10 w-full bg-gray-100 py-10 rounded-md ml-20 -mt-10;
+
+      h2 {
+        @apply text-2xl;
+      }
+      h2:first-of-type {
+        @apply mt-0;
+      }
+      li {
+        @apply text-lg;
+      }
+    }
   }
 </style>

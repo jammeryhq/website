@@ -5,9 +5,10 @@ date: 2020-06-01
 dob: 
 starsign: 
 favFood: 
-country: 
+location: Lagos, Nigeria
+nationality: Nigerian
 thumb: ./images/kabolobari-thumb.jpg
-image: ./images/kabolobari-large.jpg
+image: ./images/kb.jpg
 searchTerms: kabolobari, benakole, developer, backend, full-stack
 hobbies: 
 - 

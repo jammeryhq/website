@@ -5,9 +5,10 @@ date: 2020-04-01
 dob: 31/12/1980
 starsign: Capricorn
 favFood: Mexican
-country: South Africa
+location: Garden Route, South Africa
+nationality: South African
 thumb: ./images/chris-thumb.jpg
-image: ./images/chris-large.jpg
+image: ./images/chris.jpg
 searchTerms: chris, rault, devigner, designer, ux, ui
 hobbies: 
 - Food Gardening

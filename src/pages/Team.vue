@@ -2,7 +2,7 @@
   <Layout>
     <div>
       <PageHeader title="Team Jammery" summary="Jammery is an open collaboration between four freelancers, each from vastly different backgrounds, each bringing something unique to the table." />
-      <div>
+      <div class="pb-20">
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2 xl:w-2/3 mx-auto">
           <article
             v-for="edge in $page.plugins.edges"
@@ -10,7 +10,7 @@
             class="post">
             <h2>
               <g-link
-                :to="'plugins/' + edge.node.slug"
+                :to="'team/' + edge.node.slug"
                 class="text-white">
                 {{ edge.node.title }}
               </g-link>

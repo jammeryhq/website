@@ -5,9 +5,10 @@ date: 2020-04-01
 dob: 
 starsign: 
 favFood: 
-country: 
+location:
+nationality: British
 thumb: ./images/travis-thumb.jpg
-image: ./images/travis-large.jpg
+image: ./images/travis.jpg
 searchTerms: travis, reynolds, developer, backend, full-stack
 hobbies: 
 - 

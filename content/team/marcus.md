@@ -5,7 +5,8 @@ date: 2020-06-01
 dob: 
 starsign: 
 favFood: 
-country: 
+location:
+nationality: GErman
 thumb: ./images/marcus-thumb.jpg
 image: ./images/marcus-large.jpg
 searchTerms: marcus, reinhardt, developer, backend, full-stack
