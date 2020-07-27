@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="w-1/2 mx-auto relative z-10 content">
+    <div class="w-1/2 prose lg:prose-2xl mx-auto relative z-10 content">
       <h1 class="title">
         Our Privacy Policy
       </h1>

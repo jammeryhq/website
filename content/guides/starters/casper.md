@@ -1,21 +1,6 @@
 ---
 id: casper-starter
 ---
-## Features
-
-* Gridsome
-* Tailwindcss with some custom configuration
-  * tailwindcss tables plugin
-* Light and Dark Mode with auto detect  
-* v-tooltip
-* SCSS
-* Markdown
-* Tags
-* Categories
-* Author Pages
-* Blog
-* About Page
-* Pagination
 
 ## Plugins
 

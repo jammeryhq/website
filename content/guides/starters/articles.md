@@ -1,21 +1,6 @@
 ---
 id: articles-starter
 ---
-## Features
-
-* Gridsome
-* Bootstrap
-* SCSS
-* Markdown
-* Tags
-* Related Pages
-* Blog
-* Table of contents
-* Pagination
-* Fulltext search with fusejs
-* Related posts for articles
-* Filterable records ( in the template it's named as Resources )
-
 ## Plugins
 
 With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that make this project possible. 

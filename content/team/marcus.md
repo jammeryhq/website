@@ -2,13 +2,13 @@
 title: Marcus Reinhardt
 slug: marcus-reinhardt
 date: 2020-06-01
-dob: 
+dob:  
 starsign: 
 favFood: 
 location:
-nationality: GErman
-thumb: ./images/marcus-thumb.jpg
-image: ./images/marcus-large.jpg
+nationality: German
+thumb: ./images/marcus.jpg
+image: ./images/marcus.jpg
 searchTerms: marcus, reinhardt, developer, backend, full-stack
 hobbies: 
 - 

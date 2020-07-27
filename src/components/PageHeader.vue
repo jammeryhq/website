@@ -1,5 +1,5 @@
 <template>
-    <div class="prose lg:prose-2xl mx-auto">
+    <div class="page-header prose lg:prose-2xl mx-auto">
         <h1 class="title" v-if="title != ''">
             {{ title }}
         </h1>

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 mb-10 lg:w-1/2 mx-auto relative z-10">
+    <div class="p-6 lg:p-0 mb-10 lg:w-1/2 prose lg:prose-2xl mx-auto relative z-10">
       <h1 class="title">Subscribe</h1>
       <p class="excerpt">
         Want to be kept in the loop? Sign up for our newsletter and we'll send you occasional updates on our progress.
