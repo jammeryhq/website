@@ -52,8 +52,6 @@
           </label>
           <button
             v-clipboard:copy="installText"
-            v-clipboard:success="onCopy"
-            v-clipboard:error="onError"
             type="button"
             class="mr-1 copy justify-center self-center flex items-center h-8 w-10 block rounded-full overflow-hidden bg-black hover:bg-gray-700 focus:bg-accent text-white"
             title="Copy to your clipboard">
