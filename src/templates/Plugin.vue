@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="prose lg:prose-2xl mx-auto">
-      <PageHeader :title="$page.plugin.title" :summary="$page.plugin.excerpt" />
+      <PageHeader
+        :title="$page.plugin.title"
+        :summary="$page.plugin.excerpt" />
       <div
         v-if="$page.plugin.availability != 5"
         class="mb-8 flex space-x-4">
@@ -12,7 +14,10 @@
           @keyup="showInstall = !showInstall">
           Install
         </button>
-        <a :href="repoUrl" class="text-black text-2xl" title="View the repo on Github">
+        <a
+          :href="repoUrl"
+          class="text-black text-2xl"
+          title="View the repo on Github">
           Github
         </a>
       </div>
@@ -29,8 +34,8 @@
         </button>
       </div>
       <div
-      class=""
-      v-html="$page.plugin.content" />
+        class=""
+        v-html="$page.plugin.content" />
     </div>
   </Layout>
 </template>
@@ -81,7 +86,7 @@ export default {
 
 <page-query>
 query($id:ID) {
-  plugin(id:$id){  
+  plugin(id:$id){
     title
     slug
     id

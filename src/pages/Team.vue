@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div>
-      <PageHeader title="Team Jammery" summary="Jammery is an open collaboration between four freelancers, each from vastly different backgrounds, each bringing something unique to the table." />
+      <PageHeader
+        title="Team Jammery"
+        summary="Jammery is an open collaboration between four freelancers, each from vastly different backgrounds, each bringing something unique to the table." />
       <div class="pb-20">
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2 xl:w-2/3 mx-auto">
           <article

@@ -1,23 +1,35 @@
 <template>
-    <div class="relative block lg:hidden">
-        <button
-            v-on:click.prevent="toggle"
-            class="block lg:hidden navicon"
-            title="Take the JammeryHQ 2020 Survey">
-            <strong>Explore&nbsp;&nbsp;<i class="toggleIcon" id="toggleIcon">{{toggleIcon}}</i></strong>
-        </button>
-        <nav class="nav-mobile absolute top-0 right-0 w-32 bg-white" ref="primaryNav" role="navigation" v-show="showSection">
-            <g-link exact v-for="({ text, title, url }, i) in navigation.primary" :key="i" :to="url" :tooltip="text" :aria-label="title">
-            <span class="text">{{ text }}</span>
-            </g-link>
-        </nav>
-    </div>
+  <div class="relative block lg:hidden">
+    <button
+      class="block lg:hidden navicon"
+      title="Take the JammeryHQ 2020 Survey"
+      @click.prevent="toggle">
+      <strong>Explore&nbsp;&nbsp;<i
+        id="toggleIcon"
+        class="toggleIcon">{{ toggleIcon }}</i></strong>
+    </button>
+    <nav
+      v-show="showSection"
+      ref="primaryNav"
+      class="nav-mobile absolute top-0 right-0 w-32 bg-white"
+      role="navigation">
+      <g-link
+        v-for="({ text, title, url }, i) in navigation.primary"
+        :key="i"
+        exact
+        :to="url"
+        :tooltip="text"
+        :aria-label="title">
+        <span class="text">{{ text }}</span>
+      </g-link>
+    </nav>
+  </div>
 </template>
 
 <script>
-import navigation from "@/data/nav-links.yaml";
+import navigation from '@/data/nav-links.yaml';
 export default {
-  data() {
+  data () {
     return {
       navigation,
       showSection: false,
@@ -25,24 +37,24 @@ export default {
     };
   },
   methods: {
-    toggle() {
-     this.showSection = !this.showSection
+    toggle () {
+      this.showSection = !this.showSection
     },
-    startArrowKeys() {
-		this.$refs.primaryNav.children[0].focus()
+    startArrowKeys () {
+      this.$refs.primaryNav.children[ 0 ].focus()
     },
-    focusPrevious(isArrowKey) {
-        this.focusedIndex = this.focusedIndex - 1
-        if (isArrowKey) {
-            this.focusItem()
-        }
+    focusPrevious (isArrowKey) {
+      this.focusedIndex = this.focusedIndex - 1
+      if (isArrowKey) {
+        this.focusItem()
+      }
     },
-    focusNext(isArrowKey) {
-        this.focusedIndex = this.focusedIndex + 1
-        if (isArrowKey) {
-            this.focusItem()
-        }
-    },
+    focusNext (isArrowKey) {
+      this.focusedIndex = this.focusedIndex + 1
+      if (isArrowKey) {
+        this.focusItem()
+      }
+    }
   }
 }
 </script>

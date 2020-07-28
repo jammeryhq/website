@@ -19,5 +19,4 @@ export default function (Vue, { head }) {
   Vue.use(VueScrollTo)
   Vue.use(VueClipboard)
   Vue.use(VueStorage)
-  
 }

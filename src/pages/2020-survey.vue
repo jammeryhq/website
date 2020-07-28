@@ -93,12 +93,12 @@ body.survey {
 
 /* Small (sm) */
 @media (min-width: 640px) {
-  
+
 }
 
 /* Medium (md) */
 @media (min-width: 768px) {
-  
+
 }
 
 /* Large (lg) */
@@ -113,7 +113,7 @@ body.survey {
 
 /* Extra Large (xl) */
 @media (min-width: 1280px) {
-  
+
 }
 
 </style>

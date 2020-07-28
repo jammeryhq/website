@@ -1,27 +1,31 @@
 <template>
-    <div class="page-header prose lg:prose-2xl mx-auto">
-        <h1 class="title" v-if="title != ''">
-            {{ title }}
-        </h1>
-        <p class="excerpt" v-if="summary != ''">
-            {{ summary }}
-        </p>
-    </div>
+  <div class="page-header prose lg:prose-2xl mx-auto">
+    <h1
+      v-if="title != ''"
+      class="title">
+      {{ title }}
+    </h1>
+    <p
+      v-if="summary != ''"
+      class="excerpt">
+      {{ summary }}
+    </p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'PageHeader',
-    props: {
-        title: {
-            type: String,
-            default: ''
-        },
-        summary: {
-            type: String,
-            default: ''
-        }
+  name: 'PageHeader',
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    summary: {
+      type: String,
+      default: ''
     }
+  }
 }
 </script>
 

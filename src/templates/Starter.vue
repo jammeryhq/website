@@ -1,7 +1,10 @@
 <template>
   <Layout>
     <div class="">
-      <PageHeader :title="$page.starter.title" :summary="$page.starter.excerpt" customClass="prose lg:prose-2xl mx-auto pb-0" />
+      <PageHeader
+        :title="$page.starter.title"
+        :summary="$page.starter.excerpt"
+        custom-class="prose lg:prose-2xl mx-auto pb-0" />
       <div
         v-if="$page.starter.availability != 5"
         class="mb-8 flex items-center justify-center mt-10 space-x-4 mx-auto text-center">
@@ -12,7 +15,10 @@
           @keyup="showInstall = !showInstall">
           Install
         </button>
-        <a :href="repoUrl" class="text-black text-2xl" title="View the repo on Github">
+        <a
+          :href="repoUrl"
+          class="text-black text-2xl"
+          title="View the repo on Github">
           Github
         </a>
       </div>
@@ -22,8 +28,14 @@
         <p>To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
         <div class="border rounded-md bg-white px-3 flex items-stretch justify-start">
           <span class="flex items-center justify-start text-sm ml-1">
-            <button @click.prevent="installType = 'yarn'" :class="{'bg-green-500 text-white':installType === 'yarn'}" class="font-bold bg-gray-100 rounded-md rounded-r-none px-2">Yarn</button>
-            <button @click.prevent="installType = 'npm'" :class="{'bg-green-500 text-white':installType === 'npm'}" class="font-bold bg-gray-100 rounded-md rounded-l-none px-2">NPM</button>
+            <button
+              :class="{'bg-green-500 text-white':installType === 'yarn'}"
+              class="font-bold bg-gray-100 rounded-md rounded-r-none px-2"
+              @click.prevent="installType = 'yarn'">Yarn</button>
+            <button
+              :class="{'bg-green-500 text-white':installType === 'npm'}"
+              class="font-bold bg-gray-100 rounded-md rounded-l-none px-2"
+              @click.prevent="installType = 'npm'">NPM</button>
           </span>
           <input
             :value="installText"
@@ -44,20 +56,18 @@
           </button>
         </div>
         <button
-            class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold"
-            @click.prevent="showInstall = !showInstall"
-            @keyup="showInstall = !showInstall">
-            Close
-          </button>
-
-        
+          class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold"
+          @click.prevent="showInstall = !showInstall"
+          @keyup="showInstall = !showInstall">
+          Close
+        </button>
       </div>
-          <figure class="block border rounded-md overflow-hidden mt-10 mb-20 w-2/3 mx-auto">
-      <g-image :src="$page.starter.image" />
-    </figure>
+      <figure class="block border rounded-md overflow-hidden mt-10 mb-20 w-2/3 mx-auto">
+        <g-image :src="$page.starter.image" />
+      </figure>
       <div
-      class="prose lg:prose-2xl mx-auto mb-20"
-      v-html="$page.starter.content" />
+        class="prose lg:prose-2xl mx-auto mb-20"
+        v-html="$page.starter.content" />
     </div>
   </Layout>
 </template>
@@ -97,7 +107,7 @@ export default {
 
 <page-query>
 query($id:ID) {
-  starter(id:$id){  
+  starter(id:$id){
     title
     slug
     id

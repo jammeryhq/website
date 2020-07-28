@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div>
-      <PageHeader title="Our Plugins" summary="Below is our growing collection of Gridsome plugins. Members get early-access to all our plugins before they are released to the community." />
+      <PageHeader
+        title="Our Plugins"
+        summary="Below is our growing collection of Gridsome plugins. Members get early-access to all our plugins before they are released to the community." />
       <div>
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 lg:px-10 xl:w-2/3 mx-auto lg:mt-16 mb-10">
           <article

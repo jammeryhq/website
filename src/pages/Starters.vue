@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div>
-      <PageHeader title="Our Starters" summary="Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community." />
+      <PageHeader
+        title="Our Starters"
+        summary="Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community." />
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-0 p-10">
         <article class="post p-10 bg-gray-100 rounded-md mb-10">
           <figure class="block border rounded-md overflow-hidden mb-6">
@@ -42,7 +44,10 @@
                 <g-link
                   :to="'starters/' + edge.node.slug"
                   class="block relative rounded-md h-64 overflow-hidden">
-                  <g-image :src="edge.node.thumb" class="w-full" cover />
+                  <g-image
+                    :src="edge.node.thumb"
+                    class="w-full"
+                    cover />
                   <figcaption class="opacity-0 transition-all ease-in-out duration-300 text-black bg-gray-100 absolute top-0 left-0 right-0 bottom-0 w-full h-full hover:opacity-100 flex items-center justify-center">
                     <strong class="text-3xl block">{{ edge.node.title }}</strong>
                   </figcaption>

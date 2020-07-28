@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="min-h-screen p-6 md:p-0">
-      <PageHeader title="Blog" summary="Get the latest updates about what we're thinking about, working on and more." />
+      <PageHeader
+        title="Blog"
+        summary="Get the latest updates about what we're thinking about, working on and more." />
       <div class="prose lg:prose-2xl mx-auto">
         <article
           v-for="edge in $page.blog.edges"
@@ -58,7 +60,6 @@ query Blog ($page: Int) {
   }
 }
 </page-query>
-
 
 <style lang="scss">
   .blog {

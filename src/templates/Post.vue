@@ -1,10 +1,12 @@
 <template>
   <Layout>
     <div class="p-6 lg:p-0 prose lg:prose-2xl mx-auto relative">
-      <PageHeader :title="$page.post.title" :summary="$page.post.excerpt" />
+      <PageHeader
+        :title="$page.post.title"
+        :summary="$page.post.excerpt" />
       <div
-        class="content"
         v-if="$page.post.content"
+        class="content"
         v-html="$page.post.content" />
       <div class="comment-form">
         <Comments />
