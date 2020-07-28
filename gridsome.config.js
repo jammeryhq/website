@@ -122,7 +122,6 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
-            'remark-toc',
             'remark-autolink-headings'
           ]
         }
@@ -136,7 +135,6 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
-            'remark-toc',
             'remark-autolink-headings'
           ]
         }
