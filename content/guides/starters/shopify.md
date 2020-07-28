@@ -1,9 +1,11 @@
 ---
 id: shopify-starter
 ---
+## Intro
+
 This plugin supports the Storefront API's [**transformedSrc** image field](#transformsrc), as well as [currency formatting](#amount).
 
-
+## TOC
 1. Install
 2. Usage
 3. Routes & Templates

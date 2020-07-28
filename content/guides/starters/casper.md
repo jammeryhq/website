@@ -1,7 +1,6 @@
 ---
 id: casper-starter
 ---
-
 ## Plugins
 
 With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that make this project possible. 

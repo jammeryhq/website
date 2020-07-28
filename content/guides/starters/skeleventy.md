@@ -5,8 +5,8 @@ id: skeleventy-starter
 
 * This starter was initial created by [Joseph Dyer](https://github.com/josephdyer).
 
-
 ## Demo
+
 [https://gridsome-starter-skeleventy.now.sh/](https://gridsome-starter-skeleventy.now.sh/)
 
 ## Features
