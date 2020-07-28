@@ -62,7 +62,6 @@
 
 <script>
 // Components
-import Comments from '@/components/Comments'
 import PageHeader from '@/components/PageHeader'
 
 export default {
@@ -90,7 +89,7 @@ export default {
       }
     }
   },
-  components: { Comments, PageHeader },
+  components: { PageHeader },
   computed: {
     postUrl () {
       const siteUrl = this.$page.metadata.siteUrl

@@ -10,7 +10,8 @@
       </g-link>
       <button
         class="font-bold text-lg rounded-full bg-white text-black h-8 w-8 block absolute top-0 right-0 mt-3 mr-3"
-        @click="newsletterBar = !newsletterBar">
+        @click="newsletterBar = !newsletterBar"
+        @keyup="newsletterBar = !newsletterBar">
         &times;
       </button>
     </div>

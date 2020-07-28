@@ -15,7 +15,8 @@
                   v-if="isOpen"
                   class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"
                   tabindex="-1"
-                  @click="isOpen = false" />
+                  @click="isOpen = false"
+                  @keyup="isOpen = false" />
                 <div
                   v-if="isOpen"
                   class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">

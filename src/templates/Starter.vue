@@ -11,7 +11,7 @@
         <button
           class="button button--small button-secondary"
           title="Show install instructions"
-          @click.prevent="showInstall = !showInstall"
+          @click="showInstall = !showInstall"
           @keyup="showInstall = !showInstall">
           Install
         </button>
@@ -31,18 +31,25 @@
             <button
               :class="{'bg-green-500 text-white':installType === 'yarn'}"
               class="font-bold bg-gray-100 rounded-md rounded-r-none px-2"
-              @click.prevent="installType = 'yarn'">Yarn</button>
+              @click="installType = 'yarn'"
+              @keyup="installType = 'yarn'">Yarn</button>
             <button
               :class="{'bg-green-500 text-white':installType === 'npm'}"
               class="font-bold bg-gray-100 rounded-md rounded-l-none px-2"
-              @click.prevent="installType = 'npm'">NPM</button>
+              @click="installType = 'npm'"
+              @keyup="installType = 'npm'">NPM</button>
           </span>
-          <input
-            :value="installText"
-            name="install-code"
-            type="text"
-            disabled
-            class="bg-white py-3 px-4 mx-2 font-serif rounded-md text-xl w-full">
+          <label
+            for="install-code">
+            <span hidden>Install Code</span>
+            <input
+              id="install-code"
+              :value="installText"
+              name="install-code"
+              type="text"
+              disabled
+              class="bg-white py-3 px-4 mx-2 font-serif rounded-md text-xl w-full">
+          </label>
           <button
             v-clipboard:copy="installText"
             v-clipboard:success="onCopy"

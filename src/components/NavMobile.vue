@@ -3,7 +3,8 @@
     <button
       class="block lg:hidden navicon"
       title="Take the JammeryHQ 2020 Survey"
-      @click.prevent="toggle">
+      @click.prevent="toggle"
+      @keyup.prevent="toggle">
       <strong>Explore&nbsp;&nbsp;<i
         id="toggleIcon"
         class="toggleIcon">{{ toggleIcon }}</i></strong>
