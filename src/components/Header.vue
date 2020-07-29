@@ -2,14 +2,19 @@
   <header class="header relative z-50 w-full ">
     <div
       v-if="newsletterBar"
-      class="newsletter-bar bg-green-600 text-black text-center relative">
+      class="newsletter-bar bg-green-600 text-black text-center relative flex items-center justify-between">
       <g-link
         to="/subscribe"
-        class="block w-full h-full">
-        <strong>Join our inner circle.</strong> Free to subscribe and no spammy emails.
+        class="text-center flex items-center justify-center w-full h-full">
+        <strong class="flex items-center justify-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-1"><circle cx="8" cy="8" r="5"/><circle cx="5" cy="5" r="4"/></svg>
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><circle cx="8" cy="8" r="5"/></svg> -->
+          <span>Join our Inner Circle</span>
+        </strong> 
+        <span class="text-sm"><em>Free to Subscribe</em> &amp; <em>No Spammy Emails</em>. Guarenteed.</span>
       </g-link>
       <button
-        class="font-bold text-lg rounded-full bg-white text-black h-8 w-8 block absolute top-0 right-0 mt-3 mr-3"
+        class="relative z-30 font-bold text-sm leading-none shadow-3xl rounded-full bg-white text-black h-6 w-6 block mr-3 hover:bg-red-600 hover:text-white"
         @click="newsletterBar = !newsletterBar"
         @keyup="newsletterBar = !newsletterBar">
         &times;
@@ -80,17 +85,12 @@ query {
   color: #fff;
 }
 .mobile-nav {
+  @apply absolute h-auto rounded-sm bg-white overflow-hidden block z-50;
   width: 200px;
   right: 30px;
   left: auto;
   top: 100px;
   z-index: 9999;
-  position: absolute;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
 }
 .mobile-nav .nav__link span {
   color: #000;
@@ -99,7 +99,7 @@ query {
   color: #000;
   font-weight: bold;
 }
-
+/* Top Newsletter Bar */
 @keyframes morph {
   0% { @apply bg-green-500 }
   50% { @apply bg-green-600 }
@@ -107,9 +107,14 @@ query {
 }
 .newsletter-bar {
   animation: morph 3s linear 1s infinite;
-
+  a {
+      @apply transition duration-500 ease-in-out font-bold text-sm;
+      &:hover {
+        transform: scale(1.1);
+      }
+  }
   strong {
-    @apply bg-black mr-2 text-white px-2 py-1 rounded-md
+    @apply bg-black mr-4 text-white py-1 rounded-md
   }
 }
 </style>
