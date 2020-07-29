@@ -29,7 +29,7 @@
             </li>
           </ul>
         </div>
-        <div v-html="$page.record.guide.content" />
+        <div v-if="$page.record.guide.content" v-html="$page.record.guide.content" />
       </div>
     </div>
   </Layout>
