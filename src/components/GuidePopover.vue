@@ -21,7 +21,7 @@
                         v-if="type === 'plugins'"
                         v-for="edge in $page.plugins.edges"
                         :key="edge.node.id"
-                        :to="edge.node.path"
+                        :to="'guides/plugins/'+edge.node.slug"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
@@ -29,11 +29,11 @@
                         v-if="type === 'starters'"
                         v-for="edge in $page.starters.edges"
                         :key="edge.node.id"
-                        :to="edge.node.path"
+                        :to="'guides/starters/'+edge.node.slug"
                         class="text-black">
                         {{ edge.node.title }}
                     </g-link>
-                    <button v-if="isOpen === true" @click="isOpen = !isOpen" class="absolute right-0 top-0 bg-black rounded-full h-6 w-6 text-white font-bold text-xs mr-3 mt-3">X</button>
+                    <button v-if="isOpen === true" @click="isOpen = !isOpen" class="absolute right-0 top-0 bg-black rounded-full h-6 w-6 text-white font-bold text-xs mr-3 mt-3">&times;</button>
                 </div>
             </div>
         </div>

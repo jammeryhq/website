@@ -21,7 +21,6 @@ query {
       node {
         id
         title
-        path
         slug
       }
     }
