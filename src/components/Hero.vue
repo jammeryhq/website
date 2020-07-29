@@ -5,8 +5,8 @@
         <h2 class="text-white text-4xl md:text-6xl w-full lg:max-w-0 xl:max-w-4xl mx-auto text-center mb-5">
           Fast-track your <b>JAM</b>stack development &amp; learning
         </h2>
-        <p class="max-w-4xl text-3xl text-center text-gray-300">
-          We're working on our first Gridsome product - a configurable utility starter and build tool, which will take you from 0 to 80mph in under two minutes.
+        <p class="max-w-2xl text-3xl text-center text-gray-300">
+          We're working on <strong class="text-white">Jello</strong> - a configurable utility starter and cli build tool for Gridsome, which will take you from 0 to 80mph in under 2 minutes.
         </p>
       </div>
     </div>

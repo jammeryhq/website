@@ -8,10 +8,9 @@
         class="text-center flex items-center justify-center w-full h-full">
         <strong class="flex items-center justify-center px-3">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-1"><circle cx="8" cy="8" r="5"/><circle cx="5" cy="5" r="4"/></svg>
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><circle cx="8" cy="8" r="5"/></svg> -->
           <span>Join our Inner Circle</span>
         </strong> 
-        <span class="text-sm"><em>Free to Subscribe</em> &amp; <em>No Spammy Emails</em>. Guarenteed.</span>
+        <span class="text-sm"><em>Free to Subscribe</em> &amp; <em>No Spammy Emails</em>. Ever.</span>
       </g-link>
       <button
         class="relative z-30 font-bold text-sm leading-none shadow-3xl rounded-full bg-white text-black h-6 w-6 block mr-3 hover:bg-red-600 hover:text-white"
