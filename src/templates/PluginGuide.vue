@@ -27,13 +27,10 @@
             <li v-if="$page.record.date">
               Released: {{ $page.record.date }}
             </li>
-            <li v-if="$page.record.date">
-              Updated: {{ $page.record.date }}
-            </li>
           </ul>
         </div>
         <div
-          class=""
+          v-if="$page.record.guide"
           v-html="$page.record.guide.content" />
       </div>
     </div>
