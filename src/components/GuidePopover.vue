@@ -15,7 +15,7 @@
                 Select a {{ type }} guide
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </button>
-            <div v-if="isOpen" class="shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-1 bg-white p-2 w-full">
+            <div v-on-clickaway="hideGuideDropdown" v-if="isOpen" class="shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-1 bg-white p-2 w-full">
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <g-link
                         v-if="type === 'plugins'"
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import { mixin as clickaway } from 'vue-clickaway'
+
 export default {
     props: {
         title: {
@@ -59,6 +61,12 @@ export default {
     data () {
         return {
         isOpen: false
+        }
+    },
+    mixins: [clickaway],
+    methods: {
+        hideGuideDropdown() {
+            this.isOpen = false
         }
     },
     mounted () {
