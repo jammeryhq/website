@@ -22,7 +22,7 @@
     <div class="flex items-center justify-between mb-10 md:mb-0 pt-4 px-4 lg:p-10">
       <Logo />
       <nav class="nav flex items-center text-xl md:text-lg md:mr-5 text-center md:text-left">
-        <div class="hidden lg:flex lg:items-center lg:space-x-4">
+        <div class="hidden lg:flex lg:items-center lg:space-x-2">
           <g-link
             v-for="({ text, title, customClass, url }, i) in navigation.primary"
             :key="i"

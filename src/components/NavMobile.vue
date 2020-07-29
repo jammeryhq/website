@@ -1,7 +1,7 @@
 <template>
   <div class="relative block lg:hidden">
     <button
-      class="block lg:hidden navicon"
+      class="text-sm block lg:hidden navicon"
       title="Take the JammeryHQ 2020 Survey"
       @click.prevent="toggle"
       @keyup.prevent="toggle">
