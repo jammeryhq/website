@@ -10,7 +10,7 @@
             <p
               v-if="$page.record.excerpt"
               class="excerpt w-3/4">
-              {{ $page.record.excerpt }}
+                {{ $page.record.excerpt }}
             </p>
             <nav class="w-1/4 links">
               <g-link :to="`${$page.record.path}`">

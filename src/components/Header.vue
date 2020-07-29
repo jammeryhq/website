@@ -2,7 +2,7 @@
   <header class="header relative z-50 w-full ">
     <div
       v-if="newsletterBar"
-      class="bg-green-600 text-black text-center relative">
+      class="newsletter-bar bg-green-600 text-black text-center relative">
       <g-link
         to="/subscribe"
         class="block w-full h-full">
@@ -69,7 +69,7 @@ query {
 }
 </static-query>
 
-<style>
+<style lang="scss">
 .home a {
     color: #fff;
 }
@@ -98,5 +98,18 @@ query {
 .mobile-nav a:not(.nav__link) {
   color: #000;
   font-weight: bold;
+}
+
+@keyframes morph {
+  0% { @apply bg-green-500 }
+  50% { @apply bg-green-600 }
+  100% { @apply bg-green-500 }
+}
+.newsletter-bar {
+  animation: morph 3s linear 1s infinite;
+
+  strong {
+    @apply bg-black mr-2 text-white px-2 py-1 rounded-md
+  }
 }
 </style>
