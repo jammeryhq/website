@@ -80,7 +80,7 @@ export default {
         this.$once('hook:beforeDestroy', () => {
         document.removeEventListener('keydown', handleEscape)
         })
-    },
+    }
 }
 </script>
 
