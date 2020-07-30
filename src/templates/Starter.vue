@@ -11,7 +11,7 @@
               v-if="$page.starter.availability != 5"
               class="mb-8 flex items-center justify-start mt-10 space-x-8 text-center">
               <button
-                class="button button--small button-secondary"
+                class="button button--small button-secondary focus:outline-none focus:shadow-outline focus:border-yellow-500"
                 title="Show install instructions"
                 @click="showInstall = !showInstall"
                 @keyup="showInstall = !showInstall">
@@ -33,8 +33,8 @@
               <span><strong>v{{ $page.starter.version }}</strong> (<g-link :to="releaseNotesUrl" class="p-0 underline">Release Notes</g-link>)</span>
             </div>
             <div
-              v-show="showInstall === true"
-              v-on-clickaway="showInstall"
+              v-if="showInstall"
+              v-on-clickaway="hideInstall"
               class="absolute z-50 -mt-3 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md w-1/2">
               <p class="text-xl mb-5 pr-20">To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
               <div class="border rounded-md bg-white px-3 py-3 w-full flex items-center justify-between">
@@ -119,16 +119,21 @@ export default {
       }
     }
   },
+  methods: {
+    hideInstall() {
+        this.showInstall = false
+    }
+  },
   mixins: [clickaway],
   mounted () {
       const handleEscape = e => {
-      if (e.key === 'Esc' || e.key === 'Escape') {
-          this.showInstall
-      }
+        if (e.key === 'Esc' || e.key === 'Escape') {
+            this.showInstall
+        }
       }
       document.addEventListener('keydown', handleEscape)
-      this.$once('hook:beforeDestroy', () => {
-      document.removeEventListener('keydown', handleEscape)
+      this.$once('hook:afterDestroy', () => {
+        document.removeEventListener('keydown', handleEscape)
       })
   }
 }
