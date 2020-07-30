@@ -34,18 +34,18 @@
       </div>
       <div
         v-show="showInstall"
-        class="absolute z-50 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md w-1/2">
+        class="absolute z-50 -mt-3 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md w-1/2">
         <p class="text-xl mb-5 pr-20">To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
-        <div class="border rounded-md bg-white px-3 w-full flex items-stretch justify-between">
-          <span class="flex items-center justify-start text-sm ml-1">
+        <div class="border rounded-md bg-white px-3 py-3 w-full flex items-center justify-between">
+          <span class="flex h-8 text-sm">
             <button
-              :class="{'bg-green-500 text-white':installType === 'yarn'}"
-              class="font-bold bg-gray-100 rounded-md rounded-r-none px-2"
+              :class="{'bg-green-500':installType === 'yarn'}"
+              class="font-bold bg-gray-900 text-white rounded-md rounded-r-none px-2"
               @click="installType = 'yarn'"
               @keyup="installType = 'yarn'">Yarn</button>
             <button
-              :class="{'bg-green-500 text-white':installType === 'npm'}"
-              class="font-bold bg-gray-100 rounded-md rounded-l-none px-2"
+              :class="{'bg-green-500':installType === 'npm'}"
+              class="font-bold bg-gray-900 text-white rounded-md rounded-l-none px-2"
               @click="installType = 'npm'"
               @keyup="installType = 'npm'">NPM</button>
           </span>
@@ -55,22 +55,21 @@
             name="install-code"
             type="text"
             disabled
-            class="bg-white py-3 px-4 mx-2 font-mono rounded-md text-base w-full flex-grow">
-          <button
+            class="bg-gray-100 h-8 px-2 mx-3 font-mono rounded-md text-base w-full flex-grow">
+          
+          <button 
+            class="bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full inline-flex h-8 text-sm leading-none items-center"
             v-clipboard:copy="installText"
-            type="button"
-            class="mr-1 copy justify-center self-center flex items-center h-8 w-10 block rounded-full overflow-hidden bg-black hover:bg-gray-700 focus:bg-accent text-white"
             title="Copy to your clipboard">
-            <g-image
-              src="/copy1.svg"
-              class="block w-4 h-4" />
+            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy</span>
           </button>
         </div>
         <button
-          class="absolute top-0 right-0 mt-4 mr-4 bg-black text-white inline-flex px-3 py-1 rounded-full font-bold"
+          class="absolute top-0 right-0 mt-4 mr-4 bg-red-600 text-white inline-flex items-center justify-center w-8 h-8 text-center rounded-full font-bold"
           @click.prevent="showInstall = !showInstall"
           @keyup="showInstall = !showInstall">
-          Close
+          &times;
         </button>
       </div>
           </template>
