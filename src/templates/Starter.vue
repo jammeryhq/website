@@ -3,11 +3,13 @@
     <div class="">
       <PageHeader
         :title="$page.starter.title"
+        subtitle="Starter for Gridsome"
         :summary="$page.starter.excerpt"
-        custom-class="prose lg:prose-2xl mx-auto pb-0" />
-      <div
+        custom-class="prose lg:prose-2xl mx-auto pb-0">
+          <template v-slot:page-links>
+            <div
         v-if="$page.starter.availability != 5"
-        class="mb-8 flex items-center justify-center mt-10 space-x-4 mx-auto text-center">
+        class="mb-8 flex items-center justify-start mt-10 space-x-8 text-center">
         <button
           class="button button--small button-secondary"
           title="Show install instructions"
@@ -16,17 +18,25 @@
           Install
         </button>
         <a
+          :href="$page.starter.demo"
+          class="text-black text-2xl"
+          title="View the demob">
+          Demo
+        </a>
+        <a
           :href="repoUrl"
           class="text-black text-2xl"
           title="View the repo on Github">
           Github
         </a>
+        <span class="text-gray-400">|</span>
+        <span><strong>v{{ $page.starter.version }}</strong> (<g-link :to="releaseNotesUrl" class="p-0 underline">Release Notes</g-link>)</span>
       </div>
       <div
         v-show="showInstall"
-        class="install w-1/2 prose lg:prose-2xl mx-auto z-50 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md">
-        <p>To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
-        <div class="border rounded-md bg-white px-3 flex items-stretch justify-start">
+        class="absolute z-50 mt-4 bg-yellow-200 p-8 shadow-2xl border-yellow-400 rounded-md w-1/2">
+        <p class="text-xl mb-5 pr-20">To install <strong>{{ $page.starter.title }}</strong> using Yarn or NPM, simply copy the relevant snippet and paste it into your terminal.</p>
+        <div class="border rounded-md bg-white px-3 w-full flex items-stretch justify-between">
           <span class="flex items-center justify-start text-sm ml-1">
             <button
               :class="{'bg-green-500 text-white':installType === 'yarn'}"
@@ -39,17 +49,13 @@
               @click="installType = 'npm'"
               @keyup="installType = 'npm'">NPM</button>
           </span>
-          <label
-            for="install-code">
-            <span hidden>Install Code</span>
-            <input
-              id="install-code"
-              :value="installText"
-              name="install-code"
-              type="text"
-              disabled
-              class="bg-white py-3 px-4 mx-2 font-serif rounded-md text-xl w-full">
-          </label>
+          <input
+            id="install-code"
+            :value="installText"
+            name="install-code"
+            type="text"
+            disabled
+            class="bg-white py-3 px-4 mx-2 font-mono rounded-md text-base w-full flex-grow">
           <button
             v-clipboard:copy="installText"
             type="button"
@@ -67,7 +73,10 @@
           Close
         </button>
       </div>
-      <figure class="block border rounded-md overflow-hidden mt-10 mb-20 w-2/3 mx-auto">
+          </template>
+      </PageHeader>
+      
+      <figure class="block border rounded-md overflow-hidden mt-10 mb-20 mx-20">
         <g-image :src="$page.starter.image" />
       </figure>
       <div
@@ -105,6 +114,9 @@ export default {
       const githubUrl = 'https://github.com/jammeryhq/'
       const repoName = this.$page.starter.repo
       return `${githubUrl}${repoName}`
+    },
+    releaseNotesUrl () {
+      return '/starters/'+this.$page.starter.slug+'/release-notes'
     }
   }
 }
@@ -124,6 +136,7 @@ query($id:ID) {
     availability
     demo
     repo
+    version
   }
   metadata {
     siteUrl
@@ -132,25 +145,27 @@ query($id:ID) {
 </page-query>
 
 <style lang="scss">
-.starter .page-header {
-  padding-bottom: 0;
-}
-.starter .install {
-  @apply pb-10;
-}
-.starter .copy img {
-  @apply m-0;
-}
-  .page footer a {
+.starter {
+  & .page-header {
+
+  }
+  & .install {
+    @apply pb-10
+  }
+  & .copy img {
+    @apply m-0
+  }
+  & .page footer a {
     @apply text-black
   }
-  .button {
-    @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8;
+  & .button {
+    @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8
   }
-  .button-primary {
-    @apply bg-accent text-black border-accent ;
+  & .button-primary {
+    @apply bg-accent text-black border-accent
   }
-  .button-secondary {
-    @apply bg-gray-900 text-white border-gray-900 ;
+  & .button-secondary {
+    @apply bg-gray-900 text-white border-gray-900
   }
+}
 </style>

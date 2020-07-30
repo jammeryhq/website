@@ -9,7 +9,7 @@
           <figure class="block border rounded-md overflow-hidden mb-6">
             <g-image
               src="/excelsior.jpg"
-              class="w-full " />
+              class="w-full" />
           </figure>
           <div>
             <div class="flex items-center justify-start">
@@ -43,7 +43,7 @@
               <figure class="block border mb-6">
                 <g-link
                   :to="'starters/' + edge.node.slug"
-                  class="block relative rounded-md h-64 overflow-hidden">
+                  class="block relative rounded-md h-40 overflow-hidden">
                   <g-image
                     :src="edge.node.thumb"
                     class="w-full"

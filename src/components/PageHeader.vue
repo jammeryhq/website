@@ -1,15 +1,21 @@
 <template>
-  <div class="page-header prose lg:prose-2xl mx-auto">
+  <div class="page-header w-1/2 mx-auto">
     <h1
       v-if="title != ''"
-      class="title">
+      class="text-6xl font-extrabold">
       {{ title }}
     </h1>
+    <h2
+      v-if="subtitle != ''"
+      class="text-4xl font-bold">
+      {{ subtitle }}
+    </h2>
     <p
       v-if="summary != ''"
-      class="excerpt">
+      class="text-2xl mt-4">
       {{ summary }}
     </p>
+    <slot name="page-links"></slot>
   </div>
 </template>
 
@@ -18,6 +24,10 @@ export default {
   name: 'PageHeader',
   props: {
     title: {
+      type: String,
+      default: ''
+    },
+    subtitle: {
       type: String,
       default: ''
     },
