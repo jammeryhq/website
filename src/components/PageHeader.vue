@@ -15,7 +15,7 @@
       class="text-2xl mt-4">
       {{ summary }}
     </p>
-    <slot name="page-links"></slot>
+    <slot name="page-links" />
   </div>
 </template>
 

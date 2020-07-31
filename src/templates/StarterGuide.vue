@@ -11,14 +11,18 @@
             <p
               v-if="$page.record.excerpt"
               class="w-4/6 mt-0 excerpt">
-                {{ $page.record.excerpt }}
+              {{ $page.record.excerpt }}
             </p>
             <div class="w-2/6 relative">
               <nav class="links relative z-20 flex flex-col -mt-1 items-center text-sm text-white font-bold">
-                <g-link :to="`${$page.record.path}`">Plugin Details</g-link>
+                <g-link :to="`${$page.record.path}`">
+                  Plugin Details
+                </g-link>
                 <a :href="$page.record.demo">View Demo</a>
                 <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
-                <g-link :to="`${$page.record.path}`">Release Notes</g-link>
+                <g-link :to="`${$page.record.path}`">
+                  Release Notes
+                </g-link>
               </nav>
               <Blob />
             </div>
@@ -32,7 +36,9 @@
             </li>
           </ul>
         </div>
-        <div v-if="$page.record.guide" v-html="$page.record.guide.content" />
+        <div
+          v-if="$page.record.guide"
+          v-html="$page.record.guide.content" />
       </div>
     </div>
   </Layout>
@@ -44,7 +50,7 @@ import Blob from '@/components/Blob'
 export default {
   components: {
     Blob
-  },
+  }
 }
 </script>
 
