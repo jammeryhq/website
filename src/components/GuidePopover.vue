@@ -13,7 +13,8 @@
     <div class="relative group appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
       <button
         class="w-full flex items-center justify-between cursor-pointer text-sm px-4 py-4"
-        @click="isOpen = !isOpen">
+        @click="isOpen = !isOpen"
+        @keyup="isOpen = !isOpen">
         Select a {{ type }} guide
         <svg
           class="fill-current h-4 w-4"
@@ -25,26 +26,30 @@
         v-on-clickaway="hideGuideDropdown"
         class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-1 bg-white p-2 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2">
-          <g-link
-            v-for="edge in $page.plugins.edges"
-            v-if="type === 'plugins'"
-            :key="edge.node.id"
-            :to="'guides/plugins/'+edge.node.slug"
-            class="text-black">
-            {{ edge.node.title }}
-          </g-link>
-          <g-link
-            v-for="edge in $page.starters.edges"
-            v-if="type === 'starters'"
-            :key="edge.node.id"
-            :to="'guides/starters/'+edge.node.slug"
-            class="text-black">
-            {{ edge.node.title }}
-          </g-link>
+          <div
+            v-if="type === 'plugins'">
+            <g-link
+              v-for="edge in $page.plugins.edges"
+              :key="edge.node.id"
+              :to="'guides/plugins/'+edge.node.slug"
+              class="text-black">
+              {{ edge.node.title }}
+            </g-link>
+          </div>
+          <div v-if="type === 'starters'">
+            <g-link
+              v-for="edge in $page.starters.edges"
+              :key="edge.node.id"
+              :to="'guides/starters/'+edge.node.slug"
+              class="text-black">
+              {{ edge.node.title }}
+            </g-link>
+          </div>
           <button
             v-if="isOpen === true"
             class="absolute right-0 top-0 bg-black rounded-full h-6 w-6 text-white font-bold text-xs mr-3 mt-3"
-            @click="isOpen = !isOpen">
+            @click="isOpen = !isOpen"
+            @keyup="isOpen = !isOpen">
             &times;
           </button>
         </div>
