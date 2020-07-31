@@ -26,8 +26,7 @@
         v-on-clickaway="hideGuideDropdown"
         class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-1 bg-white p-2 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2">
-          <div
-            v-if="type === 'plugins'">
+          <div v-if="type === 'plugins'">
             <g-link
               v-for="edge in $page.plugins.edges"
               :key="edge.node.id"
