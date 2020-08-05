@@ -1,5 +1,8 @@
 <template>
-    <figure v-html="selectedBlob" alt="Blob" class="blob z-0 block absolute top-0 left-0 right-0" />
+  <figure
+    alt="Blob"
+    class="blob z-0 block absolute top-0 left-0 right-0"
+    v-html="selectedBlob" />
 </template>
 
 <script>
@@ -20,6 +23,12 @@
             this.selectedBlob = this.blobs[idx]
         }
     }
+  },
+  created () {
+    const idx = Math.floor(Math.random() * this.blobs.length)
+    this.selectedBlob = this.blobs[ idx ]
+  }
+}
 </script>
 
 <style lang="scss">

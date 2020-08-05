@@ -11,7 +11,7 @@
             <p
               v-if="$page.record.excerpt"
               class="w-4/6 mt-0 excerpt">
-                {{ $page.record.excerpt }}
+              {{ $page.record.excerpt }}
             </p>
             <div class="w-2/6 relative">
               <nav class="links relative z-20 flex flex-col -mt-1 items-center text-left text-sm text-white font-bold">
@@ -24,7 +24,9 @@
             </div>
           </div>
         </div>
-        <div v-if="$page.record.guide" v-html="$page.record.guide.content" />
+        <div
+          v-if="$page.record.guide"
+          v-html="$page.record.guide.content" />
       </div>
     </div>
   </Layout>
@@ -36,7 +38,7 @@ import Blob from '@/components/Blob'
 export default {
   components: {
     Blob
-  },
+  }
 }
 </script>
 

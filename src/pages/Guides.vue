@@ -6,8 +6,14 @@
         summary="Below are the setup guides for our Gridsome plugins and starters." />
       <div>
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-20">
-          <GuidePopover title="Plugins" summary="Comprehensive setup guides for our Gridsome plugins." type="plugins" />
-          <GuidePopover title="Starters" summary="Comprehensive setup guides for our Gridsome starters." type="starters" />
+          <GuidePopover
+            title="Plugins"
+            summary="Comprehensive setup guides for our Gridsome plugins."
+            type="plugins" />
+          <GuidePopover
+            title="Starters"
+            summary="Comprehensive setup guides for our Gridsome starters."
+            type="starters" />
         </div>
       </div>
     </div>
