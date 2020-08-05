@@ -19,7 +19,7 @@ export default {
     }
   },
   created () {
-    const idx = Math.floor(Math.random() * this.blobs.length);l
+    const idx = Math.floor(Math.random() * this.blobs.length);
     this.selectedBlob = this.blobs[idx]
   }
 }
