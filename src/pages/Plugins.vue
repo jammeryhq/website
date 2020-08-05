@@ -29,7 +29,7 @@
 
 <page-query>
 query {
-  plugins: allPlugin {
+  plugins: allPlugin(sortBy: "title", order: ASC)  {
     edges {
       node {
         id

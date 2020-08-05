@@ -2,7 +2,7 @@
 title: Articles
 slug: articles
 date: 2020-05-20
-excerpt: Grisome starter ideal for articles/tutorials.
+excerpt: Gridsome starter that is ideal for articles/tutorials that uses markdown for the content and Tailwind CSS for the styles.
 thumb: ./images/articles-thumb.jpg
 image: ./images/articles-large.png
 demo: https://gridsome-starter-articles.now.sh/

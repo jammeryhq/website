@@ -1,20 +1,14 @@
 ---
 id: shopify-starter
 ---
+## Table of Contents
+
 ## Intro
 
 This plugin supports the Storefront API's [**transformedSrc** image field](#transformsrc), as well as [currency formatting](#amount).
 
-## TOC
-1. Install
-2. Usage
-3. Routes & Templates
-4. Page Query
-5. Metafields
-6. Additional Resolvers
-7. Helpful Snippets
-
 ## Install
+
 yarn:
 ```bash
 yarn add gridsome-source-shopify
@@ -271,3 +265,11 @@ query {
   }
 }
 ```
+
+## Markdown
+
+## Tailwind
+
+## Credits
+
+## License

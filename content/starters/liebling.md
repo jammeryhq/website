@@ -2,7 +2,7 @@
 title: Liebling
 slug: liebling
 date: 2020-05-20
-excerpt:  Grisome starter based on Ghost Liebling and tailwindcss. 
+excerpt: Gridsome starter based on the Liebling theme for Ghost. Content is added via markdown, while Tailwind CSS is used for the layout/styling.
 thumb: ./images/liebling-thumb.jpg
 image: ./images/liebling-large.jpg
 demo: https://gridsome-starter-liebling.now.sh/

@@ -1,0 +1,30 @@
+{
+
+  "name": "gridsome-plugin-remark-image-download",
+  "links": [{
+      "link": {
+        "title": "Getting started",
+        "url": "#"
+      },
+      "children": [{
+          "link": {
+            "title": "Introduction",
+            "url": ""
+          }
+        },
+        {
+          "link": {
+            "title": "Configuration",
+            "url": "/configuration"
+          }
+        },
+        {
+          "link": {
+            "title": "Example",
+            "url": "/example"
+          }
+        }
+      ]
+    }
+  ]
+}

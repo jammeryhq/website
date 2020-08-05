@@ -1,0 +1,48 @@
+{
+
+  "name": "gridsome-source-git",
+  "links" : [
+    {
+      "link" : {
+        "title" : "Getting started",
+        "url" : "#"
+      },
+      "children" : [
+        {
+          "link": {
+            "title": "Introduction",
+            "url": ""
+          }
+        },
+        {
+          "link": {
+            "title": "Configuration",
+            "url": "/configuration"
+          }
+        }
+      ]
+    },
+    {
+      "link": {
+        "title": "Examples",
+        "url": "#"
+      },
+      "children": [{
+          "link": {
+            "title": "Public Repository",
+            "url": "/example-public-repo"
+          }
+        },
+        {
+          "link": {
+            "title": "Private Repository",
+            "url": "/example-private-repo"
+          }
+        }
+      ]
+    }
+    
+    
+
+  ]
+}

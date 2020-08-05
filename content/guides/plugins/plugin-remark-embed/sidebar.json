@@ -1,0 +1,105 @@
+{
+
+  "name": "gridsome-plugin-remark-embed",
+  "links": [
+    {
+      "link": {
+        "title": "Getting started",
+        "url": "#"
+      },
+      "children": [{
+          "link": {
+            "title": "Introduction",
+            "url": ""
+          }
+        },
+        {
+          "link": {
+            "title": "Custom Template",
+            "url": "/custom-template"
+          }
+        }
+      ]
+    },
+    {
+      "link": {
+        "title": "Provider",
+        "url": "#"
+      },
+      "children": [
+        {
+          "link": {
+            "title": "Codepen",
+            "url": "/provider-codepen"
+          }
+        },
+        {
+          "link": {
+            "title": "Codesandbox",
+            "url": "/provider-codesandbox"
+          }
+        },
+        {
+          "link": {
+            "title": "Facebook Post",
+            "url": "/provider-facebook-post"
+          }
+        },
+        {
+          "link": {
+            "title": "Facebook Video",
+            "url": "/provider-facebook-video"
+          }
+        },
+        {
+          "link": {
+            "title": "Giphy",
+            "url": "/provider-giphy"
+          }
+        },
+        {
+          "link": {
+            "title": "Gist",
+            "url": "/provider-gist"
+          }
+        },
+        {
+          "link": {
+            "title": "JSFiddle",
+            "url": "/provider-jsfiddle"
+          }
+        },
+        {
+          "link": {
+            "title": "Soundcloud",
+            "url": "/provider-soundcloud"
+          }
+        },
+        {
+          "link": {
+            "title": "Spotify",
+            "url": "/provider-spotify"
+          }
+        },
+        {
+          "link": {
+            "title": "Twitter",
+            "url": "/provider-twitter"
+          }
+        },
+        {
+          "link": {
+            "title": "Vimeo",
+            "url": "/provider-vimeo"
+          }
+        },
+        {
+          "link": {
+            "title": "Youtube",
+            "url": "/provider-youtube"
+          }
+        }
+      ]
+    }
+  ]
+}

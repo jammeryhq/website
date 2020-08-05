@@ -14,23 +14,15 @@
                 {{ $page.record.excerpt }}
             </p>
             <div class="w-2/6 relative">
-              <nav class="links relative z-20 flex flex-col -mt-1 items-center text-sm text-white font-bold">
-                <g-link :to="`${$page.record.path}`">Plugin Details</g-link>
+              <nav class="links relative z-20 flex flex-col -mt-1 items-center text-left text-sm text-white font-bold">
+                <g-link :to="`starters/${$page.record.slug}`">Plugin Details</g-link>
                 <a :href="$page.record.demo">View Demo</a>
                 <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
-                <g-link :to="`${$page.record.path}`">Release Notes</g-link>
+                <g-link :to="`starters/${$page.record.slug}/release-notes`">Release Notes</g-link>
               </nav>
               <Blob />
             </div>
           </div>
-          <ul class="text-lg">
-            <li v-if="$page.record.version">
-              Version: {{ $page.record.version }}
-            </li>
-            <li v-if="$page.record.date">
-              Released: {{ $page.record.date }}
-            </li>
-          </ul>
         </div>
         <div v-if="$page.record.guide" v-html="$page.record.guide.content" />
       </div>
@@ -54,6 +46,7 @@ query($id:ID) {
     id
     title
     excerpt
+    slug
     path
     date (format: "D MMMM YYYY")
     version
@@ -79,5 +72,22 @@ query($id:ID) {
 }
 .links a {
   @apply block text-sm text-white
+}
+.prose {
+  & h2#table-of-contents + ul {
+    @apply grid grid-cols-3 ml-5;
+    & ul, & ul li p, & ul li {
+      @apply hidden;
+    }
+    & li {
+      @apply list-decimal p-0 text-gray-400
+    }
+    & p {
+      @apply m-0
+    }
+    & li:before {
+      @apply hidden;
+    }
+  }
 }
 </style>

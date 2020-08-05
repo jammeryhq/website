@@ -90,7 +90,6 @@ module.exports = {
         },
         remark: {
           plugins: [
-            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
             ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
 
           ]
@@ -108,7 +107,6 @@ module.exports = {
         },
         remark: {
           plugins: [
-            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
             ['gridsome-plugin-remark-youtube', { width: '100%', align: 'auto' }]
           ]
         }
@@ -122,6 +120,8 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
+            ['gridsome-plugin-remark-shiki', { theme: 'nord', skipInline: false }],
+            'remark-toc',
             'remark-autolink-headings'
           ]
         }
@@ -135,6 +135,8 @@ module.exports = {
         resolveAbsolutePaths: true,
         remark: {
           plugins: [
+            ['gridsome-plugin-remark-shiki', { theme: 'solarized_light', skipInline: false }],
+            'remark-toc',
             'remark-autolink-headings'
           ]
         }
@@ -145,10 +147,7 @@ module.exports = {
       options: {
         path: 'content/team/**/*.md',
         typeName: 'Team',
-        resolveAbsolutePaths: true,
-        remark: {
-          plugins: []
-        }
+        resolveAbsolutePaths: true
       }
     },
     {

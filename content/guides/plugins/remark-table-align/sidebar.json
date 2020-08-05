@@ -1,0 +1,30 @@
+{
+
+  "name": "gridsome-remark-table-align",
+  "links": [{
+      "link": {
+        "title": "Getting started",
+        "url": "#"
+      },
+      "children": [{
+          "link": {
+            "title": "Introduction",
+            "url": ""
+          }
+        },
+        {
+          "link": {
+            "title": "Usage",
+            "url": "/usage"
+          }
+        },
+        {
+          "link": {
+            "title": "Example",
+            "url": "/example"
+          }
+        }
+      ]
+    }
+  ]
+}

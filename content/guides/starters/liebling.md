@@ -1,24 +1,7 @@
 ---
 id: liebling-starter
 ---
-## Features
-
-* Gridsome
-* Tailwindcss 
-* Light and Dark Mode with auto detect  
-* v-tooltip
-* Mega Menu support
-* SCSS
-* Markdown
-* Tags
-* Categories
-* Author Pages
-* Blog
-* About Page
-* Pagination
-* Medium Zoom
-* Updated Image Processing to return the `figure` element with caption
-* Full Text Search powered by [gridsome-plugin-flexsearch](https://github.com/thetre97/gridsome-plugin-flexsearch)
+## Table of contents
 
 ## Plugins
 
@@ -41,3 +24,11 @@ With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that
 2. `cd my-blog` to open the folder
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
 4. Happy coding 🎉🙌
+
+## Markdown
+
+## Tailwind
+
+## Credits
+
+## License

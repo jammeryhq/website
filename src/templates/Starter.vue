@@ -131,10 +131,12 @@ export default {
             this.showInstall
         }
       }
-      document.addEventListener('keydown', handleEscape)
-      this.$once('hook:afterDestroy', () => {
-        document.removeEventListener('keydown', handleEscape)
-      })
+      if (this.showInstall) {
+        document.addEventListener('keydown', handleEscape)
+        this.$once('hook:afterDestroy', () => {
+          document.removeEventListener('keydown', handleEscape)
+        })
+      }
   }
 }
 </script>

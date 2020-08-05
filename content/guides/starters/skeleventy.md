@@ -1,22 +1,7 @@
 ---
 id: skeleventy-starter
 ---
-## Credits
-
-* This starter was initial created by [Joseph Dyer](https://github.com/josephdyer).
-
-## Demo
-
-[https://gridsome-starter-skeleventy.now.sh/](https://gridsome-starter-skeleventy.now.sh/)
-
-## Features
-
-* Gridsome
-* Tailwindcss
-* SCSS
-* Markdown
-* Tags
-* Blog
+## Table of contents
 
 ## Plugins
 
@@ -36,3 +21,13 @@ With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that
 2. `cd my-blog` to open the folder
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
 4. Happy coding 🎉🙌
+
+## Markdown
+
+## Tailwind
+
+## Credits
+
+* This starter was initial created by [Joseph Dyer](https://github.com/josephdyer).
+
+## License

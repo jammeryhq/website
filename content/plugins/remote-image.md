@@ -2,7 +2,7 @@
 title: Remote Image
 slug: remote-image
 date: 2020-05-20
-excerpt: Simple plugin to download remote images in Gridsome.
+excerpt: Simple plugin to download remote images in Gridsome, which enables you to take advantage of Gridsome's native image resizing and optimisation.
 thumb: ./images/remote-image.jpg
 image: ./images/remote-image-large.jpg
 demo: https://remote-image.jammeryhq.com

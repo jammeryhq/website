@@ -1,0 +1,57 @@
+{
+
+  "name": "gridsome-plugin-remote-image",
+  "links": [
+    {
+      "link": {
+        "title": "Getting started",
+        "url": "#"
+      },
+      "children": [{
+          "link": {
+            "title": "Introduction",
+            "url": ""
+          }
+        },
+        {
+          "link": {
+            "title": "Configuration",
+            "url": "/configuration"
+          }
+        }
+      ]
+    },
+    {
+      "link": {
+        "title": "Examples",
+        "url": "#"
+      },
+      "children": [
+        {
+          "link": {
+            "title": "Filesystem",
+            "url": "/example-filesystem"
+          }
+        },
+        {
+          "link": {
+            "title": "Contentful",
+            "url": "/example-contentful"
+          }
+        },
+        {
+          "link": {
+            "title": "Sanity",
+            "url": "/example-sanity"
+          }
+        },
+        {
+          "link": {
+            "title": "Shopify",
+            "url": "/example-shopify"
+          }
+        }
+      ]
+    }
+  ]
+}

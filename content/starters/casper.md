@@ -2,7 +2,7 @@
 title: Casper
 slug: casper
 date: 2020-05-20
-excerpt: Casper excerpt
+excerpt: Gridsome starter based on the Casper theme for Ghost. Content is added via markdown, while Tailwind CSS is used for the layout/styling.
 thumb: ./images/casper-thumb.jpg
 image: ./images/casper-large.jpg
 demo: https://gridsome-starter-casper-v3.now.sh/

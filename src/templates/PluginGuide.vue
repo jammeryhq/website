@@ -20,14 +20,6 @@
               <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
             </nav>
           </div>
-          <ul>
-            <li v-if="$page.record.version">
-              Version: {{ $page.record.version }}
-            </li>
-            <li v-if="$page.record.date">
-              Released: {{ $page.record.date }}
-            </li>
-          </ul>
         </div>
         <div
           v-if="$page.record.guide"
@@ -63,5 +55,11 @@ query($id:ID) {
 }
 .links a {
   @apply block text-lg
+}
+.prose table {
+  @apply table-fixed text-lg;
+}
+.prose li > p {
+  @apply m-0
 }
 </style>

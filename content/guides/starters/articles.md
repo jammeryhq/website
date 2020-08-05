@@ -1,6 +1,8 @@
 ---
 id: articles-starter
 ---
+## Table of contents
+
 ## Plugins
 
 With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that make this project possible. 
@@ -23,3 +25,11 @@ With Gridsome offering a plugin-rich ecosystem, there are a few key plugins that
 2. `cd my-blog` to open the folder
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
 4. Happy coding 🎉🙌
+
+## Markdown
+
+## Tailwind
+
+## Credits
+
+## License

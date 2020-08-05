@@ -1,0 +1,23 @@
+{
+
+  "name": "gridsome-remark-classes",
+  "links": [{
+    "link": {
+      "title": "Getting started",
+      "url": "#"
+    },
+    "children": [{
+        "link": {
+          "title": "Introduction",
+          "url": ""
+        }
+      },
+      {
+        "link": {
+          "title": "Usage",
+          "url": "/usage"
+        }
+      }
+    ]
+  }]
+}
