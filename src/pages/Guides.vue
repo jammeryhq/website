@@ -5,7 +5,7 @@
         title="Our Guides"
         summary="Below are the setup guides for our Gridsome plugins and starters." />
       <div>
-        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-1s0 w-3/4 mx-auto">
+        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-10 w-auto mx-6 lg:mx-auto lg:w-3/4">
           <GuidePopover
             title="Plugins"
             summary="Comprehensive setup guides for our Gridsome plugins."
@@ -65,13 +65,13 @@ export default {
 <style lang="scss">
   .guides {
     & h1 {
-      @apply mb-0
+      @apply mb-0;
     }
     & h2 {
-      @apply mt-0
+      @apply mt-0;
     }
     & .page-header {
-      @apply pb-10
+      @apply pb-10;
     }
     & .prose {
       @apply pb-12;
@@ -80,16 +80,12 @@ export default {
        @apply mt-0 mb-2
       }
     }
-    & footer {
-      @apply absolute bottom-0
+  }
+  @media ( min-width: 770px ) {
+    .guides {
+      & footer {
+        @apply absolute bottom-0;
+      }
     }
   }
-
-    .page footer a {
-        @apply text-black
-    }
-    .guides .prose 
-    .post {
-        @apply text-xl
-    }
 </style>

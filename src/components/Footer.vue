@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative z-40 flex lg:items-center justify-center md:justify-between flex-wrap px-6 py-4 lg:p-10 text-gray-700 w-full mb-4">
+  <footer class="relative z-40 block md:flex lg:items-center justify-center md:justify-between flex-wrap px-6 py-4 lg:p-10 text-gray-700 w-full mb-4">
     <span class="mt-5 mb-4 lg:my-0 block text-center lg:text-left">© 2020 Jammery HQ. All rights reserved.</span>
     <nav class="hidden xl:block nav text-center my-3 md:my-0">
       <g-link
@@ -33,7 +33,7 @@
         rel="nofollow noopener"
         title="Check out our code on Github">Github</a>
     </nav>
-    <span class="md:mr-6 my-0 md:my-3 lg:my-0 block text-center lg:text-left">Jammery is an <a
+    <span class="my-0 md:my-3 lg:my-0 block text-center md:text-right">Jammery is an <a
       href="/about"
       title="">Open Collaboration</a></span>
   </footer>

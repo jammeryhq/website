@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header w-1/2 mx-auto">
+  <div class="page-header w-auto mt-5 mx-6 lg:mx-auto lg:w-1/2">
     <h1
       v-if="title != ''"
       class="text-6xl font-extrabold">

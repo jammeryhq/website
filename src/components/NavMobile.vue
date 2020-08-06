@@ -5,7 +5,7 @@
       title="Take the JammeryHQ 2020 Survey"
       @click.prevent="toggle"
       @keyup.prevent="toggle">
-      <strong>Explore&nbsp;&nbsp;<i
+      <strong class="text-2xl">Explore&nbsp;&nbsp;<i
         id="toggleIcon"
         class="toggleIcon">{{ toggleIcon }}</i></strong>
     </button>

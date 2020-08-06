@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative prose lg:prose-2xl mx-auto">
+  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative prose lg:prose-2xl w-full mx-auto">
     <h2
       v-if="title != ''"
       class="title">
@@ -31,7 +31,7 @@
               v-for="edge in $page.plugins.edges"
               :key="edge.node.id"
               :to="'guides/plugins/'+edge.node.slug"
-              class="text-black text-lg block p-2">
+              class="text-black text-lg block p-2 hover:bg-gray-100 rounded-md">
               {{ edge.node.title }}
             </g-link>
           </div>
@@ -40,13 +40,13 @@
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
               :to="'guides/starters/'+edge.node.slug"
-              class="text-black text-lg  block p-2">
+              class="text-black text-lg  block p-2 hover:bg-gray-100 rounded-md">
               {{ edge.node.title }}
             </g-link>
           </div>
           <button
             v-if="isOpen === true"
-            class="absolute right-0 top-0 bg-black rounded-full h-6 w-6 text-white font-bold text-xs mr-3 mt-3"
+            class="absolute right-0 top-0 bg-black rounded-full h-6 w-6 text-white font-bold text-xs mr-3 mt-3 hover:bg-red-700"
             @click="isOpen = !isOpen"
             @keyup="isOpen = !isOpen">
             &times;
@@ -100,7 +100,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
