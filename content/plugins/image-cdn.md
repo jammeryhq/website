@@ -2,6 +2,7 @@
 title: Image CDN
 slug: image-cdn
 date: 2020-05-20
+type: plugin
 excerpt: Image CDN plugin for Gridsome, allowing you to add image query params with GraphQL.
 thumb: ./images/image-cdn.jpg
 image: ./images/image-cdn-large.jpg
@@ -12,4 +13,5 @@ searchTerms: plugin, images, cdn
 published: true
 featured: false
 guide: image-cdn-plugin
+version: 1.2.0
 ---

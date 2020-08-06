@@ -2,6 +2,7 @@
 title: Brotli
 slug: brotli
 date: 2020-05-20
+type: plugin
 excerpt: Gridsome plugin for preparing brotli-compressed versions of assets.
 thumb: ./images/brotli.jpg
 image: ./images/brotli-large.jpg

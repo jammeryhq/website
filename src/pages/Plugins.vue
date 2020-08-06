@@ -17,7 +17,13 @@
                 {{ edge.node.title }}
               </g-link>
             </h2>
-            <p class="mb-3 text-xl mt-6">
+            <div class="mt-8 flex justify-start items-center">
+              <span v-if="edge.node.type" class="py-1 px-2 rounded-md mr-4 inline-block" :class="edge.node.type">{{ edge.node.type }}</span>
+              <g-link v-if="edge.node.guide" :to="'/plugins/'+ edge.node.slug" class="mr-4">Guide</g-link>
+              <g-link :to="'https://github.com/jammeryhq/'+ edge.node.repo" v-if="edge.node.repo" class="mr-4">Repo</g-link>
+              <span v-if="edge.node.version" class="text-gray-700">v{{ edge.node.version }}</span>
+            </div>
+            <p class="mb-3 text-xl mt-4">
               {{ edge.node.excerpt }}
             </p>
           </article>
@@ -35,13 +41,19 @@ query {
         id
         title
         slug
+        type
         excerpt
         path
         demo
         thumb
+        repo
         published
         featured
         availability
+        version
+        guide {
+          content
+        }
       }
     }
   }
@@ -68,6 +80,15 @@ export default {
 <style lang="scss">
   .page footer a {
     @apply text-black
+  }
+  .remark {
+    @apply bg-orange-300;
+  }
+  .plugin {
+    @apply bg-blue-300;
+  }
+  .source {
+    @apply bg-green-300;
   }
   article {
     ul {

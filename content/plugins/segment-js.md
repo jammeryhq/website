@@ -2,7 +2,8 @@
 title: SegmentJS
 slug: segment-js
 date: 2020-05-20
-excerpt: Segment plugin for Gridsome.
+type: plugin
+excerpt: Simple plugin to add Segment analytics to your Gridsome site.
 thumb: ./images/segment-js.jpg
 image: ./images/segment-js-large.jpg
 demo: https://segment-js.jammeryhq.com
@@ -12,6 +13,7 @@ searchTerms: plugin, segment-js, tracking
 published: true
 featured: false
 guide: segment-js-plugin
+version: 1.2.0
 ---
 ## Usage
 

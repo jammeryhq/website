@@ -1,11 +1,11 @@
 <template>
   <Layout>
-    <div class="prose lg:prose-2xl mx-auto">
+    <div>
       <PageHeader
         title="Our Guides"
         summary="Below are the setup guides for our Gridsome plugins and starters." />
       <div>
-        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-20">
+        <div class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-1s0 w-3/4 mx-auto">
           <GuidePopover
             title="Plugins"
             summary="Comprehensive setup guides for our Gridsome plugins."

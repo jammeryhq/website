@@ -14,13 +14,12 @@
               {{ $page.record.excerpt }}
             </p>
             <div class="w-2/6 relative">
-              <nav class="links relative z-20 flex flex-col -mt-1 items-center text-left text-sm text-white font-bold">
+              <nav class="bg-gray-100 rounded-md ml-10 text-xl p-10 links relative z-20 flex flex-col -mt-1 items-start text-left text-sm text-black font-bold">
                 <g-link :to="`starters/${$page.record.slug}`">Plugin Details</g-link>
                 <a :href="$page.record.demo">View Demo</a>
                 <a :href="'https://github.com/jammeryhq/' + $page.record.repo">Github Repo</a>
                 <g-link :to="`starters/${$page.record.slug}/release-notes`">Release Notes</g-link>
               </nav>
-              <Blob />
             </div>
           </div>
         </div>
@@ -33,11 +32,9 @@
 </template>
 
 <script>
-import Blob from '@/components/Blob'
-
 export default {
   components: {
-    Blob
+    
   }
 }
 </script>
@@ -73,7 +70,7 @@ query($id:ID) {
   @apply mt-0;
 }
 .links a {
-  @apply block text-sm text-white
+  @apply block text-lg text-black
 }
 .prose {
   & h2#table-of-contents + ul {

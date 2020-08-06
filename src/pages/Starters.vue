@@ -4,7 +4,7 @@
       <PageHeader
         title="Our Starters"
         summary="Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community." />
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-0 p-10">
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 p-10">
         <article class="post p-10 bg-gray-100 rounded-md mb-10">
           <figure class="block border rounded-md overflow-hidden mb-6">
             <g-image
@@ -28,7 +28,6 @@
               <li>Consistent layouts for all Gridsome starters (index, term, single)</li>
               <li>Quickly scaffold new projects using our CLI</li>
               <li>Built in support for Gridsome plugins (flexsearch, etc)</li>
-              <li>Support for popular NPM packages</li>
               <li>Optional authentication with Firestore, Auth0</li>
               <li>Killer lighthouse scores out the box</li>
             </ul>
@@ -43,7 +42,7 @@
               <figure class="block border mb-6">
                 <g-link
                   :to="'starters/' + edge.node.slug"
-                  class="block relative rounded-md h-40 overflow-hidden">
+                  class="block relative rounded-md h-64 overflow-hidden">
                   <g-image
                     :src="edge.node.thumb"
                     class="w-full"

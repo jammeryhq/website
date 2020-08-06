@@ -1,7 +1,8 @@
 ---
-title: Remark Table Classes
-slug: remark-table-classes
+title: Table Align
+slug: table-align
 date: 2020-05-20
+type: remark
 excerpt: Gridsome remark plugin move the `table` align defintion to the `tableCell` definition. 
 thumb: ./images/remark-table-classes.jpg
 image: ./images/remark-table-classes-large.jpg
@@ -11,5 +12,6 @@ availability: 1
 searchTerms: plugin, remark-table-classes, performance
 published: true
 featured: false
-guide: remark-table-classes-plugin
+guide: table-align-plugin
+version: 1.2.0
 ---

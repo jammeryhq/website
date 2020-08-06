@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative">
+  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative prose lg:prose-2xl mx-auto">
     <h2
       v-if="title != ''"
       class="title">
@@ -24,23 +24,23 @@
       <div
         v-if="isOpen"
         v-on-clickaway="hideGuideDropdown"
-        class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-1 bg-white p-2 w-full">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <div v-if="type === 'plugins'">
+        class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-5 bg-white w-full">
+        <div class="">
+          <div v-if="type === 'plugins'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2">
             <g-link
               v-for="edge in $page.plugins.edges"
               :key="edge.node.id"
               :to="'guides/plugins/'+edge.node.slug"
-              class="text-black">
+              class="text-black block p-2">
               {{ edge.node.title }}
             </g-link>
           </div>
-          <div v-if="type === 'starters'">
+          <div v-if="type === 'starters'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2">
             <g-link
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
               :to="'guides/starters/'+edge.node.slug"
-              class="text-black">
+              class="text-black block p-2">
               {{ edge.node.title }}
             </g-link>
           </div>
