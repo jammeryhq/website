@@ -12,7 +12,7 @@
     </p>
     <div class="relative group appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
       <button
-        class="w-full flex items-center justify-between cursor-pointer text-sm px-4 py-4"
+        class="w-full flex items-center justify-between cursor-pointer text-lg px-4 py-4"
         @click="isOpen = !isOpen"
         @keyup="isOpen = !isOpen">
         Select a {{ type }} guide
@@ -26,21 +26,21 @@
         v-on-clickaway="hideGuideDropdown"
         class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-5 bg-white w-full">
         <div class="">
-          <div v-if="type === 'plugins'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2">
+          <div v-if="type === 'plugins'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <g-link
               v-for="edge in $page.plugins.edges"
               :key="edge.node.id"
               :to="'guides/plugins/'+edge.node.slug"
-              class="text-black block p-2">
+              class="text-black text-lg block p-2">
               {{ edge.node.title }}
             </g-link>
           </div>
-          <div v-if="type === 'starters'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2">
+          <div v-if="type === 'starters'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <g-link
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
               :to="'guides/starters/'+edge.node.slug"
-              class="text-black block p-2">
+              class="text-black text-lg  block p-2">
               {{ edge.node.title }}
             </g-link>
           </div>

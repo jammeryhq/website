@@ -64,26 +64,31 @@ export default {
 
 <style lang="scss">
   .guides {
-    h1 {
+    & h1 {
       @apply mb-0
     }
-    h2 {
+    & h2 {
       @apply mt-0
     }
-    .page-header {
+    & .page-header {
       @apply pb-10
+    }
+    & .prose {
+      @apply pb-12;
+
+      & h2 {
+       @apply mt-0 mb-2
+      }
+    }
+    & footer {
+      @apply absolute bottom-0
     }
   }
 
-    .guides footer {
-      @apply absolute bottom-0
-    }
     .page footer a {
         @apply text-black
     }
-    .guides .prose h2 {
-      @apply mt-0 mb-2
-    }
+    .guides .prose 
     .post {
         @apply text-xl
     }
