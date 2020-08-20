@@ -2,33 +2,35 @@
 title: Marcus Reinhardt
 slug: marcus-reinhardt
 date: 2020-06-01
-dob:  
+dob: 28.06.1988
 starsign: 
-favFood: 
+favFood: regional german food
 nickname: Noxify
-location:
+location: Germany
 nationality: German
 thumb: ./images/marcus-thumb.jpg
 image: ./images/marcus.jpg
-searchTerms: marcus, reinhardt, developer, backend, full-stack
+searchTerms: marcus, reinhardt, developer, backend, full-stack, noxify, nox
 hobbies: 
-- Motocross
 - Motorcycles
+- Gaming
+- Programming
 skills: 
 - Backend development
 - Systems design
+- APIs
 links:
 - network: Twitter
-  url: https://twitter.com/smokeyfro
+  url: https://twitter.com/i_love_nox
   title: Follow Chris on Twitter
 - network: Github
-  url: https://github.com/smokeyfro
-  title: Follow Chris on Github
+  url: https://github.com/noxify
+  title: Follow Marcus on Github
 - network: Instagram
-  url: https://instagram.com/smokeyfro
+  url: https://instagram.com/i.love.nox
   title: Follow Marcus on Instagram
 - network: Youtube
-  url: https://youtube.com/smokeyfro
+  url: https://www.youtube.com/channel/UCawdfud9jhN2w8vEG7FJRsg
   title: Follow Marcus on Youtube
 - network: Website
   url: https://smokeyfro.com/
