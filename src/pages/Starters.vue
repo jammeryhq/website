@@ -3,7 +3,7 @@
     <div>
       <PageHeader
         title="Our Starters"
-        summary="Below is our growing collection of Gridsome starters. Members get early-access to all our starters, before they are released to the community." />
+        summary="Below is our growing collection of Gridsome starters." />
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 p-10">
         <article class="post p-10 bg-gray-100 rounded-md mb-10">
           <figure class="block border rounded-md overflow-hidden mb-6">
@@ -14,12 +14,11 @@
           <div>
             <div class="flex items-center justify-start">
               <h2 class="font-bold text-5xl">
-                Excelsior
+                Jello
               </h2>
-              <strong class="inline-block ml-10 bg-yellow-400 ounded-md px-4 py-3">* Exclusive to Members</strong>
             </div>
             <p class="mb-5 text-2xl mt-8">
-              Excelsior is our members-only exclusive utility starter that includes support for all Gridsome starters, plugins and popular NPM packages, all configured via our upcoming CLI in a minute or less.
+              Jello is our utility starter and command line tool which can be used to quickly scaffold new Gridsome projects. Simply select which sources and plugins you'd like to use, follow the configuration prompts and voila. 
             </p>
             <h3 class="font-bold text-4xl">
               What you can expect

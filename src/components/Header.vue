@@ -6,7 +6,7 @@
       <g-link
         to="/subscribe"
         class="text-center flex items-center justify-center w-full h-full">
-        <strong class="flex items-center justify-center px-3">
+        <strong class="flex items-center justify-center px-3 text-base">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,10 +23,10 @@
                 r="4" /></svg>
           <span>Join our Inner Circle</span>
         </strong>
-        <span class="text-sm"><em>Free to Subscribe</em> &amp; <em>No Spammy Emails</em>. Ever.</span>
+        <span class="text-base"><em>Free to Subscribe</em> &amp; <em>No Spammy Emails</em>. Ever.</span>
       </g-link>
       <button
-        class="relative z-30 font-bold text-sm leading-none shadow-3xl rounded-full bg-white text-black h-6 w-6 block mr-3 hover:bg-red-600 hover:text-white"
+        class="relative z-30 font-bold text-base leading-none shadow-3xl rounded-full bg-white text-black h-6 w-6 block mr-3 hover:bg-red-600 hover:text-white"
         @click="newsletterBar = !newsletterBar"
         @keyup="newsletterBar = !newsletterBar">
         &times;
@@ -96,6 +96,9 @@ query {
 .home .nav a {
   color: #fff;
 }
+.nav .survey {
+  @apply ml-5
+}
 .mobile-nav {
   @apply absolute h-auto rounded-sm bg-white overflow-hidden block z-50;
   width: 200px;
@@ -126,7 +129,7 @@ query {
       }
   }
   strong {
-    @apply bg-black mr-4 text-white py-1 rounded-md
+    @apply bg-black mr-4 text-white py-1 px-4 rounded-full
   }
 }
 </style>

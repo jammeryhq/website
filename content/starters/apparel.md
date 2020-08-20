@@ -6,7 +6,7 @@ excerpt: This is a boilerplate starter, aiming to showcase how Gridsome and Shop
 thumb: ./images/shopify-thumb.jpg
 image: ./images/shopify-large.jpg
 demo: https://gridsome-shopify-starter.netlify.com/
-repo: gridsome-starter-shopify
+repo: gridsome-starter-apparel
 searchTerms: starter, shopify, gridsome
 published: true
 featured: false

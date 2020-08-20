@@ -108,13 +108,4 @@ query($id:ID) {
   .page footer a {
     @apply text-black
   }
-  .button {
-    @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8;
-  }
-  .button-primary {
-    @apply bg-accent text-black border-accent ;
-  }
-  .button-secondary {
-    @apply bg-gray-900 text-white border-gray-900 ;
-  }
 </style>

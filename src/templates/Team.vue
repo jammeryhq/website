@@ -1,62 +1,65 @@
 <template>
   <Layout>
-    <div class="prose lg:prose-2xl mx-auto relative">
-      <div class="flex items-start">
+    <div class="w-2/3 mx-auto relative">
+      <div class="flex items-start justify-start">
         <g-image
-          class="image m-0 w-full h-full mr-10 block overflow-hidden"
+          class="m-0 image rounded-full block overflow-hidden lg:mr-20"
           :src="$page.post.image" />
-        <PageHeader
-          :title="$page.post.title"
-          :summary="$page.post.excerpt" />
-      </div>
-
-      <div>
-        <a
-          v-for="(link, $index) in $page.post.links"
-          :key="$index"
-          :href="link.url"
-          :title="link.title">
-          {{ link.network }}
-        </a>
+        <div class="prose lg:prose-2xl">
+          <h1 class="m-0">{{$page.post.title}}</h1>
+          <p class="mt-1">{{$page.post.excerpt}}</p>
+          <div class="text-lg flex space-x-4">
+          <strong class="px-4 py-2 text-base bg-gray-200 rounded-md">External Links </strong>
+            <a
+              v-for="(link, $index) in $page.post.links"
+              :key="$index"
+              :href="link.url"
+              :title="link.title">
+              {{ link.network }}
+            </a>
+          </div>
+        </div>
       </div>
       <div class="flex items-start">
         <div
           v-if="$page.post.content"
-          class="content"
+          class="prose lg:prose-2xl text-black"
           v-html="$page.post.content" />
-        <aside class="p-10">
-          <div>
-            <h2>Basics</h2>
-            <ul>
-              <li><strong>Date of birth:</strong><br>{{ $page.post.dob }}</li>
-              <li><strong>Nationality:</strong><br>{{ $page.post.nationality }}</li>
-              <li><strong>Fav food:</strong><br>{{ $page.post.favFood }}</li>
-            </ul>
-          </div>
-          <div v-if="$page.post.skills">
-            <h2>Skills</h2>
-            <ul>
-              <li
-                v-for="skill in $page.post.skills"
-                :key="skill">
-                {{ skill }}
-              </li>
-            </ul>
-          </div>
+          <aside class="p-10 bg-gray-200 lg:ml-20 rounded-md whitespace-no-wrap">
+            <div>
+              <h2 class="text-2xl m-0">Basics</h2>
+              <ul class="mt-3 flex flex-col space-y-3">
+                <li><strong>Date of birth:</strong><br>{{ $page.post.dob }}</li>
+                <li><strong>Nationality:</strong><br>{{ $page.post.nationality }}</li>
+                <li><strong>Fav food:</strong><br>{{ $page.post.favFood }}</li>
+              </ul>
+            </div>
+            <div class="my-6" v-if="$page.post.skills">
+              <h2 class="text-2xl m-0">Skills</h2>
+              <ul class="mt-3">
+                <li
+                  v-for="skill in $page.post.skills"
+                  :key="skill"
+                  class="whitespace-preline">
+                  {{ skill }}
+                </li>
+              </ul>
+            </div>
 
-          <div v-if="$page.post.hobbies">
-            <h2>Hobbies</h2>
-            <ul>
-              <li
-                v-for="hobby in $page.post.hobbies"
-                :key="hobby">
-                {{ hobby }}
-              </li>
-            </ul>
-          </div>
-        </aside>
+            <div v-if="$page.post.hobbies">
+              <h2 class="text-2xl m-0">Hobbies</h2>
+              <ul class="mt-3 whitespace-preline w-full">
+                <li
+                  v-for="hobby in $page.post.hobbies"
+                  :key="hobby"
+                  class="">
+                  {{ hobby }}
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
-    </div>
   </Layout>
 </template>
 
@@ -110,6 +113,7 @@ query Team ($path: String) {
     content
     nationality
     favFood
+    image
     dob
     hobbies
     skills
@@ -130,9 +134,12 @@ query Team ($path: String) {
   .page footer a {
     @apply text-black
   }
+  .image {
+    @apply mt-0 rounded-full overflow-hidden -ml-32;
+  }
   .prose {
-    .image {
-      @apply mt-0 rounded-full overflow-hidden -ml-32;
+    h1 {
+      @apply m-0
     }
     aside {
       @apply pl-10 w-full bg-gray-100 py-10 rounded-md ml-20 -mt-10;

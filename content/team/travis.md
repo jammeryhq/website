@@ -1,13 +1,14 @@
 ---
 title: Travis Reynolds
 slug: travis-reynolds
-date: 2020-04-01
+date: 2020-04-02
 dob: 
 starsign: 
-favFood: 
+favFood: Fish and Chips
+nickname: Thetre97
 location:
 nationality: British
-thumb: ./images/travis-thumb.jpg
+thumb: ./images/travis.jpg
 image: ./images/travis.jpg
 searchTerms: travis, reynolds, developer, backend, full-stack
 hobbies: 
@@ -30,7 +31,7 @@ links:
 - network: Website
   url: https://smokeyfro.com/
   title: Check out Chris's portfolio
-excerpt: Chris is a design/development hybrid, with entrepreneurial spirit added for good measure. He has co-founded a number of successful digital product related businesses, initially for Joomla, then later WordPress. He lives off-grid with his family in the Garden Route of South Africa.
+excerpt: Travis is a freelance full-stack developer based out of the UK. Travis has contributed a number of popular plugins and starters to the Gridsome community and can often be found helping out on the Gridsome community chat.
 ---
 He is South African born, but has lived in London, Argentina, Brazil and visited the US, Malaysia, Paraguay, Sweden, Scotland and Zimbabwe.
 

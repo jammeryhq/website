@@ -2,15 +2,15 @@
   <Layout>
     <div class="min-h-screen p-6 md:p-0">
       <PageHeader
-        title="Blog"
-        summary="Get the latest updates about what we're thinking about, working on and more." />
-      <div class="prose lg:prose-2xl mx-auto">
+        title="Updates from HQ"
+        summary="Where we post updates about what we're working on, new product launches and random thoughts on the JAMstack." />
+      <div class="prose lg:prose-2xl mx-auto mt-10">
         <article
           v-for="edge in $page.blog.edges"
           :key="edge.node.id"
-          class="mt-6 mb-10 post">
+          class="post">
           <h2
-            class="text-2xl lg:text-4xl font-bold mb-4 bg-black inline text-white p-3"
+            class="text-2xl lg:text-4xl font-bold bg-black inline text-white p-3 mb-0"
             :class="`${edge.node.topic}`">
             <g-link
               :to="`${edge.node.path}`"
@@ -35,7 +35,7 @@ export default {
     title: 'Blog',
     description: 'Updates from JammeryHQ',
     bodyAttrs: {
-      class: 'blog'
+      class: 'blog index'
     }
   }
 }
@@ -64,8 +64,9 @@ query Blog ($page: Int) {
 <style lang="scss">
   .blog {
     .post {
+      @apply pb-0;
       h2 {
-        @apply rounded-md;
+        @apply rounded-md mt-6;
         a {
           @apply text-white no-underline;
         }

@@ -20,18 +20,25 @@
             <a
               :href="$page.starter.demo"
               class="text-black text-2xl"
-              title="View the demob">
+              :title="'View the ' + $page.starter.title + ' demo'">
               Demo
+            </a>
+            <a
+              :href="$page.starter.demo"
+              class="text-black text-2xl"
+              :title="'View the ' + $page.starter.title + ' guide'">
+              Guide
             </a>
             <a
               :href="repoUrl"
               class="text-black text-2xl"
-              title="View the repo on Github">
+              :title="'View the ' + $page.starter.title + ' repo on Github'">
               Github
             </a>
             <span class="text-gray-400">|</span>
             <span><strong>v{{ $page.starter.version }}</strong> (<g-link
               :to="releaseNotesUrl"
+              :title="'View the ' + $page.starter.title + ' release notes'"
               class="p-0 underline">Release Notes</g-link>)</span>
           </div>
           <div
@@ -179,9 +186,6 @@ query($id:ID) {
 
 <style lang="scss">
 .starter {
-  & .page-header {
-
-  }
   & .install {
     @apply pb-10
   }
@@ -190,15 +194,6 @@ query($id:ID) {
   }
   & .page footer a {
     @apply text-black
-  }
-  & .button {
-    @apply inline-flex items-center px-6 py-3 font-bold text-xl text-black border border-2 rounded-full px-8
-  }
-  & .button-primary {
-    @apply bg-accent text-black border-accent
-  }
-  & .button-secondary {
-    @apply bg-gray-900 text-white border-gray-900
   }
 }
 </style>

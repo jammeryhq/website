@@ -1,14 +1,16 @@
 <template>
   <Layout>
-    <div class="p-6 lg:p-0 prose lg:prose-2xl mx-auto relative">
+    <div class="p-6 lg:p-0 relative">
       <PageHeader
         :title="$page.post.title"
-        :summary="$page.post.excerpt" />
+        :summary="$page.post.excerpt"
+        class="lg:w-full prose lg:prose-2xl mx-auto"
+       />
       <div
         v-if="$page.post.content"
-        class="content"
+        class="prose lg:prose-2xl mx-auto"
         v-html="$page.post.content" />
-      <div class="comment-form">
+      <div class="prose lg:prose-2xl mx-auto">
         <Comments />
       </div>
     </div>
@@ -41,7 +43,7 @@ export default {
         { name: 'twitter:creator', content: '@jammeryhq' }
       ],
       bodyAttrs: {
-        class: 'min-h-screen overflow-x-auto page'
+        class: 'post'
       }
     }
   },
@@ -74,5 +76,12 @@ query Post ($path: String) {
 <style lang="scss">
   .page footer a {
     @apply text-black
+  }
+  .post .vue-expand {
+    @apply bg-white p-0 text-xl
+  }
+
+  .page-header > p {
+    @apply text-3xl;
   }
 </style>

@@ -5,7 +5,7 @@
         About Us
       </h1>
       <p class="excerpt">
-        <em>JammeryHQ</em> is an open collaboration between <strong>Chris Rault</strong>, <strong>Travis Reynolds</strong>, <strong>Marcus Reinhardt</strong> and <strong>Kabolobari Benakole</strong>. We're still in the process of setting up the business admin, but we'll all be equal partners, each bringing something different to table that compliments the collective.
+        <em>JammeryHQ</em> is an open collaboration between <strong>Chris Rault</strong>, <strong>Travis Reynolds</strong> and <strong>Marcus Reinhardt</strong>. We're still in the process of setting up the business admin, but we'll all be equal partners, each bringing something different to table that compliments the collective.
       </p>
       <p class="text-2xl">
         Our goal for the collab is to build a suite of tools aimed at the JAMstack Community. We're still figuring out where there is the most need, but for now keep an eye on our blog for updates.

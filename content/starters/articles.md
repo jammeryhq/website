@@ -7,7 +7,7 @@ thumb: ./images/articles-thumb.jpg
 image: ./images/articles-large.png
 demo: https://gridsome-starter-articles.now.sh/
 repo: gridsome-starter-articles
-availability: 5
+availability: 1
 searchTerms: starter, shopify, gridsome
 published: true
 featured: false

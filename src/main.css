@@ -12,7 +12,7 @@ body {
   padding-right: 20px;
 }
 nav a.survey span {
-  @apply text-white font-bold;
+  @apply text-black font-bold;
 }
 .header {
   & nav div:last-of-type strong,
@@ -43,6 +43,9 @@ nav a.survey span {
 header a:link {
   @apply px-4 py-2 leading-loose;
 }
+header nav a:last-of-type {
+  @apply rounded-full px-6 bg-gray-300 text-black;
+}
 *:link {
   @apply rounded-md border-4 border-transparent border-dotted;
   outline: 0 none;
@@ -50,6 +53,30 @@ header a:link {
 *:focus {
   @apply border-accent
 }
+
+.button {
+  @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xl rounded-full px-8 text-center
+}
+.button:focus {
+  @apply 
+}
+
+.button-primary {
+  @apply bg-accent text-black;
+  &:hover, &:focus {
+    @apply bg-green-600;
+  }
+}
+
+.button-secondary {
+  @apply bg-gray-800 text-white;
+
+  &:hover, &:focus {
+    @apply bg-gray-900;
+  }
+}
+
+
 .header {
   & svg path {
     fill: #000;
@@ -71,9 +98,17 @@ body:not(.home) footer a {
 .content {
   @apply pb-40
 }
-.vue-expand,
-.form-input {
-  @apply border border-gray-300 bg-gray-100 p-4 rounded-md overflow-hidden mt-2
+.form-input,
+.vue-expand {
+  @apply border border-gray-300 bg-gray-100 rounded-md overflow-hidden mt-2
+}
+.form-input,
+.vue-expand textarea {
+  @apply bg-gray-100 p-4 text-xl
+}
+.vue-expand textarea:focus,
+.form-input:focus {
+  @apply bg-gray-200
 }
 
 .newsletter .form-input {
@@ -89,8 +124,8 @@ body:not(.home) footer a {
  
 }
 @media ( max-width: 480px ) {
-  .contact .vue-expand,
-  .form-input {
+  .form-input,
+  .vue-expand textarea {
     @apply p-2 text-base
   }
 

@@ -1,6 +1,6 @@
 ---
 title: FlexSearch
-slug: flexsearch
+slug: flex-search
 date: 2020-05-20
 type: plugin
 excerpt: Add lightning fast search to Gridsome with FlexSearch.
@@ -12,6 +12,6 @@ availability: 1
 searchTerms: plugin, flexsearch, search
 published: true
 featured: false
-guide: flexsearch-plugin
+guide: flex-search-plugin
 version: 1.2.0
 ---

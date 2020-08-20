@@ -7,7 +7,7 @@ thumb: ./images/casper-thumb.jpg
 image: ./images/casper-large.jpg
 demo: https://gridsome-starter-casper-v3.now.sh/
 repo: gridsome-starter-casper
-availability: 5
+availability: 1
 searchTerms: starter, shopify, gridsome
 published: true
 featured: false

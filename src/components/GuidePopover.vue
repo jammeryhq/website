@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative prose lg:prose-2xl w-full mx-auto">
+  <div class="bg-gray-100 p-10 rounded-md hover:shadow-2xl relative w-full lg:mx-auto">
     <h2
       v-if="title != ''"
-      class="title">
+      class="text-4xl font-bold mb-3">
       {{ title }}
     </h2>
     <p
       v-if="summary != ''"
-      class="summary">
+      class="text-xl mb-5">
       {{ summary }}
     </p>
     <div class="relative group appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
@@ -24,9 +24,9 @@
       <div
         v-if="isOpen"
         v-on-clickaway="hideGuideDropdown"
-        class="z-50 shadow-2xl border text-sm items-center absolute bottom-0 rounded-lg p-5 bg-white w-full">
+        class="z-50 shadow-2xl border text-sm items-center absolute top-0 lg:top-auto lg:bottom-0 rounded-lg p-5 bg-white w-full">
         <div class="">
-          <div v-if="type === 'plugins'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div v-if="type === 'plugins'" class="grid grid-gap-1 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
             <g-link
               v-for="edge in $page.plugins.edges"
               :key="edge.node.id"
@@ -35,7 +35,7 @@
               {{ edge.node.title }}
             </g-link>
           </div>
-          <div v-if="type === 'starters'" class="grid grid-gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div v-if="type === 'starters'" class="grid grid-gap-1 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
             <g-link
               v-for="edge in $page.starters.edges"
               :key="edge.node.id"
