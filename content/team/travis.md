@@ -18,7 +18,7 @@ skills:
 links:
 - network: Github
   url: https://github.com/thetre97
-  title: Follow Chris on Github
+  title: Follow Travis on Github
 - network: Website
   url: https://travisreynolds.dev/
   title: Check out Travis' portfolio
