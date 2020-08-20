@@ -2,7 +2,7 @@
 title: Travis Reynolds
 slug: travis-reynolds
 date: 2020-04-02
-dob: 
+dob: 14/12/1997
 starsign: 
 favFood: 🍕🍕🍕🍕🍕🍕
 nickname: Thetre97
