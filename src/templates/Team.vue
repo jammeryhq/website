@@ -17,8 +17,26 @@
               v-for="(link, $index) in $page.post.links"
               :key="$index"
               :href="link.url"
-              :title="link.title">
-              {{ link.network }}
+              :title="link.network"
+              class="opacity-25 hover:opacity-75">
+              <span v-if="link.network == 'Twitter'" class="w-6 h-6 block">
+                <g-image src="/twitter.svg" /> 
+              </span>
+              <span v-if="link.network == 'Instagram'" class="w-6 h-6 block">
+                <g-image src="/instagram.svg" /> 
+              </span>
+              <span v-if="link.network == 'Github'" class="w-6 h-6 block">
+                <g-image src="/github.svg" /> 
+              </span>
+              <span v-if="link.network == 'Linkedin'" class="w-6 h-6 block">
+                <g-image src="/linkedin.svg" /> 
+              </span>
+              <span v-if="link.network == 'Youtube'" class="w-6 h-6 block">
+                <g-image src="/youtube.svg" /> 
+              </span>
+              <span v-if="link.network == 'Website'" class="w-6 h-6 block">
+                <g-image src="/website.svg" /> 
+              </span>
             </a>
           </div>
         </div>
@@ -123,7 +141,6 @@ query Team ($path: String) {
     image
     links {
         network
-        title
         url
     }
   }
