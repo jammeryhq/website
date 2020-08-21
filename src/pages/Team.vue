@@ -9,7 +9,7 @@
         <li
           v-for="edge in $page.plugins.edges"
           :key="edge.node.id"
-          class="col-span-1 flex flex-col text-center bg-gray-100 rounded-lg shadow-xl hover:shadow-2xl">
+          class="col-span-1 flex flex-col text-center bg-gray-100 rounded-lg shadow-none hover:shadow-2xl">
           <div class="items-center justify-center flex flex-col p-8">
           <g-link :to="'team/' + edge.node.slug" class="p-2 block image-link rounded-full overflow-hidden">
             <g-image
@@ -34,7 +34,7 @@
                   v-for="(link, $index) in edge.node.links"
                   :key="$index"
                   :href="link.url"
-                  :title="link.title"
+                  :title="link.network"
                   class="opacity-25 hover:opacity-75">
                   <span v-if="link.network == 'Twitter'" class="w-6 h-6 block">
                     <g-image src="/twitter.svg" /> 
@@ -51,7 +51,7 @@
                   <span v-if="link.network == 'Youtube'" class="w-6 h-6 block">
                     <g-image src="/youtube.svg" /> 
                   </span>
-                  <span v-if="link.network == 'Portfolio'" class="w-6 h-6 block">
+                  <span v-if="link.network == 'Website'" class="w-6 h-6 block">
                     <g-image src="/website.svg" /> 
                   </span>
                 </a>
@@ -79,7 +79,6 @@ query {
         nickname
         links {
           url
-          title
           network
         }
       }

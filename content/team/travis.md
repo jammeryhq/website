@@ -16,11 +16,13 @@ hobbies:
 skills: 
 - 
 links:
-- network: Github
-  url: https://github.com/thetre97
-  title: Follow Travis on Github
 - network: Website
   url: https://travisreynolds.dev/
-  title: Check out Travis' portfolio
+- network: Github
+  url: https://github.com/thetre97
+- network: Twitter
+  url: https://twitter.com/cirrus_creative
+- network: Linkedin
+  url: https://www.linkedin.com/in/travis-reynolds/  
 excerpt: Travis is a freelance full-stack developer based out of the UK. Travis has contributed a number of popular plugins and starters to the Gridsome community and can often be found helping out on the Gridsome community chat.
 ---

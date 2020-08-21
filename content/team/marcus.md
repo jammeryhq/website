@@ -20,20 +20,17 @@ skills:
 - Systems design
 - APIs
 links:
-- network: Twitter
-  url: https://twitter.com/i_love_nox
-  title: Follow Chris on Twitter
-- network: Github
-  url: https://github.com/noxify
-  title: Follow Marcus on Github
-- network: Instagram
-  url: https://instagram.com/i.love.nox
-  title: Follow Marcus on Instagram
-- network: Youtube
-  url: https://www.youtube.com/channel/UCawdfud9jhN2w8vEG7FJRsg
-  title: Follow Marcus on Youtube
 - network: Website
   url: https://webstone.info/
-  title: Check out Marcus's site
+- network: Github
+  url: https://github.com/noxify
+- network: Twitter
+  url: https://twitter.com/i_love_nox
+- network: Instagram
+  url: https://instagram.com/i.love.nox
+- network: Youtube
+  url: https://www.youtube.com/channel/UCawdfud9jhN2w8vEG7FJRsg
+- network: Linkedin
+  url: https://www.linkedin.com/in/marcusreinhardt/
 excerpt: Marcus is a senior consultant for ServiceNow and Microfocus ServiceManager. He has more than 10 years experience in customizing enterprise tools. In his free time he creates plugins and starters for Gridsome and helps out the community. He also loves to ride his motorcycle at the race-track.
 ---
