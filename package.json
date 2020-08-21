@@ -18,6 +18,7 @@
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "gridsome-plugin-segment-js": "^1.0.4",
     "gridsome-plugin-tailwindcss": "latest",
+    "gridsome-source-directus": "^0.1.1",
     "ky": "^0.23.0",
     "v-tooltip": "^2.0.3",
     "vue-clickaway": "^2.2.2",

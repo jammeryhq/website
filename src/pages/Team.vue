@@ -4,38 +4,62 @@
       <PageHeader
         title="Team Jammery"
         summary="JammeryHQ is an open collaboration between three freelancers, each from vastly different backgrounds, each bringing something unique to the table." />
-      <div class="pb-20 mt-10">
-        <div class="grid gap-10 grid-cols-1 md:grid-cols-3 xl:w-2/3 mx-auto">
-          <article
-            v-for="edge in $page.plugins.edges"
-            :key="edge.node.id"
-            class="">
-            <div class="flex items-center justify-start">
-              <figure class="m-0 w-24 h-24 border-4 border-white border-solid rounded-full overflow-hidden shadow-xl">
-                <g-image
-                  :src="edge.node.thumb"
-                  class="w-24 h-24"
-                  fit="cover"
-                  position="center"
-                />
-              </figure>
-              <div class="lg:ml-3">
-                <h2>
-                  <g-link
-                    :to="'team/' + edge.node.slug"
-                    class="text-2xl font-bold p-0">
-                    {{ edge.node.title }}
-                  </g-link>
-                </h2>
-                <em class="pl-1 text-gray-900 font-normal block text-lg h-auto m-0">a.k.a. <strong>{{ edge.node.nickname }}</strong></em>
-              </div>
-            </div>
-            <p class="mb-3 text-xl mt-6">
-              {{ edge.node.excerpt }}
-            </p>
-          </article>
-        </div>
-      </div>
+      
+      <ul class="mx-auto max-w-5xl my-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <li
+          v-for="edge in $page.plugins.edges"
+          :key="edge.node.id"
+          class="col-span-1 flex flex-col text-center bg-gray-100 rounded-lg shadow-xl hover:shadow-2xl">
+          <div class="items-center justify-center flex flex-col p-8">
+          <g-link :to="'team/' + edge.node.slug" class="p-2 block image-link rounded-full overflow-hidden">
+            <g-image
+              :src="edge.node.thumb"
+              class="w-32 h-32 flex-shrink-0 mx-auto bg-white rounded-full border-8 border-white shadow-md"
+              fit="cover"
+              position="center"
+            />
+          </g-link>
+            <h3 class="mt-2 text-gray-900 text-xl leading-5 font-medium">
+              <g-link
+                :to="'team/' + edge.node.slug">
+                {{ edge.node.title }}
+              </g-link>
+            </h3>
+            <dl class="mt-1 flex-grow flex flex-col justify-between">
+              <dt class="sr-only">Title</dt>
+              <dd class="text-gray-700 text-base leading-5">{{edge.node.role}}</dd>
+              <dt class="sr-only">Links</dt>
+              <dd class="mt-3 flex items-center justify-center">
+                <a
+                  v-for="(link, $index) in edge.node.links"
+                  :key="$index"
+                  :href="link.url"
+                  :title="link.title"
+                  class="opacity-25 hover:opacity-75">
+                  <span v-if="link.network == 'Twitter'" class="w-6 h-6 block">
+                    <g-image src="/twitter.svg" /> 
+                  </span>
+                  <span v-if="link.network == 'Instagram'" class="w-6 h-6 block">
+                    <g-image src="/instagram.svg" /> 
+                  </span>
+                  <span v-if="link.network == 'Github'" class="w-6 h-6 block">
+                    <g-image src="/github.svg" /> 
+                  </span>
+                  <span v-if="link.network == 'Linkedin'" class="w-6 h-6 block">
+                    <g-image src="/linkedin.svg" /> 
+                  </span>
+                  <span v-if="link.network == 'Youtube'" class="w-6 h-6 block">
+                    <g-image src="/youtube.svg" /> 
+                  </span>
+                  <span v-if="link.network == 'Portfolio'" class="w-6 h-6 block">
+                    <g-image src="/website.svg" /> 
+                  </span>
+                </a>
+              </dd>
+            </dl>
+          </div>
+        </li>
+      </ul>
     </div>
   </Layout>
 </template>
@@ -48,10 +72,16 @@ query {
         id
         title
         slug
+        role
         excerpt
         path
         thumb
         nickname
+        links {
+          url
+          title
+          network
+        }
       }
     }
   }
@@ -78,6 +108,9 @@ export default {
 <style lang="scss">
   .page footer a {
     @apply text-black
+  }
+  .image-link {
+    @apply rounded-full;
   }
   article {
     ul {

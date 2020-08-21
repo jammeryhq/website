@@ -5,7 +5,7 @@ date: 2020-05-20
 excerpt: Gridsome starter based on the Skeleventy theme for Eleventy. Content is added via markdown, while Tailwind CSS is used for the layout/styling.
 thumb: ./images/skeleventy-thumb.jpg
 image: ./images/skeleventy-large.jpg
-demo: https://gridsome-starter-skeleventy.now.sh/
+demo: https://skeleventy.jammeryhq.com
 repo: gridsome-starter-skeleventy
 searchTerms: starter, skeleventy, gridsome
 published: true

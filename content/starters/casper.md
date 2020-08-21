@@ -5,7 +5,7 @@ date: 2020-05-20
 excerpt: Gridsome starter based on the Casper theme for Ghost. Content is added via markdown, while Tailwind CSS is used for the layout/styling.
 thumb: ./images/casper-thumb.jpg
 image: ./images/casper-large.jpg
-demo: https://gridsome-starter-casper-v3.now.sh/
+demo: https://casper.jammeryhq.com
 repo: gridsome-starter-casper
 availability: 1
 searchTerms: starter, shopify, gridsome

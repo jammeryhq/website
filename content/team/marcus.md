@@ -1,6 +1,7 @@
 ---
 title: Marcus Reinhardt
 slug: marcus-reinhardt
+role: Systems Dev
 date: 2020-06-01
 dob:  
 starsign: 

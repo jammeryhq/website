@@ -1,6 +1,7 @@
 ---
 title: Chris Rault
 slug: chris-rault
+role: Designer + Biz Dev
 date: 2020-04-01
 dob: 31/12/1980
 starsign: Capricorn

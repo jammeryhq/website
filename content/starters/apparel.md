@@ -5,7 +5,7 @@ date: 2020-05-20
 excerpt: This is a boilerplate starter, aiming to showcase how Gridsome and Shopify can work together, to create an amazingly fast shopping experience for consumers.
 thumb: ./images/shopify-thumb.jpg
 image: ./images/shopify-large.jpg
-demo: https://gridsome-shopify-starter.netlify.com/
+demo: https://apparel.jammeryhq.com
 repo: gridsome-starter-apparel
 searchTerms: starter, shopify, gridsome
 published: true

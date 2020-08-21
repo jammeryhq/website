@@ -2,9 +2,12 @@
   <Layout>
     <div class="w-2/3 mx-auto relative">
       <div class="flex items-start justify-start">
-        <g-image
-          class="m-0 image rounded-full block overflow-hidden lg:mr-20"
-          :src="$page.post.image" />
+        <figure class="image relative">
+          <svg class="image-blob" viewBox="0 0 195 240" xmlns="http://www.w3.org/2000/svg"><path fill="#00d084" d="M134.1 46c13.6 2.8 30.6 4.9 40 13.7 9.5 8.9 11.5 24.6 5.8 37-5.7 12.4-19.1 21.6-30 27.9-11 6.4-19.4 9.9-27.3 21.4-7.9 11.5-15.3 30.8-25.6 36-10.4 5.3-23.7-3.6-28.4-17-4.7-13.3-.8-31-9.7-42.6-8.9-11.6-30.7-17-32.9-23.7C23.7 92 41 84 48.3 69.6c7.3-14.4 4.6-35.1 11.6-41.8 6.9-6.7 23.5.5 36.9 6 13.4 5.5 23.7 9.3 37.3 12.2z"/></svg>
+          <g-image
+            class="w-full"
+            :src="$page.post.image" />
+        </figure>
         <div class="prose lg:prose-2xl">
           <h1 class="m-0">{{$page.post.title}}</h1>
           <p class="mt-1">{{$page.post.excerpt}}</p>
@@ -135,7 +138,17 @@ query Team ($path: String) {
     @apply text-black
   }
   .image {
-    @apply mt-0 rounded-full overflow-hidden -ml-32;
+    @apply mt-0 -ml-32 mr-20;
+    width: 300px;
+    & img {
+      @apply relative z-30 rounded-full overflow-hidden border-8 border-white;
+    }
+    & .image-blob {
+      @apply absolute z-20;
+      width: 450px;
+      top: -50px;
+      left: -100px;
+    }
   }
   .prose {
     h1 {

@@ -2,6 +2,7 @@
 title: Travis Reynolds
 slug: travis-reynolds
 date: 2020-04-02
+role: Fullstack Dev
 dob: 
 starsign: 
 favFood: Fish and Chips

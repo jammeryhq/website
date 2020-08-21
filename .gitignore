@@ -8,3 +8,4 @@ dist
 .env*
 .now
 *.lock
+.cache-directus
