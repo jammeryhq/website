@@ -10,15 +10,14 @@
         </figure>
         <div class="prose lg:prose-2xl">
           <h1 class="m-0">{{$page.post.title}}</h1>
-          <p class="mt-1">{{$page.post.excerpt}}</p>
-          <div class="text-lg flex space-x-4">
-          <strong class="px-4 py-2 text-base bg-gray-200 rounded-md">External Links </strong>
+          <p class="mt-1 mb-0">{{$page.post.excerpt}}</p>
+          <div class="text-lg flex items-center justify-start space-x-4">
             <a
               v-for="(link, $index) in $page.post.links"
               :key="$index"
               :href="link.url"
               :title="link.network"
-              class="opacity-25 hover:opacity-75">
+              class="opacity-25 hover:opacity-75 w-6 h-6">
               <span v-if="link.network == 'Twitter'" class="w-6 h-6 block">
                 <g-image src="/twitter.svg" /> 
               </span>
