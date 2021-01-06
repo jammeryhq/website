@@ -5,7 +5,7 @@ date: 2020-05-20
 excerpt: Gridsome starter that is ideal for articles/tutorials that uses markdown for the content and Tailwind CSS for the styles.
 thumb: ./images/articles-thumb.jpg
 image: ./images/articles-large.png
-demo: https://gridsome-starter-articles.now.sh/
+demo: https://articles.jammeryhq.com
 repo: gridsome-starter-articles
 availability: 1
 searchTerms: starter, shopify, gridsome
