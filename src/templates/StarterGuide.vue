@@ -59,7 +59,7 @@ query($id:ID) {
 }
 </page-query>
 
-<style lang="scss">
+<style>
 .prose .excerpt {
   @apply text-3xl mt-0
 }

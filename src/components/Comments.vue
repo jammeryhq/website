@@ -307,7 +307,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .blob-top {
   @apply absolute top-0;
   width: 400px;

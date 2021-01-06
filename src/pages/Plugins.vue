@@ -77,7 +77,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
   .page footer a {
     @apply text-black
   }

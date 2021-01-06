@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .ghost {
     background: rgb(163, 249, 237);
     background: -moz-linear-gradient(152deg, rgba(163, 249, 237, 1) 0%, rgba(182, 127, 253, 1) 100%);

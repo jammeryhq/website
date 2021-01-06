@@ -61,7 +61,7 @@ query Blog ($page: Int) {
 }
 </page-query>
 
-<style lang="scss">
+<style>
   .blog {
     .post {
       @apply pb-0;

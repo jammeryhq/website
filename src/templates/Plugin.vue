@@ -104,7 +104,7 @@ query($id:ID) {
 }
 </page-query>
 
-<style lang="scss">
+<style>
   .page footer a {
     @apply text-black
   }

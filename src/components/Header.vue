@@ -86,7 +86,7 @@ query {
 }
 </static-query>
 
-<style lang="scss">
+<style>
 .home a {
     color: #fff;
 }

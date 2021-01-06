@@ -184,7 +184,7 @@ query($id:ID) {
 }
 </page-query>
 
-<style lang="scss">
+<style>
 .starter {
   & .install {
     @apply pb-10

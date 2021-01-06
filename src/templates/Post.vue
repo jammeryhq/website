@@ -73,7 +73,7 @@ query Post ($path: String) {
 }
 </page-query>
 
-<style lang="scss">
+<style>
   .page footer a {
     @apply text-black
   }

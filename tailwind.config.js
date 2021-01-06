@@ -648,5 +648,8 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography')
   ],
-  corePlugins: {}
+  corePlugins: {
+    shouldImport: false,
+    shouldTimeTravel: false
+  }
 }

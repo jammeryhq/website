@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @media (min-width: 1024px) {
   .image {
     position: absolute;

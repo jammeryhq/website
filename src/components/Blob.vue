@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
     figure.blob {
         margin: 0;
         margin-top: -5.5rem;
