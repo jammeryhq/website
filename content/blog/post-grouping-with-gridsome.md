@@ -134,10 +134,46 @@ The first method we'll explore will take advantage of Vue's Computed Properties,
 <script>
 export default {
     computed: {
-        
+
     }
 }
 </script>
 ```
 
-Now if we 
+Next up we need to make some changes to our v-for loop:
+
+```vue
+<template>
+  <Layout>
+    <div>
+        <h1>Recipes</h1>
+        <div v-for="recipe in recipes" :key="recipe.node.id">
+            <h2>
+                <g-link :to="recipe.node.path">
+                    {{ recipe.node.title }}
+                </g-link>
+            </h2>
+        </div>
+    </div>
+  </Layout>
+</template>
+```
+Quickly restart Gridsome, then head over to the page in your browser and you should see the following:
+
+<!-- Add Image Here -->
+
+## Grouping using a separate GraphQL collection
+
+The first approach simply layers on the existing collection, where as in this approach, we'll create a collection specifically for the grouped post. 
+
+This offers a number of advantages, namely:
+
+- List
+- The
+- Advantages
+- Here
+
+### Lay the foundation using your gridsome.server.js
+
+Most of the heavy lifting with this approach is located in your gridsome.server.js, which fires using the [addhook].
+
