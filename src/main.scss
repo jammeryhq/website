@@ -1,24 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
   overflow-x: hidden;
 }
+
 .layout {
   max-width: 760px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
 }
+
 nav a.survey span {
   @apply text-black font-bold;
 }
+
 .header {
+
   & nav div:last-of-type strong,
   & nav div:first-of-type span {
     position: relative;
     transition: 0.5s;
+
     &::after {
       position: absolute;
       content: "";
@@ -31,63 +40,138 @@ nav a.survey span {
       transform-origin: right;
       transition: transform 0.5s;
     }
+
     &:hover {
       color: #00d084;
     }
+
     &:hover::after {
       transform: scaleX(1);
       transform-origin: left;
     }
   }
 }
+
 header a:link {
   @apply px-4 py-2 leading-loose;
 }
+
 header nav a:last-of-type {
   @apply rounded-full px-6 bg-gray-300 text-black;
 }
+
 *:link {
   @apply rounded-md border-4 border-transparent border-dotted;
   outline: 0 none;
 }
+
 *:focus {
   @apply border-accent
 }
 
-/* .button {
-  @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xl rounded-full px-8 text-center
-}
-.button:focus {
-  @apply 
+.home a {
+  color: #fff;
 }
 
-.button-primary {
-  @apply bg-accent text-black;
-  &:hover, &:focus {
-    @apply bg-green-600;
+.home .navicon {
+  @apply text-white
+}
+
+.home .nav a {
+  color: #fff;
+}
+
+.nav .survey {
+  @apply ml-5
+}
+
+.mobile-nav {
+  @apply absolute h-auto rounded-sm bg-white overflow-hidden block z-50;
+  width: 200px;
+  right: 30px;
+  left: auto;
+  top: 100px;
+  z-index: 9999;
+}
+
+.mobile-nav .nav__link span {
+  color: #000;
+}
+
+.mobile-nav a:not(.nav__link) {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Top Newsletter Bar */
+@keyframes morph {
+  0% {
+    @apply bg-green-500
+  }
+
+  50% {
+    @apply bg-green-600
+  }
+
+  100% {
+    @apply bg-green-500
   }
 }
 
-.button-secondary {
-  @apply bg-gray-800 text-white;
+.newsletter-bar {
+  animation: morph 3s linear 1s infinite;
 
-  &:hover, &:focus {
-    @apply bg-gray-900;
+  a {
+    //@apply transition duration-500 ease-in-out font-bold text-sm;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-} */
+
+  strong {
+    @apply bg-black mr-4 text-white py-1 px-4 rounded-full
+  }
+}
+
+
+// /* .button {
+//   @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xl rounded-full px-8 text-center
+// }
+// .button:focus {
+//   @apply 
+// }
+
+// .button-primary {
+//   @apply bg-accent text-black;
+//   &:hover, &:focus {
+//     @apply bg-green-600;
+//   }
+// }
+
+// .button-secondary {
+//   @apply bg-gray-800 text-white;
+
+//   &:hover, &:focus {
+//     @apply bg-gray-900;
+//   }
+// } */
 
 
 .header {
   & svg path {
     fill: #000;
   }
+
   & a {
     @apply text-black
   }
+
   & nav .active {
     @apply font-bold
   }
 }
+
 footer {
   @apply text-gray-800
 }
@@ -95,17 +179,21 @@ footer {
 body:not(.home) footer a {
   @apply text-black
 }
+
 .content {
   @apply pb-40
 }
+
 .form-input,
 .vue-expand {
   @apply border border-gray-300 bg-gray-100 rounded-md overflow-hidden mt-2
 }
+
 .form-input,
 .vue-expand textarea {
   @apply bg-gray-100 p-4 text-xl
 }
+
 .vue-expand textarea:focus,
 .form-input:focus {
   @apply bg-gray-200
@@ -114,25 +202,26 @@ body:not(.home) footer a {
 .newsletter .form-input {
   margin-top: 0;
 }
-@media ( min-width: 1025px ) {
- 
-}
-@media ( max-width: 1024px ) {
- 
-}
-@media ( max-width: 768px ) {
- 
-}
-@media ( max-width: 480px ) {
+
+@media (min-width: 1025px) {}
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+
   .form-input,
   .vue-expand textarea {
     @apply p-2 text-base
   }
 
 }
+
 .prose {
   @apply pb-20;
-  & > h1.title {
+
+  &>h1.title {
     @apply mb-0;
   }
 }
@@ -158,8 +247,9 @@ body:not(.home) footer a {
 }
 
 code.shiki-inline {
-  @apply bg-transparent text-xl leading-loose py-1 px-2 text-red-800 bg-yellow-300 !important
+  @apply bg-transparent text-xl leading-loose py-1 px-2 text-red-800 bg-yellow-300;
 }
+
 .shiki {
-  @apply block rounded-md leading-loose  shadow-xl py-4 px-6 whitespace-pre overflow-y-hidden overflow-x-auto mb-6
+  @apply block rounded-md leading-loose shadow-xl py-4 px-6 whitespace-pre overflow-y-hidden overflow-x-auto mb-6
 }

@@ -8,7 +8,7 @@ import VueClipboard from 'vue-clipboard2'
 import VueStorage from 'vuestorage'
 
 // Styles
-import '~/main.css'
+import './main.scss'
 
 export default function (Vue, { head }) {
   // Set default layout as a global component
