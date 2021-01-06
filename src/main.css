@@ -54,7 +54,7 @@ header nav a:last-of-type {
   @apply border-accent
 }
 
-.button {
+/* .button {
   @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xl rounded-full px-8 text-center
 }
 .button:focus {
@@ -74,7 +74,7 @@ header nav a:last-of-type {
   &:hover, &:focus {
     @apply bg-gray-900;
   }
-}
+} */
 
 
 .header {
