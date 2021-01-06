@@ -9,3 +9,4 @@ dist
 .now
 *.lock
 .cache-directus
+.vercel

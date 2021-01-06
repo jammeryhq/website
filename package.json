@@ -12,7 +12,7 @@
     "@gridsome/transformer-remark": "^0.6.1",
     "@noxify/gridsome-remark-classes": "^1.0.0",
     "@tailwindcss/typography": "^0.2.0",
-    "gridsome": "0.7.19",
+    "gridsome": "0.7.20",
     "gridsome-plugin-manifest": "^0.3.5",
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-remark-youtube": "^1.0.1",
@@ -26,17 +26,17 @@
     "vue-expand": "^1.1.1",
     "vue-mention": "^0.1.7",
     "vue-recaptcha-v3": "^1.9.0",
-    "vue-scrollto": "^2.18.1",
+    "vue-scrollto": "^2.18.2",
     "vuestorage": "^19.0.2",
-    "xstate": "^4.11.0"
+    "xstate": "^4.12.0"
   },
   "devDependencies": {
     "eslint-config-jammeryhq-starters": "^1.0.4",
-    "got": "^11.5.1",
+    "got": "^11.5.2",
     "marked": "^1.1.1",
     "node-sass": "^4.14.1",
     "remark-toc": "^7.0.0",
-    "sanitize-html": "^1.27.1",
-    "sass-loader": "^9.0.2"
+    "sanitize-html": "^1.27.3",
+    "sass-loader": "^9.0.3"
   }
 }
