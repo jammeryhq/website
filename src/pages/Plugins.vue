@@ -17,7 +17,7 @@
                 {{ edge.node.title }}
               </g-link>
             </h2>
-            <div class="mt-8 flex justify-start items-center">
+            <div class="mt-2 flex justify-start items-center">
               <span v-if="edge.node.type" class="py-1 px-2 rounded-md mr-4 inline-block" :class="edge.node.type">{{ edge.node.type }}</span>
               <g-link v-if="edge.node.guide" :to="'/plugins/'+ edge.node.slug" class="mr-4">Guide</g-link>
               <g-link :to="'https://github.com/jammeryhq/'+ edge.node.repo" v-if="edge.node.repo" class="mr-4">Repo</g-link>

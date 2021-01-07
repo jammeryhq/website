@@ -52,9 +52,6 @@ header a:link {
   @apply px-4 py-2 leading-loose;
 }
 
-header nav a:last-of-type {
-  @apply rounded-full px-6 bg-gray-300 text-black;
-}
 
 *:link {
   @apply rounded-md border-4 border-transparent border-dotted;
