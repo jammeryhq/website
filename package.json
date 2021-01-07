@@ -11,6 +11,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "@noxify/gridsome-remark-classes": "^1.0.0",
+    "autoprefixer": "^9",
     "gridsome": "0.7.23",
     "gridsome-plugin-manifest": "^0.3.5",
     "gridsome-plugin-remark-shiki": "^0.6.0",
@@ -18,7 +19,10 @@
     "gridsome-plugin-segment-js": "^1.0.4",
     "gridsome-source-directus": "^0.1.2",
     "ky": "^0.25.1",
-    "v-tooltip":"^2.1.2",
+    "postcss": "^7",
+    "postcss-import": "12.0.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "v-tooltip": "^2.1.2",
     "vue-clickaway": "^2.2.2",
     "vue-clipboard2": "^0.3.1",
     "vue-expand": "^1.1.1",
@@ -26,23 +30,16 @@
     "vue-recaptcha-v3": "^1.9.0",
     "vue-scrollto": "^2.20.0",
     "vuestorage": "^19.0.2",
-    "xstate": "^4.15.4",
-    "postcss-import": "12.0.1"
+    "xstate": "^4.15.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.3.1",
     "eslint-config-jammeryhq-starters": "^1.0.6",
     "got": "^11.8.1",
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "marked": "^1.2.7",
-    "remark-toc": "^7.0.0",
-    "sanitize-html": "^2.3.0",
-    "tailwindcss": "^2.0.2",
-    "postcss": "^8.2.2",
-    "autoprefixer": "^10.2.0",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0",
     "postcss-preset-env": "^6.7.0",
-    "@tailwindcss/typography":"^0.3.1"
-
+    "remark-toc": "^7.0.0",
+    "sanitize-html": "^2.3.0"
   }
 }

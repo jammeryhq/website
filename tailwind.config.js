@@ -15,12 +15,14 @@ module.exports = {
           700: '#c05621',
           800: '#9c4221',
           900: '#7b341e'
-        },
+        }
       }
-    },
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
 }
