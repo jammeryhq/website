@@ -17,13 +17,13 @@
                 Jello
               </h2>
             </div>
-            <p class="mb-5 text-2xl mt-8">
+            <p class="mb-5 text-2xl mt-8 leading-relaxed">
               Jello is our utility starter and command line tool which can be used to quickly scaffold new Gridsome projects. Simply select which sources and plugins you'd like to use, follow the configuration prompts and voila. 
             </p>
-            <h3 class="font-bold text-4xl">
+            <h3 class="font-bold text-4xl mt-10">
               What you can expect
             </h3>
-            <ul>
+            <ul class="list-disc space-y-2 text-xl mt-6 ml-6">
               <li>Consistent layouts for all Gridsome starters (index, term, single)</li>
               <li>Quickly scaffold new projects using our CLI</li>
               <li>Built in support for Gridsome plugins (flexsearch, etc)</li>
