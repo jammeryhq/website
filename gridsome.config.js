@@ -50,7 +50,15 @@ module.exports = {
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
-        tailwindConfig: './tailwind.config.js'
+        tailwindConfig: './tailwind.config.js',
+        presetEnvConfig: {
+          features: {
+            'nesting-rules': true
+          }
+        },
+        shouldPurge: true,
+        shouldImport: false,
+        shouldTimeTravel: false
       }
     },
     {
