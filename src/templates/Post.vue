@@ -4,8 +4,7 @@
       <PageHeader
         :title="$page.post.title"
         :summary="$page.post.excerpt"
-        class="lg:w-full prose lg:prose-2xl mx-auto"
-       />
+        class="lg:w-full prose lg:prose-2xl mx-auto" />
       <div
         v-if="$page.post.content"
         class="prose lg:prose-2xl mx-auto"
