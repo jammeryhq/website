@@ -132,9 +132,10 @@ header a:link {
     @apply text-black
   }
 
-  & nav .active {
-    @apply font-bold
-  }
+}
+
+nav .active {
+  @apply font-bold
 }
 
 footer {

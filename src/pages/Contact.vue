@@ -4,7 +4,7 @@
       <PageHeader
         title="Say Hello"
         summary="Got something you'd like to discuss? Fill out the form below and we'll get back to you as soon as possible." />
-      <ContactForm class=" prose lg:prose-2xl mx-auto mt-10" />
+      <ContactForm class="w-1/2 mx-auto mt-10" />
     </div>
   </Layout>
 </template>
@@ -34,5 +34,8 @@ export default {
   }
   .contact .vue-expand textarea {
     @apply font-sans text-lg
+  }
+  .contact form label {
+    @apply font-bold mb-2 text-xl
   }
 </style>

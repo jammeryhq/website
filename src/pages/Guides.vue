@@ -7,7 +7,7 @@
       />
       <div>
         <div
-          class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-10 w-auto mx-6 lg:mx-auto lg:w-4/5"
+          class="grid gap-10 grid-cols-1 md:grid-cols-2 pb-10 w-auto mt-12 mx-6 lg:mx-auto lg:w-3/5"
         >
           <GuidePopover
             title="Plugins"
