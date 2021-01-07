@@ -199,6 +199,12 @@ body:not(.home) footer a {
   box-shadow: -7px -7px #00d084;
 }
 
+.button {
+  @apply py-4 px-6 rounded-md font-bold;
+}
+.button-secondary {
+  @apply bg-gray-900
+}
 code.shiki-inline {
   @apply bg-transparent text-xl leading-loose py-1 px-2 text-red-800 bg-yellow-300;
 }

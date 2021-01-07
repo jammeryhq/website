@@ -46,7 +46,7 @@
     </div>
     <div
       ref="commentForm"
-      class="comment-form bg-gray-100 rounded-md p-10 mt-10 shadow-2xl">
+      class="comment-form bg-gray-100 rounded-md p-10 mt-10 shadow-2xl border-t-8 border-yellow-300">
       <h3>
         Join the Conversation
       </h3>
