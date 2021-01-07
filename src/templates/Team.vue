@@ -45,16 +45,16 @@
           v-if="$page.post.content"
           class="prose lg:prose-2xl text-black"
           v-html="$page.post.content" />
-          <aside class="p-10 bg-gray-200 lg:ml-20 rounded-md whitespace-no-wrap">
-            <div>
+        <aside class="p-10 bg-gray-200 lg:ml-20 rounded-md whitespace-no-wrap">
+          <div>
               <h2 class="text-2xl m-0">Basics</h2>
               <ul class="mt-3 flex flex-col space-y-3">
                 <li><strong>Date of birth:</strong><br>{{ $page.post.dob }}</li>
                 <li><strong>Nationality:</strong><br>{{ $page.post.nationality }}</li>
                 <li><strong>Fav food:</strong><br>{{ $page.post.favFood }}</li>
               </ul>
-            </div>
-            <div class="my-6" v-if="$page.post.skills">
+          </div>
+          <div class="my-6" v-if="$page.post.skills">
               <h2 class="text-2xl m-0">Skills</h2>
               <ul class="mt-3">
                 <li
@@ -64,9 +64,8 @@
                   {{ skill }}
                 </li>
               </ul>
-            </div>
-
-            <div v-if="$page.post.hobbies">
+          </div>
+          <div v-if="$page.post.hobbies">
               <h2 class="text-2xl m-0">Hobbies</h2>
               <ul class="mt-3 whitespace-preline w-full">
                 <li
@@ -76,10 +75,10 @@
                   {{ hobby }}
                 </li>
               </ul>
-            </div>
-          </aside>
-        </div>
+          </div>
+        </aside>
       </div>
+    </div>
   </Layout>
 </template>
 
@@ -167,19 +166,19 @@ query Team ($path: String) {
     }
   }
   .prose {
-    h1 {
+    & h1 {
       @apply m-0
     }
-    aside {
+    & aside {
       @apply pl-10 w-full bg-gray-100 py-10 rounded-md ml-20 -mt-10;
 
-      h2 {
+      & h2 {
         @apply text-2xl;
       }
-      h2:first-of-type {
+      & h2:first-of-type {
         @apply mt-0;
       }
-      li {
+      & li {
         @apply text-lg;
       }
     }

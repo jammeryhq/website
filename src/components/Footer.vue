@@ -54,14 +54,12 @@
 </template>
 
 <style>
-footer {
-  & nav a {
-    @apply px-4;
-    &:hover, &:focus {
-      @apply underline;
-      & img {
-        @apply block;
-      }
+footer nav a {
+  @apply px-4;
+  &:hover, &:focus {
+    @apply underline;
+    & img {
+      @apply block;
     }
   }
 }
