@@ -54,7 +54,8 @@ module.exports = {
 
 Our collection includes a number of dummy example posts, saved as markdown files.
 
-<div class="grid grid-cols-1 md:grid-cols-2 md:gap-10>
+<div class="grid grid-cols-1 md:grid-cols-2 md:gap-10">
+
 ```markdown
 ---
 title: Very Berry Merry
@@ -94,6 +95,7 @@ author: Joseph Jones
 ---
 Recipe content here
 ```
+</div>
 
 ### Register the Collection Type
 
