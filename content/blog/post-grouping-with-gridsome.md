@@ -54,7 +54,7 @@ module.exports = {
 
 Our collection includes a number of dummy example posts, saved as markdown files.
 
-<div class="grid grid-cols-1 md:grid-cols-2 md:gap-10">
+<div class="code-grid grid grid-cols-1 md:grid-cols-2 gap-y-20 md:gap-x-20 -mx-10">
 
 ```markdown
 ---
