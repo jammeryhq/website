@@ -1,19 +1,60 @@
 ---
-title: Post Grouping with Gridsome
-slug: post-grouping-with-gridsome
-date: 2021-01-06
-excerpt: In this tutorial we'll explore the various ways one can group posts in Gridsome, either using a Computed Properly, or at a deeper level, using GraphQl.
-searchTerms: tutorials, grouping, queries, graphql
+title: Grouping posts in Gridsome
+slug: grouping-posts-in-gridsome
+date: 2021-01-20
+excerpt: 
+searchTerms: grouping, groupBy, group, graphql, vue, template, computed
 published: true
-topic: tutorials
+topic: tutorial
 ---
-## Preamble
+# Grouping posts in Gridsome
 
-For this tutorial we'll be using a stock standard Gridsome install that uses Markdown for the content, but the same would apply to any Gridsome source.
+In this tutorial we'll explore the various ways one can group posts in Gridsome, either using a Computed Properly, or at a deeper level, using GraphQl.
+
+## Table of contents
+
+* Grouping posts with using a `computed` property
+* Grouping posts with a `method`
+* Grouping posts with at a schema level with GraphQL
+
+## Preparation
+
+For this tutorial we'll be using a standard Gridsome install that uses Markdown for the content, but the same would apply to any Gridsome source.
+
+Our example uses the following npm packages:
+
+```js
+//package.json
+
+"@gridsome/source-filesystem": "^0.6.2",
+"@gridsome/transformer-remark": "^0.6.4",
+"gridsome": "^0.7.23",
+```
+
+And the following Gridsome config:
+
+```js
+//gridsome.config.js
+
+module.exports = {
+  siteName: 'Gridsome',
+  plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'TestContent',
+        path: './content/**/*.md',
+      }
+    }
+  ]
+}
+```
 
 ### Sample Posts
 
 Our collection includes a number of dummy example posts, saved as markdown files.
+
+<div class="grid grid-cols-1 md:grid-cols-2 md:gap-10">
 
 ```markdown
 ---
@@ -54,6 +95,7 @@ author: Joseph Jones
 ---
 Recipe content here
 ```
+</div>
 
 ### Register the Collection Type
 
@@ -78,28 +120,34 @@ Next restart Gridsome and check your GraphQL Explorer to confirm the collection 
 
 ### Create a page to display the grouped posts
 
-Now that our collection has been setup, we can move onto setting up the page where we'll display the grouped posts. To continue along the recipes theme let's call the page Recipes.
+Now that our collection has been setup, we can move onto setting up the page where we'll display the grouped posts. To continue along the recipe theme, let's call the page Recipes.
 
-In our pages directory, create a new file called Recipes.vue. This would resolve using yoursite.com/recipes. 
+In your pages directory, create a new file called Recipes.vue. This would resolve using _yoursite.com/recipes_. 
 
 Here is some boilerplate code to get things started:
 
-```vue
+*Template:*
+
+```javascript
 <template>
   <Layout>
     <div>
-        <h1>Recipes</h1>
-        <div v-for="recipe in recipes" :key="recipe.node.id">
-            <h2>
-                <g-link :to="recipe.node.path">
-                    {{ recipe.node.title }}
-                </g-link>
-            </h2>
-        </div>
+      <h1>Recipes</h1>
+      <ul v-for="recipe in recipes" :key="recipe.node.id">
+        <li>
+          <g-link :to="recipe.node.path">
+            {{ recipe.node.title }}
+          </g-link>
+        </li>
+      </ul>
     </div>
   </Layout>
 </template>
+```
 
+*Page Query:*
+
+```javascript
 <page-query>
 query {
   recipes: allRecipe {
@@ -110,54 +158,64 @@ query {
         slug
         excerpt
         path
+        category
+        date
       }
     }
   }
 }
 </page-query>
-
-<script>
-export default {
-
-}
-</script>
 ```
 The *page query* is already setup to query the **Recipe** collection and the *template* includes a v-for block to loop through the posts.
 
 Now let's move onto the Computed Property. 
 
-## Method 1: Using Computed properties
+## Method 1: Using a Computed Property
 
 The first method we'll explore will take advantage of Vue's Computed Properties, storing the posts object as an array object, then modifying the results to be grouped by a specific field. I'll add examples for grouping by month, year, author, category, tag and author. 
 
-```vue
+```javascript
 <script>
 export default {
-    computed: {
-
-    }
+  computed: {
+    // group by category title
+    // to show how to use child object properties
+    groupedByCategory() {
+      return this.groupBy(
+        this.$page.allRecipe.edges, 
+        function(node) {
+          return node.category.title;
+        } 
+      )
+    },
+  }
 }
 </script>
 ```
 
 Next up we need to make some changes to our v-for loop:
 
-```vue
+```javascript
 <template>
   <Layout>
     <div>
-        <h1>Recipes</h1>
-        <div v-for="recipe in recipes" :key="recipe.node.id">
-            <h2>
-                <g-link :to="recipe.node.path">
-                    {{ recipe.node.title }}
-                </g-link>
-            </h2>
-        </div>
+      <h1>Recipes</h1>
+      <ul>
+        <li v-for="(items, category) in groupedByCategory"
+        :key="category">
+          <h2>{{ category }}</h2>
+          <ul>
+            <li v-for="item in items" :key="item.id">
+              {{ item.title }}
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </Layout>
 </template>
 ```
+
 Quickly restart Gridsome, then head over to the page in your browser and you should see the following:
 
 <!-- Add Image Here -->
@@ -176,4 +234,3 @@ This offers a number of advantages, namely:
 ### Lay the foundation using your gridsome.server.js
 
 Most of the heavy lifting with this approach is located in your gridsome.server.js, which fires using the [addhook].
-
